@@ -2,19 +2,27 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://xautjzd.github.io/blog/2013/07/18/my-first-blog/</loc>
-        <lastmod>2013-07-18T13:11:28+08:00</lastmod>
+        <lastmod>2013-07-18T17:14:16+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/2013/07/18/add-navigator/</loc>
-        <lastmod>2013-07-18T14:03:52+08:00</lastmod>
+        <lastmod>2013-07-18T17:13:58+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/2013/07/18/structure-of-octopress/</loc>
-        <lastmod>2013-07-18T14:37:51+08:00</lastmod>
+        <lastmod>2013-07-18T17:15:14+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://xautjzd.github.io/blog/2013/07/18/congfig-disqus-plugin/</loc>
+        <lastmod>2013-07-18T17:16:34+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://xautjzd.github.io/blog/2013/07/18/config-category-plugin/</loc>
+        <lastmod>2013-07-18T19:50:15+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/aboutme/</loc>
-        <lastmod>2013-07-18T13:40:24+08:00</lastmod>
+        <lastmod>2013-07-18T17:54:54+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/programs/</loc>
@@ -30,7 +38,7 @@
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/archives/</loc>
-        <lastmod>2013-07-18T14:37:51+08:00</lastmod>
+        <lastmod>2013-07-18T19:50:15+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/robots.txt</loc>
@@ -38,6 +46,6 @@
     </url>
     <url>
         <loc>http://xautjzd.github.io/</loc>
-        <lastmod>2013-07-18T14:37:51+08:00</lastmod>
+        <lastmod>2013-07-18T19:50:15+08:00</lastmod>
     </url>
 </urlset>
