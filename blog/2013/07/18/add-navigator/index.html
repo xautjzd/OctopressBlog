@@ -5,14 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>文章列表 - xautjzd</title>
+  <title>Octopress修改导航栏(Navigator) - xautjzd</title>
   <meta name="author" content="xautjzd">
 
   
-  <meta name="description" content="文章列表 2013 Octopress目录结构
-Jul 18 2013 posted in Thinking Octopress修改导航栏(Navigator)
-Jul 18 2013 posted in thinking 我的第一篇博客
-Jul 18 2013 Recent Posts &hellip;">
+  <meta name="description" content="搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下： $rake new_page[About] 默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -21,7 +18,7 @@ Jul 18 2013 Recent Posts &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xautjzd.github.io/blog/archives">
+  <link rel="canonical" href="http://xautjzd.github.io/blog/2013/07/18/add-navigator">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="xautjzd" type="application/atom+xml">
@@ -71,59 +68,106 @@ Jul 18 2013 Recent Posts &hellip;">
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">文章列表</h1>
+    
+      <h1 class="entry-title">Octopress修改导航栏(Navigator)</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-18T13:46:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives">
 
 
+<div class="entry-content"><p>搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：</p>
 
-  
-  <h2>2013</h2>
+<pre><code>$rake new_page[About]
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2013/07/18/structure-of-octopress/">Octopress目录结构</a></h1>
-<time datetime="2013-07-18T14:27:00+08:00" pubdate><span class='month'>Jul</span> <span class='day'>18</span> <span class='year'>2013</span></time>
+<p>默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉，便想着将生成的页面和其他页面放在一起，便可进行如下操作：</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/thinking/'>Thinking</a></span>
-</footer>
+<pre><code>$rake new_page[/blog/About]
+</code></pre>
 
+<p>这样便在source/blog目录中生成页面，方面管理。生成的页面目前还不能显示，还需编辑source/_includes/custom/navigation.html文件：</p>
 
-</article>
+<pre><code>$vim source/_includes/custom/navigation.html
+</code></pre>
 
+<p>在其中加入</p>
 
+<pre><code>&lt;li&gt;&lt;a href="/blog/about"&gt;关于我&lt;/a&gt;&lt;/li&gt;
+</code></pre>
 
-<article>
-  
-<h1><a href="/blog/2013/07/18/add-navigator/">Octopress修改导航栏(Navigator)</a></h1>
-<time datetime="2013-07-18T13:46:00+08:00" pubdate><span class='month'>Jul</span> <span class='day'>18</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/thinking/'>thinking</a></span>
-</footer>
-
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/07/18/my-first-blog/">我的第一篇博客</a></h1>
-<time datetime="2013-07-18T12:42:00+08:00" pubdate><span class='month'>Jul</span> <span class='day'>18</span> <span class='year'>2013</span></time>
-
-
-</article>
-
+<p>编辑完成后进行rake generate生成静态的html文件，然后rake preview便可以通过localhost:4000在本地预览。</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">xautjzd</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-18T13:46:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/thinking/'>thinking</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xautjzd.github.io/blog/2013/07/18/add-navigator/" data-via="" data-counturl="http://xautjzd.github.io/blog/2013/07/18/add-navigator/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/07/18/my-first-blog/" title="Previous Post: 我的第一篇博客">&laquo; 我的第一篇博客</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/07/18/structure-of-octopress/" title="Next Post: Octopress目录结构">Octopress目录结构 &raquo;</a>
+      
+    </p>
+  </footer>
 </article>
 
 </div>
