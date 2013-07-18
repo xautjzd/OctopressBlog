@@ -1,33 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Octopress Blog]]></title>
+  <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-07-18T12:26:12+08:00</updated>
+  <updated>2013-07-18T12:58:41+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
-    <name><![CDATA[Your Name]]></name>
+    <name><![CDATA[xautjzd]]></name>
     
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
   
   <entry>
-    <title type="html"><![CDATA[Test]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/18/test/"/>
-    <updated>2013-07-18T12:25:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/18/test</id>
-    <content type="html"><![CDATA[
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[My first blog]]></title>
+    <title type="html"><![CDATA[我的第一篇博客]]></title>
     <link href="http://xautjzd.github.io/blog/2013/07/18/my-first-blog/"/>
-    <updated>2013-07-18T11:17:00+08:00</updated>
+    <updated>2013-07-18T12:42:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/07/18/my-first-blog</id>
-    <content type="html"><![CDATA[
+    <content type="html"><![CDATA[<p>几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。
+详细搭建过程官方文档写的相当详细，这里不再赘述，请参考：
+octopress.org/docs/setup<br/>
+下面只说我搭建过程中遇到的难题：
+我每次都是运行rake deploy时出现问题，也就是博客无法push到github的repository中。
+每次都是![rejected] master->master (no-fast-forward)
+最后网上找了不少资料，然后自己也细细思考了一番，最后终得以解决。方法如下：
+转到deploy目录下，执行$git pull，然后再执行git push origin master即可。</p>
 ]]></content>
   </entry>
   

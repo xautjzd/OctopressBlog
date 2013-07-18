@@ -5,12 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>My first blog - My Octopress Blog</title>
-  <meta name="author" content="Your Name">
+  <title>我的第一篇博客 - xautjzd</title>
+  <meta name="author" content="xautjzd">
 
   
-  <meta name="description" content="
-">
+  <meta name="description" content="几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +21,7 @@
   <link rel="canonical" href="http://xautjzd.github.io/blog/2013/07/18/my-first-blog">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="My Octopress Blog" type="application/atom+xml">
+  <link href="/atom.xml" rel="alternate" title="xautjzd" type="application/atom+xml">
   <script src="/javascripts/modernizr-2.0.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
@@ -37,9 +36,9 @@
 
 <body   >
   <header role="banner"><hgroup>
-  <h1><a href="/">My Octopress Blog</a></h1>
+  <h1><a href="/">xautjzd</a></h1>
   
-    <h2>A blogging framework for hackers.</h2>
+    <h2>博学之，审问之，慎思之，明辨之，笃行之</h2>
   
 </hgroup>
 
@@ -69,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">My First Blog</h1>
+      <h1 class="entry-title">我的第一篇博客</h1>
     
     
       <p class="meta">
@@ -85,14 +84,21 @@
   
 
 
-<time datetime="2013-07-18T11:17:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
+<time datetime="2013-07-18T12:42:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content">
+<div class="entry-content"><p>几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。
+详细搭建过程官方文档写的相当详细，这里不再赘述，请参考：
+octopress.org/docs/setup<br/>
+下面只说我搭建过程中遇到的难题：
+我每次都是运行rake deploy时出现问题，也就是博客无法push到github的repository中。
+每次都是![rejected] master->master (no-fast-forward)
+最后网上找了不少资料，然后自己也细细思考了一番，最后终得以解决。方法如下：
+转到deploy目录下，执行$git pull，然后再执行git push origin master即可。</p>
 </div>
 
 
@@ -101,7 +107,7 @@
       
   
 
-<span class="byline author vcard">Posted by <span class="fn">Your Name</span></span>
+<span class="byline author vcard">Posted by <span class="fn">xautjzd</span></span>
 
       
 
@@ -115,7 +121,7 @@
   
 
 
-<time datetime="2013-07-18T11:17:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
+<time datetime="2013-07-18T12:42:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
       
 
 
@@ -133,8 +139,6 @@
     <p class="meta">
       
       
-        <a class="basic-alignment right" href="/blog/2013/07/18/test/" title="Next Post: Test">Test &raquo;</a>
-      
     </p>
   </footer>
 </article>
@@ -148,11 +152,7 @@
   <ul id="recent_posts">
     
       <li class="post">
-        <a href="/blog/2013/07/18/test/">Test</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/18/my-first-blog/">My First Blog</a>
+        <a href="/blog/2013/07/18/my-first-blog/">我的第一篇博客</a>
       </li>
     
   </ul>
@@ -169,7 +169,7 @@
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Your Name -
+  Copyright &copy; 2013 - xautjzd -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
