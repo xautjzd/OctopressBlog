@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Thinking | xautjzd]]></title>
+  <link href="http://xautjzd.github.io/blog/categories/thinking/atom.xml" rel="self"/>
+  <link href="http://xautjzd.github.io/"/>
+  <updated>2013-07-18T14:38:07+08:00</updated>
+  <id>http://xautjzd.github.io/</id>
+  <author>
+    <name><![CDATA[xautjzd]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress目录结构]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/07/18/structure-of-octopress/"/>
+    <updated>2013-07-18T14:27:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/07/18/structure-of-octopress</id>
+    <content type="html"><![CDATA[<h3>Octopress博客目录结构</h3>
+
+<p>octopress博客的source目录结构大致如下:</p>
+
+<pre><code>source/
+├── _attachments
+├── _includes
+│   ├── asides
+│   ├── custom
+│   │   └── asides
+│   └── post
+├── _layouts
+├── _nav_menu_items
+├── _pages
+├── _posts
+├── blog
+│   └── archives
+├── font
+├── images
+│   ├── 2012
+│   │   ├── 01
+│   │   ├── 02
+│   ├── 2013
+│   │   └── 01
+│   ├── fancybox
+│   └── social
+├── javascripts
+│   ├── asides
+│   └── libs
+├── jsccp
+└── stylesheets
+    ├── bootstrap
+        └── syntax
+</code></pre>
+
+<p>当使用<code>rake generate</code>时，source的_post目录中的markdown文件会被编译成html文件，并拷贝到public目录下，public目录结构与source目录结构一致，里面的内容为最终的静态页面。一般都是先<code>rake generate</code>生成静态页面，然后通过<code>rake preview</code>进行本地预览，如果显示正常，则<code>rake
+deploy</code>部署到github上。如果特别熟练，也可以直接生成静态页面并部署，不需要本地预览。可以采用<code>rake gen_deploy</code>一步进行。</p>
+]]></content>
+  </entry>
+  
+</feed>

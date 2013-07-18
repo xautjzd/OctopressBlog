@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[xautjzd]]></title>
+  <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
+  <link href="http://xautjzd.github.io/"/>
+  <updated>2013-07-18T14:38:07+08:00</updated>
+  <id>http://xautjzd.github.io/</id>
+  <author>
+    <name><![CDATA[xautjzd]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress目录结构]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/07/18/structure-of-octopress/"/>
+    <updated>2013-07-18T14:27:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/07/18/structure-of-octopress</id>
+    <content type="html"><![CDATA[<h3>Octopress博客目录结构</h3>
+
+<p>octopress博客的source目录结构大致如下:</p>
+
+<pre><code>source/
+├── _attachments
+├── _includes
+│   ├── asides
+│   ├── custom
+│   │   └── asides
+│   └── post
+├── _layouts
+├── _nav_menu_items
+├── _pages
+├── _posts
+├── blog
+│   └── archives
+├── font
+├── images
+│   ├── 2012
+│   │   ├── 01
+│   │   ├── 02
+│   ├── 2013
+│   │   └── 01
+│   ├── fancybox
+│   └── social
+├── javascripts
+│   ├── asides
+│   └── libs
+├── jsccp
+└── stylesheets
+    ├── bootstrap
+        └── syntax
+</code></pre>
+
+<p>当使用<code>rake generate</code>时，source的_post目录中的markdown文件会被编译成html文件，并拷贝到public目录下，public目录结构与source目录结构一致，里面的内容为最终的静态页面。一般都是先<code>rake generate</code>生成静态页面，然后通过<code>rake preview</code>进行本地预览，如果显示正常，则<code>rake
+deploy</code>部署到github上。如果特别熟练，也可以直接生成静态页面并部署，不需要本地预览。可以采用<code>rake gen_deploy</code>一步进行。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress修改导航栏(Navigator)]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/07/18/add-navigator/"/>
+    <updated>2013-07-18T13:46:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/07/18/add-navigator</id>
+    <content type="html"><![CDATA[<p>搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：</p>
+
+<pre><code>$rake new_page[About]
+</code></pre>
+
+<p>默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉，便想着将生成的页面和其他页面放在一起，便可进行如下操作：</p>
+
+<pre><code>$rake new_page[/blog/About]
+</code></pre>
+
+<p>这样便在source/blog目录中生成页面，方面管理。生成的页面目前还不能显示，还需编辑source/_includes/custom/navigation.html文件：</p>
+
+<pre><code>$vim source/_includes/custom/navigation.html
+</code></pre>
+
+<p>在其中加入</p>
+
+<pre><code>&lt;li&gt;&lt;a href="http://xautjzd.github.io/blog/about"&gt;关于我&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+
+<p>编辑完成后进行rake generate生成静态的html文件，然后rake preview便可以通过localhost:4000在本地预览。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[我的第一篇博客]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/07/18/my-first-blog/"/>
+    <updated>2013-07-18T12:42:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/07/18/my-first-blog</id>
+    <content type="html"><![CDATA[<p>几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。
+详细搭建过程官方文档写的相当详细，这里不再赘述，请参考：
+<a href="octopress.org/docs/setup">官网</a><br/>
+下面只说我搭建过程中遇到的难题：
+我每次都是运行rake deploy时出现问题，也就是博客无法push到github的repository中。
+每次都是![rejected] master->master (no-fast-forward)
+最后网上找了不少资料，然后自己也细细思考了一番，最后终得以解决。方法如下：
+转到deploy目录下，执行$git pull，然后再执行git push origin master即可。</p>
+]]></content>
+  </entry>
+  
+</feed>
