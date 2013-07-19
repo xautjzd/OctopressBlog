@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>xautjzd</title>
+  <title>Ruby基础 - xautjzd</title>
   <meta name="author" content="xautjzd">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xautjzd.github.io">
+  <link rel="canonical" href="http://xautjzd.github.io/blog/2013/07/19/ruby-variable">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="xautjzd" type="application/atom+xml">
@@ -67,15 +67,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/07/19/ruby-variable/">Ruby基础</a></h1>
+      <h1 class="entry-title">Ruby基础</h1>
     
     
       <p class="meta">
@@ -93,14 +90,14 @@
 
 <time datetime="2013-07-19T20:33:00+08:00" pubdate data-updated="true">Jul 19<span>th</span>, 2013</time>
         
-         | <a href="/blog/2013/07/19/ruby-variable/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>变量分类</h2>
+<div class="entry-content"><h2>变量分类</h2>
 
 <ul>
 <li><strong>局部变量</strong></li>
@@ -334,146 +331,16 @@
 </ul>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/18/config-category-plugin/">配置文章分类插件</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">xautjzd</span></span>
 
-<time datetime="2013-07-18T17:17:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/18/config-category-plugin/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Octopress搭建的博客默认没有文章分类，这肯定让人很不爽，但这个号称Hacker的博客肯定有这功能，便网上搜寻了答案，最终得以解决。方法如下：</p>
-
-<h3>1. 添加category_list插件</h3>
-
-<p>代码如下：</p>
-
-<figure class='code'><figcaption><span>plugins/category_list_tag.rb </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="k">module</span> <span class="nn">Jekyll</span>
-</span><span class='line'>        <span class="k">class</span> <span class="nc">CategoryListTag</span> <span class="o">&lt;</span> <span class="ss">Liquid</span><span class="p">:</span><span class="ss">:Tag</span>
-</span><span class='line'>            <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-</span><span class='line'>                <span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-</span><span class='line'>                <span class="n">categories</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">categories</span><span class="o">.</span><span class="n">keys</span>
-</span><span class='line'>                <span class="n">categories</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">category</span><span class="o">|</span>
-</span><span class='line'>                    <span class="n">posts_in_category</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">categories</span><span class="o">[</span><span class="n">category</span><span class="o">].</span><span class="n">size</span>
-</span><span class='line'>                    <span class="n">category_dir</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">config</span><span class="o">[</span><span class="s1">&#39;category_dir&#39;</span><span class="o">]</span>
-</span><span class='line'>                    <span class="n">category_url</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">category_dir</span><span class="p">,</span> <span class="n">category</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/_|\P{Word}/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/-{2,}/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">downcase</span><span class="p">)</span>
-</span><span class='line'>                    <span class="n">html</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;&lt;li class=&#39;category&#39;&gt;&lt;a href=&#39;/</span><span class="si">#{</span><span class="n">category_url</span><span class="si">}</span><span class="s2">/&#39;&gt;</span><span class="si">#{</span><span class="n">category</span><span class="si">}</span><span class="s2"> (</span><span class="si">#{</span><span class="n">posts_in_category</span><span class="si">}</span><span class="s2">)&lt;/a&gt;&lt;/li&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
-</span><span class='line'>                <span class="k">end</span>
-</span><span class='line'>                <span class="n">html</span>
-</span><span class='line'>            <span class="k">end</span>
-</span><span class='line'>        <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="ss">Liquid</span><span class="p">:</span><span class="ss">:Template</span><span class="o">.</span><span class="n">register_tag</span><span class="p">(</span><span class="s1">&#39;category_list&#39;</span><span class="p">,</span> <span class="ss">Jekyll</span><span class="p">:</span><span class="ss">:CategoryListTag</span><span class="p">)</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>将以上代码保存到plugins/category_list_tag.rb中。</p>
-
-<p>这个插件会向liquid注册一个名为category_list的tag，该tag就是以li的形式将站点所有的category组织起来。如果要将category加入到侧边导航栏，需要增加一个aside</p>
-
-<h3>2. 添加category到aside中</h3>
-
-<p>在source/_include/custom/asides中新建category_list.html文件，并且将以下代码复制到其中：</p>
-
-<figure class='code'><figcaption><span>category_list.html </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'>    <span class="nt">&lt;section&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;h1&gt;</span>Categories<span class="nt">&lt;/h1&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;categories&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>            {\% category_list %}
-</span><span class='line'>        <span class="nt">&lt;/ul&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/section&gt;</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>其中\是为了显示才添加上的，不然无法正常显示，复制代码时请去掉%前的\。</p>
-
-<h3>3. 配置侧边栏</h3>
-
-<p>在_config.yml中配置侧边栏，修改其中的default_asides项：</p>
-
-<figure class='code'><figcaption><span>_config.yml </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'>    <span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">...</span><span class="p-Indicator">]</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/18/congfig-disqus-plugin/">Octopress配置Disqus插件</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -485,222 +352,44 @@
   
 
 
-<time datetime="2013-07-18T15:37:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/18/congfig-disqus-plugin/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>添加Disqus插件</h3>
-
-<p>看到不少人博客上都有Comments功能，便也想给自己的博客添加上。经过搜寻一番，发现大多用的都是Disqus，而且octopress其实内置了其功能，只是默认没有设置.编辑博客主目录下的config.yml文件即可：</p>
-
-<pre><code>$vim _config.yml
-</code></pre>
-
-<p>找到：</p>
-
-<pre><code>#Disqus comments
-disqus_short_name: 
-disqus_show_comment_count: false
-</code></pre>
-
-<p>填上自己注册的disqus账号的short name，并将false改成true即可。</p>
-
-<p><strong>注：Disqus一定要和yourname.github.com关联</strong></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+<time datetime="2013-07-19T20:33:00+08:00" pubdate data-updated="true">Jul 19<span>th</span>, 2013</time>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/18/structure-of-octopress/">Octopress目录结构</a></h1>
-    
-    
-      <p class="meta">
-        
 
-
-
-
-
-
-
-
+<span class="categories">
   
+    <a class='category' href='/blog/categories/ruby/'>Ruby</a>
+  
+</span>
 
 
-<time datetime="2013-07-18T14:27:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/18/structure-of-octopress/#disqus_thread">Comments</a>
-        
-      </p>
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><h3>Octopress博客目录结构</h3>
-
-<p>octopress博客的source目录结构大致如下:</p>
-
-<pre><code>source/
-├── _attachments
-├── _includes
-│   ├── asides
-│   ├── custom
-│   │   └── asides
-│   └── post
-├── _layouts
-├── _nav_menu_items
-├── _pages
-├── _posts
-├── blog
-│   └── archives
-├── font
-├── images
-│   ├── 2012
-│   │   ├── 01
-│   │   ├── 02
-│   ├── 2013
-│   │   └── 01
-│   ├── fancybox
-│   └── social
-├── javascripts
-│   ├── asides
-│   └── libs
-├── jsccp
-└── stylesheets
-    ├── bootstrap
-        └── syntax
-</code></pre>
-
-<p>当使用<code>rake generate</code>时，source的_post目录中的markdown文件会被编译成html文件，并拷贝到public目录下，public目录结构与source目录结构一致，里面的内容为最终的静态页面。一般都是先<code>rake generate</code>生成静态页面，然后通过<code>rake preview</code>进行本地预览，如果显示正常，则<code>rake
-deploy</code>部署到github上。如果特别熟练，也可以直接生成静态页面并部署，不需要本地预览。可以采用<code>rake gen_deploy</code>一步进行。</p>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xautjzd.github.io/blog/2013/07/19/ruby-variable/" data-via="" data-counturl="http://xautjzd.github.io/blog/2013/07/19/ruby-variable/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
-
-    </article>
-  
-  
-    <article>
+    
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/18/add-navigator/">Octopress修改导航栏(Navigator)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T13:46:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/18/add-navigator/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：</p>
-
-<pre><code>$rake new_page[About]
-</code></pre>
-
-<p>默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉，便想着将生成的页面和其他页面放在一起，便可进行如下操作：</p>
-
-<pre><code>$rake new_page[/blog/About]
-</code></pre>
-
-<p>这样便在source/blog目录中生成页面，方面管理。生成的页面目前还不能显示，还需编辑source/_includes/custom/navigation.html文件：</p>
-
-<pre><code>$vim source/_includes/custom/navigation.html
-</code></pre>
-
-<p>在其中加入</p>
-
-<pre><code>&lt;li&gt;&lt;a href="/blog/about"&gt;关于我&lt;/a&gt;&lt;/li&gt;
-</code></pre>
-
-<p>编辑完成后进行rake generate生成静态的html文件，然后rake preview便可以通过localhost:4000在本地预览。</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
+        <a class="basic-alignment left" href="/blog/2013/07/18/config-category-plugin/" title="Previous Post: 配置文章分类插件">&laquo; 配置文章分类插件</a>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/18/my-first-blog/">我的第一篇博客</a></h1>
-    
-    
-      <p class="meta">
-        
+      
+    </p>
+  </footer>
+</article>
 
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T12:42:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/18/my-first-blog/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。
-详细搭建过程官方文档写的相当详细，这里不再赘述，请参考：
-<a href="octopress.org/docs/setup">官网</a><br/>
-下面只说我搭建过程中遇到的难题：
-我每次都是运行rake deploy时出现问题，也就是博客无法push到github的repository中。
-每次都是![rejected] master->master (no-fast-forward)
-最后网上找了不少资料，然后自己也细细思考了一番，最后终得以解决。方法如下：
-转到deploy目录下，执行$git pull，然后再执行git push origin master即可。</p>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-  
-  
+  </section>
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -749,6 +438,7 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -763,7 +453,10 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
       var disqus_shortname = 'zhengdongjiang';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://xautjzd.github.io/blog/2013/07/19/ruby-variable/';
+        var disqus_url = 'http://xautjzd.github.io/blog/2013/07/19/ruby-variable/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
