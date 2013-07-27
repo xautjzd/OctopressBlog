@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-07-19T23:23:04+08:00</updated>
+  <updated>2013-07-27T23:21:42+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,197 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby元编程之Proc对象]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/07/27/metaprogram-proc/"/>
+    <updated>2013-07-27T12:40:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/07/27/metaprogram-proc</id>
+    <content type="html"><![CDATA[<h2>Proc</h2>
+
+<p>Proc对象其实就是将代码块(block)转换成对象的块。方式有大致几种：</p>
+
+<p>1.Proc对象</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">inc</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+</span><span class='line'><span class="n">inc</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>     <span class="c1">#=&amp;gt;4</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>2.lambda方法</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">inc</span> <span class="o">=</span> <span class="nb">lambda</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+</span><span class='line'><span class="n">inc</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>     <span class="c1">#=&amp;gt;4</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>3.proc方法</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">inc</span> <span class="o">=</span> <span class="nb">proc</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+</span><span class='line'><span class="n">inc</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>     <span class="c1">#=&amp;gt;4</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<h2>&amp;操作符</h2>
+
+<p>块就如同方法的额外的匿名参数。大部分情况下，在方法中可以通过yield语句直接运行一个块。但是在下面两种方法中yield则无能为力了:</p>
+
+<ul>
+<li>将块传递给另一个方法</li>
+<li>将块转换为Proc对象</li>
+</ul>
+
+
+<p>为了应付这两种情况，则需要将块附加到一个绑定上，通过给方法加一个特殊的参数便可实现，但这个参数必须为参数列表的最后一个，且以&amp;符号开头。如下：</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">math</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">yield</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">def</span> <span class="nf">teach_math</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">operation</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Let&#39;s do the math:&quot;</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="n">math</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="n">operation</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">teach_math</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">){</span> <span class="o">|</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">|</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span> <span class="p">}</span>   <span class="c1">#=&amp;gt;Let&#39;s do the math:6</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>其实&amp;真正的含义是：</p>
+
+<p>这是一个Proc对象，我想把它当成一个块来使用，简单地去掉&amp;操作符，就能再次得到一个Proc对象。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby基础之Array,String and Hash]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/07/21/array/"/>
+    <updated>2013-07-21T15:55:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/07/21/array</id>
+    <content type="html"><![CDATA[<h2>Array</h2>
+
+<p>数组通常都是同种元素的集合，元素可以为单个的变量，如数值或者字符串，但是也可以为数组和Hash等复杂对象。</p>
+
+<h3>数组表示矩阵</h3>
+
+<p>其实数组可以用来表示矩阵，矩阵可以被看作数组的数组，也就是每个数组元素都是数组。三行三列的矩阵可以表示为：</p>
+
+<pre><code>a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+</code></pre>
+
+<p>“5”的位置则是：</p>
+
+<pre><code>a[1][1]
+</code></pre>
+
+<h3>数组初始化陷阱</h3>
+
+<p>初始化数组时，若要使用数组对象或Hash对象作为初始值的元素时必须非常小心，否则便会陷入陷阱当中，如下所示：</p>
+
+<pre><code>a = Array.new(3, [0, 0, 0])
+</code></pre>
+
+<p>这样看起来初始化结果是[[0, 0, 0], [0, 0, 0], [0, 0, 0]]。但是实则不是。</p>
+
+<p>这样，当只想改动第二行第二个元素时，每一行的第二个元素都会修改，不是预期的结果：</p>
+
+<pre><code>a = Array.new(3, [0, 0, 0])
+a[1][1] = 2
+p a  #=&gt;[[0, 2, 0], [0, 2, 0], [0, 2, 0]]
+</code></pre>
+
+<p>解决办法如下：</p>
+
+<pre><code>a = Array.new(3) {
+        [0, 0, 0]
+}
+p[1][1] = 2
+p a    #=&gt;[[0, 0 , 0], [0, 2, 0], [0, 0, 0]]
+</code></pre>
+
+<p>针对索引值初始化不同的内容：</p>
+
+<pre><code>a = Array.new(5) { |i| i+1 }
+p a     #=&gt;[1, 2, 3, 4, 5]
+</code></pre>
+
+<h3>并行处理多个数组值</h3>
+
+<p>有时候可能会用到将多个数组的同一位置的元素一并处理。如下：</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>sum_with_each.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">array1</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+</span><span class='line'><span class="n">array2</span> <span class="o">=</span> <span class="o">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="o">]</span>
+</span><span class='line'><span class="n">array3</span> <span class="o">=</span> <span class="o">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="n">result</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'><span class="k">while</span> <span class="n">i</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">array1</span><span class="o">.</span><span class="n">length</span>
+</span><span class='line'>    <span class="n">result</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">array1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">array2</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">array3</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
+</span><span class='line'>    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">result</span>     <span class="c1">#=&amp;gt;[111, 222, 333, 444, 555]</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>如果使用zip方法则更简洁:</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>sum_with_zip.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">array1</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
+</span><span class='line'><span class="n">array2</span> <span class="o">=</span> <span class="o">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="o">]</span>
+</span><span class='line'><span class="n">array3</span> <span class="o">=</span> <span class="o">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="o">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'><span class="n">result</span> <span class="o">=</span> <span class="o">[]</span>
+</span><span class='line'><span class="n">array1</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">array2</span><span class="p">,</span> <span class="n">array3</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">|</span>
+</span><span class='line'>    <span class="n">result</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+</span><span class='line'>    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'><span class="nb">p</span> <span class="n">result</span>     <span class="c1">#=&amp;gt;[111, 222, 333, 444, 555]</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>zip方法会从接收者与实参所指定的数组中逐项获取数据，每次调用代码块内容。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ruby基础]]></title>
