@@ -125,12 +125,25 @@
 <p>@instance_variable = 10</p>
 
 <ul>
-<li><strong>类变量</strong>
-类变量为所有的类实例所共有，一个实例中改变其值，另一个实例中也看到相应改变。类变量以@@开头。eg:</li>
+<li><strong>类变量</strong></li>
 </ul>
 
 
+<p>类变量为所有的类实例所共有，一个实例中改变其值，另一个实例中也看到相应改变。类变量以@@开头。eg:</p>
+
 <p>@@class_variable = 10</p>
+
+<ul>
+<li><strong>类实例变量</strong></li>
+</ul>
+
+
+<p>类实例变量只属于当前类所有，只能通过类名来访问，类的实例不能对其访问，而类变量则可以被子类及类的实例访问。</p>
+
+<pre><code>class MyClass
+    @my_var=1
+end
+</code></pre>
 
 <h2>常量</h2>
 
@@ -406,7 +419,7 @@
         <li class='category'><a href='/blog/categories/git/'>Git (1)</a></li>
 <li class='category'><a href='/blog/categories/linux/'>Linux (1)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>Octopress (6)</a></li>
-<li class='category'><a href='/blog/categories/ruby/'>Ruby (3)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (4)</a></li>
 <li class='category'><a href='/blog/categories/thinking/'>Thinking (4)</a></li>
 
     </ul>
@@ -414,6 +427,10 @@
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/29/install-ruby-and-rails/">Fedora17下搭建Ruby和Rails环境</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/07/27/vim-vundle-install-and-config/">Vim下的的插件管理神器——Vundle</a>
@@ -429,10 +446,6 @@
     
       <li class="post">
         <a href="/blog/2013/07/22/git-roll-back/">Git的相关操作</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/21/array/">Ruby基础之Array,String and Hash</a>
       </li>
     
   </ul>

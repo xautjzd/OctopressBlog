@@ -9,7 +9,7 @@
   <meta name="author" content="xautjzd">
 
   
-  <meta name="description" content="断断续续用Vim也不少时间了，但是从来没有进行过复杂的Vim配置，每每需要插件都是网上寻求安装方式。但是当插件多了管理也便变得繁琐，最后终于让我结识了插件管理神器——Vundle，用过的人都说好用，所以我便也尝试了，网上也有一部分人采用pathogen来进行插件管理，但是据说没有Vundle好用， &hellip;">
+  <meta name="description" content="不同的项目所用的ruby版本不同，所以为了方便不同项目ruby版本的切换，需要在同一个系统中安装多个ruby版本，并且针对不同的项目在不同的版本间切换，为了方便ruby版本的管理，采用RVM进行管理。 1.安装RVM #curl -L https://get.rvm.io | bash -s &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,6 +69,145 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/29/install-ruby-and-rails/">Fedora17下搭建Ruby和Rails环境</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-29T20:59:00+08:00" pubdate data-updated="true">Jul 29<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/07/29/install-ruby-and-rails/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>不同的项目所用的ruby版本不同，所以为了方便不同项目ruby版本的切换，需要在同一个系统中安装多个ruby版本，并且针对不同的项目在不同的版本间切换，为了方便ruby版本的管理，采用<a href="https://rvm.io/">RVM</a>进行管理。</p>
+
+<h2>1.安装RVM</h2>
+
+<pre><code>#curl -L https://get.rvm.io | bash -s stable
+</code></pre>
+
+<p>一会儿之后rvm便安装完成,安装位置为/usr/local/rvm目录下，网上很多教程都是使用一般用户权限管理，但是我也尝试过采用一般用户权限安装，但是始终不会安装在~/usrname/.rvm目录下，还是提示安装在/usr/local/rvm下，但是没有写的权限。可能是fedora系统的原因吧，没有深究。使用：</p>
+
+<pre><code>#source /usr/local/rvm/scripts/rvm
+</code></pre>
+
+<p>使rvm配置生效。然后采用：</p>
+
+<pre><code>#rvm -v
+</code></pre>
+
+<p>查看rvm的版本。同时也可以通过<code>rvm info</code>查看rvm相关信息。</p>
+
+<h2>2.安装Ruby环境</h2>
+
+<p>使用<code>rvm install 1.9.3</code>会默认选择<code>http://ruby-lang.org</code>网站下载ruby源码然后进行编译，这样太慢。幸好淘宝提供了<a href="http://ruby.taobao.org/mirrors/ruby/">ruby的下载源</a>，我此次便采用的是先在淘宝的ruby源下载我想要的ruby版本1.9.3-p448，下载完成后，将其放到/usr/local/rvm/archives/目录下，然后再执行<code>rvm install 1.9.3-p448</code>，它便能识别已有的ruby源码包，进行解压和编译一系列过程。大致几分钟便可完成。</p>
+
+<p>下面是我采用一般用户权限安装ruby出错。</p>
+
+<figure class='code'><figcaption><span>一般用户安装ruby出错 </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'>   <span class="nv">$ </span>rvm install 1.9.3-p448
+</span><span class='line'>  Searching <span class="k">for </span>binary rubies, this might take some time.
+</span><span class='line'>  No binary rubies available <span class="k">for</span>: fedora/17/i386/ruby-1.9.3-p448.
+</span><span class='line'>  Continuing with compilation. Please <span class="nb">read</span> <span class="s1">&#39;rvm help mount&#39;</span> to get more information on binary rubies.
+</span><span class='line'>  Installing requirements <span class="k">for </span>fedora, might require sudo password.
+</span><span class='line'>  Requirements installation successful.
+</span><span class='line'>  Installing Ruby from <span class="nb">source </span>to: /usr/local/rvm/rubies/ruby-1.9.3-p448, this may take a <span class="k">while </span>depending on your cpu<span class="o">(</span>s<span class="o">)</span>...
+</span><span class='line'>  ruby-1.9.3-p448 - <span class="c">#downloading ruby-1.9.3-p448, this may take a while depending on your connection...</span>
+</span><span class='line'>  Archive checksum did not match, downloading again.
+</span><span class='line'>  rm: cannot remove <span class="sb">`</span>ruby-1.9.3-p448.tar.bz2<span class="s1">&#39;: Permission denied</span>
+</span><span class='line'><span class="s1"> curl: Can&#39;</span>t open <span class="s1">&#39;ruby-1.9.3-p448.tar.bz2&#39;</span>!
+</span><span class='line'>  curl: try <span class="s1">&#39;curl --help&#39;</span> or <span class="s1">&#39;curl --manual&#39;</span> <span class="k">for </span>more information
+</span><span class='line'>  There was an error<span class="o">(</span>23<span class="o">)</span>, please check /usr/local/rvm/log//*.log. Next we<span class="s1">&#39;ll try to fetch via http.</span>
+</span><span class='line'><span class="s1"> Trying ftp:// URL instead.</span>
+</span><span class='line'><span class="s1"> curl: Can&#39;</span>t open <span class="s1">&#39;ruby-1.9.3-p448.tar.bz2&#39;</span>!
+</span><span class='line'>  curl: try <span class="s1">&#39;curl --help&#39;</span> or <span class="s1">&#39;curl --manual&#39;</span> <span class="k">for </span>more information
+</span><span class='line'>  There was an error<span class="o">(</span>23<span class="o">)</span>, please check /usr/local/rvm/log//*.log
+</span><span class='line'>  There has been an error fetching the ruby interpreter. Halting the installation.
+</span><span class='line'>  
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>3.设置Ruby版本</h2>
+
+<p>通常系统都会安装多个Ruby版本，可通过<code>rvm list</code>查看系统已安装的ruby版本。但需要指定某一版本为系统默认版本。</p>
+
+<pre><code>#rvm use 1.9.3 --default
+</code></pre>
+
+<p>我使用的版本为1.9.3，所以指定为默认版本。</p>
+
+<p>安装Ruby的过程中会自动安装gem，通过下列方法查看其版本</p>
+
+<pre><code>#ruby -v
+#gem -v
+</code></pre>
+
+<p>同时替换gem的下载源为淘宝源：</p>
+
+<pre><code>#gem source -r https://rubygems.org
+#gem source -a http://ruby.taobao.org
+</code></pre>
+
+<h2>4.安装Rails环境</h2>
+
+<p>采用：</p>
+
+<pre><code>#gem install bundler rails
+</code></pre>
+
+<p>安装bundle和rails。</p>
+
+<p>安装完成后进行测试：</p>
+
+<pre><code>#rails -v
+#bundle -v
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -731,12 +870,25 @@ p a     #=&gt;[1, 2, 3, 4, 5]
 <p>@instance_variable = 10</p>
 
 <ul>
-<li><strong>类变量</strong>
-类变量为所有的类实例所共有，一个实例中改变其值，另一个实例中也看到相应改变。类变量以@@开头。eg:</li>
+<li><strong>类变量</strong></li>
 </ul>
 
 
+<p>类变量为所有的类实例所共有，一个实例中改变其值，另一个实例中也看到相应改变。类变量以@@开头。eg:</p>
+
 <p>@@class_variable = 10</p>
+
+<ul>
+<li><strong>类实例变量</strong></li>
+</ul>
+
+
+<p>类实例变量只属于当前类所有，只能通过类名来访问，类的实例不能对其访问，而类变量则可以被子类及类的实例访问。</p>
+
+<pre><code>class MyClass
+    @my_var=1
+end
+</code></pre>
 
 <h2>常量</h2>
 
@@ -1195,64 +1347,6 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/18/add-navigator/">Octopress修改导航栏(Navigator)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T13:46:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/18/add-navigator/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：</p>
-
-<pre><code>$rake new_page[About]
-</code></pre>
-
-<p>默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉，便想着将生成的页面和其他页面放在一起，便可进行如下操作：</p>
-
-<pre><code>$rake new_page[/blog/About]
-</code></pre>
-
-<p>这样便在source/blog目录中生成页面，方面管理。生成的页面目前还不能显示，还需编辑source/_includes/custom/navigation.html文件：</p>
-
-<pre><code>$vim source/_includes/custom/navigation.html
-</code></pre>
-
-<p>在其中加入</p>
-
-<pre><code>&lt;li&gt;&lt;a href="/blog/about"&gt;关于我&lt;/a&gt;&lt;/li&gt;
-</code></pre>
-
-<p>编辑完成后进行rake generate生成静态的html文件，然后rake preview便可以通过localhost:4000在本地预览。</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1275,7 +1369,7 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
         <li class='category'><a href='/blog/categories/git/'>Git (1)</a></li>
 <li class='category'><a href='/blog/categories/linux/'>Linux (1)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>Octopress (6)</a></li>
-<li class='category'><a href='/blog/categories/ruby/'>Ruby (3)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (4)</a></li>
 <li class='category'><a href='/blog/categories/thinking/'>Thinking (4)</a></li>
 
     </ul>
@@ -1283,6 +1377,10 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/29/install-ruby-and-rails/">Fedora17下搭建Ruby和Rails环境</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/07/27/vim-vundle-install-and-config/">Vim下的的插件管理神器——Vundle</a>
@@ -1298,10 +1396,6 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
     
       <li class="post">
         <a href="/blog/2013/07/22/git-roll-back/">Git的相关操作</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/21/array/">Ruby基础之Array,String and Hash</a>
       </li>
     
   </ul>

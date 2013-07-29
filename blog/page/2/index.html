@@ -9,7 +9,7 @@
   <meta name="author" content="xautjzd">
 
   
-  <meta name="description" content="几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。 &hellip;">
+  <meta name="description" content="搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下： $rake new_page[About] 默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,6 +69,64 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/18/add-navigator/">Octopress修改导航栏(Navigator)</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-18T13:46:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/07/18/add-navigator/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：</p>
+
+<pre><code>$rake new_page[About]
+</code></pre>
+
+<p>默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉，便想着将生成的页面和其他页面放在一起，便可进行如下操作：</p>
+
+<pre><code>$rake new_page[/blog/About]
+</code></pre>
+
+<p>这样便在source/blog目录中生成页面，方面管理。生成的页面目前还不能显示，还需编辑source/_includes/custom/navigation.html文件：</p>
+
+<pre><code>$vim source/_includes/custom/navigation.html
+</code></pre>
+
+<p>在其中加入</p>
+
+<pre><code>&lt;li&gt;&lt;a href="/blog/about"&gt;关于我&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+
+<p>编辑完成后进行rake generate生成静态的html文件，然后rake preview便可以通过localhost:4000在本地预览。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -137,7 +195,7 @@
         <li class='category'><a href='/blog/categories/git/'>Git (1)</a></li>
 <li class='category'><a href='/blog/categories/linux/'>Linux (1)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>Octopress (6)</a></li>
-<li class='category'><a href='/blog/categories/ruby/'>Ruby (3)</a></li>
+<li class='category'><a href='/blog/categories/ruby/'>Ruby (4)</a></li>
 <li class='category'><a href='/blog/categories/thinking/'>Thinking (4)</a></li>
 
     </ul>
@@ -145,6 +203,10 @@
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/07/29/install-ruby-and-rails/">Fedora17下搭建Ruby和Rails环境</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/07/27/vim-vundle-install-and-config/">Vim下的的插件管理神器——Vundle</a>
@@ -160,10 +222,6 @@
     
       <li class="post">
         <a href="/blog/2013/07/22/git-roll-back/">Git的相关操作</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/21/array/">Ruby基础之Array,String and Hash</a>
       </li>
     
   </ul>
