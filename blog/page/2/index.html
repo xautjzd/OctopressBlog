@@ -9,7 +9,14 @@
   <meta name="author" content="xautjzd">
 
   
-  <meta name="description" content="搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下： $rake new_page[About] 默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉， &hellip;">
+  <meta name="description" content="Octopress博客目录结构 octopress博客的source目录结构大致如下: source/
+├── _attachments
+├── _includes
+│ ├── asides
+│ ├── custom
+│ │ └── asides
+│ └── post
+├── _layouts &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -69,6 +76,80 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/18/structure-of-octopress/">Octopress目录结构</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-18T14:27:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/07/18/structure-of-octopress/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3>Octopress博客目录结构</h3>
+
+<p>octopress博客的source目录结构大致如下:</p>
+
+<pre><code>source/
+├── _attachments
+├── _includes
+│   ├── asides
+│   ├── custom
+│   │   └── asides
+│   └── post
+├── _layouts
+├── _nav_menu_items
+├── _pages
+├── _posts
+├── blog
+│   └── archives
+├── font
+├── images
+│   ├── 2012
+│   │   ├── 01
+│   │   ├── 02
+│   ├── 2013
+│   │   └── 01
+│   ├── fancybox
+│   └── social
+├── javascripts
+│   ├── asides
+│   └── libs
+├── jsccp
+└── stylesheets
+    ├── bootstrap
+        └── syntax
+</code></pre>
+
+<p>当使用<code>rake generate</code>时，source的_post目录中的markdown文件会被编译成html文件，并拷贝到public目录下，public目录结构与source目录结构一致，里面的内容为最终的静态页面。一般都是先<code>rake generate</code>生成静态页面，然后通过<code>rake preview</code>进行本地预览，如果显示正常，则<code>rake
+deploy</code>部署到github上。如果特别熟练，也可以直接生成静态页面并部署，不需要本地预览。可以采用<code>rake gen_deploy</code>一步进行。</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -194,7 +275,7 @@
     <ul id="categories">
         <li class='category'><a href='/blog/categories/git/'>Git (1)</a></li>
 <li class='category'><a href='/blog/categories/linux/'>Linux (1)</a></li>
-<li class='category'><a href='/blog/categories/octopress/'>Octopress (6)</a></li>
+<li class='category'><a href='/blog/categories/octopress/'>Octopress (7)</a></li>
 <li class='category'><a href='/blog/categories/ruby/'>Ruby (4)</a></li>
 <li class='category'><a href='/blog/categories/thinking/'>Thinking (4)</a></li>
 
@@ -205,6 +286,10 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/07/30/add-comments-to-sidebar/">Octopress添加disqus评论到侧边栏</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/07/29/install-ruby-and-rails/">Fedora17下搭建Ruby和Rails环境</a>
       </li>
     
@@ -213,18 +298,20 @@
       </li>
     
       <li class="post">
-        <a href="/blog/2013/07/27/octopress-add-frend-sites/">Ocpress添加求情链接</a>
+        <a href="/blog/2013/07/27/octopress-add-frend-sites/">Ocpress添加友情链接</a>
       </li>
     
       <li class="post">
         <a href="/blog/2013/07/27/metaprogram-proc/">Ruby元编程之Proc对象</a>
       </li>
     
-      <li class="post">
-        <a href="/blog/2013/07/22/git-roll-back/">Git的相关操作</a>
-      </li>
-    
   </ul>
+</section>
+<section id="comments_sidebar">
+	<h1>近期评论</h1>
+
+	<script type="text/javascript" src="http://zhengdongjiang.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=20"></script><a href="http://disqus.com/">Powered by Disqus</a>
+
 </section>
 <section>
     <h1>友情链接</h1>

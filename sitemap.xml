@@ -38,7 +38,7 @@
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/2013/07/27/octopress-add-frend-sites/</loc>
-        <lastmod>2013-07-27T16:20:38+08:00</lastmod>
+        <lastmod>2013-07-30T11:06:33+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/2013/07/27/vim-vundle-install-and-config/</loc>
@@ -47,6 +47,10 @@
     <url>
         <loc>http://xautjzd.github.io/blog/2013/07/29/install-ruby-and-rails/</loc>
         <lastmod>2013-07-29T21:38:48+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://xautjzd.github.io/blog/2013/07/30/add-comments-to-sidebar/</loc>
+        <lastmod>2013-07-30T11:02:56+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/aboutme/</loc>
@@ -66,7 +70,7 @@
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/archives/</loc>
-        <lastmod>2013-07-29T21:38:48+08:00</lastmod>
+        <lastmod>2013-07-30T11:06:33+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/robots.txt</loc>
@@ -74,6 +78,6 @@
     </url>
     <url>
         <loc>http://xautjzd.github.io/</loc>
-        <lastmod>2013-07-29T21:38:48+08:00</lastmod>
+        <lastmod>2013-07-30T11:06:33+08:00</lastmod>
     </url>
 </urlset>

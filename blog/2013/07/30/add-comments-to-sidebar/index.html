@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Octopress配置Disqus插件 - xautjzd</title>
+  <title>Octopress添加disqus评论到侧边栏 - xautjzd</title>
   <meta name="author" content="xautjzd">
 
   
-  <meta name="description" content="添加Disqus插件 看到不少人博客上都有Comments功能，便也想给自己的博客添加上。经过搜寻一番，发现大多用的都是Disqus，而且octopress其实内置了其功能，只是默认没有设置.编辑博客主目录下的config.yml文件即可： $vim _config.yml 找到： #Disqus &hellip;">
+  <meta name="description" content="新建comments.html文件 添加评论到侧边栏与添加关于、文章分类和友情链接相似，需要在source/_includes/custom/asides/目录下添加comments.html模块，名字根据自己的喜好可以换成其他的，如xxx.html，然后在comments.html里添加如下内容 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xautjzd.github.io/blog/2013/07/18/congfig-disqus-plugin">
+  <link rel="canonical" href="http://xautjzd.github.io/blog/2013/07/30/add-comments-to-sidebar">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="xautjzd" type="application/atom+xml">
@@ -72,7 +72,7 @@
   
   <header>
     
-      <h1 class="entry-title">Octopress配置Disqus插件</h1>
+      <h1 class="entry-title">Octopress添加disqus评论到侧边栏</h1>
     
     
       <p class="meta">
@@ -88,7 +88,7 @@
   
 
 
-<time datetime="2013-07-18T15:37:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
+<time datetime="2013-07-30T10:47:00+08:00" pubdate data-updated="true">Jul 30<span>th</span>, 2013</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -97,23 +97,47 @@
   </header>
 
 
-<div class="entry-content"><h3>添加Disqus插件</h3>
+<div class="entry-content"><h2>新建comments.html文件</h2>
 
-<p>看到不少人博客上都有Comments功能，便也想给自己的博客添加上。经过搜寻一番，发现大多用的都是Disqus，而且octopress其实内置了其功能，只是默认没有设置.编辑博客主目录下的config.yml文件即可：</p>
+<p>添加评论到侧边栏与添加关于、文章分类和友情链接相似，需要在source/_includes/custom/asides/目录下添加comments.html模块，名字根据自己的喜好可以换成其他的，如xxx.html，然后在comments.html里添加如下内容：</p>
 
-<pre><code>$vim _config.yml
-</code></pre>
+<figure class='code'><figcaption><span>source/\_includes/custom/asides/comments.html </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">&quot;comment_sidebar&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;h1&gt;</span>近期评论<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://zhengdongjiang.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=0&amp;avatar_size=32&amp;excerpt_length=20&quot;</span><span class="nt">&gt;&lt;/script&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://disqus.com/&quot;</span><span class="nt">&gt;</span>Powered by Disqus<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'><span class="nt">&lt;/section&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>找到：</p>
 
-<pre><code>#Disqus comments
-disqus_short_name: 
-disqus_show_comment_count: false
-</code></pre>
+<p>其中zhengdongjiang为我disqus对应此网站的shortname，这就不要照搬了，换成你对应的名字即可。</p>
 
-<p>填上自己注册的disqus账号的short name，并将false改成true即可。</p>
+<h2>修改_config.yml文件</h2>
 
-<p><strong>注：Disqus一定要和yourname.github.com关联</strong></p>
+<figure class='code'><figcaption><span>\_config.yml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="err">   </span><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">    </span><span class="c1"># Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below</span>
+</span><span class='line'><span class="err">    </span><span class="c1"># and add an array with the asides you want to use.</span>
+</span><span class='line'><span class="err">    </span><span class="l-Scalar-Plain">blog_index_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/about.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
+</span><span class='line'><span class="err">    </span><span class="l-Scalar-Plain">post_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/about.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
+</span><span class='line'><span class="err">    </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
 </div>
 
 
@@ -136,12 +160,12 @@ disqus_show_comment_count: false
   
 
 
-<time datetime="2013-07-18T15:37:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
+<time datetime="2013-07-30T10:47:00+08:00" pubdate data-updated="true">Jul 30<span>th</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
+    <a class='category' href='/blog/categories/octopress/'>Octopress</a>
   
 </span>
 
@@ -150,7 +174,7 @@ disqus_show_comment_count: false
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xautjzd.github.io/blog/2013/07/18/congfig-disqus-plugin/" data-via="" data-counturl="http://xautjzd.github.io/blog/2013/07/18/congfig-disqus-plugin/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xautjzd.github.io/blog/2013/07/30/add-comments-to-sidebar/" data-via="" data-counturl="http://xautjzd.github.io/blog/2013/07/30/add-comments-to-sidebar/" >Tweet</a>
   
   
   
@@ -159,10 +183,8 @@ disqus_show_comment_count: false
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/07/18/structure-of-octopress/" title="Previous Post: Octopress目录结构">&laquo; Octopress目录结构</a>
+        <a class="basic-alignment left" href="/blog/2013/07/29/install-ruby-and-rails/" title="Previous Post: Fedora17下搭建Ruby和Rails环境">&laquo; Fedora17下搭建Ruby和Rails环境</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/07/18/config-category-plugin/" title="Next Post: 配置文章分类插件">配置文章分类插件 &raquo;</a>
       
     </p>
   </footer>
@@ -254,8 +276,8 @@ disqus_show_comment_count: false
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://xautjzd.github.io/blog/2013/07/18/congfig-disqus-plugin/';
-        var disqus_url = 'http://xautjzd.github.io/blog/2013/07/18/congfig-disqus-plugin/';
+        var disqus_identifier = 'http://xautjzd.github.io/blog/2013/07/30/add-comments-to-sidebar/';
+        var disqus_url = 'http://xautjzd.github.io/blog/2013/07/30/add-comments-to-sidebar/';
         var disqus_script = 'embed.js';
       
     (function () {
