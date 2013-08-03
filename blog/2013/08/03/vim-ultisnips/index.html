@@ -5,18 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Ocpress添加友情链接 - xautjzd</title>
+  <title>Vim的代码自动补齐插件——UltiSnips - xautjzd</title>
   <meta name="author" content="xautjzd">
 
   
-  <meta name="description" content="与在侧边栏添加Aboutme、Categories、Tagcloud等功能类似，在source/_include\custom\asides目录下添加一个frendsites.html文件，模仿about等写法，添加友情链接，如下所示： 友情链接 1
-2
-3
-4
-5
-6
-7
-8 &lt; &hellip;">
+  <meta name="description" content="暑假时间充足，便又开始学习自己喜欢的Ruby。而学Ruby的最佳环境是Mac,其次是Linux,最次是Windows。Mac买不起，只能在Linux上折腾了，一台台式机装的Fedora17，自己的本是xp系统，装了不少微软的一套东西，毕竟教研室的项目都是在.net环境下进行的，不敢轻易换系统， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -25,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xautjzd.github.io/blog/2013/07/27/octopress-add-frend-sites">
+  <link rel="canonical" href="http://xautjzd.github.io/blog/2013/08/03/vim-ultisnips">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="xautjzd" type="application/atom+xml">
@@ -79,7 +72,7 @@
   
   <header>
     
-      <h1 class="entry-title">Ocpress添加友情链接</h1>
+      <h1 class="entry-title">Vim的代码自动补齐插件——UltiSnips</h1>
     
     
       <p class="meta">
@@ -95,7 +88,7 @@
   
 
 
-<time datetime="2013-07-27T16:02:00+08:00" pubdate data-updated="true">Jul 27<span>th</span>, 2013</time>
+<time datetime="2013-08-03T15:12:00+08:00" pubdate data-updated="true">Aug 3<span>rd</span>, 2013</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -104,29 +97,31 @@
   </header>
 
 
-<div class="entry-content"><p>与在侧边栏添加Aboutme、Categories、Tagcloud等功能类似，在source/_include\custom\asides目录下添加一个frendsites.html文件，模仿about等写法，添加友情链接，如下所示：</p>
+<div class="entry-content"><p>暑假时间充足，便又开始学习自己喜欢的Ruby。而学Ruby的最佳环境是Mac,其次是Linux,最次是Windows。Mac买不起，只能在Linux上折腾了，一台台式机装的Fedora17，自己的本是xp系统，装了不少微软的一套东西，毕竟教研室的项目都是在.net环境下进行的，不敢轻易换系统，所以便在本上装了个VirtualBox虚拟机，虚拟了一个Ubuntu。上面也配好了Ruby环境，毕竟本方便，带到哪里都可以学，但平时的Linux编程都是在台式机下，毕竟性能比虚拟机好。</p>
 
-<figure class='code'><figcaption><span>友情链接 </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'>    <span class="nt">&lt;section&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;h1&gt;</span>友情链接<span class="nt">&lt;/h1&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;ul&gt;</span>
-</span><span class='line'>            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;url_to_add&quot;</span><span class="nt">&gt;</span>友情链接的显示Id<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-</span><span class='line'>            ...
-</span><span class='line'>        <span class="nt">&lt;/ul&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/section&gt;</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
+<p>而学习Ruby一般都是在Vim/Emacs/SublimeText 2下，RubyMine貌似很适合开发Ruby，由于是商业产品，没钱购买也就舍弃了，毅然决然的选择了Vim.都说高手使用的是Vim，想必必有可取之处。但是Vim的学习路线比较陡峭，开始是一段痛苦期，经过一段时间的摧残后，甜蜜的时光便来临了，各种强大而高效的插件让你目瞪口呆，顿时感觉其他IDE都蒻爆了。幸好我以前对Vim的基本操作便有了了解，所以再次学习起来便不那么痛苦，甚至不想回到Windows环境，不想再用其他的Editor。我现在用的插件并且给我印象深刻的大致有这么一些：Vundle,Ctrlp/command-T,UltiSnips/Snipmate,YouCompleteMe/SuperTab,NerdTree,Tagbar,FuzzyFinder,vim-rails，Markdown等。</p>
 
+<p>其中Vundle作为Vim的插件管理神器必不可少，让安装插件变得非常方便，类似的插件也有pathogen。具体安装方法见<a href="https://github.com/gmarik/vundle">GitHub</a>.也可以参考我写的一篇关于Vundle的<a href="http://xautjzd.github.io/blog/2013/07/27/vim-vundle-install-and-config/">博文</a>。</p>
 
-<p>然后在_config.yml文件中相应的位置添加，如在default_asides中的数组添加custom/asides/friendsites.html，当然也可以在blog_index等其他数组中添加。</p>
+<p>而CtrlP则绝对是文件切换的神器，在多个文件间来回切换。也可以用:vs垂直分屏或者:sp水平分屏,这样最适合多个文件间的对比。&lt;ctrl-p>调出CtrlP候选文件,然后通过Up/Down键来选择文件。</p>
+
+<p>UltiSnips则是自动补齐代码片段的神级插件，功能类似的有Snipmate插件。UltiSnips对常见的各种语言都有支持。代码补齐是通过编辑的文件后缀名来区分，如编辑xxx.html时，输入ul然后按Tab键则自动生成了<code>&lt;ul&gt;&lt;ul&gt;</code>片段，其他语言也类似，都有相应的关键字，具体每种语言的关键字参考UltiSnips目录下的xxx.snippets，自己也可以补充。</p>
+
+<p>YouCompleteMe插件是一个代码提示功能，输入一部分然后就会出现候选的部分可供选择，不需要全部输入。类似的插件还有SuperTab。通过名字也可以看出它提供的候选词中也包括刚才输入的单词。默认的选择是通过Tab键来确定的，但由于和UltiSnips冲突，所以需要换默认的快捷方式，方法如下：</p>
+
+<pre><code>"set YouCompleteMe trigger key 
+let g:ycm_key_list_select_completion = ['&lt;c-n&gt;', '&lt;Down&gt;']
+let g:ycm_key_list_previous_completion = ['&lt;c-p&gt;', '&lt;Up&gt;']
+</code></pre>
+
+<p>NerdTree提供一个目录结构，让习惯图形界面的朋友找到亲切感，作用不必多说。</p>
+
+<p>Tagbar则配合ctags则提供文件的导航，将文件的关键字提取出来。ctags需要在目录下生成一个tags文件，生成方法:</p>
+
+<pre><code>ctags -R yourdir  #生成tags文件
+</code></pre>
+
+<p>FuzzyFinder是一个模糊匹配的文件搜索插件。</p>
 </div>
 
 
@@ -149,12 +144,12 @@
   
 
 
-<time datetime="2013-07-27T16:02:00+08:00" pubdate data-updated="true">Jul 27<span>th</span>, 2013</time>
+<time datetime="2013-08-03T15:12:00+08:00" pubdate data-updated="true">Aug 3<span>rd</span>, 2013</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/octopress/'>Octopress</a>
+    <a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
   
 </span>
 
@@ -163,7 +158,7 @@
     
       <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xautjzd.github.io/blog/2013/07/27/octopress-add-frend-sites/" data-via="" data-counturl="http://xautjzd.github.io/blog/2013/07/27/octopress-add-frend-sites/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xautjzd.github.io/blog/2013/08/03/vim-ultisnips/" data-via="" data-counturl="http://xautjzd.github.io/blog/2013/08/03/vim-ultisnips/" >Tweet</a>
   
   
   
@@ -172,10 +167,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left" href="/blog/2013/07/27/metaprogram-proc/" title="Previous Post: Ruby元编程之Proc对象">&laquo; Ruby元编程之Proc对象</a>
+        <a class="basic-alignment left" href="/blog/2013/07/30/create-my-first-rails-app/" title="Previous Post: 创建我的第一个rails程序">&laquo; 创建我的第一个rails程序</a>
       
-      
-        <a class="basic-alignment right" href="/blog/2013/07/27/vim-vundle-install-and-config/" title="Next Post: Vim下的的插件管理神器——Vundle">Vim下的的插件管理神器——Vundle &raquo;</a>
       
     </p>
   </footer>
@@ -269,8 +262,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://xautjzd.github.io/blog/2013/07/27/octopress-add-frend-sites/';
-        var disqus_url = 'http://xautjzd.github.io/blog/2013/07/27/octopress-add-frend-sites/';
+        var disqus_identifier = 'http://xautjzd.github.io/blog/2013/08/03/vim-ultisnips/';
+        var disqus_url = 'http://xautjzd.github.io/blog/2013/08/03/vim-ultisnips/';
         var disqus_script = 'embed.js';
       
     (function () {
