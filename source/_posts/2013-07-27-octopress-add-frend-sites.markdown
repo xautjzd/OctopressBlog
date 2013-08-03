@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ocpress添加求情链接"
+title: "Ocpress添加友情链接"
 date: 2013-07-27 16:02
 comments: true
 categories: Octopress
