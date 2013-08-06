@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-03T17:10:51+08:00</updated>
+  <updated>2013-08-06T15:00:24+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -36,6 +36,9 @@
 </code></pre>
 
 <p>查看rvm的版本。同时也可以通过<code>rvm info</code>查看rvm相关信息。</p>
+
+<!-- more -->
+
 
 <h2>2.安装Ruby环境</h2>
 
@@ -148,6 +151,9 @@
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 </code></pre>
 
+<!-- more -->
+
+
 <p>3.proc方法</p>
 
 <pre><code><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -225,6 +231,9 @@
 
 <pre><code>a = Array.new(3, [0, 0, 0])
 </code></pre>
+
+<!-- more -->
+
 
 <p>这样看起来初始化结果是[[0, 0, 0], [0, 0, 0], [0, 0, 0]]。但是实则不是。</p>
 
@@ -343,6 +352,9 @@ p a     #=&gt;[1, 2, 3, 4, 5]
 <p>实例变量的范围则是类的实例，属于某个类的实例所有，实例间相互独立。实例变量以@开头。eg:</p>
 
 <p>@instance_variable = 10</p>
+
+<!-- more -->
+
 
 <ul>
 <li><strong>类变量</strong></li>
