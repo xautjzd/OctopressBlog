@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-08T22:16:41+08:00</updated>
+  <updated>2013-08-08T22:22:54+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -80,11 +80,20 @@
 <pre><code>tmux a -t sessionname
 </code></pre>
 
+<p>另外，tmux也非常适合结对编程，当两个人可以连接同一台电脑时，其中一个人在终端上的操作，另一个在终端能清楚的看到。操作方式如下：</p>
+
+<p>A操作：$tmux new-session -s test
+B操作：$tmux a(ttach) -t test</p>
+
+<p>这样之后，A在终端上的一切操作B都能看到。</p>
+
 <p>其他具体快捷方式，请参考帮助文档。</p>
 
-<p>也可以参考：
-1.<a href="http://happycasts.net/episodes/41?autoplay=true">http://happycasts.net/episodes/41?autoplay=true</a>
-2.<a href="http://caok1231.com/blog/2013/04/14/tmux/">http://caok1231.com/blog/2013/04/14/tmux/</a></p>
+<p>也可以参考：</p>
+
+<p>1.<a href="http://happycasts.net/episodes/41?autoplay=true">http://happycasts.net/episodes/41?autoplay=true</a></p>
+
+<p>2.<a href="http://caok1231.com/blog/2013/04/14/tmux/">http://caok1231.com/blog/2013/04/14/tmux/</a></p>
 ]]></content>
   </entry>
   
