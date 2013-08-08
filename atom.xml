@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-06T15:00:24+08:00</updated>
+  <updated>2013-08-08T22:12:54+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,82 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[终端分屏工具tmux的安装与常用操作]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/08/tmux-use-and-configuration/"/>
+    <updated>2013-08-08T16:12:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/08/tmux-use-and-configuration</id>
+    <content type="html"><![CDATA[<h2>1. tmux简介</h2>
+
+<p>tmux是terminal multiplexer的简称，是一款终端分屏的工具，可以在同一屏幕中划分出多个独立的shell环境，这样便于对比，唯一的缺陷是窗口比较小而已。一个server可以有多个session,一个session可以有多个windows,一个windows可以有多个pane.具体见<a href="http://tmux.sourceforge.net/">官网</a>介绍。</p>
+
+<h2>2. 安装</h2>
+
+<p>采用相应系统的包管理器即可安装。我装的是fedora,现以fedora为例：</p>
+
+<pre><code>#yum install tmux
+</code></pre>
+
+<p>包不到1M大小，很快便安装完成。</p>
+
+<!-- more -->
+
+
+<h2>3. 操作</h2>
+
+<p>首先，运行tmux。</p>
+
+<pre><code>$tmux
+</code></pre>
+
+<p>然后可以水平分屏和纵向分屏。其常用的快捷键如下：</p>
+
+<ul>
+<li><p>水平分屏 :<code>&lt;c + b&gt; "</code>即按下ctrl + b后，再按双引号(shift + &lsquo;键)</p></li>
+<li><p>垂直分屏 :<code>&lt;c + b&gt; %</code></p></li>
+<li><p>新建窗口 :<code>&lt;c + b&gt; c</code></p></li>
+<li><p>重命名窗口:<code>&lt;c + b&gt; ,</code></p></li>
+<li><p>窗口切换 :<code>&lt;c + b&gt; number</code>，其中number为窗体的编号，从0开始。</p></li>
+<li><p>切换到bash:<code>&lt;c + b&gt; d</code></p></li>
+<li><p>切换回tmux:<code>$tmux attach</code></p></li>
+<li><p>查看帮助文档：<code>&lt;c + b&gt; ?</code></p></li>
+</ul>
+
+
+<p>1.新建一个session</p>
+
+<pre><code>tmux new-session -s sessionname(自己指定)
+</code></pre>
+
+<p>2.杀死一个session</p>
+
+<pre><code>tmux kill-session -t sessionname
+</code></pre>
+
+<p>3.杀死所有session</p>
+
+<pre><code>tmux kill-server
+</code></pre>
+
+<p>4.列出新建的session</p>
+
+<pre><code>tmux ls(tmux list-sessions)
+</code></pre>
+
+<p>4.附加一个session</p>
+
+<pre><code>tmux a -t sessionname
+</code></pre>
+
+<p>其他具体快捷方式，请参考帮助文档。</p>
+
+<p>也可以参考：<a href="http://happycasts.net/episodes/41?autoplay=true">http://happycasts.net/episodes/41?autoplay=true</a></p>
+
+<pre><code>       http://caok1231.com/blog/2013/04/14/tmux/
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Vim的代码自动补齐插件——UltiSnips]]></title>
