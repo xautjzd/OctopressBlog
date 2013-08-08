@@ -23,6 +23,8 @@ Proc对象其实就是将代码块(block)转换成对象的块。方式有大致
     inc.call(3)     #=>4
     {% endcodeblock %}
 
+<!-- more -->
+
 3.proc方法
 
     {% codeblock lang:ruby %}

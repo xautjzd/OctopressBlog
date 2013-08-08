@@ -10,6 +10,7 @@ categories: [Linux, Vim]
 
 而学习Ruby一般都是在Vim/Emacs/SublimeText 2下，RubyMine貌似很适合开发Ruby，由于是商业产品，没钱购买也就舍弃了，毅然决然的选择了Vim.都说高手使用的是Vim，想必必有可取之处。但是Vim的学习路线比较陡峭，开始是一段痛苦期，经过一段时间的摧残后，甜蜜的时光便来临了，各种强大而高效的插件让你目瞪口呆，顿时感觉其他IDE都蒻爆了。幸好我以前对Vim的基本操作便有了了解，所以再次学习起来便不那么痛苦，甚至不想回到Windows环境，不想再用其他的Editor。我现在用的插件并且给我印象深刻的大致有这么一些：Vundle,Ctrlp/command-T,UltiSnips/Snipmate,YouCompleteMe/SuperTab,NerdTree,Tagbar,FuzzyFinder,vim-rails，Markdown等。
 
+<!-- more -->
 其中Vundle作为Vim的插件管理神器必不可少，让安装插件变得非常方便，类似的插件也有pathogen。具体安装方法见[GitHub](https://github.com/gmarik/vundle).也可以参考我写的一篇关于Vundle的[博文](http://xautjzd.github.io/blog/2013/07/27/vim-vundle-install-and-config/)。
 
 而CtrlP则绝对是文件切换的神器，在多个文件间来回切换。也可以用:vs垂直分屏或者:sp水平分屏,这样最适合多个文件间的对比。<ctrl-p>调出CtrlP候选文件,然后通过Up/Down键来选择文件。

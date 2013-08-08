@@ -28,6 +28,8 @@ rails应用中使用msyql,需要Mysql对应的ruby驱动：msyql2。安装方式
 
 到此为止，前期工作已经完成，后面就开始动手了。
 
+<!-- more -->
+
 ##创建rails应用
 
 	$rails new railsapp -d msyql  #指定数据库为mysql,否则采用默认的sqlite3

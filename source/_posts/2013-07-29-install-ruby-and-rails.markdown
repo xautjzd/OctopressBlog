@@ -22,6 +22,8 @@ categories: Ruby
 
 查看rvm的版本。同时也可以通过`rvm info`查看rvm相关信息。
 
+<!-- more -->
+
 ##2.安装Ruby环境
 
 使用`rvm install 1.9.3`会默认选择`http://ruby-lang.org`网站下载ruby源码然后进行编译，这样太慢。幸好淘宝提供了[ruby的下载源](http://ruby.taobao.org/mirrors/ruby/)，我此次便采用的是先在淘宝的ruby源下载我想要的ruby版本1.9.3-p448，下载完成后，将其放到/usr/local/rvm/archives/目录下，然后再执行`rvm install 1.9.3-p448`，它便能识别已有的ruby源码包，进行解压和编译一系列过程。大致几分钟便可完成。

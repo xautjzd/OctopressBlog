@@ -26,6 +26,8 @@ categories: Git
 ##远程库的重命名
     $git remote rename oldname newname
 
+<!-- more -->
+
 ##删除远程库
     $git remote rm remote-name
 

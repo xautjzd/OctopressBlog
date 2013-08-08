@@ -3,7 +3,7 @@ layout: post
 title: "Vim下的的插件管理神器——Vundle"
 date: 2013-07-27 20:38
 comments: true
-categories: Linux
+categories: [Linux, Vim]
 ---
 断断续续用Vim也不少时间了，但是从来没有进行过复杂的Vim配置，每每需要插件都是网上寻求安装方式。但是当插件多了管理也便变得繁琐，最后终于让我结识了插件管理神器——Vundle，用过的人都说好用，所以我便也尝试了，网上也有一部分人采用pathogen来进行插件管理，但是据说没有Vundle好用，也便没有尝试，下面对我使用Vundle做一个总结。
 
@@ -20,6 +20,8 @@ categories: Linux
 2.Vundle配置
 
 以下是我的配置文件：
+
+<!-- more -->
 
     {% codeblock lang:sh %}
     set runtimepath+=~/.vim_runtime
@@ -95,6 +97,8 @@ categories: Linux
 
 3.安装
 
-推出刚才的配置文件，然后重新打开vim,并且执行:BundleInstall，这样NERDTree插件便安装完成，可以在~/.vim/bundle目录中查看。
+推出刚才的配置文件，然后重新打开vim,并且执行:BundleInstall，这样NERDTree插件便安装完成，可以在~/.vim/bundle目录中查看。Vundle的特色在于使用git管理插件，更新方便，并且支持搜索。
+
+:BundleInstall!更新插件，:BundleClean删除插件(只需在.vimrc中注释相应行), :BundleSearch查找插件。不同电脑间的同步只需通过.vimrc来实现（前提：安装git）。
 
 安装插件就是这么简单！还没有体验的赶紧体验吧！
