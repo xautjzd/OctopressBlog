@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-08T22:22:54+08:00</updated>
+  <updated>2013-08-08T22:24:24+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -82,8 +82,9 @@
 
 <p>另外，tmux也非常适合结对编程，当两个人可以连接同一台电脑时，其中一个人在终端上的操作，另一个在终端能清楚的看到。操作方式如下：</p>
 
-<p>A操作：$tmux new-session -s test
-B操作：$tmux a(ttach) -t test</p>
+<p>A操作：$tmux new-session -s test</p>
+
+<p>B操作：$tmux a(ttach) -t test</p>
 
 <p>这样之后，A在终端上的一切操作B都能看到。</p>
 
