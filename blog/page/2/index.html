@@ -9,7 +9,7 @@
   <meta name="author" content="xautjzd">
 
   
-  <meta name="description" content="变量分类 局部变量 一般以小写字母或下划线开头，当多个单词组成一个变量时，单词间用_分隔。局部变量一般用在代码快里面 全局变量 全局变量在整个ruby程序中都可以访问，无论他们在哪被定义。全局变量以$开头。eg: $global_variable = 10 实例变量 实例变量的范围则是类的实例， &hellip;">
+  <meta name="description" content="Array 数组通常都是同种元素的集合，元素可以为单个的变量，如数值或者字符串，但是也可以为数组和Hash等复杂对象。 数组表示矩阵 其实数组可以用来表示矩阵，矩阵可以被看作数组的数组，也就是每个数组元素都是数组。三行三列的矩阵可以表示为： a = [[1, 2, 3], [4, 5, 6], [ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +81,70 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/21/array/">Ruby基础之Array,String and Hash</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-21T15:55:00+08:00" pubdate data-updated="true">Jul 21<span>st</span>, 2013</time>
+        
+         | <a href="/blog/2013/07/21/array/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Array</h2>
+
+<p>数组通常都是同种元素的集合，元素可以为单个的变量，如数值或者字符串，但是也可以为数组和Hash等复杂对象。</p>
+
+<h3>数组表示矩阵</h3>
+
+<p>其实数组可以用来表示矩阵，矩阵可以被看作数组的数组，也就是每个数组元素都是数组。三行三列的矩阵可以表示为：</p>
+
+<pre><code>a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+</code></pre>
+
+<p>“5”的位置则是：</p>
+
+<pre><code>a[1][1]
+</code></pre>
+
+<h3>数组初始化陷阱</h3>
+
+<p>初始化数组时，若要使用数组对象或Hash对象作为初始值的元素时必须非常小心，否则便会陷入陷阱当中，如下所示：</p>
+
+<pre><code>a = Array.new(3, [0, 0, 0])
+</code></pre>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/07/21/array/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -529,7 +593,7 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 <li class='category'><a href='/blog/categories/octopress/'>Octopress (7)</a></li>
 <li class='category'><a href='/blog/categories/rails/'>Rails (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby/'>Ruby (4)</a></li>
-<li class='category'><a href='/blog/categories/thinking/'>Thinking (4)</a></li>
+<li class='category'><a href='/blog/categories/thinking/'>Thinking (5)</a></li>
 <li class='category'><a href='/blog/categories/vim/'>Vim (2)</a></li>
 
     </ul>
@@ -537,6 +601,10 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/08/11/travel-to-hu-xian/">户县之行</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/08/08/tmux-use-and-configuration/">终端分屏工具tmux的安装与常用操作</a>
@@ -552,10 +620,6 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
     
       <li class="post">
         <a href="/blog/2013/07/30/add-comments-to-sidebar/">Octopress添加disqus评论到侧边栏</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/29/install-ruby-and-rails/">Fedora17下搭建Ruby和Rails环境</a>
       </li>
     
   </ul>
