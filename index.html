@@ -9,7 +9,7 @@
   <meta name="author" content="xautjzd">
 
   
-  <meta name="description" content="前天应阿亮之邀，去了趟少春家，现将所见所闻予以记录，聊以慰藉。 我们三（阿亮，少春和我）于前天下午将近六点出发去户县甘河镇的少春家，大致七点半左右到。到家时，天刚暗下来。从这一刻开始到今天下午，差不多有两天的时间体验了下陕西乡村的风土人情，而体验的最佳方式则是通过味觉和视觉。 首先，从味觉方面说， &hellip;">
+  <meta name="description" content="我一直使用的是Fedora17，自带的截图工具实在不敢恭维，但也就这样断断续续的用着，不过也用的不多。但今天突然鬼使神差的搜了下其他的截图工具，Google搜了下，发现好多提到shutter，既然这么多文章都提到，说明肯定着实不赖，便尝试了下。安装及配置如下： 1.安装 安装过程很简单， &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +81,66 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/16/install-and-config-shutter/">Linux下截图工具shutter的安装与配置</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-16T16:57:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/08/16/install-and-config-shutter/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>我一直使用的是Fedora17，自带的截图工具实在不敢恭维，但也就这样断断续续的用着，不过也用的不多。但今天突然鬼使神差的搜了下其他的截图工具，Google搜了下，发现好多提到shutter，既然这么多文章都提到，说明肯定着实不赖，便尝试了下。安装及配置如下：</p>
+
+<h3>1.安装</h3>
+
+<p>安装过程很简单，执行下面命令即可：</p>
+
+<pre><code>#yum install shutter
+</code></pre>
+
+<h3>2.配置**</h3>
+
+<p>QQ截图快捷键<code>&lt;ctrl&gt;+&lt;alt&gt;+A</code>用习惯了，所以也对shutter继续保留这个快捷键。具体配置方法如下：
+在System Tools>System Settings>Keyboard>Shortcuts>Custom Shortcuts中添加了三个快捷键：</p>
+
+<ul>
+<li><p>截图整个屏幕（shutter -f）</p></li>
+<li><p>截图当前活动窗口(shutter -a)</p></li>
+<li><p>截图选定区域(shutter -s)</p></li>
+</ul>
+
+
+<p>具体配置及对应的快捷键设置参考下图：
+<img src="/images/shutter-config.jpg"></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -620,75 +680,6 @@
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/22/git-roll-back/">Git的相关操作</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-22T11:33:00+08:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/22/git-roll-back/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>查看Git远程库地址</h2>
-
-<p>建立了远程库后，许久没操作，突然忘了其对应的具体远程库的url。可通过以下命令来查看：</p>
-
-<pre><code>$git remote -v
-</code></pre>
-
-<p>-v选项是&mdash;verbose的简写，最后结果为：</p>
-
-<pre><code>origin git@github.com:xautjzd/RubyExample.git (fetch)  
-origin git@github.com:xautjzd/RubyExample.git (push)
-</code></pre>
-
-<p>要查看详细信息，则可以通过如下命令查看：</p>
-
-<pre><code>$git remote show remote-name
-</code></pre>
-
-<h2>添加远程库地址</h2>
-
-<pre><code>$git remote add reponame url
-</code></pre>
-
-<h2>远程库的重命名</h2>
-
-<pre><code>$git remote rename oldname newname
-</code></pre>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/07/22/git-roll-back/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -709,7 +700,7 @@ origin git@github.com:xautjzd/RubyExample.git (push)
     <h1>Categories</h1>
     <ul id="categories">
         <li class='category'><a href='/blog/categories/git/'>Git (1)</a></li>
-<li class='category'><a href='/blog/categories/linux/'>Linux (3)</a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (4)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>Octopress (7)</a></li>
 <li class='category'><a href='/blog/categories/rails/'>Rails (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby/'>Ruby (4)</a></li>
@@ -721,6 +712,10 @@ origin git@github.com:xautjzd/RubyExample.git (push)
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/08/16/install-and-config-shutter/">Linux下截图工具shutter的安装与配置</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/08/11/travel-to-hu-xian/">户县之行</a>
@@ -736,10 +731,6 @@ origin git@github.com:xautjzd/RubyExample.git (push)
     
       <li class="post">
         <a href="/blog/2013/07/30/create-my-first-rails-app/">创建我的第一个rails程序</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/30/add-comments-to-sidebar/">Octopress添加disqus评论到侧边栏</a>
       </li>
     
   </ul>

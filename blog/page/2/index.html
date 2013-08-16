@@ -9,7 +9,7 @@
   <meta name="author" content="xautjzd">
 
   
-  <meta name="description" content="Array 数组通常都是同种元素的集合，元素可以为单个的变量，如数值或者字符串，但是也可以为数组和Hash等复杂对象。 数组表示矩阵 其实数组可以用来表示矩阵，矩阵可以被看作数组的数组，也就是每个数组元素都是数组。三行三列的矩阵可以表示为： a = [[1, 2, 3], [4, 5, 6], [ &hellip;">
+  <meta name="description" content="查看Git远程库地址 建立了远程库后，许久没操作，突然忘了其对应的具体远程库的url。可通过以下命令来查看： $git remote -v -v选项是&mdash;verbose的简写，最后结果为： origin git@github.com:xautjzd/RubyExample.git ( &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +81,75 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/22/git-roll-back/">Git的相关操作</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-22T11:33:00+08:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2013</time>
+        
+         | <a href="/blog/2013/07/22/git-roll-back/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>查看Git远程库地址</h2>
+
+<p>建立了远程库后，许久没操作，突然忘了其对应的具体远程库的url。可通过以下命令来查看：</p>
+
+<pre><code>$git remote -v
+</code></pre>
+
+<p>-v选项是&mdash;verbose的简写，最后结果为：</p>
+
+<pre><code>origin git@github.com:xautjzd/RubyExample.git (fetch)  
+origin git@github.com:xautjzd/RubyExample.git (push)
+</code></pre>
+
+<p>要查看详细信息，则可以通过如下命令查看：</p>
+
+<pre><code>$git remote show remote-name
+</code></pre>
+
+<h2>添加远程库地址</h2>
+
+<pre><code>$git remote add reponame url
+</code></pre>
+
+<h2>远程库的重命名</h2>
+
+<pre><code>$git remote rename oldname newname
+</code></pre>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/07/22/git-roll-back/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -589,7 +658,7 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
     <h1>Categories</h1>
     <ul id="categories">
         <li class='category'><a href='/blog/categories/git/'>Git (1)</a></li>
-<li class='category'><a href='/blog/categories/linux/'>Linux (3)</a></li>
+<li class='category'><a href='/blog/categories/linux/'>Linux (4)</a></li>
 <li class='category'><a href='/blog/categories/octopress/'>Octopress (7)</a></li>
 <li class='category'><a href='/blog/categories/rails/'>Rails (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby/'>Ruby (4)</a></li>
@@ -601,6 +670,10 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/08/16/install-and-config-shutter/">Linux下截图工具shutter的安装与配置</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/08/11/travel-to-hu-xian/">户县之行</a>
@@ -616,10 +689,6 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
     
       <li class="post">
         <a href="/blog/2013/07/30/create-my-first-rails-app/">创建我的第一个rails程序</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/30/add-comments-to-sidebar/">Octopress添加disqus评论到侧边栏</a>
       </li>
     
   </ul>
