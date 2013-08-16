@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-16T21:32:04+08:00</updated>
+  <updated>2013-08-16T22:06:18+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -27,7 +27,7 @@
 <pre><code>#yum install shutter
 </code></pre>
 
-<h3>2.配置**</h3>
+<h3>2.配置</h3>
 
 <p>QQ截图快捷键<code>&lt;ctrl&gt;+&lt;alt&gt;+A</code>用习惯了，所以也对shutter继续保留这个快捷键。具体配置方法如下：
 在System Tools>System Settings>Keyboard>Shortcuts>Custom Shortcuts中添加了三个快捷键：</p>
