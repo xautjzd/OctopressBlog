@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Category: Ruby - xautjzd</title>
+  <title>安装Powerline过程中的收获 - xautjzd</title>
   <meta name="author" content="xautjzd">
 
   
-  <meta name="description" content="Category: Ruby">
+  <meta name="description" content="Powerline插件已经多次耳闻目见，但是一直没做尝试，今天再次看到便忍不住试了下，结果还没成功。可能是由于字体的原因吧，在找答案的过程中邂逅了airline,据说比powerline加载更快，而且还无需安装字体。所以便果断地换为airline。只需在vimrc中加入bundle bling/ &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://xautjzd.github.ioblog/categories/ruby">
+  <link rel="canonical" href="http://xautjzd.github.io/blog/2013/08/16/powerline-vs-airline">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="xautjzd" type="application/atom+xml">
@@ -80,84 +80,142 @@
   <div id="main">
     <div id="content">
       <div>
-<article role="article">
+<article class="hentry" role="article">
   
   <header>
-    <h1 class="entry-title">Category: Ruby</h1>
+    
+      <h1 class="entry-title">安装Powerline过程中的收获</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-16T22:12:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
     
   </header>
-  
-  <div id="blog-archives" class="category">
 
 
+<div class="entry-content"><p>Powerline插件已经多次耳闻目见，但是一直没做尝试，今天再次看到便忍不住试了下，结果还没成功。可能是由于字体的原因吧，在找答案的过程中邂逅了airline,据说比powerline加载更快，而且还无需安装字体。所以便果断地换为airline。只需在vimrc中加入<code>bundle bling/vim-airline</code>即可。当然前提是在~/.vimrc中已有如下配置：</p>
 
-  
-  <h2>2013</h2>
-
-<article>
-  
-<h1><a href="/blog/2013/07/29/install-ruby-and-rails/">Fedora17下搭建Ruby和Rails环境</a></h1>
-<time datetime="2013-07-29T20:59:00+08:00" pubdate><span class='month'>Jul</span> <span class='day'>29</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>Ruby</a></span>
-</footer>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">set </span><span class="nv">laststatus</span><span class="o">=</span>2  <span class="err">&quot;</span>Always show the status line
+</span><span class='line'><span class="nb">set </span>noshowmode
+</span><span class='line'><span class="nb">set </span><span class="nv">t_Co</span><span class="o">=</span>256
+</span></code></pre></td></tr></table></div></figure>
 
 
-</article>
+<p>配置好后效果如下图所示：
+<img src="/images/airline.jpg" alt="" /></p>
 
+<p>配置好后，在bash中显示没问题，但是在tmux中显示就有问题了，先前配置的效果无法显示。网上也找了好久答案，才得以解决，方法如下：</p>
 
+<p><strong>1.$vim ~/.tmux.conf</strong></p>
 
-<article>
-  
-<h1><a href="/blog/2013/07/27/metaprogram-proc/">Ruby元编程之Proc对象</a></h1>
-<time datetime="2013-07-27T12:40:00+08:00" pubdate><span class='month'>Jul</span> <span class='day'>27</span> <span class='year'>2013</span></time>
+<p>在~/.tmux.conf文件中添加如下代码：</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>Ruby</a></span>
-</footer>
+<pre><code>set -g default-terminal "screen-256color"
+</code></pre>
 
+<p><strong>2.$vim ~/.bashrc</strong></p>
 
-</article>
+<p>在~/.bashrc中添加如下代码：</p>
 
+<pre><code>alias tmux="tmux -2"
+</code></pre>
 
+<p><code>tmux -2</code>是强制tmux的终端支持256种颜色。</p>
 
-<article>
-  
-<h1><a href="/blog/2013/07/21/array/">Ruby基础之Array,String and Hash</a></h1>
-<time datetime="2013-07-21T15:55:00+08:00" pubdate><span class='month'>Jul</span> <span class='day'>21</span> <span class='year'>2013</span></time>
+<p>配置好后，显示没问题，但是在写博客的过程中发现vim突然不能输入中文了，不知为何。最后在~/.vimrc添加：</p>
 
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>Ruby</a></span>
-</footer>
+<pre><code>set guifont=*
+</code></pre>
 
-
-</article>
-
-
-
-<article>
-  
-<h1><a href="/blog/2013/07/19/ruby-variable/">Ruby基础</a></h1>
-<time datetime="2013-07-19T20:33:00+08:00" pubdate><span class='month'>Jul</span> <span class='day'>19</span> <span class='year'>2013</span></time>
-
-<footer>
-  <span class="categories">posted in <a class='category' href='/blog/categories/ruby/'>Ruby</a></span>
-</footer>
-
-
-</article>
-
+<p>就顺利解决，不过原因待深究，要学的东西太多。</p>
 </div>
 
+
+  <footer>
+    <p class="meta">
+      
   
+
+<span class="byline author vcard">Posted by <span class="fn">xautjzd</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-16T22:12:00+08:00" pubdate data-updated="true">Aug 16<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/vim/'>Vim</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://xautjzd.github.io/blog/2013/08/16/powerline-vs-airline/" data-via="" data-counturl="http://xautjzd.github.io/blog/2013/08/16/powerline-vs-airline/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/16/install-and-config-shutter/" title="Previous Post: Linux下截图工具shutter的安装与配置">&laquo; Linux下截图工具shutter的安装与配置</a>
+      
+      
+    </p>
+  </footer>
 </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
 
 <aside class="sidebar">
   
     <section>
+  <h1>关于我</h1>
+  <p>IT男一枚，热爱开源，钟情Linux，喜欢折腾.</p>
+  <p>喜欢和搞技术的打交道，厌恶政治</p>
+  <p>新浪微薄:<a href="http://weibo.com/xautjzd">xautjzd</a></p>
+</section>
+<section>
     <h1>Categories</h1>
     <ul id="categories">
         <li class='category'><a href='/blog/categories/git/'>Git (1)</a></li>
@@ -228,7 +286,10 @@
       var disqus_shortname = 'zhengdongjiang';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://xautjzd.github.io/blog/2013/08/16/powerline-vs-airline/';
+        var disqus_url = 'http://xautjzd.github.io/blog/2013/08/16/powerline-vs-airline/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

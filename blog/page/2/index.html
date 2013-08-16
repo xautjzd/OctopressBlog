@@ -9,7 +9,11 @@
   <meta name="author" content="xautjzd">
 
   
-  <meta name="description" content="查看Git远程库地址 建立了远程库后，许久没操作，突然忘了其对应的具体远程库的url。可通过以下命令来查看： $git remote -v -v选项是&mdash;verbose的简写，最后结果为： origin git@github.com:xautjzd/RubyExample.git ( &hellip;">
+  <meta name="description" content="Proc Proc对象其实就是将代码块(block)转换成对象的块。方式有大致几种： 1.Proc对象 1
+2
+3 inc = Proc.new{ |x| x + 1 } inc.call(3) #=&gt;4 2.lambda方法 1
+2
+3 inc = lambda{ |x| x + 1 } &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -81,6 +85,75 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/07/27/metaprogram-proc/">Ruby元编程之Proc对象</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-27T12:40:00+08:00" pubdate data-updated="true">Jul 27<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/07/27/metaprogram-proc/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Proc</h2>
+
+<p>Proc对象其实就是将代码块(block)转换成对象的块。方式有大致几种：</p>
+
+<p>1.Proc对象</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">inc</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+</span><span class='line'>    <span class="n">inc</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>     <span class="c1">#=&gt;4</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2.lambda方法</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">inc</span> <span class="o">=</span> <span class="nb">lambda</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+</span><span class='line'>    <span class="n">inc</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>     <span class="c1">#=&gt;4</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2013/07/27/metaprogram-proc/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
   
   
     <article>
@@ -663,13 +736,17 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 <li class='category'><a href='/blog/categories/rails/'>Rails (1)</a></li>
 <li class='category'><a href='/blog/categories/ruby/'>Ruby (4)</a></li>
 <li class='category'><a href='/blog/categories/thinking/'>Thinking (5)</a></li>
-<li class='category'><a href='/blog/categories/vim/'>Vim (2)</a></li>
+<li class='category'><a href='/blog/categories/vim/'>Vim (3)</a></li>
 
     </ul>
 </section>
 <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/08/16/powerline-vs-airline/">安装Powerline过程中的收获</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/08/16/install-and-config-shutter/">Linux下截图工具shutter的安装与配置</a>
@@ -685,10 +762,6 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
     
       <li class="post">
         <a href="/blog/2013/08/03/vim-ultisnips/">Vim的代码自动补齐插件——UltiSnips</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/30/create-my-first-rails-app/">创建我的第一个rails程序</a>
       </li>
     
   </ul>
