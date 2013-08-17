@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-17T23:41:18+08:00</updated>
+  <updated>2013-08-17T23:48:05+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[更换Octopress主题]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog/"/>
+    <updated>2013-08-17T22:56:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog</id>
+    <content type="html"><![CDATA[<p>Octopress博客搭建已经有一阵了，但一直采用的默认的主题，没时间更换。今天特意抽时间来更换下，先上<a href="http://octopress.org/docs/theme/">Octopress官网</a>了解了下更换Theme的原理，然后上Octopress所在的源码托管平台GitHub，在其<a href="https://github.com/imathis/octopress/wiki">Wiki</a>上找到了<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">第三方Themes</a>,便从前到后大致将各种themes都预览了一遍，最后选择了<a href="https://github.com/shashankmehta/greyshade">Greyshade主题</a>,安装方法官网写的已经非常详细，这里再啰嗦一遍：</p>
+
+<h3>Install</h3>
+
+<p><code>
+$ cd octopress  #octopress directory
+$ git clone git@github.com:shashankmehta/greyshade.git .themes/greyshade
+$ echo "\$greyshade: color;" &gt;&gt; sass/custom/_colors.scss //Substitue 'color' with your highlight color
+$ rake "install[greyshade]"
+$ rake generate
+</code>
+至此，安装过程便已完成。</p>
+
+<p>左侧的显示效果主要配置在_config.yml文件中。</p>
+
+<h3>pages显示</h3>
+
+<p>Octopress默认只有Homepage和Archives两个导航菜单，不满足要求，我便又添加了"编程"、“Linux”、“所思所想”和“关于我”这几个。“关于我”的页面为静态页面，在source/blog/aboutme/下，其他的几个需要将相关的文章显示在相应的导航菜单下，便需做如下配置：</p>
+
+<h2>```html source/thinking/index.markdown</h2>
+
+<p>layout: category_index
+title: Thinking</p>
+
+<h2>category: Thinking</h2>
+
+<p>```
+这样后，只要new_post并且category为Thinking的页面都会集中在所思所想对应的页面显示。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress添加disqus评论到侧边栏]]></title>
@@ -205,51 +241,6 @@ disqus_show_comment_count: false
 <p>填上自己注册的disqus账号的short name，并将false改成true即可。</p>
 
 <p><strong>注：Disqus一定要和yourname.github.com关联</strong></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress目录结构]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/18/structure-of-octopress/"/>
-    <updated>2013-07-18T14:27:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/18/structure-of-octopress</id>
-    <content type="html"><![CDATA[<h3>Octopress博客目录结构</h3>
-
-<p>octopress博客的source目录结构大致如下:</p>
-
-<pre><code>source/
-├── _attachments
-├── _includes
-│   ├── asides
-│   ├── custom
-│   │   └── asides
-│   └── post
-├── _layouts
-├── _nav_menu_items
-├── _pages
-├── _posts
-├── blog
-│   └── archives
-├── font
-├── images
-│   ├── 2012
-│   │   ├── 01
-│   │   ├── 02
-│   ├── 2013
-│   │   └── 01
-│   ├── fancybox
-│   └── social
-├── javascripts
-│   ├── asides
-│   └── libs
-├── jsccp
-└── stylesheets
-    ├── bootstrap
-        └── syntax
-</code></pre>
-
-<p>当使用<code>rake generate</code>时，source的_post目录中的markdown文件会被编译成html文件，并拷贝到public目录下，public目录结构与source目录结构一致，里面的内容为最终的静态页面。一般都是先<code>rake generate</code>生成静态页面，然后通过<code>rake preview</code>进行本地预览，如果显示正常，则<code>rake
-deploy</code>部署到github上。如果特别熟练，也可以直接生成静态页面并部署，不需要本地预览。可以采用<code>rake gen_deploy</code>一步进行。</p>
 ]]></content>
   </entry>
   
