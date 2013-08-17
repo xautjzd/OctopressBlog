@@ -1,77 +1,58 @@
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>xautjzd</title>
-  <meta name="author" content="xautjzd">
+<!DOCTYPE HTML>
 
-  
-  <meta name="description" content="Proc Proc对象其实就是将代码块(block)转换成对象的块。方式有大致几种： 1.Proc对象 1
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>xautjzd</title>
+	<meta name="author" content="xautjzd">
+
+	
+	<meta name="description" content="Jul 27th, 2013 Ruby Comments Ruby元编程之Proc对象 Proc Proc对象其实就是将代码块(block)转换成对象的块。方式有大致几种： 1.Proc对象 1
 2
-3 inc = Proc.new{ |x| x + 1 } inc.call(3) #=&gt;4 2.lambda方法 1
-2
-3 inc = lambda{ |x| x + 1 } &hellip;">
-  
+3 inc = Proc.new{ |x| x + 1 } inc.call(3) #=&gt; &hellip;">
+	
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
-  <link rel="canonical" href="http://xautjzd.github.io/blog/page/2">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="xautjzd" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+	<link href="/atom.xml" rel="alternate" title="xautjzd" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://xautjzd.github.io/blog/page/2/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-42925167-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$('.profilepic').append("<img src='http://www.gravatar.com/avatar/" + MD5("xautjzd@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+		});
+	</script>
+</div>
+<hgroup>
   <h1><a href="/">xautjzd</a></h1>
   
     <h2>博学之，审问之，慎思之，明辨之，笃行之</h2>
   
 </hgroup>
 
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:xautjzd.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
+<nav id="main-nav"><ul class="main-navigation">
   <li><a href="/">博客主页</a></li>
   <li><a href="/blog/archives">文章列表</a></li>
   <li><a href="/blog/programs">编程</a></li>
@@ -80,22 +61,49 @@
   <li><a href="/blog/aboutme">关于我</a></li>
 </ul>
 
+
+<section class="aboutme">
+  <p>
+    记录学习成长历程
+  </p>
+</section>
 </nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/27/metaprogram-proc/">Ruby元编程之Proc对象</a></h1>
-    
-    
-      <p class="meta">
-        
+<nav id="sub-nav">
+	<div class="social">
+		
+		
+		
+		<a class="twitter" href="http://twitter.com/xautjzd" title="Twitter">Twitter</a>
+		
+		
+		<a class="github" href="https://github.com/xautjzd" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner">
+<div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
 
 
 
@@ -107,16 +115,21 @@
   
 
 
-<time datetime="2013-07-27T12:40:00+08:00" pubdate data-updated="true">Jul 27<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/27/metaprogram-proc/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
+<time datetime="2013-07-27T12:40:00+08:00" data-updated="true" itemprop="datePublished">Jul 27<span>th</span>, 2013</time></div>
+		<div class="tags">
 
 
-  <div class="entry-content"><h2>Proc</h2>
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/07/27/metaprogram-proc/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/27/metaprogram-proc/" itemprop="url">Ruby元编程之Proc对象</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h2>Proc</h2>
 
 <p>Proc对象其实就是将代码块(block)转换成对象的块。方式有大致几种：</p>
 
@@ -144,48 +157,43 @@
 
 
 
+
+		
+		<a href="/blog/2013/07/27/metaprogram-proc/" class="more-link">Read on &rarr;</a>
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-22T11:33:00+08:00" data-updated="true" itemprop="datePublished">Jul 22<span>nd</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/git/'>Git</a>
+
+
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/07/27/metaprogram-proc/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/22/git-roll-back/">Git的相关操作</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-22T11:33:00+08:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/22/git-roll-back/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>查看Git远程库地址</h2>
+		
+			<span class="comments"><a href="/blog/2013/07/22/git-roll-back/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/22/git-roll-back/" itemprop="url">Git的相关操作</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h2>查看Git远程库地址</h2>
 
 <p>建立了远程库后，许久没操作，突然忘了其对应的具体远程库的url。可通过以下命令来查看：</p>
 
@@ -213,48 +221,43 @@ origin git@github.com:xautjzd/RubyExample.git (push)
 <pre><code>$git remote rename oldname newname
 </code></pre>
 
+
+		
+		<a href="/blog/2013/07/22/git-roll-back/" class="more-link">Read on &rarr;</a>
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-21T15:55:00+08:00" data-updated="true" itemprop="datePublished">Jul 21<span>st</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/07/22/git-roll-back/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/21/array/">Ruby基础之Array,String and Hash</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-21T15:55:00+08:00" pubdate data-updated="true">Jul 21<span>st</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/21/array/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Array</h2>
+		
+			<span class="comments"><a href="/blog/2013/07/21/array/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/21/array/" itemprop="url">Ruby基础之Array,String and Hash</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h2>Array</h2>
 
 <p>数组通常都是同种元素的集合，元素可以为单个的变量，如数值或者字符串，但是也可以为数组和Hash等复杂对象。</p>
 
@@ -277,48 +280,43 @@ origin git@github.com:xautjzd/RubyExample.git (push)
 <pre><code>a = Array.new(3, [0, 0, 0])
 </code></pre>
 
+
+		
+		<a href="/blog/2013/07/21/array/" class="more-link">Read on &rarr;</a>
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-19T20:33:00+08:00" data-updated="true" itemprop="datePublished">Jul 19<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/07/21/array/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/19/ruby-variable/">Ruby基础</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-19T20:33:00+08:00" pubdate data-updated="true">Jul 19<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/19/ruby-variable/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>变量分类</h2>
+		
+			<span class="comments"><a href="/blog/2013/07/19/ruby-variable/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/19/ruby-variable/" itemprop="url">Ruby基础</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h2>变量分类</h2>
 
 <ul>
 <li><strong>局部变量</strong></li>
@@ -345,48 +343,43 @@ origin git@github.com:xautjzd/RubyExample.git (push)
 
 <p>@instance_variable = 10</p>
 
+
+		
+		<a href="/blog/2013/07/19/ruby-variable/" class="more-link">Read on &rarr;</a>
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-18T17:17:00+08:00" data-updated="true" itemprop="datePublished">Jul 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/octopress/'>Octopress</a>
+
+
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/07/19/ruby-variable/">Read on &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/18/config-category-plugin/">配置文章分类插件</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T17:17:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/18/config-category-plugin/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Octopress搭建的博客默认没有文章分类，这肯定让人很不爽，但这个号称Hacker的博客肯定有这功能，便网上搜寻了答案，最终得以解决。方法如下：</p>
+		
+			<span class="comments"><a href="/blog/2013/07/18/config-category-plugin/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/18/config-category-plugin/" itemprop="url">配置文章分类插件</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Octopress搭建的博客默认没有文章分类，这肯定让人很不爽，但这个号称Hacker的博客肯定有这功能，便网上搜寻了答案，最终得以解决。方法如下：</p>
 
 <h3>1. 添加category_list插件</h3>
 
@@ -473,44 +466,43 @@ origin git@github.com:xautjzd/RubyExample.git (push)
 
 
 
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-18T15:37:00+08:00" data-updated="true" itemprop="datePublished">Jul 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
 </div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/18/congfig-disqus-plugin/">Octopress配置Disqus插件</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T15:37:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/18/congfig-disqus-plugin/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>添加Disqus插件</h3>
+		
+			<span class="comments"><a href="/blog/2013/07/18/congfig-disqus-plugin/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/18/congfig-disqus-plugin/" itemprop="url">Octopress配置Disqus插件</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h3>添加Disqus插件</h3>
 
 <p>看到不少人博客上都有Comments功能，便也想给自己的博客添加上。经过搜寻一番，发现大多用的都是Disqus，而且octopress其实内置了其功能，只是默认没有设置.编辑博客主目录下的config.yml文件即可：</p>
 
@@ -527,44 +519,43 @@ disqus_show_comment_count: false
 <p>填上自己注册的disqus账号的short name，并将false改成true即可。</p>
 
 <p><strong>注：Disqus一定要和yourname.github.com关联</strong></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-18T14:27:00+08:00" data-updated="true" itemprop="datePublished">Jul 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
 </div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/18/structure-of-octopress/">Octopress目录结构</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T14:27:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/18/structure-of-octopress/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>Octopress博客目录结构</h3>
+		
+			<span class="comments"><a href="/blog/2013/07/18/structure-of-octopress/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/18/structure-of-octopress/" itemprop="url">Octopress目录结构</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h3>Octopress博客目录结构</h3>
 
 <p>octopress博客的source目录结构大致如下:</p>
 
@@ -601,44 +592,43 @@ disqus_show_comment_count: false
 
 <p>当使用<code>rake generate</code>时，source的_post目录中的markdown文件会被编译成html文件，并拷贝到public目录下，public目录结构与source目录结构一致，里面的内容为最终的静态页面。一般都是先<code>rake generate</code>生成静态页面，然后通过<code>rake preview</code>进行本地预览，如果显示正常，则<code>rake
 deploy</code>部署到github上。如果特别熟练，也可以直接生成静态页面并部署，不需要本地预览。可以采用<code>rake gen_deploy</code>一步进行。</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-18T13:46:00+08:00" data-updated="true" itemprop="datePublished">Jul 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
 </div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/18/add-navigator/">Octopress修改导航栏(Navigator)</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T13:46:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/18/add-navigator/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：</p>
+		
+			<span class="comments"><a href="/blog/2013/07/18/add-navigator/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/18/add-navigator/" itemprop="url">Octopress修改导航栏(Navigator)</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：</p>
 
 <pre><code>$rake new_page[About]
 </code></pre>
@@ -659,44 +649,43 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 </code></pre>
 
 <p>编辑完成后进行rake generate生成静态的html文件，然后rake preview便可以通过localhost:4000在本地预览。</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-18T12:42:00+08:00" data-updated="true" itemprop="datePublished">Jul 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
 </div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/07/18/my-first-blog/">我的第一篇博客</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T12:42:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time>
-        
-         | <a href="/blog/2013/07/18/my-first-blog/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。
+		
+			<span class="comments"><a href="/blog/2013/07/18/my-first-blog/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/18/my-first-blog/" itemprop="url">我的第一篇博客</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。
 详细搭建过程官方文档写的相当详细，这里不再赘述，请参考：
 <a href="octopress.org/docs/setup">官网</a><br/>
 下面只说我搭建过程中遇到的难题：
@@ -704,94 +693,38 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 每次都是![rejected] master->master (no-fast-forward)
 最后网上找了不少资料，然后自己也细细思考了一番，最后终得以解决。方法如下：
 转到deploy目录下，执行$git pull，然后再执行git push origin master即可。</p>
+
+		
+		
+	</div>
+
+</article>
+
 </div>
-  
-  
-
-
-    </article>
-  
-  <div class="pagination">
+<nav id="pagenavi">
     
-    <a href="/blog/archives">Blog Archives</a>
+        <a href="/" class="prev">Prev</a>
     
-    <a class="next" href="/">Newer &rarr;</a>
     
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>关于我</h1>
-  <p>IT男一枚，热爱开源，钟情Linux，喜欢折腾.</p>
-  <p>喜欢和搞技术的打交道，厌恶政治</p>
-  <p>新浪微薄:<a href="http://weibo.com/xautjzd">xautjzd</a></p>
-</section>
-<section>
-    <h1>Categories</h1>
-    <ul id="categories">
-        <li class='category'><a href='/blog/categories/git/'>Git (1)</a></li>
-<li class='category'><a href='/blog/categories/linux/'>Linux (4)</a></li>
-<li class='category'><a href='/blog/categories/octopress/'>Octopress (7)</a></li>
-<li class='category'><a href='/blog/categories/rails/'>Rails (1)</a></li>
-<li class='category'><a href='/blog/categories/ruby/'>Ruby (4)</a></li>
-<li class='category'><a href='/blog/categories/thinking/'>Thinking (5)</a></li>
-<li class='category'><a href='/blog/categories/vim/'>Vim (3)</a></li>
-
-    </ul>
-</section>
-<section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2013/08/16/powerline-vs-airline/">安装Powerline过程中的收获</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/08/16/install-and-config-shutter/">Linux下截图工具shutter的安装与配置</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/08/11/travel-to-hu-xian/">户县之行</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/08/08/tmux-use-and-configuration/">终端分屏工具tmux的安装与常用操作</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/08/03/vim-ultisnips/">Vim的代码自动补齐插件——UltiSnips</a>
-      </li>
-    
-  </ul>
-</section>
-<section id="comments_sidebar">
-	<h1>近期评论</h1>
-
-	<script type="text/javascript" src="http://zhengdongjiang.disqus.com/recent_comments_widget.js?num_items=5&hide_avatars=0&avatar_size=32&excerpt_length=20"></script><a href="http://disqus.com/">Powered by Disqus</a>
-
-</section>
-<section>
-    <h1>友情链接</h1>
-    <ul>
-        <li><a href="http://blog.kochiya.me/">AprocySanae</a></li>
-    </ul>
-</section>
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
+    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
+</nav></div>
+			</div>
+			<footer id="footer" class="inner"><p>
   Copyright &copy; 2013 - xautjzd -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
-</footer>
-  
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			<script src="/javascripts/slash.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
 
 <script type="text/javascript">
       var disqus_shortname = 'zhengdongjiang';
@@ -808,23 +741,22 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 
 
 
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-42925167-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
 
 
 
 
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
+		</div>
+	</div>
 </body>
 </html>
