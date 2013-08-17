@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-17T21:55:31+08:00</updated>
+  <updated>2013-08-17T23:41:18+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,52 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[更换Octopress主题]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog/"/>
+    <updated>2013-08-17T22:56:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog</id>
+    <content type="html"><![CDATA[<p>Octopress博客搭建已经有一阵了，但一直采用的默认的主题，没时间更换。今天特意抽时间来更换下，先上<a href="http://octopress.org/docs/theme/">Octopress官网</a>了解了下更换Theme的原理，然后上Octopress所在的源码托管平台GitHub，在其<a href="https://github.com/imathis/octopress/wiki">Wiki</a>上找到了<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">第三方Themes</a>,便从前到后大致将各种themes都预览了一遍，最后选择了<a href="https://github.com/shashankmehta/greyshade">Greyshade主题</a>,安装方法官网写的已经非常详细，这里再啰嗦一遍：</p>
+
+<h3>Install</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd octopress  #octopress directory
+</span><span class='line'>$ git clone git@github.com:shashankmehta/greyshade.git .themes/greyshade
+</span><span class='line'>$ echo "\$greyshade: color;" &gt;&gt; sass/custom/_colors.scss //Substitue 'color' with your highlight color
+</span><span class='line'>$ rake "install[greyshade]"
+</span><span class='line'>$ rake generate</span></code></pre></td></tr></table></div></figure>
+
+
+<p>至此，安装过程便已完成。</p>
+
+<p>左侧的显示效果主要配置在_config.yml文件中。</p>
+
+<h3>pages显示</h3>
+
+<p>Octopress默认只有Homepage和Archives两个导航菜单，不满足要求，我便又添加了&#8221;编程&#8221;、“Linux”、“所思所想”和“关于我”这几个。“关于我”的页面为静态页面，在source/blog/aboutme/下，其他的几个需要将相关的文章显示在相应的导航菜单下，便需做如下配置：</p>
+
+<figure class='code'><figcaption><span>source/thinking/index.markdown</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>---
+</span><span class='line'>layout: category_index
+</span><span class='line'>title: Thinking
+</span><span class='line'>category: Thinking
+</span><span class='line'>---
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样后，只要new_post并且category为Thinking的页面都会集中在所思所想对应的页面显示。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[安装Powerline过程中的收获]]></title>

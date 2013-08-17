@@ -5,11 +5,11 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>关于我 - xautjzd</title>
+	<title>更换Octopress主题 - xautjzd</title>
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="格言 博学之，审问之，慎思之，明辨之，笃行之 个人简介 程序员一枚，热爱开源，钟爱Linux,尤其是Vim，喜欢折腾。目前环境为Fedora17,有点Java基础，Asp.net MVC项目经验，自学过Ruby，喜欢和搞技术的人交流心得体会，喜欢接触新东西。 教育经历 &hellip;">
+	<meta name="description" content="更换Octopress主题 Octopress博客搭建已经有一阵了，但一直采用的默认的主题，没时间更换。今天特意抽时间来更换下，先上Octopress官网了解了下更换Theme的原理，然后上Octopress所在的源码托管平台GitHub，在其Wiki上找到了第三方Themes, &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +19,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="xautjzd" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://xautjzd.github.io/blog/aboutme/">
+	<link rel="canonical" href="http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -95,49 +95,48 @@
 				
 			
 			<div class="mid-col-container">
-				<div id="content" class="inner"><article class="page">
-    
-    <h1 class="title">关于我</h1>
-    
-    <div class="entry-content"><h3>格言</h3>
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">更换Octopress主题</h1>
+	<div class="entry-content" itemprop="articleBody"><p>Octopress博客搭建已经有一阵了，但一直采用的默认的主题，没时间更换。今天特意抽时间来更换下，先上<a href="http://octopress.org/docs/theme/">Octopress官网</a>了解了下更换Theme的原理，然后上Octopress所在的源码托管平台GitHub，在其<a href="https://github.com/imathis/octopress/wiki">Wiki</a>上找到了<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">第三方Themes</a>,便从前到后大致将各种themes都预览了一遍，最后选择了<a href="https://github.com/shashankmehta/greyshade">Greyshade主题</a>,安装方法官网写的已经非常详细，这里再啰嗦一遍：</p>
 
-<p>博学之，审问之，慎思之，明辨之，笃行之</p>
+<h3>Install</h3>
 
-<h3>个人简介</h3>
-
-<p>程序员一枚，热爱开源，钟爱Linux,尤其是Vim，喜欢折腾。目前环境为Fedora17,有点Java基础，Asp.net MVC项目经验，自学过Ruby，喜欢和搞技术的人交流心得体会，喜欢接触新东西。</p>
-
-<h3>教育经历</h3>
-
-<p>本科毕业于西安理工大学的计算机科学与工程学院，专业为网络工程，保研于西安理工的计算机，研一生活刚结束，正在着手学习Ruby &amp; Ruby on Rails。从大二开始就一直在学习Java,大致学了有两年，也熟悉了SSH框架。后来进教研室，由于项目需要便搞起了.NET的开发，主要是Web方向，用的ASP.NET MVC框架。后来参加开源中国的西安OSC,无意接触了Ruby,便从此开始了我的Ruby &amp; RoR之路。</p>
-
-<h3>技能</h3>
-
-<ul>
-<li>熟悉Ruby &amp; Ruby on Rails</li>
-<li>熟悉Linux环境及基本操作</li>
-<li>熟悉Vim &amp; Git</li>
-<li>熟悉Java Web开发及SSH框架</li>
-<li>熟悉Socket编程(看过UNP和APUE)</li>
-<li>熟悉Linux环境下的C编程(GDB,GCC，Makefile都有所了解)</li>
-<li>熟悉.Net的MVC框架</li>
-</ul>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd octopress  #octopress directory
+</span><span class='line'>$ git clone git@github.com:shashankmehta/greyshade.git .themes/greyshade
+</span><span class='line'>$ echo "\$greyshade: color;" &gt;&gt; sass/custom/_colors.scss //Substitue 'color' with your highlight color
+</span><span class='line'>$ rake "install[greyshade]"
+</span><span class='line'>$ rake generate</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>联系方式</h3>
+<p>至此，安装过程便已完成。</p>
 
-<ul>
-<li><p>新郎微薄：<a href="http://weibo.com/xautjzd">xautjzd</a></p></li>
-<li><p>Facebook: <a href="https://www.facebook.com/jiangzhengdong">jiangzhengdong</a></p></li>
-<li><p>Twitter: <a href="https://twitter.com/xautjzd">xautjzd</a></p></li>
-<li><p>QQ :176300603</p></li>
-</ul>
+<p>左侧的显示效果主要配置在_config.yml文件中。</p>
+
+<h3>pages显示</h3>
+
+<p>Octopress默认只有Homepage和Archives两个导航菜单，不满足要求，我便又添加了&#8221;编程&#8221;、“Linux”、“所思所想”和“关于我”这几个。“关于我”的页面为静态页面，在source/blog/aboutme/下，其他的几个需要将相关的文章显示在相应的导航菜单下，便需做如下配置：</p>
+
+<figure class='code'><figcaption><span>source/thinking/index.markdown</span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>---
+</span><span class='line'>layout: category_index
+</span><span class='line'>title: Thinking
+</span><span class='line'>category: Thinking
+</span><span class='line'>---
+</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>地点</h3>
-
-<p>陕西省西安市碑林区</p>
+<p>这样后，只要new_post并且category为Thinking的页面都会集中在所思所想对应的页面显示。</p>
 </div>
+
 </article>
 
 	<div class="share">
@@ -161,7 +160,6 @@
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 </section>
-
 </div>
 			</div>
 			<footer id="footer" class="inner"><p>
@@ -186,8 +184,8 @@ Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Sha
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://xautjzd.github.io/blog/aboutme/index.html';
-        var disqus_url = 'http://xautjzd.github.io/blog/aboutme/index.html';
+        var disqus_identifier = 'http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog/';
+        var disqus_url = 'http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog/';
         var disqus_script = 'embed.js';
       
     (function () {
