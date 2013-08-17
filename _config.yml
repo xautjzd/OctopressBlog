@@ -19,7 +19,7 @@ date_format: "ordinal"
 subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
-email:
+email: xautjzd@gmail.com
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -63,13 +63,13 @@ post_asides: [custom/asides/about.html, custom/asides/category_list.html, asides
 # ----------------------- #
 
 # Github repositories
-github_user:
+github_user: xautjzd
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user: xautjzd
 twitter_tweet_button: true
 
 # Google +1
@@ -97,4 +97,4 @@ disqus_show_comment_count: true
 google_analytics_tracking_id: UA-42925167-1
 
 # Facebook Like
-facebook_like: false
+facebook_like: jiangzhengdong

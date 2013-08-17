@@ -10,7 +10,7 @@ categories: Linux
 ###1.安装
 安装过程很简单，执行下面命令即可：
 	#yum install shutter
-###2.配置**
+###2.配置
 QQ截图快捷键`<ctrl>+<alt>+A`用习惯了，所以也对shutter继续保留这个快捷键。具体配置方法如下：
 在System Tools>System Settings>Keyboard>Shortcuts>Custom Shortcuts中添加了三个快捷键：
 
