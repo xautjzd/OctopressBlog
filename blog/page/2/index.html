@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Jul 27th, 2013 Octopress Comments Ocpress添加友情链接 与在侧边栏添加Aboutme、Categories、Tagcloud等功能类似，在source/_include\custom\asides目录下添加一个frendsites.html文件， &hellip;">
+	<meta name="description" content="Jul 27th, 2013 Linux, Vim Comments Vim下的的插件管理神器——Vundle 断断续续用Vim也不少时间了，但是从来没有进行过复杂的Vim配置，每每需要插件都是网上寻求安装方式。但是当插件多了管理也便变得繁琐，最后终于让我结识了插件管理神器——Vundle， &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -99,6 +99,61 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-27T20:38:00+08:00" data-updated="true" itemprop="datePublished">Jul 27<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/07/27/vim-vundle-install-and-config/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/27/vim-vundle-install-and-config/" itemprop="url">Vim下的的插件管理神器——Vundle</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>断断续续用Vim也不少时间了，但是从来没有进行过复杂的Vim配置，每每需要插件都是网上寻求安装方式。但是当插件多了管理也便变得繁琐，最后终于让我结识了插件管理神器——Vundle，用过的人都说好用，所以我便也尝试了，网上也有一部分人采用pathogen来进行插件管理，但是据说没有Vundle好用，也便没有尝试，下面对我使用Vundle做一个总结。</p>
+
+<p>首先Vundle采用git插件的git repo以及vim-scripts维护的GitHub repo, 自动安装, 更新和卸载插件. 把这些繁杂的工作变得简单, 甚至, 成为一种享受.</p>
+
+<h2>安装</h2>
+
+<p><a href="https://github.com/gmarik/vundle">Vundle地址</a>,上面安装及配置步骤已经很详细，我在此再赘述下：</p>
+
+<p>1.拷贝Vundle</p>
+
+<pre><code>$ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+</code></pre>
+
+<p>上面步骤将vundle拷贝到本地的～/.vim/bundle/vundle目录下</p>
+
+<p>2.Vundle配置</p>
+
+<p>以下是我的配置文件：</p>
+
+
+		
+		<a href="/blog/2013/07/27/vim-vundle-install-and-config/" class="more-link">Read on &rarr;</a>
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -715,55 +770,13 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 
 </article>
 
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T12:42:00+08:00" data-updated="true" itemprop="datePublished">Jul 18<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/18/my-first-blog/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/18/my-first-blog/" itemprop="url">我的第一篇博客</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。
-详细搭建过程官方文档写的相当详细，这里不再赘述，请参考：
-<a href="octopress.org/docs/setup">官网</a><br/>
-下面只说我搭建过程中遇到的难题：
-我每次都是运行rake deploy时出现问题，也就是博客无法push到github的repository中。
-每次都是![rejected] master->master (no-fast-forward)
-最后网上找了不少资料，然后自己也细细思考了一番，最后终得以解决。方法如下：
-转到deploy目录下，执行$git pull，然后再执行git push origin master即可。</p>
-
-		
-		
-	</div>
-
-</article>
-
 </div>
 <nav id="pagenavi">
     
         <a href="/" class="prev">Prev</a>
     
+    
+        <a href="/blog/page/3/" class="next">Next</a>
     
     <div class="center"><a href="/blog/archives">Blog Archives</a></div>
 </nav></div>
