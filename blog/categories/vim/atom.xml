@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Vim | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-18T14:38:03+08:00</updated>
+  <updated>2013-08-18T16:23:00+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -23,9 +23,11 @@
 <ul>
 <li>gf  快速跳转到定义</li>
 <li><code>&lt;C + 6&gt;</code>  返回到上次编辑的文档</li>
-<li>%  跳转到括号的另一端</li>
-<li><code>#/*</code>  向前/向后搜索光标所在的词</li>
+<li>%  括号匹配{}<a href=""></a></li>
+<li><code>#/*,g#/g*</code>  向前/向后搜索光标所在的词</li>
 <li>gi  跳转到上次编辑的位置</li>
+<li>gi  显示光标所在字符的编码</li>
+<li>gH  开始选择行模式</li>
 <li>vi"  选中"之间的文本(不包括")</li>
 <li>vi{  选中{之间的文本（不包括{）</li>
 <li>ci(  改变之间的文本</li>
@@ -46,10 +48,11 @@
 <li><code>&lt;&lt;</code>  取消缩进光标所在行</li>
 <li><code>&gt;%</code>  大括号及括号内的内容都缩进(光标需放在{或者}上)</li>
 <li>==  文本对其当前行</li>
+<li>=%  (re)indent the current braces{&hellip;}</li>
 <li>gg=G  全文对齐</li>
 <li>H  跳转到屏幕上方</li>
 <li>M  跳转到屏幕中间</li>
-<li>L  跳转到屏幕下方</li>
+<li>L  转到屏幕下方</li>
 </ul>
 
 
@@ -57,6 +60,8 @@
 
 <ul>
 <li><a href="http://c9s.blogspot.com">c9s</a>的<a href="http://c9s.blogspot.com/2009/08/vim-hacks-coscup.html">Vim Hacks</a></li>
+<li><a href="http://vim.wikia.com/wiki/Best_Vim_Tips">Vim Tips</a></li>
+<li><a href="http://www.vim.org/">Vim官网</a></li>
 </ul>
 
 ]]></content>
