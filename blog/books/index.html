@@ -5,11 +5,16 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Git的相关操作 - xautjzd</title>
+	<title>Books - xautjzd</title>
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Git的相关操作 查看Git远程库地址 建立了远程库后，许久没操作，突然忘了其对应的具体远程库的url。可通过以下命令来查看： $git remote -v -v选项是&mdash;verbose的简写，最后结果为： origin git@github.com:xautjzd/ &hellip;">
+	<meta name="description" content="To read 《高效程序员的45个习惯》 Reading 《七周七语言》
+《应用Rails进行敏捷web开发》
+《Ruby on Rails Tutorial》 Have read 《黑客与画家》
+《Metaprogramming Ruby》
+《Programming Ruby》
+《Unix &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +24,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="xautjzd" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://xautjzd.github.io/blog/2013/07/22/git-roll-back/">
+	<link rel="canonical" href="http://xautjzd.github.io/blog/books/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -97,57 +102,37 @@
 				
 			
 			<div class="mid-col-container">
-				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-	<h1 class="title" itemprop="name">Git的相关操作</h1>
-	<div class="entry-content" itemprop="articleBody"><h2>查看Git远程库地址</h2>
+				<div id="content" class="inner"><article class="page">
+    
+    <h1 class="title">Books</h1>
+    
+    <div class="entry-content"><h3>To read</h3>
 
-<p>建立了远程库后，许久没操作，突然忘了其对应的具体远程库的url。可通过以下命令来查看：</p>
-
-<pre><code>$git remote -v
-</code></pre>
-
-<p>-v选项是&mdash;verbose的简写，最后结果为：</p>
-
-<pre><code>origin git@github.com:xautjzd/RubyExample.git (fetch)  
-origin git@github.com:xautjzd/RubyExample.git (push)
-</code></pre>
-
-<p>要查看详细信息，则可以通过如下命令查看：</p>
-
-<pre><code>$git remote show remote-name
-</code></pre>
-
-<h2>添加远程库地址</h2>
-
-<pre><code>$git remote add reponame url
-</code></pre>
-
-<h2>远程库的重命名</h2>
-
-<pre><code>$git remote rename oldname newname
-</code></pre>
-
-<!-- more -->
+<ul>
+<li><a href="http://book.douban.com/subject/4164024/">《高效程序员的45个习惯》</a></li>
+</ul>
 
 
-<h2>删除远程库</h2>
+<h3>Reading</h3>
 
-<pre><code>$git remote rm remote-name
-</code></pre>
+<ul>
+<li><a href="http://book.douban.com/subject/10555435/">《七周七语言》</a></li>
+<li><a href="http://book.douban.com/subject/1839273/">《应用Rails进行敏捷web开发》</a></li>
+<li><a href="ttp://book.douban.com/subject/5263109/">《Ruby on Rails Tutorial》</a></li>
+</ul>
 
-<h2>恢复git reset &mdash;hard误操作</h2>
 
-<p>使用git类的版本控制器一定要谨慎，因为通常涉及版本控制器的管理都是重要文档，不容有失。特别是涉及reset、rebase、checkout和merge等一些高级操作时，更要格外小心。</p>
+<h3>Have read</h3>
 
-<p>当然总是难免会有误操作，而通常伟大的工具都会有误操作的恢复功能。首先可以通过git log查看提交日志。然后查看上次提交的commitid,通过git reset &mdash;hard commitid可以将暂存区和工作区替换成某个点的repository。这样可能新添加到工作区的文件会丢失，不过不用担心，如果想还原，则通过：</p>
+<ul>
+<li><a href="http://book.douban.com/subject/6021440/">《黑客与画家》</a></li>
+<li><a href="http://book.douban.com/subject/7056800/">《Metaprogramming Ruby》</a></li>
+<li><a href="http://book.douban.com/subject/2032343/">《Programming Ruby》</a></li>
+<li><a href="http://book.douban.com/subject/1500149/">《Unix 网络编程》</a></li>
+<li><a href="http://book.douban.com/subject/1788421/">《Unix环境高级编程》</a></li>
+</ul>
 
-<pre><code>$git reflog     #reflog记录着所有的HEAD历史
-$git reset --hard commitid   ##回滚到某次HEAD
-</code></pre>
-
-<p>短时间内可以回滚,如果长时间，则可能记录会被git当作垃圾清理掉。</p>
 </div>
-
 </article>
 
 	<div class="share">
@@ -171,6 +156,7 @@ $git reset --hard commitid   ##回滚到某次HEAD
     <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
 </section>
+
 </div>
 			</div>
 			<footer id="footer" class="inner"><p>
@@ -195,8 +181,8 @@ Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Sha
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://xautjzd.github.io/blog/2013/07/22/git-roll-back/';
-        var disqus_url = 'http://xautjzd.github.io/blog/2013/07/22/git-roll-back/';
+        var disqus_identifier = 'http://xautjzd.github.io/blog/books/index.html';
+        var disqus_url = 'http://xautjzd.github.io/blog/books/index.html';
         var disqus_script = 'embed.js';
       
     (function () {
