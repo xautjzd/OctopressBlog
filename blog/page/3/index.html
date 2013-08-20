@@ -9,7 +9,10 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Jul 18th, 2013 Octopress, Thinking Comments 我的第一篇博客 几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。 &hellip;">
+	<meta name="description" content="Jul 18th, 2013 Octopress, Thinking Comments Octopress目录结构 Octopress博客目录结构 octopress博客的source目录结构大致如下: source/
+├── _attachments
+├── _includes
+│ ├── &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -99,6 +102,136 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-18T14:27:00+08:00" data-updated="true" itemprop="datePublished">Jul 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/07/18/structure-of-octopress/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/18/structure-of-octopress/" itemprop="url">Octopress目录结构</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h3>Octopress博客目录结构</h3>
+
+<p>octopress博客的source目录结构大致如下:</p>
+
+<pre><code>source/
+├── _attachments
+├── _includes
+│   ├── asides
+│   ├── custom
+│   │   └── asides
+│   └── post
+├── _layouts
+├── _nav_menu_items
+├── _pages
+├── _posts
+├── blog
+│   └── archives
+├── font
+├── images
+│   ├── 2012
+│   │   ├── 01
+│   │   ├── 02
+│   ├── 2013
+│   │   └── 01
+│   ├── fancybox
+│   └── social
+├── javascripts
+│   ├── asides
+│   └── libs
+├── jsccp
+└── stylesheets
+    ├── bootstrap
+        └── syntax
+</code></pre>
+
+<p>当使用<code>rake generate</code>时，source的_post目录中的markdown文件会被编译成html文件，并拷贝到public目录下，public目录结构与source目录结构一致，里面的内容为最终的静态页面。一般都是先<code>rake generate</code>生成静态页面，然后通过<code>rake preview</code>进行本地预览，如果显示正常，则<code>rake
+deploy</code>部署到github上。如果特别熟练，也可以直接生成静态页面并部署，不需要本地预览。可以采用<code>rake gen_deploy</code>一步进行。</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-18T13:46:00+08:00" data-updated="true" itemprop="datePublished">Jul 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/07/18/add-navigator/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/18/add-navigator/" itemprop="url">Octopress修改导航栏(Navigator)</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：</p>
+
+<pre><code>$rake new_page[About]
+</code></pre>
+
+<p>默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉，便想着将生成的页面和其他页面放在一起，便可进行如下操作：</p>
+
+<pre><code>$rake new_page[/blog/About]
+</code></pre>
+
+<p>这样便在source/blog目录中生成页面，方面管理。生成的页面目前还不能显示，还需编辑source/_includes/custom/navigation.html文件：</p>
+
+<pre><code>$vim source/_includes/custom/navigation.html
+</code></pre>
+
+<p>在其中加入</p>
+
+<pre><code>&lt;li&gt;&lt;a href="/blog/about"&gt;关于我&lt;/a&gt;&lt;/li&gt;
+</code></pre>
+
+<p>编辑完成后进行rake generate生成静态的html文件，然后rake preview便可以通过localhost:4000在本地预览。</p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">

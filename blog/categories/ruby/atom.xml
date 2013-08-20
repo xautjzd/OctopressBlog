@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-18T16:23:00+08:00</updated>
+  <updated>2013-08-20T20:10:33+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby中symbol与string的区别]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/18/difference-between-symbol-and-string/"/>
+    <updated>2013-08-18T20:50:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/18/difference-between-symbol-and-string</id>
+    <content type="html"><![CDATA[<p>记得当初学习Ruby基本语法时，还为Symbol与String的异同纠结了好久，后来经过一段时间的摸索，大致有了了解，但让我给他人解释，这点我还是办不到。但是今天看到了一篇<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">博文</a>,让我彻底明白他们的区别。</p>
+
+<h3>symbol定义</h3>
+
+<p>Symbol其实就是string加上前缀：。</p>
+
+<h3>二者异同点</h3>
+
+<p>其实Symbol与String本质相同，是string 的两种不同呈现方式。由于受SmallTalk影响，Ruby一切皆对象。所以每次给string赋值，<code>name="xautjzd"</code>其实都是在内存中创建一个新对象。每次创建的对象的object_id都不相同。</p>
+
+<p>而symbol则不同，symbol创建一次即可。以后所有的操作都是指向先前创建的对象。所以object_id相同。</p>
+
+<p>不同点大致有三：
+1. symbol为常量，值不能改变。
+2. 多次使用同一个symbol,object_id相同，而多次使用string,每个对象有不同的object_id。
+3. String的方法,eg:#upcase,#split不能用于Symbol。</p>
+
+<h3>参考网址</h3>
+
+<p><a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html</a>(<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html</a>)</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fedora17下搭建Ruby和Rails环境]]></title>

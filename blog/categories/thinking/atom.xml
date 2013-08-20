@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Thinking | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/thinking/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-18T16:23:00+08:00</updated>
+  <updated>2013-08-20T20:10:33+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,51 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Linux活动发起]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/20/linux-activity-sponsoring/"/>
+    <updated>2013-08-20T19:04:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/20/linux-activity-sponsoring</id>
+    <content type="html"><![CDATA[<p>独乐乐不如众乐乐，独自一人埋头苦学不如一群兴趣相投之人的一起交流。记得以前大一大二时，希望能有一个领路人领着自己学习，帮自己找准学习的方向，毕竟当时太年轻，太多东西不了解，所以不知道软件这行业该学习什么，哪些东西比较有兴趣，一切源于自己接触的太少，身边也没有可交流之人。再加上学校大一大二和大三大四分隔新旧两校区，交流就更少。</p>
+
+<p>正是因为自己的这些经历，然后再加上近来参加西安的rubyist party，促使了我组建Linux小组并且定期举办活动的冲动。一个人的埋头苦学，所见所闻永远局限在某个狭小的空间，只有走出去，与他们交流才能拓宽自己的知识面，提升自己的认知度，也算是多了一些朋友，多了一些交流。正所谓话不投机半句多，与自己志不同道不和的人交流真是有点对牛弹琴的感觉。所以要交流得找兴趣相投志同道合之人。</p>
+
+<p>打算成立的小组规模大致10人左右，无需太多，也不希望有滥竽充数的现象。所以希望小组成员能满足以下条件：</p>
+
+<ul>
+<li>对软件感兴趣</li>
+<li>熟悉Linux(基本操作一般没问题)</li>
+<li>Vim | Emacs</li>
+</ul>
+
+
+<p>具备以下更佳：</p>
+
+<ul>
+<li>Git</li>
+<li>Ruby/Python/Lisp/Scala/Prolog</li>
+<li>个人博客</li>
+</ul>
+
+
+<p>初期打算:</p>
+
+<ul>
+<li>每周一次Party（主要技术交流）</li>
+</ul>
+
+
+<p>有兴趣的学习请联系我，联系方式：</p>
+
+<ul>
+<li>新郎微薄：xautjzd</li>
+</ul>
+
+
+<p>其他联系方式见我的<a href="http://xautjzd.github.io/blog/aboutme">About</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[更换Octopress主题]]></title>
@@ -138,35 +183,6 @@ disqus_show_comment_count: false
 
 <p>当使用<code>rake generate</code>时，source的_post目录中的markdown文件会被编译成html文件，并拷贝到public目录下，public目录结构与source目录结构一致，里面的内容为最终的静态页面。一般都是先<code>rake generate</code>生成静态页面，然后通过<code>rake preview</code>进行本地预览，如果显示正常，则<code>rake
 deploy</code>部署到github上。如果特别熟练，也可以直接生成静态页面并部署，不需要本地预览。可以采用<code>rake gen_deploy</code>一步进行。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress修改导航栏(Navigator)]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/18/add-navigator/"/>
-    <updated>2013-07-18T13:46:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/18/add-navigator</id>
-    <content type="html"><![CDATA[<p>搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：</p>
-
-<pre><code>$rake new_page[About]
-</code></pre>
-
-<p>默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉，便想着将生成的页面和其他页面放在一起，便可进行如下操作：</p>
-
-<pre><code>$rake new_page[/blog/About]
-</code></pre>
-
-<p>这样便在source/blog目录中生成页面，方面管理。生成的页面目前还不能显示，还需编辑source/_includes/custom/navigation.html文件：</p>
-
-<pre><code>$vim source/_includes/custom/navigation.html
-</code></pre>
-
-<p>在其中加入</p>
-
-<pre><code>&lt;li&gt;&lt;a href="/blog/about"&gt;关于我&lt;/a&gt;&lt;/li&gt;
-</code></pre>
-
-<p>编辑完成后进行rake generate生成静态的html文件，然后rake preview便可以通过localhost:4000在本地预览。</p>
 ]]></content>
   </entry>
   

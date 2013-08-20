@@ -9,12 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Aug 18th, 2013 Linux, Vim Comments Vim学习资源 实用的快捷方式 gf 快速跳转到定义
-&lt;C + 6&gt; 返回到上次编辑的文档
-% 括号匹配{}
-#/*,g#/g* 向前/向后搜索光标所在的词
-gi 跳转到上次编辑的位置
-gi 显示光标所在字符的编码 &hellip;">
+	<meta name="description" content="Aug 20th, 2013 Thinking Comments Linux活动发起 独乐乐不如众乐乐，独自一人埋头苦学不如一群兴趣相投之人的一起交流。记得以前大一大二时，希望能有一个领路人领着自己学习，帮自己找准学习的方向，毕竟当时太年轻，太多东西不了解，所以不知道软件这行业该学习什么， &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -104,6 +99,135 @@ gi 显示光标所在字符的编码 &hellip;">
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T19:04:00+08:00" data-updated="true" itemprop="datePublished">Aug 20<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/20/linux-activity-sponsoring/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/20/linux-activity-sponsoring/" itemprop="url">Linux活动发起</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>独乐乐不如众乐乐，独自一人埋头苦学不如一群兴趣相投之人的一起交流。记得以前大一大二时，希望能有一个领路人领着自己学习，帮自己找准学习的方向，毕竟当时太年轻，太多东西不了解，所以不知道软件这行业该学习什么，哪些东西比较有兴趣，一切源于自己接触的太少，身边也没有可交流之人。再加上学校大一大二和大三大四分隔新旧两校区，交流就更少。</p>
+
+<p>正是因为自己的这些经历，然后再加上近来参加西安的rubyist party，促使了我组建Linux小组并且定期举办活动的冲动。一个人的埋头苦学，所见所闻永远局限在某个狭小的空间，只有走出去，与他们交流才能拓宽自己的知识面，提升自己的认知度，也算是多了一些朋友，多了一些交流。正所谓话不投机半句多，与自己志不同道不和的人交流真是有点对牛弹琴的感觉。所以要交流得找兴趣相投志同道合之人。</p>
+
+<p>打算成立的小组规模大致10人左右，无需太多，也不希望有滥竽充数的现象。所以希望小组成员能满足以下条件：</p>
+
+<ul>
+<li>对软件感兴趣</li>
+<li>熟悉Linux(基本操作一般没问题)</li>
+<li>Vim | Emacs</li>
+</ul>
+
+
+<p>具备以下更佳：</p>
+
+<ul>
+<li>Git</li>
+<li>Ruby/Python/Lisp/Scala/Prolog</li>
+<li>个人博客</li>
+</ul>
+
+
+<p>初期打算:</p>
+
+<ul>
+<li>每周一次Party（主要技术交流）</li>
+</ul>
+
+
+<p>有兴趣的学习请联系我，联系方式：</p>
+
+<ul>
+<li>新郎微薄：xautjzd</li>
+</ul>
+
+
+<p>其他联系方式见我的<a href="http://xautjzd.github.io/blog/aboutme">About</a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-18T20:50:00+08:00" data-updated="true" itemprop="datePublished">Aug 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/18/difference-between-symbol-and-string/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/18/difference-between-symbol-and-string/" itemprop="url">Ruby中symbol与string的区别</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>记得当初学习Ruby基本语法时，还为Symbol与String的异同纠结了好久，后来经过一段时间的摸索，大致有了了解，但让我给他人解释，这点我还是办不到。但是今天看到了一篇<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">博文</a>,让我彻底明白他们的区别。</p>
+
+<h3>symbol定义</h3>
+
+<p>Symbol其实就是string加上前缀：。</p>
+
+<h3>二者异同点</h3>
+
+<p>其实Symbol与String本质相同，是string 的两种不同呈现方式。由于受SmallTalk影响，Ruby一切皆对象。所以每次给string赋值，<code>name="xautjzd"</code>其实都是在内存中创建一个新对象。每次创建的对象的object_id都不相同。</p>
+
+<p>而symbol则不同，symbol创建一次即可。以后所有的操作都是指向先前创建的对象。所以object_id相同。</p>
+
+<p>不同点大致有三：
+1. symbol为常量，值不能改变。
+2. 多次使用同一个symbol,object_id相同，而多次使用string,每个对象有不同的object_id。
+3. String的方法,eg:#upcase,#split不能用于Symbol。</p>
+
+<h3>参考网址</h3>
+
+<p><a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html</a>(<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html</a>)</p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -555,138 +679,6 @@ gi 显示光标所在字符的编码 &hellip;">
 
 		
 		<a href="/blog/2013/07/30/create-my-first-rails-app/" class="more-link">Read on &rarr;</a>
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-30T10:47:00+08:00" data-updated="true" itemprop="datePublished">Jul 30<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/octopress/'>Octopress</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/30/add-comments-to-sidebar/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/30/add-comments-to-sidebar/" itemprop="url">Octopress添加disqus评论到侧边栏</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<h2>新建comments.html文件</h2>
-
-<p>添加评论到侧边栏与添加关于、文章分类和友情链接相似，需要在source/_includes/custom/asides/目录下添加comments.html模块，名字根据自己的喜好可以换成其他的，如xxx.html，然后在comments.html里添加如下内容：</p>
-
-<figure class='code'><figcaption><span>source/\_includes/custom/asides/comments.html </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">&quot;comment_sidebar&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;h1&gt;</span>近期评论<span class="nt">&lt;/h1&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://zhengdongjiang.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=0&amp;avatar_size=32&amp;excerpt_length=20&quot;</span><span class="nt">&gt;&lt;/script&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://disqus.com/&quot;</span><span class="nt">&gt;</span>Powered by Disqus<span class="nt">&lt;/a&gt;</span>
-</span><span class='line'><span class="nt">&lt;/section&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>其中zhengdongjiang为我disqus对应此网站的shortname，这就不要照搬了，换成你对应的名字即可。</p>
-
-<h2>修改_config.yml文件</h2>
-
-<figure class='code'><figcaption><span>\_config.yml </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="err">   </span><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
-</span><span class='line'>
-</span><span class='line'><span class="err">    </span><span class="c1"># Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below</span>
-</span><span class='line'><span class="err">    </span><span class="c1"># and add an array with the asides you want to use.</span>
-</span><span class='line'><span class="err">    </span><span class="l-Scalar-Plain">blog_index_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/about.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
-</span><span class='line'><span class="err">    </span><span class="l-Scalar-Plain">post_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/about.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
-</span><span class='line'><span class="err">    </span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-29T20:59:00+08:00" data-updated="true" itemprop="datePublished">Jul 29<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/29/install-ruby-and-rails/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/29/install-ruby-and-rails/" itemprop="url">Fedora17下搭建Ruby和Rails环境</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>不同的项目所用的ruby版本不同，所以为了方便不同项目ruby版本的切换，需要在同一个系统中安装多个ruby版本，并且针对不同的项目在不同的版本间切换，为了方便ruby版本的管理，采用<a href="https://rvm.io/">RVM</a>进行管理。</p>
-
-<h2>1.安装RVM</h2>
-
-<pre><code>#curl -L https://get.rvm.io | bash -s stable
-</code></pre>
-
-<p>一会儿之后rvm便安装完成,安装位置为/usr/local/rvm目录下，网上很多教程都是使用一般用户权限管理，但是我也尝试过采用一般用户权限安装，但是始终不会安装在~/usrname/.rvm目录下，还是提示安装在/usr/local/rvm下，但是没有写的权限。可能是fedora系统的原因吧，没有深究。使用：</p>
-
-<pre><code>#source /usr/local/rvm/scripts/rvm
-</code></pre>
-
-<p>使rvm配置生效。然后采用：</p>
-
-<pre><code>#rvm -v
-</code></pre>
-
-<p>查看rvm的版本。同时也可以通过<code>rvm info</code>查看rvm相关信息。</p>
-
-
-		
-		<a href="/blog/2013/07/29/install-ruby-and-rails/" class="more-link">Read on &rarr;</a>
 	</div>
 
 </article>
