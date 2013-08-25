@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-25T21:38:15+08:00</updated>
+  <updated>2013-08-25T21:42:33+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -71,7 +71,7 @@ za      => fold/unfold</p>
 
 <p>按键方式与上述相似</p>
 
-<p> ###4. Marker method</p>
+<h3>4. Marker method</h3>
 
 <p> 使用markder方式，则做如下配置：</p>
 
