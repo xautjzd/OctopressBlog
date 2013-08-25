@@ -93,6 +93,10 @@
         <lastmod>2013-08-20T20:16:51+08:00</lastmod>
     </url>
     <url>
+        <loc>http://xautjzd.github.io/blog/2013/08/25/vim-folding-and-unfolding/</loc>
+        <lastmod>2013-08-25T21:38:02+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://xautjzd.github.io/blog/aboutme/</loc>
         <lastmod>2013-08-18T12:02:33+08:00</lastmod>
     </url>
@@ -122,7 +126,7 @@
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/archives/</loc>
-        <lastmod>2013-08-20T20:16:51+08:00</lastmod>
+        <lastmod>2013-08-25T21:38:02+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/robots.txt</loc>
@@ -130,6 +134,6 @@
     </url>
     <url>
         <loc>http://xautjzd.github.io/</loc>
-        <lastmod>2013-08-20T20:16:51+08:00</lastmod>
+        <lastmod>2013-08-25T21:38:02+08:00</lastmod>
     </url>
 </urlset>
