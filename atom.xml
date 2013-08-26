@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-25T21:42:33+08:00</updated>
+  <updated>2013-08-26T09:47:50+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -83,26 +83,29 @@ za      => fold/unfold</p>
 <pre><code>:set fdm=marker
 </code></pre>
 
-<p>默认的marker折叠/展开标记为}.</p>
+<p>默认的marker折叠/展开标记为<code>}</code>.</p>
 
 <p>将要折叠/展开的代码通过<code>}</code>包含起来即可。当然也可以自定义标记。定义方法如下：</p>
 
-<pre><code>    :set foldmarker= start,end
-    eg: set foldmarker= /*,*/
+<pre><code>:set foldmarker= start,end
+eg: set foldmarker= /*,*/
 
-    /*
-         1. Ruby
-         2. Python
-         3. C++
-         4. PHP
-    */
+/*
+     1. Ruby
+     2. Python
+     3. C++
+     4. PHP
+*/
 </code></pre>
 
 <p>快捷键如下：</p>
 
-<p>za      => fold/unfold
-zM      => fold all
-zR      => unfold all</p>
+<ul>
+<li>za        => fold/unfold</li>
+<li>zM        => fold all</li>
+<li>zR        => unfold all</li>
+</ul>
+
 ]]></content>
   </entry>
   
