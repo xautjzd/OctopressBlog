@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Vim | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-26T17:32:08+08:00</updated>
+  <updated>2013-08-26T17:43:23+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -22,30 +22,23 @@
 
 <p>安装patched fonts方式请参考:<a href="https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline字体配置</a>，尽管文档很详细，但是还是重复一下：</p>
 
-<ol>
-<li>Download patched fonts</li>
-</ol>
+<p>1.Download patched fonts</p>
 
+<p><code>$mkdir ~/.fonts</code>新建一个font文件夹，然后<code>$cd ~/.fonts</code>进入.fonts文件夹。<code>$git clone git@github.com:Lokaltog/powerline-fonts.git</code>将powerline的patched fonts拷贝到~/.fonts目录下，目录结构如下图：</p>
 
-<p><code>$mkdir ~/.fonts</code>新建一个font文件夹，然后<code>$cd ~/.fonts</code>进入.fonts文件夹。<code>$git clone git@github.com:Lokaltog/powerline-fonts.git</code>将powerline的patched fonts拷贝到~/.fonts目录下，目录结构如下图：
-<img src="http://pic.yupoo.com/xautjzd/D79oXi6w/medish.jpg" alt="~/.font目录结构" /></p>
+<p><img src="http://pic.yupoo.com/xautjzd/D79oXi6w/medish.jpg" alt="~/.font目录结构" /></p>
 
-<ol>
-<li>Install the patched fonts to your System</li>
-</ol>
-
+<p>2.Install the patched fonts to your System</p>
 
 <p>运行<code>$fc-cache -vf ~/.fonts</code>安装patched fonts到系统中</p>
 
-<ol>
-<li>Set Terminal fonts</li>
-</ol>
-
+<p>3.Set Terminal fonts</p>
 
 <p>设置Terminal字体非常重要，我初次配置时，安装patched fonts，但是由于没有set terminal font,所以statusbar显示乱码。设置方法如下：</p>
 
-<p>Edit——Profiles——Default(Edit)——General——Font，选择~/.fonts/powerline下的某一种即可(可选范围一定要在刚才下载的patched fonts中选一种，否则乱码。)，当然也可以采取powerline font installing中的另一种方式，不过我没做尝试，有兴趣的朋友try it。配置截图如下：
-<img src="http://pic.yupoo.com/xautjzd/D79olvGa/medish.jpg" alt="Font config" /></p>
+<p>Edit——Profiles——Default(Edit)——General——Font，选择~/.fonts/powerline下的某一种即可(可选范围一定要在刚才下载的patched fonts中选一种，否则乱码。)，当然也可以采取powerline font installing中的另一种方式，不过我没做尝试，有兴趣的朋友try it。配置截图如下：</p>
+
+<p><img src="http://pic.yupoo.com/xautjzd/D79olvGa/medish.jpg" alt="Font config" /></p>
 
 <p>最后可以在~/.vimrc中更改airline的theme。更改方式如下：</p>
 
