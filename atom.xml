@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-26T09:47:50+08:00</updated>
+  <updated>2013-08-26T17:32:08+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[vim-airline插件patched font配置成功]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config/"/>
+    <updated>2013-08-26T11:30:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config</id>
+    <content type="html"><![CDATA[<p>前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着<a href="ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline官网</a>的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。</p>
+
+<p>安装patched fonts方式请参考:<a href="https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline字体配置</a>，尽管文档很详细，但是还是重复一下：</p>
+
+<ol>
+<li>Download patched fonts</li>
+</ol>
+
+
+<p><code>$mkdir ~/.fonts</code>新建一个font文件夹，然后<code>$cd ~/.fonts</code>进入.fonts文件夹。<code>$git clone git@github.com:Lokaltog/powerline-fonts.git</code>将powerline的patched fonts拷贝到~/.fonts目录下，目录结构如下图：
+<img src="http://pic.yupoo.com/xautjzd/D79oXi6w/medish.jpg" alt="~/.font目录结构" /></p>
+
+<ol>
+<li>Install the patched fonts to your System</li>
+</ol>
+
+
+<p>运行<code>$fc-cache -vf ~/.fonts</code>安装patched fonts到系统中</p>
+
+<ol>
+<li>Set Terminal fonts</li>
+</ol>
+
+
+<p>设置Terminal字体非常重要，我初次配置时，安装patched fonts，但是由于没有set terminal font,所以statusbar显示乱码。设置方法如下：</p>
+
+<p>Edit——Profiles——Default(Edit)——General——Font，选择~/.fonts/powerline下的某一种即可(可选范围一定要在刚才下载的patched fonts中选一种，否则乱码。)，当然也可以采取powerline font installing中的另一种方式，不过我没做尝试，有兴趣的朋友try it。配置截图如下：
+<img src="http://pic.yupoo.com/xautjzd/D79olvGa/medish.jpg" alt="Font config" /></p>
+
+<p>最后可以在~/.vimrc中更改airline的theme。更改方式如下：</p>
+
+<pre><code>let g:airline_theme="molokai"
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[vim文件的折叠与展开方式]]></title>
@@ -1471,101 +1512,6 @@ end
 <li>两个类只是功能相似，但不想归于相同类型的类</li>
 <li>Ruby不支持多继承，所以当已继承其他父类时，就无法再继承其他的类</li>
 </ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[配置文章分类插件]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/18/config-category-plugin/"/>
-    <updated>2013-07-18T17:17:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/18/config-category-plugin</id>
-    <content type="html"><![CDATA[<p>Octopress搭建的博客默认没有文章分类，这肯定让人很不爽，但这个号称Hacker的博客肯定有这功能，便网上搜寻了答案，最终得以解决。方法如下：</p>
-
-<h3>1. 添加category_list插件</h3>
-
-<p>代码如下：</p>
-
-<figure class='code'><figcaption><span>plugins/category_list_tag.rb </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="k">module</span> <span class="nn">Jekyll</span>
-</span><span class='line'>        <span class="k">class</span> <span class="nc">CategoryListTag</span> <span class="o">&lt;</span> <span class="ss">Liquid</span><span class="p">:</span><span class="ss">:Tag</span>
-</span><span class='line'>            <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-</span><span class='line'>                <span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-</span><span class='line'>                <span class="n">categories</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">categories</span><span class="o">.</span><span class="n">keys</span>
-</span><span class='line'>                <span class="n">categories</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">category</span><span class="o">|</span>
-</span><span class='line'>                    <span class="n">posts_in_category</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">categories</span><span class="o">[</span><span class="n">category</span><span class="o">].</span><span class="n">size</span>
-</span><span class='line'>                    <span class="n">category_dir</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">config</span><span class="o">[</span><span class="s1">&#39;category_dir&#39;</span><span class="o">]</span>
-</span><span class='line'>                    <span class="n">category_url</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">category_dir</span><span class="p">,</span> <span class="n">category</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/_|\P{Word}/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/-{2,}/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">downcase</span><span class="p">)</span>
-</span><span class='line'>                    <span class="n">html</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;&lt;li class=&#39;category&#39;&gt;&lt;a href=&#39;/</span><span class="si">#{</span><span class="n">category_url</span><span class="si">}</span><span class="s2">/&#39;&gt;</span><span class="si">#{</span><span class="n">category</span><span class="si">}</span><span class="s2"> (</span><span class="si">#{</span><span class="n">posts_in_category</span><span class="si">}</span><span class="s2">)&lt;/a&gt;&lt;/li&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
-</span><span class='line'>                <span class="k">end</span>
-</span><span class='line'>                <span class="n">html</span>
-</span><span class='line'>            <span class="k">end</span>
-</span><span class='line'>        <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="ss">Liquid</span><span class="p">:</span><span class="ss">:Template</span><span class="o">.</span><span class="n">register_tag</span><span class="p">(</span><span class="s1">&#39;category_list&#39;</span><span class="p">,</span> <span class="ss">Jekyll</span><span class="p">:</span><span class="ss">:CategoryListTag</span><span class="p">)</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>将以上代码保存到plugins/category_list_tag.rb中。</p>
-
-<p>这个插件会向liquid注册一个名为category_list的tag，该tag就是以li的形式将站点所有的category组织起来。如果要将category加入到侧边导航栏，需要增加一个aside</p>
-
-<h3>2. 添加category到aside中</h3>
-
-<p>在source/_include/custom/asides中新建category_list.html文件，并且将以下代码复制到其中：</p>
-
-<figure class='code'><figcaption><span>category_list.html </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'>    <span class="nt">&lt;section&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;h1&gt;</span>Categories<span class="nt">&lt;/h1&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;categories&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>            {\% category_list %}
-</span><span class='line'>        <span class="nt">&lt;/ul&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/section&gt;</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>其中\是为了显示才添加上的，不然无法正常显示，复制代码时请去掉%前的\。</p>
-
-<h3>3. 配置侧边栏</h3>
-
-<p>在_config.yml中配置侧边栏，修改其中的default_asides项：</p>
-
-<figure class='code'><figcaption><span>_config.yml </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'>    <span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">...</span><span class="p-Indicator">]</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
 
 ]]></content>
   </entry>

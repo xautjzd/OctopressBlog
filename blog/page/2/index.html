@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Jul 30th, 2013 Rails Comments 创建我的第一个rails程序 开启Mysql服务 我的一个rails程序是采用mysql数据库，不是默认的sqlite3.所以前提是已经安装了mysql。由于Mysql安装了好久，但是很少使用。所以服务没有启动，近来可能会频繁使用， &hellip;">
+	<meta name="description" content="Aug 3rd, 2013 Linux, Vim Comments Vim的代码自动补齐插件——UltiSnips 暑假时间充足，便又开始学习自己喜欢的Ruby。而学Ruby的最佳环境是Mac,其次是Linux,最次是Windows。Mac买不起，只能在Linux上折腾了， &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -99,6 +99,46 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-03T15:12:00+08:00" data-updated="true" itemprop="datePublished">Aug 3<span>rd</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/03/vim-ultisnips/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/03/vim-ultisnips/" itemprop="url">Vim的代码自动补齐插件——UltiSnips</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>暑假时间充足，便又开始学习自己喜欢的Ruby。而学Ruby的最佳环境是Mac,其次是Linux,最次是Windows。Mac买不起，只能在Linux上折腾了，一台台式机装的Fedora17，自己的本是xp系统，装了不少微软的一套东西，毕竟教研室的项目都是在.net环境下进行的，不敢轻易换系统，所以便在本上装了个VirtualBox虚拟机，虚拟了一个Ubuntu。上面也配好了Ruby环境，毕竟本方便，带到哪里都可以学，但平时的Linux编程都是在台式机下，毕竟性能比虚拟机好。</p>
+
+<p>而学习Ruby一般都是在Vim/Emacs/SublimeText 2下，RubyMine貌似很适合开发Ruby，由于是商业产品，没钱购买也就舍弃了，毅然决然的选择了Vim.都说高手使用的是Vim，想必必有可取之处。但是Vim的学习路线比较陡峭，开始是一段痛苦期，经过一段时间的摧残后，甜蜜的时光便来临了，各种强大而高效的插件让你目瞪口呆，顿时感觉其他IDE都蒻爆了。幸好我以前对Vim的基本操作便有了了解，所以再次学习起来便不那么痛苦，甚至不想回到Windows环境，不想再用其他的Editor。我现在用的插件并且给我印象深刻的大致有这么一些：Vundle,Ctrlp/command-T,UltiSnips/Snipmate,YouCompleteMe/SuperTab,NerdTree,Tagbar,FuzzyFinder,vim-rails，Markdown等。</p>
+
+
+		
+		<a href="/blog/2013/08/03/vim-ultisnips/" class="more-link">Read on &rarr;</a>
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -652,129 +692,6 @@ origin git@github.com:xautjzd/RubyExample.git (push)
 
 		
 		<a href="/blog/2013/07/19/ruby-variable/" class="more-link">Read on &rarr;</a>
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T17:17:00+08:00" data-updated="true" itemprop="datePublished">Jul 18<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/octopress/'>Octopress</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/18/config-category-plugin/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/18/config-category-plugin/" itemprop="url">配置文章分类插件</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>Octopress搭建的博客默认没有文章分类，这肯定让人很不爽，但这个号称Hacker的博客肯定有这功能，便网上搜寻了答案，最终得以解决。方法如下：</p>
-
-<h3>1. 添加category_list插件</h3>
-
-<p>代码如下：</p>
-
-<figure class='code'><figcaption><span>plugins/category_list_tag.rb </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="k">module</span> <span class="nn">Jekyll</span>
-</span><span class='line'>        <span class="k">class</span> <span class="nc">CategoryListTag</span> <span class="o">&lt;</span> <span class="ss">Liquid</span><span class="p">:</span><span class="ss">:Tag</span>
-</span><span class='line'>            <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
-</span><span class='line'>                <span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-</span><span class='line'>                <span class="n">categories</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">categories</span><span class="o">.</span><span class="n">keys</span>
-</span><span class='line'>                <span class="n">categories</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">category</span><span class="o">|</span>
-</span><span class='line'>                    <span class="n">posts_in_category</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">categories</span><span class="o">[</span><span class="n">category</span><span class="o">].</span><span class="n">size</span>
-</span><span class='line'>                    <span class="n">category_dir</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">config</span><span class="o">[</span><span class="s1">&#39;category_dir&#39;</span><span class="o">]</span>
-</span><span class='line'>                    <span class="n">category_url</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">category_dir</span><span class="p">,</span> <span class="n">category</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/_|\P{Word}/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/-{2,}/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">downcase</span><span class="p">)</span>
-</span><span class='line'>                    <span class="n">html</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;&lt;li class=&#39;category&#39;&gt;&lt;a href=&#39;/</span><span class="si">#{</span><span class="n">category_url</span><span class="si">}</span><span class="s2">/&#39;&gt;</span><span class="si">#{</span><span class="n">category</span><span class="si">}</span><span class="s2"> (</span><span class="si">#{</span><span class="n">posts_in_category</span><span class="si">}</span><span class="s2">)&lt;/a&gt;&lt;/li&gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
-</span><span class='line'>                <span class="k">end</span>
-</span><span class='line'>                <span class="n">html</span>
-</span><span class='line'>            <span class="k">end</span>
-</span><span class='line'>        <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="ss">Liquid</span><span class="p">:</span><span class="ss">:Template</span><span class="o">.</span><span class="n">register_tag</span><span class="p">(</span><span class="s1">&#39;category_list&#39;</span><span class="p">,</span> <span class="ss">Jekyll</span><span class="p">:</span><span class="ss">:CategoryListTag</span><span class="p">)</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>将以上代码保存到plugins/category_list_tag.rb中。</p>
-
-<p>这个插件会向liquid注册一个名为category_list的tag，该tag就是以li的形式将站点所有的category组织起来。如果要将category加入到侧边导航栏，需要增加一个aside</p>
-
-<h3>2. 添加category到aside中</h3>
-
-<p>在source/_include/custom/asides中新建category_list.html文件，并且将以下代码复制到其中：</p>
-
-<figure class='code'><figcaption><span>category_list.html </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'>    <span class="nt">&lt;section&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;h1&gt;</span>Categories<span class="nt">&lt;/h1&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;ul</span> <span class="na">id=</span><span class="s">&quot;categories&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>            {\% category_list %}
-</span><span class='line'>        <span class="nt">&lt;/ul&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/section&gt;</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>其中\是为了显示才添加上的，不然无法正常显示，复制代码时请去掉%前的\。</p>
-
-<h3>3. 配置侧边栏</h3>
-
-<p>在_config.yml中配置侧边栏，修改其中的default_asides项：</p>
-
-<figure class='code'><figcaption><span>_config.yml </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'>    <span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">...</span><span class="p-Indicator">]</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-		
-		
 	</div>
 
 </article>

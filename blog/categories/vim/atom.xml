@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Vim | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-26T09:47:50+08:00</updated>
+  <updated>2013-08-26T17:32:08+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[vim-airline插件patched font配置成功]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config/"/>
+    <updated>2013-08-26T11:30:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config</id>
+    <content type="html"><![CDATA[<p>前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着<a href="ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline官网</a>的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。</p>
+
+<p>安装patched fonts方式请参考:<a href="https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline字体配置</a>，尽管文档很详细，但是还是重复一下：</p>
+
+<ol>
+<li>Download patched fonts</li>
+</ol>
+
+
+<p><code>$mkdir ~/.fonts</code>新建一个font文件夹，然后<code>$cd ~/.fonts</code>进入.fonts文件夹。<code>$git clone git@github.com:Lokaltog/powerline-fonts.git</code>将powerline的patched fonts拷贝到~/.fonts目录下，目录结构如下图：
+<img src="http://pic.yupoo.com/xautjzd/D79oXi6w/medish.jpg" alt="~/.font目录结构" /></p>
+
+<ol>
+<li>Install the patched fonts to your System</li>
+</ol>
+
+
+<p>运行<code>$fc-cache -vf ~/.fonts</code>安装patched fonts到系统中</p>
+
+<ol>
+<li>Set Terminal fonts</li>
+</ol>
+
+
+<p>设置Terminal字体非常重要，我初次配置时，安装patched fonts，但是由于没有set terminal font,所以statusbar显示乱码。设置方法如下：</p>
+
+<p>Edit——Profiles——Default(Edit)——General——Font，选择~/.fonts/powerline下的某一种即可(可选范围一定要在刚才下载的patched fonts中选一种，否则乱码。)，当然也可以采取powerline font installing中的另一种方式，不过我没做尝试，有兴趣的朋友try it。配置截图如下：
+<img src="http://pic.yupoo.com/xautjzd/D79olvGa/medish.jpg" alt="Font config" /></p>
+
+<p>最后可以在~/.vimrc中更改airline的theme。更改方式如下：</p>
+
+<pre><code>let g:airline_theme="molokai"
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[vim文件的折叠与展开方式]]></title>
@@ -239,183 +280,6 @@ let g:ycm_key_list_previous_completion = ['&lt;c-p&gt;', '&lt;Up&gt;']
 </code></pre>
 
 <p>FuzzyFinder是一个模糊匹配的文件搜索插件。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vim下的的插件管理神器——Vundle]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/27/vim-vundle-install-and-config/"/>
-    <updated>2013-07-27T20:38:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/27/vim-vundle-install-and-config</id>
-    <content type="html"><![CDATA[<p>断断续续用Vim也不少时间了，但是从来没有进行过复杂的Vim配置，每每需要插件都是网上寻求安装方式。但是当插件多了管理也便变得繁琐，最后终于让我结识了插件管理神器——Vundle，用过的人都说好用，所以我便也尝试了，网上也有一部分人采用pathogen来进行插件管理，但是据说没有Vundle好用，也便没有尝试，下面对我使用Vundle做一个总结。</p>
-
-<p>首先Vundle采用git插件的git repo以及vim-scripts维护的GitHub repo, 自动安装, 更新和卸载插件. 把这些繁杂的工作变得简单, 甚至, 成为一种享受.</p>
-
-<h2>安装</h2>
-
-<p><a href="https://github.com/gmarik/vundle">Vundle地址</a>,上面安装及配置步骤已经很详细，我在此再赘述下：</p>
-
-<p>1.拷贝Vundle</p>
-
-<pre><code>$ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-</code></pre>
-
-<p>上面步骤将vundle拷贝到本地的～/.vim/bundle/vundle目录下</p>
-
-<p>2.Vundle配置</p>
-
-<p>以下是我的配置文件：</p>
-
-<!-- more -->
-
-
-<pre><code><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">set </span>runtimepath+<span class="o">=</span>~/.vim_runtime
-</span><span class='line'>
-</span><span class='line'><span class="nb">source</span> ~/.vim_runtime/vimrcs/basic.vim
-</span><span class='line'><span class="nb">source</span> ~/.vim_runtime/vimrcs/filetypes.vim
-</span><span class='line'><span class="nb">source</span> ~/.vim_runtime/vimrcs/plugins_config.vim
-</span><span class='line'><span class="nb">source</span> ~/.vim_runtime/vimrcs/extended.vim
-</span><span class='line'><span class="nb">source</span> ~/.vim_runtime/vimrcs/taglist.vim
-</span><span class='line'>
-</span><span class='line'><span class="nb">let </span><span class="nv">Tlist_Ctags_Cmd</span><span class="o">=</span><span class="s1">&#39;/usr/bin/ctags&#39;</span>
-</span><span class='line'><span class="nb">let </span><span class="nv">Tlist_Inc_Winwidth</span><span class="o">=</span>0
-</span><span class='line'><span class="nb">let </span><span class="nv">Tlist_Process_File_Always</span><span class="o">=</span>1
-</span><span class='line'><span class="nb">let </span><span class="nv">Tlist_File_Fold_Auto_Close</span><span class="o">=</span>1
-</span><span class='line'><span class="nb">set </span>autochdir
-</span><span class='line'>
-</span><span class='line'>colorscheme molokai
-</span><span class='line'>
-</span><span class='line'>try
-</span><span class='line'>    <span class="nb">source</span> ~/.vim_runtime/my_configs.vim
-</span><span class='line'>    catch
-</span><span class='line'>    endtry
-</span><span class='line'>
-</span><span class='line'>    <span class="s2">&quot;Below is vundle configuration</span>
-</span><span class='line'><span class="s2">    set nocompatible               &quot;</span>disable vi compatibility
-</span><span class='line'>    filetype off                   <span class="s2">&quot; required!</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">    set rtp+=~/.vim/bundle/vundle/  &quot;</span><span class="nb">set </span>runtimepath
-</span><span class='line'>    call vundle#rc<span class="o">()</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="s2">&quot; let Vundle manage Vundle  </span>
-</span><span class='line'><span class="s2">    Bundle &#39;gmarik/vundle&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">    &quot;</span>My Bundles here
-</span><span class='line'>    Bundle <span class="s1">&#39;tpope/vim-fugitive&#39;</span>
-</span><span class='line'>    Bundle <span class="s1">&#39;Lokaltog/vim-easymotion&#39;</span>
-</span><span class='line'>    Bundle <span class="s1">&#39;rstacruz/sparkup&#39;</span>, <span class="o">{</span><span class="s1">&#39;rtp&#39;</span>: <span class="s1">&#39;vim/&#39;</span><span class="o">}</span>
-</span><span class='line'>    Bundle <span class="s1">&#39;tpope/vim-rails.git&#39;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="s2">&quot;vim-scripts repos</span>
-</span><span class='line'><span class="s2">    Bundle &#39;L9&#39;</span>
-</span><span class='line'><span class="s2">    Bundle &#39;FuzzyFinder&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">    &quot;</span>snippets
-</span><span class='line'>    Bundle <span class="s1">&#39;http://github.com/gmarik/snipmate.vim.git&#39;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="s2">&quot;Syntax highlight</span>
-</span><span class='line'><span class="s2">    Bundle &#39;cucumber.zip&#39;</span>
-</span><span class='line'><span class="s2">    Bundle &#39;Markdown&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">    &quot;</span>Utility
-</span><span class='line'>    Bundle <span class="s1">&#39;SuperTab&#39;</span>
-</span><span class='line'>    Bundle <span class="s1">&#39;repeat.vim&#39;</span>
-</span><span class='line'>    Bundle <span class="s1">&#39;surround.vim&#39;</span>
-</span><span class='line'>    Bundle <span class="s1">&#39;file-line&#39;</span>
-</span><span class='line'>    Bundle <span class="s1">&#39;scrooloose/nerdtree&#39;</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="s2">&quot;Navigation</span>
-</span><span class='line'><span class="s2">    Bundle &quot;</span>http://github.com/gmarik/vim-visual-star-search.git<span class="s2">&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">    &quot;</span>non github repos
-</span><span class='line'>    Bundle <span class="s1">&#39;git://git.wincent.com/command-t.git&#39;</span>
-</span><span class='line'>    <span class="s2">&quot;git repos on your local machine (ie. when working on your own plugin)</span>
-</span><span class='line'><span class="s2">    &quot;</span>Bundle <span class="s1">&#39;file:///Users/gmarik/path/to/plugin&#39;</span>
-</span><span class='line'>
-</span><span class='line'>    filetype plugin indent on     <span class="err">&quot;</span> required!
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-</code></pre>
-
-<p>其中将需要的插件用Bundle添加进来即可。如需要NERDTree插件，在github上找到它，找到的地址为：<a href="https://github.com/scrooloose/nerdtree.git">https://github.com/scrooloose/nerdtree.git</a></p>
-
-<p>则在~/.vimrc里添加：</p>
-
-<pre><code>Bundle 'scrooloose/nerdtree'
-</code></pre>
-
-<p>3.安装</p>
-
-<p>推出刚才的配置文件，然后重新打开vim,并且执行:BundleInstall，这样NERDTree插件便安装完成，可以在~/.vim/bundle目录中查看。Vundle的特色在于使用git管理插件，更新方便，并且支持搜索。</p>
-
-<p>:BundleInstall!更新插件，:BundleClean删除插件(只需在.vimrc中注释相应行), :BundleSearch查找插件。不同电脑间的同步只需通过.vimrc来实现（前提：安装git）。</p>
-
-<p>安装插件就是这么简单！还没有体验的赶紧体验吧！</p>
 ]]></content>
   </entry>
   

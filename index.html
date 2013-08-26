@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Aug 25th, 2013 Linux, Vim Comments Vim文件的折叠与展开方式 最近一直在用Vim学习Ruby,但是一直有个问题困扰： 那就是文件无法折叠，但是我记得以前看过Vim的视频，里面见别人用到了折叠与展开。文件比较小时，此功能便无用，但一旦文件量大时， &hellip;">
+	<meta name="description" content="Aug 26th, 2013 Linux, Vim Comments Vim-airline插件patched Font配置成功 前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着powerline官网的配置方法来 &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -99,6 +99,75 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-26T11:30:00+08:00" data-updated="true" itemprop="datePublished">Aug 26<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/26/airline-patched-font-config/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/26/airline-patched-font-config/" itemprop="url">Vim-airline插件patched Font配置成功</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着<a href="ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline官网</a>的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。</p>
+
+<p>安装patched fonts方式请参考:<a href="https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline字体配置</a>，尽管文档很详细，但是还是重复一下：</p>
+
+<ol>
+<li>Download patched fonts</li>
+</ol>
+
+
+<p><code>$mkdir ~/.fonts</code>新建一个font文件夹，然后<code>$cd ~/.fonts</code>进入.fonts文件夹。<code>$git clone git@github.com:Lokaltog/powerline-fonts.git</code>将powerline的patched fonts拷贝到~/.fonts目录下，目录结构如下图：
+<img src="http://pic.yupoo.com/xautjzd/D79oXi6w/medish.jpg" alt="~/.font目录结构" /></p>
+
+<ol>
+<li>Install the patched fonts to your System</li>
+</ol>
+
+
+<p>运行<code>$fc-cache -vf ~/.fonts</code>安装patched fonts到系统中</p>
+
+<ol>
+<li>Set Terminal fonts</li>
+</ol>
+
+
+<p>设置Terminal字体非常重要，我初次配置时，安装patched fonts，但是由于没有set terminal font,所以statusbar显示乱码。设置方法如下：</p>
+
+<p>Edit——Profiles——Default(Edit)——General——Font，选择~/.fonts/powerline下的某一种即可(可选范围一定要在刚才下载的patched fonts中选一种，否则乱码。)，当然也可以采取powerline font installing中的另一种方式，不过我没做尝试，有兴趣的朋友try it。配置截图如下：
+<img src="http://pic.yupoo.com/xautjzd/D79olvGa/medish.jpg" alt="Font config" /></p>
+
+<p>最后可以在~/.vimrc中更改airline的theme。更改方式如下：</p>
+
+<pre><code>let g:airline_theme="molokai"
+</code></pre>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -703,46 +772,6 @@ eg: set foldmarker= /*,*/
 
 		
 		<a href="/blog/2013/08/08/tmux-use-and-configuration/" class="more-link">Read on &rarr;</a>
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-03T15:12:00+08:00" data-updated="true" itemprop="datePublished">Aug 3<span>rd</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/08/03/vim-ultisnips/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/08/03/vim-ultisnips/" itemprop="url">Vim的代码自动补齐插件——UltiSnips</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>暑假时间充足，便又开始学习自己喜欢的Ruby。而学Ruby的最佳环境是Mac,其次是Linux,最次是Windows。Mac买不起，只能在Linux上折腾了，一台台式机装的Fedora17，自己的本是xp系统，装了不少微软的一套东西，毕竟教研室的项目都是在.net环境下进行的，不敢轻易换系统，所以便在本上装了个VirtualBox虚拟机，虚拟了一个Ubuntu。上面也配好了Ruby环境，毕竟本方便，带到哪里都可以学，但平时的Linux编程都是在台式机下，毕竟性能比虚拟机好。</p>
-
-<p>而学习Ruby一般都是在Vim/Emacs/SublimeText 2下，RubyMine貌似很适合开发Ruby，由于是商业产品，没钱购买也就舍弃了，毅然决然的选择了Vim.都说高手使用的是Vim，想必必有可取之处。但是Vim的学习路线比较陡峭，开始是一段痛苦期，经过一段时间的摧残后，甜蜜的时光便来临了，各种强大而高效的插件让你目瞪口呆，顿时感觉其他IDE都蒻爆了。幸好我以前对Vim的基本操作便有了了解，所以再次学习起来便不那么痛苦，甚至不想回到Windows环境，不想再用其他的Editor。我现在用的插件并且给我印象深刻的大致有这么一些：Vundle,Ctrlp/command-T,UltiSnips/Snipmate,YouCompleteMe/SuperTab,NerdTree,Tagbar,FuzzyFinder,vim-rails，Markdown等。</p>
-
-
-		
-		<a href="/blog/2013/08/03/vim-ultisnips/" class="more-link">Read on &rarr;</a>
 	</div>
 
 </article>
