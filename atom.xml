@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-26T17:43:23+08:00</updated>
+  <updated>2013-08-27T19:46:26+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Bash到oh-my-zsh的转变]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/27/from-bash-to-oh-my-zsh/"/>
+    <updated>2013-08-27T18:14:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/27/from-bash-to-oh-my-zsh</id>
+    <content type="html"><![CDATA[<p>从开始使用到现在一直使用的bash,虽然以前听过ksh,csh,sh等，但都不曾用过，今年开始zsh便不断地出入在眼前，但没真正见人用过，也不知道效果咋样，所以也没做尝试。</p>
+
+<p>另一个原因是各大linux默认都是bash,说明其功能不错，而且也处于懒的原因，就没折腾。但最近在使用tmux的过程中发现bash的提示符只显示<code>-bash4.2$</code>字样，并没有显示成<code>user@hostname directory</code>，在加上西安rubyist的熟人皓哥强烈推荐，这就坚定了我舍弃bash转到zsh的决心，二话不说，立马上GitHub上找到oh-my-zsh。就照着readme开始尝试，结果出现了错误，Google找到答案，是zsh没有安装才导致，所以就<code>yum install zsh</code>安装了zsh,随后在通过</p>
+
+<p><code>curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh</code></p>
+
+<p>安装了oh-my-zsh。不过此时系统默认还是bash,所以还得更改系统默认的shell，方法如下：</p>
+
+<h3>1. 修改/etc/shells文件</h3>
+
+<p>先通过<code>$which zsh</code>查看zsh的位置，我zsh位于/usr/bin/zsh。然后再查看/etc/shells中是否含有zsh:</p>
+
+<p><code>$&lt; /etc/shells grep zsh</code></p>
+
+<p>如果结果中没有/usr/bin/zsh，则需要手动将/usr/bin/zsh添加到/etc/shells文件中。</p>
+
+<h3>2. 更改默认的shell</h3>
+
+<p>通过<code>$chsh -s /usr/bin/zsh</code>更改系统默认shell，退出系统，重新登陆便会发现系统默认的shell已经变为zsh，同时也可以更改zsh默认的主题，在~/.zshrc中更改ZSH_THEME属性即可，其被选的值在<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/themes">oh-my-zsh theme</a>中任选一个即可。</p>
+
+<p>经过以上两步，oh-my-zsh便安装完成。但是写博客时发现<code>rake new_post["xxx"]</code>时出现<code>zsh: no matches found: new_post</code>错误，Google找到答案，只需改为<code>rake 'new_post["xxx"]'</code>即可，原因是zsh会将一些特殊符号当作查找文件的通配符等，根源解决方法是：取消zsh的通配（Glob），即在~/.zshrc中加入<code>alias rake="noglob rake"</code>。</p>
+
+<p>参考：<a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh官网</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[vim-airline插件patched font配置成功]]></title>
@@ -1249,263 +1280,6 @@ p a     #=&gt;[1, 2, 3, 4, 5]
 
 
 <p>zip方法会从接收者与实参所指定的数组中逐项获取数据，每次调用代码块内容。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ruby基础]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/19/ruby-variable/"/>
-    <updated>2013-07-19T20:33:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/19/ruby-variable</id>
-    <content type="html"><![CDATA[<h2>变量分类</h2>
-
-<ul>
-<li><strong>局部变量</strong></li>
-</ul>
-
-
-<p>一般以小写字母或下划线开头，当多个单词组成一个变量时，单词间用_分隔。局部变量一般用在代码快里面</p>
-
-<ul>
-<li><strong>全局变量</strong></li>
-</ul>
-
-
-<p>全局变量在整个ruby程序中都可以访问，无论他们在哪被定义。全局变量以$开头。eg:</p>
-
-<p>$global_variable = 10</p>
-
-<ul>
-<li><strong>实例变量</strong></li>
-</ul>
-
-
-<p>实例变量的范围则是类的实例，属于某个类的实例所有，实例间相互独立。实例变量以@开头。eg:</p>
-
-<p>@instance_variable = 10</p>
-
-<!-- more -->
-
-
-<ul>
-<li><strong>类变量</strong></li>
-</ul>
-
-
-<p>类变量为所有的类实例所共有，一个实例中改变其值，另一个实例中也看到相应改变。类变量以@@开头。eg:</p>
-
-<p>@@class_variable = 10</p>
-
-<ul>
-<li><strong>类实例变量</strong></li>
-</ul>
-
-
-<p>类实例变量只属于当前类所有，只能通过类名来访问，类的实例不能对其访问，而类变量则可以被子类及类的实例访问。</p>
-
-<pre><code>class MyClass
-    @my_var=1
-end
-</code></pre>
-
-<h2>常量</h2>
-
-<p>常量一旦被赋值，则不能修改。以大写字母开头的标识符是常量。一般通过“模块名/类名::常量名”的形式来引用常量。eg:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="k">class</span> <span class="nc">HelloWorld</span>
-</span><span class='line'>        <span class="no">Version</span> <span class="o">=</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>    <span class="c1">#access the constant</span>
-</span><span class='line'>    <span class="nb">p</span> <span class="ss">HelloWorld</span><span class="p">:</span><span class="ss">:Version</span>   <span class="c1">#=&gt;&quot;2.0&quot;</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>第一种最直观，最易理解，缺点是改变类名时类方法需要跟着一起改，较麻烦。第三种其次，第二种时最难理解。</p>
-
-<h2>类</h2>
-
-<h3>initialize方法</h3>
-
-<p>initialize方法为类的私有方法，当类调用new方法新建对象时，initialize便被调用，同时传递给new的所有实参都会传给initialize方法。</p>
-
-<h3>访问方法</h3>
-
-<p>访问方法也就是常说的getter和setter方法，可以通过下面三种方式来定义：</p>
-
-<ul>
-<li>attr_accessor:name     #定义name和name=方法</li>
-<li>attr_reader:name       #定义name方法</li>
-<li>attr_writer:name       #定义name=方法</li>
-</ul>
-
-
-<h3>类方法</h3>
-
-<p>类方法的三种定义方式分别如下:</p>
-
-<ul>
-<li>第一种方式如下：</li>
-</ul>
-
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="k">class</span> <span class="nc">HelloWorld</span>
-</span><span class='line'>        <span class="k">def</span> <span class="nc">HelloWorld</span><span class="o">.</span><span class="nf">hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-</span><span class='line'>            <span class="nb">print</span> <span class="s2">&quot;hello, &quot;</span><span class="p">,</span> <span class="nb">name</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span>     <span class="c1">#name为局部变量</span>
-</span><span class='line'>        <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>    <span class="no">HelloWorld</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;xautjzd&quot;</span><span class="p">)</span>     <span class="c1">#=&gt;hello, xautjzd</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>第二种方式如下：</li>
-</ul>
-
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="k">class</span> <span class="nc">HelloWorld</span>
-</span><span class='line'>        <span class="o">.</span><span class="n">.</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>    <span class="k">class</span> <span class="o">&lt;&lt;</span> <span class="no">HelloWorld</span>
-</span><span class='line'>        <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-</span><span class='line'>            <span class="nb">print</span> <span class="s2">&quot;hello, &quot;</span><span class="p">,</span> <span class="nb">name</span>
-</span><span class='line'>        <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>    <span class="no">HelloWorld</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;xautjzd&quot;</span><span class="p">)</span>   <span class="c1">#=&gt;hello, xautjzd</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>第三种方式如下：</li>
-</ul>
-
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="k">class</span> <span class="nc">HelloWorld</span>
-</span><span class='line'>        <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-</span><span class='line'>            <span class="nb">print</span> <span class="s2">&quot;hello, &quot;</span><span class="p">,</span> <span class="nb">name</span>
-</span><span class='line'>        <span class="k">end</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>    <span class="no">HelloWorld</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="s2">&quot;xautjzd&quot;</span><span class="p">)</span>    <span class="c1">#=&gt;hello, xautjzd</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>方法的访问控制</h3>
-
-<p>Ruby提供了三种限制方式:</p>
-
-<ul>
-<li>public——默认方式，默认的实例方法都是public</li>
-<li>private——private修饰的方法只能在类的内部使用，不允许在类的外部调用</li>
-<li>proteced——只能在本类或者子类中访问，不能在类外部访问</li>
-</ul>
-
-
-<h2>模块</h2>
-
-<p>模块(module)应该是Ruby特有的功能，模块中也可包含方法，成为模块方法，模块与类最大的不同在于：</p>
-
-<ul>
-<li>模块不能实例化</li>
-<li>模块不能继承</li>
-</ul>
-
-
-<h3>模块的用法</h3>
-
-<ul>
-<li>提供命名空间
-命名空间的存在主要是解决方法、常量、类名的冲突。使用模块时，只需要用include将模块包含进现有的命名空间中即可。eg:</li>
-</ul>
-
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="kp">include</span> <span class="no">Math</span>
-</span><span class='line'>    <span class="nb">p</span> <span class="ss">Math</span><span class="p">:</span><span class="ss">:PI</span>     <span class="c1">#=&gt;3.141592654</span>
-</span><span class='line'>    <span class="nb">p</span> <span class="no">Math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1">#=&gt;2</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>以Mix-in方式提供功能
-类中包含模块，成为Mix-in。eg:</li>
-</ul>
-
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="k">module</span> <span class="nn">MyModule</span>
-</span><span class='line'>        <span class="c1">#提供的模块方法</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">class</span> <span class="nc">Class1</span>
-</span><span class='line'>        <span class="kp">include</span> <span class="no">MyModule</span>
-</span><span class='line'>        <span class="c1">#Class1的方法定义</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">class</span> <span class="nc">Class2</span>
-</span><span class='line'>        <span class="kp">include</span> <span class="no">MyModule</span>
-</span><span class='line'>        <span class="c1">#Class2的方法定义</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>如上例所示，通过Module将Class1和Class2两个类所共有的功能抽出来定义成Module。主要用于：</p>
-
-<ul>
-<li>两个类只是功能相似，但不想归于相同类型的类</li>
-<li>Ruby不支持多继承，所以当已继承其他父类时，就无法再继承其他的类</li>
-</ul>
-
 ]]></content>
   </entry>
   
