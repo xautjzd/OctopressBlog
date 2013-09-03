@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-27T19:46:26+08:00</updated>
+  <updated>2013-09-03T22:57:34+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[账号注册通过邮箱激活]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/03/activate-user-via-email/"/>
+    <updated>2013-09-03T21:48:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/03/activate-user-via-email</id>
+    <content type="html"><![CDATA[<h3>邮箱激活目的</h3>
+
+<p>防止用户注册时所填写的信息为虚假信息</p>
+
+<h3>邮箱激活的原理</h3>
+
+<p>用户注册时，根据用户名、Email及注册时间(精确到ms)等信息通过特定的算法(如:MD5、SHA，最好不可逆)生成相应的信息摘要(也称消息摘要)作为注册的激活码，保存到数据库当中，并且将其作为url的参数，将带有激活码的url链接发送到用户注册的Email中。</p>
+
+<p>只有当用户进入邮箱中并点击该链接后，通过url中的激活码找出数据库中匹配的用户，并将此账号设为“已激活”的状态。</p>
+
+<p><strong>注：此过程没有考虑激活码过期问题，同时信息摘要也可以通过随机数来表示，不一定非要通过用户名等信息生成</strong></p>
+
+<p>Rails代码参考：</p>
+
+<p><a href="http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails">http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Bash到oh-my-zsh的转变]]></title>
@@ -1159,127 +1182,6 @@ $git reset --hard commitid   ##回滚到某次HEAD
 </code></pre>
 
 <p>短时间内可以回滚,如果长时间，则可能记录会被git当作垃圾清理掉。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ruby基础之Array,String and Hash]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/21/array/"/>
-    <updated>2013-07-21T15:55:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/21/array</id>
-    <content type="html"><![CDATA[<h2>Array</h2>
-
-<p>数组通常都是同种元素的集合，元素可以为单个的变量，如数值或者字符串，但是也可以为数组和Hash等复杂对象。</p>
-
-<h3>数组表示矩阵</h3>
-
-<p>其实数组可以用来表示矩阵，矩阵可以被看作数组的数组，也就是每个数组元素都是数组。三行三列的矩阵可以表示为：</p>
-
-<pre><code>a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
-</code></pre>
-
-<p>“5”的位置则是：</p>
-
-<pre><code>a[1][1]
-</code></pre>
-
-<h3>数组初始化陷阱</h3>
-
-<p>初始化数组时，若要使用数组对象或Hash对象作为初始值的元素时必须非常小心，否则便会陷入陷阱当中，如下所示：</p>
-
-<pre><code>a = Array.new(3, [0, 0, 0])
-</code></pre>
-
-<!-- more -->
-
-
-<p>这样看起来初始化结果是[[0, 0, 0], [0, 0, 0], [0, 0, 0]]。但是实则不是。</p>
-
-<p>这样，当只想改动第二行第二个元素时，每一行的第二个元素都会修改，不是预期的结果：</p>
-
-<pre><code>a = Array.new(3, [0, 0, 0])
-a[1][1] = 2
-p a  #=&gt;[[0, 2, 0], [0, 2, 0], [0, 2, 0]]
-</code></pre>
-
-<p>解决办法如下：</p>
-
-<pre><code>a = Array.new(3) {
-        [0, 0, 0]
-}
-p[1][1] = 2
-p a    #=&gt;[[0, 0 , 0], [0, 2, 0], [0, 0, 0]]
-</code></pre>
-
-<p>针对索引值初始化不同的内容：</p>
-
-<pre><code>a = Array.new(5) { |i| i+1 }
-p a     #=&gt;[1, 2, 3, 4, 5]
-</code></pre>
-
-<h3>并行处理多个数组值</h3>
-
-<p>有时候可能会用到将多个数组的同一位置的元素一并处理。如下：</p>
-
-<figure class='code'><figcaption><span>sum_with_each.rb </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">array1</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
-</span><span class='line'>    <span class="n">array2</span> <span class="o">=</span> <span class="o">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="o">]</span>
-</span><span class='line'>    <span class="n">array3</span> <span class="o">=</span> <span class="o">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="o">]</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'>    <span class="n">result</span> <span class="o">=</span> <span class="o">[]</span>
-</span><span class='line'>    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">array1</span><span class="o">.</span><span class="n">length</span>
-</span><span class='line'>        <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">array1</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">array2</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span> <span class="n">array3</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
-</span><span class='line'>        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span class='line'>    <span class="k">end</span>
-</span><span class='line'>    <span class="nb">p</span> <span class="n">result</span>     <span class="c1">#=&gt;[111, 222, 333, 444, 555]</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>如果使用zip方法则更简洁:</p>
-
-<figure class='code'><figcaption><span>sum_with_zip.rb </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">array1</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="o">]</span>
-</span><span class='line'>    <span class="n">array2</span> <span class="o">=</span> <span class="o">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="o">]</span>
-</span><span class='line'>    <span class="n">array3</span> <span class="o">=</span> <span class="o">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">500</span><span class="o">]</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'>    <span class="n">result</span> <span class="o">=</span> <span class="o">[]</span>
-</span><span class='line'>    <span class="n">array1</span><span class="o">.</span><span class="n">zip</span><span class="p">(</span><span class="n">array2</span><span class="p">,</span> <span class="n">array3</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="o">|</span>
-</span><span class='line'>        <span class="n">result</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
-</span><span class='line'>        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>    <span class="nb">p</span> <span class="n">result</span>     <span class="c1">#=&gt;[111, 222, 333, 444, 555]</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>zip方法会从接收者与实参所指定的数组中逐项获取数据，每次调用代码块内容。</p>
 ]]></content>
   </entry>
   

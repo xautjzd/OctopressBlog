@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Thinking | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/thinking/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-08-27T19:46:26+08:00</updated>
+  <updated>2013-09-03T22:57:34+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[账号注册通过邮箱激活]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/03/activate-user-via-email/"/>
+    <updated>2013-09-03T21:48:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/03/activate-user-via-email</id>
+    <content type="html"><![CDATA[<h3>邮箱激活目的</h3>
+
+<p>防止用户注册时所填写的信息为虚假信息</p>
+
+<h3>邮箱激活的原理</h3>
+
+<p>用户注册时，根据用户名、Email及注册时间(精确到ms)等信息通过特定的算法(如:MD5、SHA，最好不可逆)生成相应的信息摘要(也称消息摘要)作为注册的激活码，保存到数据库当中，并且将其作为url的参数，将带有激活码的url链接发送到用户注册的Email中。</p>
+
+<p>只有当用户进入邮箱中并点击该链接后，通过url中的激活码找出数据库中匹配的用户，并将此账号设为“已激活”的状态。</p>
+
+<p><strong>注：此过程没有考虑激活码过期问题，同时信息摘要也可以通过随机数来表示，不一定非要通过用户名等信息生成</strong></p>
+
+<p>Rails代码参考：</p>
+
+<p><a href="http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails">http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Linux活动发起]]></title>
@@ -138,51 +161,6 @@ disqus_show_comment_count: false
 <p>填上自己注册的disqus账号的short name，并将false改成true即可。</p>
 
 <p><strong>注：Disqus一定要和yourname.github.com关联</strong></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress目录结构]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/18/structure-of-octopress/"/>
-    <updated>2013-07-18T14:27:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/18/structure-of-octopress</id>
-    <content type="html"><![CDATA[<h3>Octopress博客目录结构</h3>
-
-<p>octopress博客的source目录结构大致如下:</p>
-
-<pre><code>source/
-├── _attachments
-├── _includes
-│   ├── asides
-│   ├── custom
-│   │   └── asides
-│   └── post
-├── _layouts
-├── _nav_menu_items
-├── _pages
-├── _posts
-├── blog
-│   └── archives
-├── font
-├── images
-│   ├── 2012
-│   │   ├── 01
-│   │   ├── 02
-│   ├── 2013
-│   │   └── 01
-│   ├── fancybox
-│   └── social
-├── javascripts
-│   ├── asides
-│   └── libs
-├── jsccp
-└── stylesheets
-    ├── bootstrap
-        └── syntax
-</code></pre>
-
-<p>当使用<code>rake generate</code>时，source的_post目录中的markdown文件会被编译成html文件，并拷贝到public目录下，public目录结构与source目录结构一致，里面的内容为最终的静态页面。一般都是先<code>rake generate</code>生成静态页面，然后通过<code>rake preview</code>进行本地预览，如果显示正常，则<code>rake
-deploy</code>部署到github上。如果特别熟练，也可以直接生成静态页面并部署，不需要本地预览。可以采用<code>rake gen_deploy</code>一步进行。</p>
 ]]></content>
   </entry>
   
