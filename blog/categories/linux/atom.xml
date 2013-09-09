@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-09-03T22:57:34+08:00</updated>
+  <updated>2013-09-09T14:50:02+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,18 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[查看网站所用Web服务器类型]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/04/lookup-webserver/"/>
+    <updated>2013-09-04T16:43:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/04/lookup-webserver</id>
+    <content type="html"><![CDATA[<p>学习Rails的Layout过程中，其中有提到curl，所以便简单的看了下curl的功能。虽说以前学习Shell的过程中也看到过curl,不过没怎么用过，只知道和wget功能类似，只是wget是将请求的web资源下载到本地，而curl则是在shell中显示，至于有什么其他功能也便不清楚。但是今天发现curl其实还可以用来查看website所用的web服务器类型，通过<code>curl -I url-you-want-to-lookup</code>命令查看即可。以下是我查看ruby-china的一个截图：
+<img src="http://pic.yupoo.com/xautjzd/D8xXpw6z/medish.jpg" alt="" /></p>
+
+<p>从中可以发现ruby-china采用的是nginx服务器。至于curl其他的功能慢慢再发掘吧。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Bash到oh-my-zsh的转变]]></title>
@@ -225,37 +237,6 @@ eg: set foldmarker= /*,*/
 <li><a href="http://www.vim.org/">Vim官网</a></li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Linux下截图工具shutter的安装与配置]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/08/16/install-and-config-shutter/"/>
-    <updated>2013-08-16T16:57:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/08/16/install-and-config-shutter</id>
-    <content type="html"><![CDATA[<p>我一直使用的是Fedora17，自带的截图工具实在不敢恭维，但也就这样断断续续的用着，不过也用的不多。但今天突然鬼使神差的搜了下其他的截图工具，Google搜了下，发现好多提到shutter，既然这么多文章都提到，说明肯定着实不赖，便尝试了下。安装及配置如下：</p>
-
-<h3>1.安装</h3>
-
-<p>安装过程很简单，执行下面命令即可：</p>
-
-<pre><code>#yum install shutter
-</code></pre>
-
-<h3>2.配置</h3>
-
-<p>QQ截图快捷键<code>&lt;ctrl&gt;+&lt;alt&gt;+A</code>用习惯了，所以也对shutter继续保留这个快捷键。具体配置方法如下：
-在System Tools>System Settings>Keyboard>Shortcuts>Custom Shortcuts中添加了三个快捷键：</p>
-
-<ul>
-<li><p>截图整个屏幕（shutter -f）</p></li>
-<li><p>截图当前活动窗口(shutter -a)</p></li>
-<li><p>截图选定区域(shutter -s)</p></li>
-</ul>
-
-
-<p>具体配置及对应的快捷键设置参考下图：
-<img src="/images/shutter-config.jpg"></p>
 ]]></content>
   </entry>
   
