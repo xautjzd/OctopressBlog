@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Thinking | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/thinking/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-09-09T14:50:02+08:00</updated>
+  <updated>2013-09-13T13:27:48+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -35,6 +35,9 @@
 <p>若设置了Expires,浏览器则会把生成的cookie保存在硬盘上，即使浏览器关闭后再打开，cookie依然有效，直至超过设置的expires。</p>
 
 <p>另外，session大小有限制，一旦浏览器禁用cookie，则采用cookie的购物网站便不能进行购物，所以这时候得用session了。</p>
+
+<!-- more -->
+
 
 <h2>Session</h2>
 
