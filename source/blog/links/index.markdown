@@ -18,6 +18,16 @@ footer: true
 - [Hacker News](https://news.ycombinator.com/)
 - [可能吧](ttp://www.kenengba.com/)
 
+### Ruby Hackers
+
+- [Yehuda Katz](http://yehudakatz.com/)
+- [DHH](http://37signals.com/svn/writers/dhh)
+- [Gaurish Sharma](http://www.gaurishsharma.com/)
+
+### Learning Resouces
+
+- [Git Community Book](http://gitbook.liuhui998.com/index.html)
+
 ### Friend Links
 
 - [AprocySanae](http://blog.kochiya.me/)
