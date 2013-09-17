@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Aug 17th, 2013 Octopress, Thinking Comments 更换Octopress主题 Octopress博客搭建已经有一阵了，但一直采用的默认的主题，没时间更换。今天特意抽时间来更换下，先上Octopress官网了解了下更换Theme的原理， &hellip;">
+	<meta name="description" content="Aug 18th, 2013 Ruby Comments Ruby中symbol与string的区别 记得当初学习Ruby基本语法时，还为Symbol与String的异同纠结了好久，后来经过一段时间的摸索，大致有了了解，但让我给他人解释，这点我还是办不到。但是今天看到了一篇博文, &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,11 +22,27 @@
 	<link rel="canonical" href="http://xautjzd.github.io/blog/page/2/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-42925167-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
 
 </head>
 
@@ -46,7 +62,7 @@
 <hgroup>
   <h1><a href="/">xautjzd</a></h1>
   
-    <h2>博学之，审问之，慎思之，明辨之，笃行之</h2>
+    <h2>Nothing seek,nothing find</h2>
   
 </hgroup>
 
@@ -64,7 +80,7 @@
 
 <section class="aboutme">
   <p>
-    记录学习成长历程
+    博学之，审问之，慎思之，明辨之，笃行之
   </p>
 </section>
 </nav>
@@ -99,6 +115,118 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-18T20:50:00+08:00" data-updated="true" itemprop="datePublished">Aug 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/18/difference-between-symbol-and-string/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/18/difference-between-symbol-and-string/" itemprop="url">Ruby中symbol与string的区别</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>记得当初学习Ruby基本语法时，还为Symbol与String的异同纠结了好久，后来经过一段时间的摸索，大致有了了解，但让我给他人解释，这点我还是办不到。但是今天看到了一篇<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">博文</a>,让我彻底明白他们的区别。</p>
+
+<h3>symbol定义</h3>
+
+<p>Symbol其实就是string加上前缀：。</p>
+
+<h3>二者异同点</h3>
+
+<p>其实Symbol与String本质相同，是string 的两种不同呈现方式。由于受SmallTalk影响，Ruby一切皆对象。所以每次给string赋值，<code>name="xautjzd"</code>其实都是在内存中创建一个新对象。每次创建的对象的object_id都不相同。</p>
+
+<p>而symbol则不同，symbol创建一次即可。以后所有的操作都是指向先前创建的对象。所以object_id相同。</p>
+
+<p>不同点大致有三：
+1. symbol为常量，值不能改变。
+2. 多次使用同一个symbol,object_id相同，而多次使用string,每个对象有不同的object_id。
+3. String的方法,eg:#upcase,#split不能用于Symbol。</p>
+
+<h3>参考网址</h3>
+
+<p><a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html</a>(<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html</a>)</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-18T13:48:00+08:00" data-updated="true" itemprop="datePublished">Aug 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/18/vim-learning-resource/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/18/vim-learning-resource/" itemprop="url">Vim学习资源</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h3>实用的快捷方式</h3>
+
+<ul>
+<li>gf  快速跳转到定义</li>
+<li><code>&lt;C + 6&gt;</code>  返回到上次编辑的文档</li>
+<li>%  括号匹配{}<a href=""></a></li>
+<li><code>#/*,g#/g*</code>  向前/向后搜索光标所在的词</li>
+<li>gi  跳转到上次编辑的位置</li>
+<li>gi  显示光标所在字符的编码</li>
+<li>gH  开始选择行模式</li>
+<li>vi&#8221;  选中&#8221;之间的文本(不包括&#8221;)</li>
+<li>vi{  选中{之间的文本（不包括{）</li>
+<li>ci(  改变之间的文本</li>
+<li>di[  删除[之间的文本(不包括[)</li>
+<li>da[  删除[之间的文本(包括[),ca、va类似</li>
+<li>C  修改至行尾</li>
+<li>D  删除至行尾</li>
+</ul>
+
+
+
+		
+		<a href="/blog/2013/08/18/vim-learning-resource/" class="more-link">Read on &rarr;</a>
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -575,116 +703,6 @@
 
 </article>
 
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-29T20:59:00+08:00" data-updated="true" itemprop="datePublished">Jul 29<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/29/install-ruby-and-rails/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/29/install-ruby-and-rails/" itemprop="url">Fedora17下搭建Ruby和Rails环境</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>不同的项目所用的ruby版本不同，所以为了方便不同项目ruby版本的切换，需要在同一个系统中安装多个ruby版本，并且针对不同的项目在不同的版本间切换，为了方便ruby版本的管理，采用<a href="https://rvm.io/">RVM</a>进行管理。</p>
-
-<h2>1.安装RVM</h2>
-
-<pre><code>#curl -L https://get.rvm.io | bash -s stable
-</code></pre>
-
-<p>一会儿之后rvm便安装完成,安装位置为/usr/local/rvm目录下，网上很多教程都是使用一般用户权限管理，但是我也尝试过采用一般用户权限安装，但是始终不会安装在~/usrname/.rvm目录下，还是提示安装在/usr/local/rvm下，但是没有写的权限。可能是fedora系统的原因吧，没有深究。使用：</p>
-
-<pre><code>#source /usr/local/rvm/scripts/rvm
-</code></pre>
-
-<p>使rvm配置生效。然后采用：</p>
-
-<pre><code>#rvm -v
-</code></pre>
-
-<p>查看rvm的版本。同时也可以通过<code>rvm info</code>查看rvm相关信息。</p>
-
-
-		
-		<a href="/blog/2013/07/29/install-ruby-and-rails/" class="more-link">Read on &rarr;</a>
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-27T20:38:00+08:00" data-updated="true" itemprop="datePublished">Jul 27<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/27/vim-vundle-install-and-config/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/27/vim-vundle-install-and-config/" itemprop="url">Vim下的的插件管理神器——Vundle</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>断断续续用Vim也不少时间了，但是从来没有进行过复杂的Vim配置，每每需要插件都是网上寻求安装方式。但是当插件多了管理也便变得繁琐，最后终于让我结识了插件管理神器——Vundle，用过的人都说好用，所以我便也尝试了，网上也有一部分人采用pathogen来进行插件管理，但是据说没有Vundle好用，也便没有尝试，下面对我使用Vundle做一个总结。</p>
-
-<p>首先Vundle采用git插件的git repo以及vim-scripts维护的GitHub repo, 自动安装, 更新和卸载插件. 把这些繁杂的工作变得简单, 甚至, 成为一种享受.</p>
-
-<h2>安装</h2>
-
-<p><a href="https://github.com/gmarik/vundle">Vundle地址</a>,上面安装及配置步骤已经很详细，我在此再赘述下：</p>
-
-<p>1.拷贝Vundle</p>
-
-<pre><code>$ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-</code></pre>
-
-<p>上面步骤将vundle拷贝到本地的～/.vim/bundle/vundle目录下</p>
-
-<p>2.Vundle配置</p>
-
-<p>以下是我的配置文件：</p>
-
-
-		
-		<a href="/blog/2013/07/27/vim-vundle-install-and-config/" class="more-link">Read on &rarr;</a>
-	</div>
-
-</article>
-
 </div>
 <nav id="pagenavi">
     
@@ -702,16 +720,7 @@
 </p>
 
 Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
-			<script src="/javascripts/slash.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
-<script src="/javascripts/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-	$('.fancybox').fancybox();
-})(jQuery);
-</script> <!-- Delete or comment this line to disable Fancybox -->
-
+			
 
 <script type="text/javascript">
       var disqus_shortname = 'zhengdongjiang';
@@ -728,17 +737,29 @@ Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Sha
 
 
 
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-42925167-1']);
-		_gaq.push(['_trackPageview']);
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
 
 
 

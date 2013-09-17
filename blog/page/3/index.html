@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Jul 27th, 2013 Octopress Comments Ocpress添加友情链接 与在侧边栏添加Aboutme、Categories、Tagcloud等功能类似，在source/_include\custom\asides目录下添加一个frendsites.html文件， &hellip;">
+	<meta name="description" content="Jul 29th, 2013 Ruby Comments Fedora17下搭建Ruby和Rails环境 不同的项目所用的ruby版本不同，所以为了方便不同项目ruby版本的切换，需要在同一个系统中安装多个ruby版本，并且针对不同的项目在不同的版本间切换，为了方便ruby版本的管理， &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,11 +22,27 @@
 	<link rel="canonical" href="http://xautjzd.github.io/blog/page/3/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-42925167-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
 
 </head>
 
@@ -46,7 +62,7 @@
 <hgroup>
   <h1><a href="/">xautjzd</a></h1>
   
-    <h2>博学之，审问之，慎思之，明辨之，笃行之</h2>
+    <h2>Nothing seek,nothing find</h2>
   
 </hgroup>
 
@@ -64,7 +80,7 @@
 
 <section class="aboutme">
   <p>
-    记录学习成长历程
+    博学之，审问之，慎思之，明辨之，笃行之
   </p>
 </section>
 </nav>
@@ -99,6 +115,116 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-29T20:59:00+08:00" data-updated="true" itemprop="datePublished">Jul 29<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/07/29/install-ruby-and-rails/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/29/install-ruby-and-rails/" itemprop="url">Fedora17下搭建Ruby和Rails环境</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>不同的项目所用的ruby版本不同，所以为了方便不同项目ruby版本的切换，需要在同一个系统中安装多个ruby版本，并且针对不同的项目在不同的版本间切换，为了方便ruby版本的管理，采用<a href="https://rvm.io/">RVM</a>进行管理。</p>
+
+<h2>1.安装RVM</h2>
+
+<pre><code>#curl -L https://get.rvm.io | bash -s stable
+</code></pre>
+
+<p>一会儿之后rvm便安装完成,安装位置为/usr/local/rvm目录下，网上很多教程都是使用一般用户权限管理，但是我也尝试过采用一般用户权限安装，但是始终不会安装在~/usrname/.rvm目录下，还是提示安装在/usr/local/rvm下，但是没有写的权限。可能是fedora系统的原因吧，没有深究。使用：</p>
+
+<pre><code>#source /usr/local/rvm/scripts/rvm
+</code></pre>
+
+<p>使rvm配置生效。然后采用：</p>
+
+<pre><code>#rvm -v
+</code></pre>
+
+<p>查看rvm的版本。同时也可以通过<code>rvm info</code>查看rvm相关信息。</p>
+
+
+		
+		<a href="/blog/2013/07/29/install-ruby-and-rails/" class="more-link">Read on &rarr;</a>
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-27T20:38:00+08:00" data-updated="true" itemprop="datePublished">Jul 27<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/07/27/vim-vundle-install-and-config/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/27/vim-vundle-install-and-config/" itemprop="url">Vim下的的插件管理神器——Vundle</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>断断续续用Vim也不少时间了，但是从来没有进行过复杂的Vim配置，每每需要插件都是网上寻求安装方式。但是当插件多了管理也便变得繁琐，最后终于让我结识了插件管理神器——Vundle，用过的人都说好用，所以我便也尝试了，网上也有一部分人采用pathogen来进行插件管理，但是据说没有Vundle好用，也便没有尝试，下面对我使用Vundle做一个总结。</p>
+
+<p>首先Vundle采用git插件的git repo以及vim-scripts维护的GitHub repo, 自动安装, 更新和卸载插件. 把这些繁杂的工作变得简单, 甚至, 成为一种享受.</p>
+
+<h2>安装</h2>
+
+<p><a href="https://github.com/gmarik/vundle">Vundle地址</a>,上面安装及配置步骤已经很详细，我在此再赘述下：</p>
+
+<p>1.拷贝Vundle</p>
+
+<pre><code>$ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+</code></pre>
+
+<p>上面步骤将vundle拷贝到本地的～/.vim/bundle/vundle目录下</p>
+
+<p>2.Vundle配置</p>
+
+<p>以下是我的配置文件：</p>
+
+
+		
+		<a href="/blog/2013/07/27/vim-vundle-install-and-config/" class="more-link">Read on &rarr;</a>
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -658,112 +784,13 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 
 </article>
 
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T13:46:00+08:00" data-updated="true" itemprop="datePublished">Jul 18<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/18/add-navigator/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/18/add-navigator/" itemprop="url">Octopress修改导航栏(Navigator)</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：</p>
-
-<pre><code>$rake new_page[About]
-</code></pre>
-
-<p>默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉，便想着将生成的页面和其他页面放在一起，便可进行如下操作：</p>
-
-<pre><code>$rake new_page[/blog/About]
-</code></pre>
-
-<p>这样便在source/blog目录中生成页面，方面管理。生成的页面目前还不能显示，还需编辑source/_includes/custom/navigation.html文件：</p>
-
-<pre><code>$vim source/_includes/custom/navigation.html
-</code></pre>
-
-<p>在其中加入</p>
-
-<pre><code>&lt;li&gt;&lt;a href="/blog/about"&gt;关于我&lt;/a&gt;&lt;/li&gt;
-</code></pre>
-
-<p>编辑完成后进行rake generate生成静态的html文件，然后rake preview便可以通过localhost:4000在本地预览。</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T12:42:00+08:00" data-updated="true" itemprop="datePublished">Jul 18<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/18/my-first-blog/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/18/my-first-blog/" itemprop="url">我的第一篇博客</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。
-详细搭建过程官方文档写的相当详细，这里不再赘述，请参考：
-<a href="octopress.org/docs/setup">官网</a><br/>
-下面只说我搭建过程中遇到的难题：
-我每次都是运行rake deploy时出现问题，也就是博客无法push到github的repository中。
-每次都是![rejected] master->master (no-fast-forward)
-最后网上找了不少资料，然后自己也细细思考了一番，最后终得以解决。方法如下：
-转到deploy目录下，执行$git pull，然后再执行git push origin master即可。</p>
-
-		
-		
-	</div>
-
-</article>
-
 </div>
 <nav id="pagenavi">
     
         <a href="/blog/page/2/" class="prev">Prev</a>
     
+    
+        <a href="/blog/page/4/" class="next">Next</a>
     
     <div class="center"><a href="/blog/archives">Blog Archives</a></div>
 </nav></div>
@@ -774,16 +801,7 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 </p>
 
 Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
-			<script src="/javascripts/slash.js"></script>
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
-<script src="/javascripts/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-	$('.fancybox').fancybox();
-})(jQuery);
-</script> <!-- Delete or comment this line to disable Fancybox -->
-
+			
 
 <script type="text/javascript">
       var disqus_shortname = 'zhengdongjiang';
@@ -800,17 +818,29 @@ Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Sha
 
 
 
-	<script type="text/javascript">
-		var _gaq = _gaq || [];
-		_gaq.push(['_setAccount', 'UA-42925167-1']);
-		_gaq.push(['_trackPageview']);
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
-		(function() {
-			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		})();
-	</script>
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
 
 
 

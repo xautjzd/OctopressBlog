@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-09-13T13:27:48+08:00</updated>
+  <updated>2013-09-17T16:00:10+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,37 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[更新Octopress]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/17/update-my-blog/"/>
+    <updated>2013-09-17T15:22:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/17/update-my-blog</id>
+    <content type="html"><![CDATA[<p>现在已记不清接触Octopress多长时间了，只依稀记得当时配置Octopress配了好久，然后依然失败，后又忙于其他的事情，所以搭建工作便搁置一旁，七月中旬时间比较充足，所以又开始再次折腾，后来终于搭建成功，所以7.18便发表了第一篇博客。后来一个月之后又开始了我的换肤工作，一切都好，唯一的缺陷是Gravatar的图像没有显示出来，所以便向theme的作者发问，后来也忘了这茬事。就这样又过了一月，直到今天，突然发现我的unread消息里面有几条关于我的message，便打开浏览，才发现作者给的回复，说图像没显示是个bug，现已修复。具体见：</p>
+
+<p><a href="https://github.com/shashankmehta/greyshade/issues/42">https://github.com/shashankmehta/greyshade/issues/42</a></p>
+
+<p>我便立马更新了我的Octopress。更新方法如下：</p>
+
+<pre><code># Get the latest Octopress
+git pull octopress master    
+# Keep gems updated
+bundle install               
+# update the template's source
+rake update_source            
+</code></pre>
+
+<p>具体参考：</p>
+
+<p><a href="http://octopress.org/docs/updating/">http://octopress.org/docs/updating/</a></p>
+
+<p>参考时请务必注意：如果您的octopress主题不是octopress默认主题,请不要执行<code>rake update_style</code>，否则会被还原成默认主题。</p>
+
+<p>本博客采用的主题为：</p>
+
+<p><a href="https://github.com/shashankmehta/greyshade">https://github.com/shashankmehta/greyshade</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[更换Octopress主题]]></title>
@@ -216,31 +247,6 @@ title: Thinking</p>
 </pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">...</span><span class="p-Indicator">]</span>
 </span></code></pre></td></tr></table></div></figure></notextile></div>
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Octopress配置Disqus插件]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/18/congfig-disqus-plugin/"/>
-    <updated>2013-07-18T15:37:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/18/congfig-disqus-plugin</id>
-    <content type="html"><![CDATA[<h3>添加Disqus插件</h3>
-
-<p>看到不少人博客上都有Comments功能，便也想给自己的博客添加上。经过搜寻一番，发现大多用的都是Disqus，而且octopress其实内置了其功能，只是默认没有设置.编辑博客主目录下的config.yml文件即可：</p>
-
-<pre><code>$vim _config.yml
-</code></pre>
-
-<p>找到：</p>
-
-<pre><code>#Disqus comments
-disqus_short_name: 
-disqus_show_comment_count: false
-</code></pre>
-
-<p>填上自己注册的disqus账号的short name，并将false改成true即可。</p>
-
-<p><strong>注：Disqus一定要和yourname.github.com关联</strong></p>
 ]]></content>
   </entry>
   

@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-09-13T13:27:48+08:00</updated>
+  <updated>2013-09-17T16:00:10+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,118 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[更新Octopress]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/17/update-my-blog/"/>
+    <updated>2013-09-17T15:22:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/17/update-my-blog</id>
+    <content type="html"><![CDATA[<p>现在已记不清接触Octopress多长时间了，只依稀记得当时配置Octopress配了好久，然后依然失败，后又忙于其他的事情，所以搭建工作便搁置一旁，七月中旬时间比较充足，所以又开始再次折腾，后来终于搭建成功，所以7.18便发表了第一篇博客。后来一个月之后又开始了我的换肤工作，一切都好，唯一的缺陷是Gravatar的图像没有显示出来，所以便向theme的作者发问，后来也忘了这茬事。就这样又过了一月，直到今天，突然发现我的unread消息里面有几条关于我的message，便打开浏览，才发现作者给的回复，说图像没显示是个bug，现已修复。具体见：</p>
+
+<p><a href="https://github.com/shashankmehta/greyshade/issues/42">https://github.com/shashankmehta/greyshade/issues/42</a></p>
+
+<p>我便立马更新了我的Octopress。更新方法如下：</p>
+
+<pre><code># Get the latest Octopress
+git pull octopress master    
+# Keep gems updated
+bundle install               
+# update the template's source
+rake update_source            
+</code></pre>
+
+<p>具体参考：</p>
+
+<p><a href="http://octopress.org/docs/updating/">http://octopress.org/docs/updating/</a></p>
+
+<p>参考时请务必注意：如果您的octopress主题不是octopress默认主题,请不要执行<code>rake update_style</code>，否则会被还原成默认主题。</p>
+
+<p>本博客采用的主题为：</p>
+
+<p><a href="https://github.com/shashankmehta/greyshade">https://github.com/shashankmehta/greyshade</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[搭建Git服务器]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/17/build-git-remote-repository/"/>
+    <updated>2013-09-17T10:54:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/17/build-git-remote-repository</id>
+    <content type="html"><![CDATA[<p>从开始用Git到现在也已经有一年时间了，但一直都在本地开发，用于管理本地的代码，没有进行多人协作开发，所以也没有必要搭建一个Git服务器。</p>
+
+<p>但就在昨晚，我在教研室给大家介绍Git工具时，感觉大家对这个工具貌似没有太大的热情，猜其原因，可能是因为大家对这个工具过于陌生，而我又讲的太过细节，所以他们可能听得有点烦。但是只有试过之后才能感觉其方便之处，我也希望教研室的同学都能掌握它，所以便决定在教研室搭建一个Git服务器，供大家使用，也思索着今后的项目都用git来进行管理。毕竟现在教研室只有我一人使用git,其他同学都用svn,甚至不用(其实用svn的同学不超过3个)，开发项目也难以统一，而我个人在使用过git后又不想转向svn，同时也非常希望身边的同学也能去使用git这么一个优秀工具，所以只能忽悠他们转向git了。不过经昨晚一役，证明了我忽悠人的本领完全不到家，看来今后得好好练练了。前奏有点过于冗长，下面进入正题吧。</p>
+
+<!-- more -->
+
+
+<p>由于此次git服务器是搭建在Linux平台，所以首先得有一台安装过Linux的pc,不过幸好我有一台台式机安装了Fedora,这样第一个要素就搞定了。接下来我选择的是ssh来作为git url的协议，因为ssh协议安全方便。所以服务器上还得安装ssh。比较好用的当属openssh了，我此前一直在fedora上用git管理我个人的代码，并且托管在GitHub上，所以这个环节也省了。没有安装的可以试试openssh，具体安装步骤问Google。</p>
+
+<p>当然为了每次对远程库进行操作而不用输入用户名和密码，就需要将本地的公钥拷贝到服务器上对应的文件里，具体步骤如下：</p>
+
+<h3>服务器</h3>
+
+<p>首先为了操作方便安全，需要在服务器上创建一个名为git的用户：</p>
+
+<pre><code>#useradd git
+</code></pre>
+
+<p>接着进入到/home/git目录下新建一个.ssh目录：</p>
+
+<pre><code>git$ mkdir ~/.ssh
+</code></pre>
+
+<p>服务端工作暂时完成</p>
+
+<h3>客户端</h3>
+
+<p>进入~/.ssh/目录，生成公钥和密钥：</p>
+
+<pre><code>$ ssh-keygen
+</code></pre>
+
+<p>然后一直回车，完成后会发现在~/.ssh目录下多了id_rsa和id_rsa.pub文件，然后将客户端生成的id_rsa.pub公钥拷贝到服务器上：</p>
+
+<pre><code>$scp id_rsa.pub git@your_server_ip/~/.ssh/
+</code></pre>
+
+<p>以上操作在~/.ssh目录下进行，git为刚才服务器创建的用户(当然用户名可为其他用户名，只要和服务器对应便可)。此操作完成便会发现服务器上的~/.ssh/目录下多了一个id_rsa.pub文件。</p>
+
+<p>现在转到服务器，将服务器上的~/.ssh目录下的id_rsa.pub文件改为authorized_keys。再重启sshd服务，使配置生效即可。</p>
+
+<p>既然提到服务的开启与关闭，顺带将其操作列出来：</p>
+
+<pre><code>#systemctl start sshd.service     #启动服务
+#systemctl stop sshd.service      #关闭服务
+#systemctl enable sshd.servie     #使服务开机便自动运行
+#systemctl is-enabled sshd.servie #查看服务是否开机启动
+#systemctl disable sshd.service   #取消开机自动运行
+#systemctl status sshd.service    #查看服务运行状态
+#systemctl restart sshd.service   #重启服务
+#systemctl reload sshd.service    #重新加载服务配置文件
+#systemctl --failed               #显示启动失败的服务
+</code></pre>
+
+<h2>搭建Git服务器</h2>
+
+<p>新建一个文件夹，用来作为Git服务器Repository,然后初始化。如我远程repository文件夹为/home/git/demo/,操作如下：</p>
+
+<pre><code>$mkdir demo    #in /home/git/ directory
+$cd ~/demo/
+$git init
+</code></pre>
+
+<p>然后在客户端添加此远程库，便可进行代码的push和pull了。</p>
+
+<pre><code>$git remote add origin git@your_server_ip:~/demo
+#after git add &amp; git commit,run git push
+$ git push origin master
+</code></pre>
+
+<p>这样就把要管理的代码提交到Git服务器，并用Git来进行管理了。</p>
+
+<p>至此，工作基本完成，后续还有好多东西需要研究，如代码的审查机制等，当然这个功能目前还用不到，但是想了解一下审查机制如何建立，后续再学习吧。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[VirtualBox安装ArchLinux系统]]></title>
@@ -113,6 +225,8 @@ Server = http://ftp.tku.edu.tw/Linux/ArchLinux/$repo/os/$arch
 <pre><code>#arch-chroot /mnt
 </code></pre>
 
+<p>使用chroot后，系统的目录结构将以指定的位置作为&#8221;/&ldquo;目录</p>
+
 <h3>8. 配置系统</h3>
 
 <p>系统的配置主要有locale和时区的配置。</p>
@@ -149,7 +263,7 @@ Server = http://ftp.tku.edu.tw/Linux/ArchLinux/$repo/os/$arch
 
 <h3>10. 创建初始化ramdisk环境</h3>
 
-<p>ramdisk是通过软件将一部分内存(RAM)来模拟一个硬盘，提高访问速度。创建ramdisk的方法如下：</p>
+<p>ramdisk是通过软件将一部分内存(RAM)来模拟一个硬盘，提高访问速度。当然这只是针对内存过剩的情况下才使用，一般完全没有必要。如果您觉得内存完全用不完，为了有效的利用，可以创建ramdisk，毕竟RAM的访问速度非常快，差不多是固态硬盘的30倍。创建ramdisk的方法如下：</p>
 
 <pre><code>    #mkinitcpio -p linux
 </code></pre>
@@ -167,12 +281,43 @@ Server = http://ftp.tku.edu.tw/Linux/ArchLinux/$repo/os/$arch
 
 <h3>12. 安装配置bootloader</h3>
 
-<p>一般采用比较常见的grub即可。安装方法如下：</p>
+<p>根据主板BIOS类型不同，安装和配置bootloader的方式也不同。
+大致有两种类型：</p>
 
-<pre><code>#pacman -S grub-bios
-#grub-install /deb/sda
+<ol>
+<li>传统的BIOS
+
+<ul>
+<li>Syslinux</li>
+<li>Grub</li>
+</ul>
+</li>
+<li>UEFI BIOS
+
+<ul>
+<li>EFISTUB</li>
+<li>Gummiboot</li>
+<li>Grub</li>
+</ul>
+</li>
+</ol>
+
+
+<p>我的主板是传统BIOS类型，采用Grub bootloader。二者的差别见图：</p>
+
+<p><img src="http://pic.yupoo.com/xautjzd/D9TU14LM/medish.jpg" alt="" /></p>
+
+<p>与传统BIOS相比，UEFI BIOS少了BIOS自检功能，这样节省了大量时间，从而加快平台的启动。</p>
+
+<p>安装方法如下：</p>
+
+<pre><code>#pacman -S grub-bios  #install grub bootloader
+#grub-install /dev/sda
 #grub-mkconfig -o /boot/grub/grub.cfg
 </code></pre>
+
+<p>其中grub-install将grub images拷贝到/boot/grub。
+grub-mkconfig生成grub的配置，通过-o参数将配置输出到指定的配置文件，默认输出到标准输出。</p>
 
 <h3>13. 卸载分区并重启系统</h3>
 
@@ -981,298 +1126,6 @@ $rails server     #启动内置服务器
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fedora17下搭建Ruby和Rails环境]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/29/install-ruby-and-rails/"/>
-    <updated>2013-07-29T20:59:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/29/install-ruby-and-rails</id>
-    <content type="html"><![CDATA[<p>不同的项目所用的ruby版本不同，所以为了方便不同项目ruby版本的切换，需要在同一个系统中安装多个ruby版本，并且针对不同的项目在不同的版本间切换，为了方便ruby版本的管理，采用<a href="https://rvm.io/">RVM</a>进行管理。</p>
-
-<h2>1.安装RVM</h2>
-
-<pre><code>#curl -L https://get.rvm.io | bash -s stable
-</code></pre>
-
-<p>一会儿之后rvm便安装完成,安装位置为/usr/local/rvm目录下，网上很多教程都是使用一般用户权限管理，但是我也尝试过采用一般用户权限安装，但是始终不会安装在~/usrname/.rvm目录下，还是提示安装在/usr/local/rvm下，但是没有写的权限。可能是fedora系统的原因吧，没有深究。使用：</p>
-
-<pre><code>#source /usr/local/rvm/scripts/rvm
-</code></pre>
-
-<p>使rvm配置生效。然后采用：</p>
-
-<pre><code>#rvm -v
-</code></pre>
-
-<p>查看rvm的版本。同时也可以通过<code>rvm info</code>查看rvm相关信息。</p>
-
-<!-- more -->
-
-
-<h2>2.安装Ruby环境</h2>
-
-<p>使用<code>rvm install 1.9.3</code>会默认选择<code>http://ruby-lang.org</code>网站下载ruby源码然后进行编译，这样太慢。幸好淘宝提供了<a href="http://ruby.taobao.org/mirrors/ruby/">ruby的下载源</a>，我此次便采用的是先在淘宝的ruby源下载我想要的ruby版本1.9.3-p448，下载完成后，将其放到/usr/local/rvm/archives/目录下，然后再执行<code>rvm install 1.9.3-p448</code>，它便能识别已有的ruby源码包，进行解压和编译一系列过程。大致几分钟便可完成。</p>
-
-<p>下面是我采用一般用户权限安装ruby出错。</p>
-
-<figure class='code'><figcaption><span>一般用户安装ruby出错 </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>   <span class="nv">$ </span>rvm install 1.9.3-p448
-</span><span class='line'>  Searching <span class="k">for </span>binary rubies, this might take some time.
-</span><span class='line'>  No binary rubies available <span class="k">for</span>: fedora/17/i386/ruby-1.9.3-p448.
-</span><span class='line'>  Continuing with compilation. Please <span class="nb">read</span> <span class="s1">&#39;rvm help mount&#39;</span> to get more information on binary rubies.
-</span><span class='line'>  Installing requirements <span class="k">for </span>fedora, might require sudo password.
-</span><span class='line'>  Requirements installation successful.
-</span><span class='line'>  Installing Ruby from <span class="nb">source </span>to: /usr/local/rvm/rubies/ruby-1.9.3-p448, this may take a <span class="k">while </span>depending on your cpu<span class="o">(</span>s<span class="o">)</span>...
-</span><span class='line'>  ruby-1.9.3-p448 - <span class="c">#downloading ruby-1.9.3-p448, this may take a while depending on your connection...</span>
-</span><span class='line'>  Archive checksum did not match, downloading again.
-</span><span class='line'>  rm: cannot remove <span class="sb">`</span>ruby-1.9.3-p448.tar.bz2<span class="s1">&#39;: Permission denied</span>
-</span><span class='line'><span class="s1"> curl: Can&#39;</span>t open <span class="s1">&#39;ruby-1.9.3-p448.tar.bz2&#39;</span>!
-</span><span class='line'>  curl: try <span class="s1">&#39;curl --help&#39;</span> or <span class="s1">&#39;curl --manual&#39;</span> <span class="k">for </span>more information
-</span><span class='line'>  There was an error<span class="o">(</span>23<span class="o">)</span>, please check /usr/local/rvm/log//*.log. Next we<span class="s1">&#39;ll try to fetch via http.</span>
-</span><span class='line'><span class="s1"> Trying ftp:// URL instead.</span>
-</span><span class='line'><span class="s1"> curl: Can&#39;</span>t open <span class="s1">&#39;ruby-1.9.3-p448.tar.bz2&#39;</span>!
-</span><span class='line'>  curl: try <span class="s1">&#39;curl --help&#39;</span> or <span class="s1">&#39;curl --manual&#39;</span> <span class="k">for </span>more information
-</span><span class='line'>  There was an error<span class="o">(</span>23<span class="o">)</span>, please check /usr/local/rvm/log//*.log
-</span><span class='line'>  There has been an error fetching the ruby interpreter. Halting the installation.
-</span><span class='line'>  
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>3.设置Ruby版本</h2>
-
-<p>通常系统都会安装多个Ruby版本，可通过<code>rvm list</code>查看系统已安装的ruby版本。但需要指定某一版本为系统默认版本。</p>
-
-<pre><code>#rvm use 1.9.3 --default
-</code></pre>
-
-<p>我使用的版本为1.9.3，所以指定为默认版本。</p>
-
-<p>安装Ruby的过程中会自动安装gem，通过下列方法查看其版本</p>
-
-<pre><code>#ruby -v
-#gem -v
-</code></pre>
-
-<p>同时替换gem的下载源为淘宝源：</p>
-
-<pre><code>#gem source -r https://rubygems.org
-#gem source -a http://ruby.taobao.org
-</code></pre>
-
-<h2>4.安装Rails环境</h2>
-
-<p>采用：</p>
-
-<pre><code>#gem install bundler rails
-</code></pre>
-
-<p>安装bundle和rails。</p>
-
-<p>安装完成后进行测试：</p>
-
-<pre><code>#rails -v
-#bundle -v
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vim下的的插件管理神器——Vundle]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/27/vim-vundle-install-and-config/"/>
-    <updated>2013-07-27T20:38:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/27/vim-vundle-install-and-config</id>
-    <content type="html"><![CDATA[<p>断断续续用Vim也不少时间了，但是从来没有进行过复杂的Vim配置，每每需要插件都是网上寻求安装方式。但是当插件多了管理也便变得繁琐，最后终于让我结识了插件管理神器——Vundle，用过的人都说好用，所以我便也尝试了，网上也有一部分人采用pathogen来进行插件管理，但是据说没有Vundle好用，也便没有尝试，下面对我使用Vundle做一个总结。</p>
-
-<p>首先Vundle采用git插件的git repo以及vim-scripts维护的GitHub repo, 自动安装, 更新和卸载插件. 把这些繁杂的工作变得简单, 甚至, 成为一种享受.</p>
-
-<h2>安装</h2>
-
-<p><a href="https://github.com/gmarik/vundle">Vundle地址</a>,上面安装及配置步骤已经很详细，我在此再赘述下：</p>
-
-<p>1.拷贝Vundle</p>
-
-<pre><code>$ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-</code></pre>
-
-<p>上面步骤将vundle拷贝到本地的～/.vim/bundle/vundle目录下</p>
-
-<p>2.Vundle配置</p>
-
-<p>以下是我的配置文件：</p>
-
-<!-- more -->
-
-
-
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'>    <span class="nb">set </span>runtimepath+<span class="o">=</span>~/.vim_runtime
-</span><span class='line'>
-</span><span class='line'>    <span class="nb">source</span> ~/.vim_runtime/vimrcs/basic.vim
-</span><span class='line'>    <span class="nb">source</span> ~/.vim_runtime/vimrcs/filetypes.vim
-</span><span class='line'>    <span class="nb">source</span> ~/.vim_runtime/vimrcs/plugins_config.vim
-</span><span class='line'>    <span class="nb">source</span> ~/.vim_runtime/vimrcs/extended.vim
-</span><span class='line'>    <span class="nb">source</span> ~/.vim_runtime/vimrcs/taglist.vim
-</span><span class='line'>
-</span><span class='line'>    <span class="nb">let </span><span class="nv">Tlist_Ctags_Cmd</span><span class="o">=</span><span class="s1">&#39;/usr/bin/ctags&#39;</span>
-</span><span class='line'>    <span class="nb">let </span><span class="nv">Tlist_Inc_Winwidth</span><span class="o">=</span>0
-</span><span class='line'>    <span class="nb">let </span><span class="nv">Tlist_Process_File_Always</span><span class="o">=</span>1
-</span><span class='line'>    <span class="nb">let </span><span class="nv">Tlist_File_Fold_Auto_Close</span><span class="o">=</span>1
-</span><span class='line'>    <span class="nb">set </span>autochdir
-</span><span class='line'>
-</span><span class='line'>    colorscheme molokai
-</span><span class='line'>
-</span><span class='line'>    try
-</span><span class='line'>        <span class="nb">source</span> ~/.vim_runtime/my_configs.vim
-</span><span class='line'>        catch
-</span><span class='line'>        endtry
-</span><span class='line'>
-</span><span class='line'>        <span class="s2">&quot;Below is vundle configuration</span>
-</span><span class='line'><span class="s2">        set nocompatible               &quot;</span>disable vi compatibility
-</span><span class='line'>        filetype off                   <span class="s2">&quot; required!</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">        set rtp+=~/.vim/bundle/vundle/  &quot;</span><span class="nb">set </span>runtimepath
-</span><span class='line'>        call vundle#rc<span class="o">()</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="s2">&quot; let Vundle manage Vundle  </span>
-</span><span class='line'><span class="s2">        Bundle &#39;gmarik/vundle&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">        &quot;</span>My Bundles here
-</span><span class='line'>        Bundle <span class="s1">&#39;tpope/vim-fugitive&#39;</span>
-</span><span class='line'>        Bundle <span class="s1">&#39;Lokaltog/vim-easymotion&#39;</span>
-</span><span class='line'>        Bundle <span class="s1">&#39;rstacruz/sparkup&#39;</span>, <span class="o">{</span><span class="s1">&#39;rtp&#39;</span>: <span class="s1">&#39;vim/&#39;</span><span class="o">}</span>
-</span><span class='line'>        Bundle <span class="s1">&#39;tpope/vim-rails.git&#39;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="s2">&quot;vim-scripts repos</span>
-</span><span class='line'><span class="s2">        Bundle &#39;L9&#39;</span>
-</span><span class='line'><span class="s2">        Bundle &#39;FuzzyFinder&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">        &quot;</span>snippets
-</span><span class='line'>        Bundle <span class="s1">&#39;http://github.com/gmarik/snipmate.vim.git&#39;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="s2">&quot;Syntax highlight</span>
-</span><span class='line'><span class="s2">        Bundle &#39;cucumber.zip&#39;</span>
-</span><span class='line'><span class="s2">        Bundle &#39;Markdown&#39;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">        &quot;</span>Utility
-</span><span class='line'>        Bundle <span class="s1">&#39;SuperTab&#39;</span>
-</span><span class='line'>        Bundle <span class="s1">&#39;repeat.vim&#39;</span>
-</span><span class='line'>        Bundle <span class="s1">&#39;surround.vim&#39;</span>
-</span><span class='line'>        Bundle <span class="s1">&#39;file-line&#39;</span>
-</span><span class='line'>        Bundle <span class="s1">&#39;scrooloose/nerdtree&#39;</span>
-</span><span class='line'>
-</span><span class='line'>        <span class="s2">&quot;Navigation</span>
-</span><span class='line'><span class="s2">        Bundle &quot;</span>http://github.com/gmarik/vim-visual-star-search.git<span class="s2">&quot;</span>
-</span><span class='line'>
-</span><span class='line'><span class="s2">        &quot;</span>non github repos
-</span><span class='line'>        Bundle <span class="s1">&#39;git://git.wincent.com/command-t.git&#39;</span>
-</span><span class='line'>        <span class="s2">&quot;git repos on your local machine (ie. when working on your own plugin)</span>
-</span><span class='line'><span class="s2">        &quot;</span>Bundle <span class="s1">&#39;file:///Users/gmarik/path/to/plugin&#39;</span>
-</span><span class='line'>
-</span><span class='line'>        filetype plugin indent on     <span class="err">&quot;</span> required!
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>其中将需要的插件用Bundle添加进来即可。如需要NERDTree插件，在github上找到它，找到的地址为：<a href="https://github.com/scrooloose/nerdtree.git">https://github.com/scrooloose/nerdtree.git</a></p>
-
-<p>则在~/.vimrc里添加：</p>
-
-<pre><code>Bundle 'scrooloose/nerdtree'
-</code></pre>
-
-<p>3.安装</p>
-
-<p>推出刚才的配置文件，然后重新打开vim,并且执行:BundleInstall，这样NERDTree插件便安装完成，可以在~/.vim/bundle目录中查看。Vundle的特色在于使用git管理插件，更新方便，并且支持搜索。</p>
-
-<p>:BundleInstall!更新插件，:BundleClean删除插件(只需在.vimrc中注释相应行), :BundleSearch查找插件。不同电脑间的同步只需通过.vimrc来实现（前提：安装git）。</p>
-
-<p>安装插件就是这么简单！还没有体验的赶紧体验吧！</p>
 ]]></content>
   </entry>
   
