@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Git | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/git/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-09-17T16:00:10+08:00</updated>
+  <updated>2013-09-17T19:13:09+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -36,9 +36,10 @@
 <pre><code>#useradd git
 </code></pre>
 
-<p>接着进入到/home/git目录下新建一个.ssh目录：</p>
+<p>接着进入到/home/git目录下新建一个.ssh目录,并且需要将.ssh目录group和others的写权限去掉，改为700|744|755皆可,否则ssh远程连接服务器还需要输入密码：</p>
 
 <pre><code>git$ mkdir ~/.ssh
+git$ chmod 744 .ssh
 </code></pre>
 
 <p>服务端工作暂时完成</p>
@@ -71,6 +72,12 @@
 #systemctl reload sshd.service    #重新加载服务配置文件
 #systemctl --failed               #显示启动失败的服务
 </code></pre>
+
+<h2>SSH无密钥验证原理</h2>
+
+<p>客户端用ssh发起一个ssh连接时，服务端生成一个随机数并用客户端的公钥(保存在authorized_keys中)进行加密，然后发给客户端，客户端用私钥进行解密，并将解密后的数发送给服务端，服务端确认无误后便允许客户端进行连接了。</p>
+
+<p>以上过程的前提是客户端已将公钥保存在服务端的authorized_keys文件中。</p>
 
 <h2>搭建Git服务器</h2>
 
