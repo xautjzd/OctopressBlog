@@ -89,6 +89,8 @@ categories: Linux
 
 	#arch-chroot /mnt
 
+使用chroot后，系统的目录结构将以指定的位置作为"/"目录
+
 ###8. 配置系统
 
 系统的配置主要有locale和时区的配置。
@@ -116,7 +118,7 @@ categories: Linux
 
 ###10. 创建初始化ramdisk环境
 
-ramdisk是通过软件将一部分内存(RAM)来模拟一个硬盘，提高访问速度。创建ramdisk的方法如下：
+ramdisk是通过软件将一部分内存(RAM)来模拟一个硬盘，提高访问速度。当然这只是针对内存过剩的情况下才使用，一般完全没有必要。如果您觉得内存完全用不完，为了有效的利用，可以创建ramdisk，毕竟RAM的访问速度非常快，差不多是固态硬盘的30倍。创建ramdisk的方法如下：
 
 		#mkinitcpio -p linux
 
@@ -132,11 +134,31 @@ ramdisk是通过软件将一部分内存(RAM)来模拟一个硬盘，提高访�
 
 ###12. 安装配置bootloader
 
-一般采用比较常见的grub即可。安装方法如下：
+根据主板BIOS类型不同，安装和配置bootloader的方式也不同。
+大致有两种类型：
 
-	#pacman -S grub-bios
-	#grub-install /deb/sda
+1. 传统的BIOS
+	- Syslinux
+	- Grub
+2. UEFI BIOS
+	- EFISTUB
+	- Gummiboot
+	- Grub
+
+我的主板是传统BIOS类型，采用Grub bootloader。二者的差别见图：
+
+![](http://pic.yupoo.com/xautjzd/D9TU14LM/medish.jpg)
+
+与传统BIOS相比，UEFI BIOS少了BIOS自检功能，这样节省了大量时间，从而加快平台的启动。
+
+安装方法如下：
+
+	#pacman -S grub-bios  #install grub bootloader
+	#grub-install /dev/sda
 	#grub-mkconfig -o /boot/grub/grub.cfg
+
+其中grub-install将grub images拷贝到/boot/grub。
+grub-mkconfig生成grub的配置，通过-o参数将配置输出到指定的配置文件，默认输出到标准输出。
 
 ###13. 卸载分区并重启系统
 
