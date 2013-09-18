@@ -238,72 +238,11 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>test的receiver为实例a.同时类A本身也是Class类的实例，所以也可以作为instance_eval的receiver，作为该类的singleton method，及常说的类方法，只能通过类名调用。</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="k">class</span> <span class="nc">A</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">A</span><span class="o">.</span><span class="n">instance_eval</span> <span class="k">do</span>
-</span><span class='line'>      <span class="k">def</span> <span class="nf">test</span>
-</span><span class='line'>          <span class="nb">puts</span> <span class="s2">&quot;this is a singleton method of class A&quot;</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">A</span><span class="o">.</span><span class="n">test</span>  <span class="c1">#=&gt;this is ...</span>
-</span><span class='line'>  
-</span></code></pre></td></tr></table></div></figure>
 
 
-<p>而class_eval则receiver则必须为类</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="k">class</span> <span class="nc">A</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">A</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
-</span><span class='line'>      <span class="nb">self</span>  <span class="c1">#=&gt;A</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="k">def</span> <span class="nf">test</span>
-</span><span class='line'>          <span class="nb">puts</span> <span class="s2">&quot;this is a instance method of class A&quot;</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">a</span> <span class="o">=</span> <span class="kp">new</span> <span class="n">A</span>
-</span><span class='line'>  <span class="n">a</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&gt;this is a instance method of class A</span>
-</span><span class='line'>  
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>class_eval定义的method为类的instance method。</p>
-
-<p>这就是它们二者之间的差别</p>
 
 		
-		
+		<a href="/blog/2013/09/17/instance-eval-vs-class-eval/" class="more-link">Read on &rarr;</a>
 	</div>
 
 </article>

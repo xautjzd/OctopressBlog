@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-09-18T20:54:28+08:00</updated>
+  <updated>2013-09-18T20:57:27+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -113,6 +113,11 @@
 </span><span class='line'>  <span class="n">b</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&gt;NoMethodError</span>
 </span><span class='line'>  
 </span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- more -->
 
 
 <p>test的receiver为实例a.同时类A本身也是Class类的实例，所以也可以作为instance_eval的receiver，作为该类的singleton method，及常说的类方法，只能通过类名调用。</p>
