@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Aug 18th, 2013 Ruby Comments Ruby中symbol与string的区别 记得当初学习Ruby基本语法时，还为Symbol与String的异同纠结了好久，后来经过一段时间的摸索，大致有了了解，但让我给他人解释，这点我还是办不到。但是今天看到了一篇博文, &hellip;">
+	<meta name="description" content="Aug 25th, 2013 Linux, Vim Comments Vim文件的折叠与展开方式 最近一直在用Vim学习Ruby,但是一直有个问题困扰： 那就是文件无法折叠，但是我记得以前看过Vim的视频，里面见别人用到了折叠与展开。文件比较小时，此功能便无用，但一旦文件量大时， &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,6 +115,203 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-25T16:00:00+08:00" data-updated="true" itemprop="datePublished">Aug 25<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/25/vim-folding-and-unfolding/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/25/vim-folding-and-unfolding/" itemprop="url">Vim文件的折叠与展开方式</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>最近一直在用Vim学习Ruby,但是一直有个问题困扰：</p>
+
+<p>那就是文件无法折叠，但是我记得以前看过Vim的视频，里面见别人用到了折叠与展开。文件比较小时，此功能便无用，但一旦文件量大时，折叠与展开便显得尤为重要了。</p>
+
+<p>折叠的方式有以下几种：</p>
+
+<ol>
+<li>manual</li>
+<li>indent</li>
+<li>syntax</li>
+<li>marker</li>
+<li>expr</li>
+<li>diff</li>
+</ol>
+
+
+<h3>1. Manual method</h3>
+
+<p>vim默认的折叠方式是此种方式，不需要设置即可。要启用其他方式还得采用<code>:set foldmethod=xxx</code>或者<code>:set fdm=xxx</code>来设置。</p>
+
+<p><strong>使用方法</strong>：</p>
+
+<p><code>v</code>或者<code>V</code>进入visual mode,然后选中要折叠的文字，按<code>zf</code>便可折叠，折叠后按<code>za</code>或者<code>zO</code>便展开。</p>
+
+<p>同时也可以通过<code>zfnj</code>的方式将接下来的n行折叠。类似也有<code>zfnk</code>等;<code>zR</code>则打开所有的折叠。总结下来就是：</p>
+
+<ul>
+<li>zf        => create a fold</li>
+<li>za        => unfold</li>
+<li>zf#j  => fold down # lines</li>
+<li>zf#k  => fold up #lines</li>
+<li>zR        => unfold all</li>
+</ul>
+
+
+<h3>2. Indent method</h3>
+
+<p>缩进方式主要是根据代码缩进的方式来折叠/展开代码。要使用缩进方式，则需要做配置，<code>:set foldmethod=indent</code>或者在~/.vimrc中配置：<code>set foldmethod=indent</code>。</p>
+
+<p>其快捷键如下：
+zM      => fold all
+zR      => unfold all
+za      => fold/unfold</p>
+
+<h3>3. Syntax method</h3>
+
+<p>采用syntax方式，则只需如下配置即可：</p>
+
+<pre><code>:set fdm=syntax
+</code></pre>
+
+<p>按键方式与上述相似</p>
+
+<h3>4. Marker method</h3>
+
+<p> 使用markder方式，则做如下配置：</p>
+
+<pre><code>:set foldmethod=marker
+</code></pre>
+
+<p> 或</p>
+
+<pre><code>:set fdm=marker
+</code></pre>
+
+<p>默认的marker折叠/展开标记为<code>}</code>.</p>
+
+<p>将要折叠/展开的代码通过<code>}</code>包含起来即可。当然也可以自定义标记。定义方法如下：</p>
+
+<pre><code>:set foldmarker= start,end
+eg: set foldmarker= /*,*/
+
+/*
+     1. Ruby
+     2. Python
+     3. C++
+     4. PHP
+*/
+</code></pre>
+
+<p>快捷键如下：</p>
+
+<ul>
+<li>za        => fold/unfold</li>
+<li>zM        => fold all</li>
+<li>zR        => unfold all</li>
+</ul>
+
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-20T19:04:00+08:00" data-updated="true" itemprop="datePublished">Aug 20<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/20/linux-activity-sponsoring/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/20/linux-activity-sponsoring/" itemprop="url">Linux活动发起</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>独乐乐不如众乐乐，独自一人埋头苦学不如一群兴趣相投之人的一起交流。记得以前大一大二时，希望能有一个领路人领着自己学习，帮自己找准学习的方向，毕竟当时太年轻，太多东西不了解，所以不知道软件这行业该学习什么，哪些东西比较有兴趣，一切源于自己接触的太少，身边也没有可交流之人。再加上学校大一大二和大三大四分隔新旧两校区，交流就更少。</p>
+
+<p>正是因为自己的这些经历，然后再加上近来参加西安的rubyist party，促使了我组建Linux小组并且定期举办活动的冲动。一个人的埋头苦学，所见所闻永远局限在某个狭小的空间，只有走出去，与他们交流才能拓宽自己的知识面，提升自己的认知度，也算是多了一些朋友，多了一些交流。正所谓话不投机半句多，与自己志不同道不和的人交流真是有点对牛弹琴的感觉。所以要交流得找兴趣相投志同道合之人。</p>
+
+<p>打算成立的小组规模大致10人左右，无需太多，也不希望有滥竽充数的现象。所以希望小组成员能满足以下条件：</p>
+
+<ul>
+<li>对软件感兴趣</li>
+<li>熟悉Linux(基本操作一般没问题)</li>
+<li>Vim | Emacs</li>
+</ul>
+
+
+<p>具备以下更佳：</p>
+
+<ul>
+<li>Git</li>
+<li>Ruby/Python/Lisp/Scala/Prolog</li>
+<li>个人博客</li>
+</ul>
+
+
+<p>初期打算:</p>
+
+<ul>
+<li>每周一次Party（主要技术交流）</li>
+</ul>
+
+
+<p>有兴趣的学习请联系我，联系方式：</p>
+
+<ul>
+<li>新郎微薄：xautjzd</li>
+</ul>
+
+
+<p>其他联系方式见我的<a href="http://xautjzd.github.io/blog/aboutme">About</a></p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -562,143 +759,6 @@
 
 		
 		<a href="/blog/2013/08/03/vim-ultisnips/" class="more-link">Read on &rarr;</a>
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-30T17:22:00+08:00" data-updated="true" itemprop="datePublished">Jul 30<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/rails/'>Rails</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/30/create-my-first-rails-app/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/30/create-my-first-rails-app/" itemprop="url">创建我的第一个rails程序</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<h2>开启Mysql服务</h2>
-
-<p>我的一个rails程序是采用mysql数据库，不是默认的sqlite3.所以前提是已经安装了mysql。由于Mysql安装了好久，但是很少使用。所以服务没有启动，近来可能会频繁使用，便设置为开机自动启动了。设置方法为:<code>#systemctl enable mysqld.service</code>或者<code>service mysqld start</code>。</p>
-
-<h2>安装mysql驱动</h2>
-
-<p>rails应用中使用msyql,需要Mysql对应的ruby驱动：msyql2。安装方式：</p>
-
-<pre><code>$gem install mysql2
-</code></pre>
-
-<p>安装完成后可通过<code>$rails console</code>进行测试。测试方法为：</p>
-
-<pre><code>&gt;require 'mysql2'
-&gt;client=Mysql2::Client.new(:host =&gt; "localhost", :username=&gt;"root", :password=&gt;"your_password", :database=&gt;"your_db")
-=&gt; #&lt;Mysql2::Client:0xa058aac&gt;
-&gt; client.query("select version()")
-=&gt; #&lt;Mysql2::Result:0xa05233c&gt;
-</code></pre>
-
-<p>这样表示已经连接成功。</p>
-
-<p>到此为止，前期工作已经完成，后面就开始动手了。</p>
-
-
-		
-		<a href="/blog/2013/07/30/create-my-first-rails-app/" class="more-link">Read on &rarr;</a>
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-30T10:47:00+08:00" data-updated="true" itemprop="datePublished">Jul 30<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/octopress/'>Octopress</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/30/add-comments-to-sidebar/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/30/add-comments-to-sidebar/" itemprop="url">Octopress添加disqus评论到侧边栏</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<h2>新建comments.html文件</h2>
-
-<p>添加评论到侧边栏与添加关于、文章分类和友情链接相似，需要在source/_includes/custom/asides/目录下添加comments.html模块，名字根据自己的喜好可以换成其他的，如xxx.html，然后在comments.html里添加如下内容：</p>
-
-<figure class='code'><figcaption><span>source/\_includes/custom/asides/comments.html </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">&quot;comment_sidebar&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;h1&gt;</span>近期评论<span class="nt">&lt;/h1&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://zhengdongjiang.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=0&amp;avatar_size=32&amp;excerpt_length=20&quot;</span><span class="nt">&gt;&lt;/script&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://disqus.com/&quot;</span><span class="nt">&gt;</span>Powered by Disqus<span class="nt">&lt;/a&gt;</span>
-</span><span class='line'><span class="nt">&lt;/section&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>其中zhengdongjiang为我disqus对应此网站的shortname，这就不要照搬了，换成你对应的名字即可。</p>
-
-<h2>修改_config.yml文件</h2>
-
-<figure class='code'><figcaption><span>\_config.yml </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="err">   </span><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
-</span><span class='line'>
-</span><span class='line'><span class="err">    </span><span class="c1"># Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below</span>
-</span><span class='line'><span class="err">    </span><span class="c1"># and add an array with the asides you want to use.</span>
-</span><span class='line'><span class="err">    </span><span class="l-Scalar-Plain">blog_index_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/about.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
-</span><span class='line'><span class="err">    </span><span class="l-Scalar-Plain">post_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/about.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
-</span><span class='line'><span class="err">    </span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-		
-		
 	</div>
 
 </article>

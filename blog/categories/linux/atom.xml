@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-09-17T20:45:59+08:00</updated>
+  <updated>2013-09-18T20:41:12+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,46 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vim常用快捷键总结]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/18/vim-shortcut-maps/"/>
+    <updated>2013-09-18T19:55:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/18/vim-shortcut-maps</id>
+    <content type="html"><![CDATA[<p>Vim的学习之路真的很长，永远有记不完的命令，永远会突然冒出一个新插件。不过我总算从Vim的荆棘中一路走过来了，现在真的是苦尽甘来，时刻体会它带给我的喜悦和惊奇。下面对我所学习所了解到的常用命令做一个基本总结：</p>
+
+<p>Normal mode:</p>
+
+<p><code>&gt;&gt;</code> indent current line
+<code>n&gt;&gt;</code> indent the next n line
+<code>.</code> repeat last command
+<code>m,n&gt;&gt;</code> indent from m to n line</p>
+
+<p><code>==</code> autoindent current line
+<code>n==</code> autoindent the next n line
+<code>gg=G</code> autoindent the whole file</p>
+
+<p><code>=i{</code> reindents &lsquo;inner block&rsquo;(inside the braces)
+<code>=a{</code> reindents &ldquo;around block&rdquo;(including the braces)
+<code>=2a{</code> reindents 2 blocks(this block and containing block)</p>
+
+<p>instead of &ldquo;{&rdquo;, also can use &ldquo;}&rdquo; or &ldquo;B&rdquo;.<code>=aB</code> equals <code>=a{</code></p>
+
+<p><code>&gt;i{</code> increase indent for inner block
+<code>&lt;i}</code> decrease indent for inner block
+<code>&gt;a{</code> increase indent for around block(including the brace)
+<code>&lt;a}</code> decrease indent for around block</p>
+
+<p>With the cursor on <code>{</code> or <code>}</code>
+<code>=%</code> autoindent the block(including matching brace)
+<code>&lt;%</code> or <code>&gt;%</code> indents or unindents the block</p>
+
+<p>Insert mode:</p>
+
+<p><code>&lt;c+t&gt;</code> indent the current line
+<code>&lt;c+d&gt;</code> reindent the current line</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[搭建Git服务器]]></title>
@@ -366,40 +406,6 @@ grub-mkconfig生成grub的配置，通过-o参数将配置输出到指定的配�
 <p>经过以上两步，oh-my-zsh便安装完成。但是写博客时发现<code>rake new_post["xxx"]</code>时出现<code>zsh: no matches found: new_post</code>错误，Google找到答案，只需改为<code>rake 'new_post["xxx"]'</code>即可，原因是zsh会将一些特殊符号当作查找文件的通配符等，根源解决方法是：取消zsh的通配（Glob），即在~/.zshrc中加入<code>alias rake="noglob rake"</code>。</p>
 
 <p>参考：<a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh官网</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[vim-airline插件patched font配置成功]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config/"/>
-    <updated>2013-08-26T11:30:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config</id>
-    <content type="html"><![CDATA[<p>前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着<a href="ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline官网</a>的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。</p>
-
-<p>安装patched fonts方式请参考:<a href="https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline字体配置</a>，尽管文档很详细，但是还是重复一下：</p>
-
-<p>1.Download patched fonts</p>
-
-<p><code>$mkdir ~/.fonts</code>新建一个font文件夹，然后<code>$cd ~/.fonts</code>进入.fonts文件夹。<code>$git clone git@github.com:Lokaltog/powerline-fonts.git</code>将powerline的patched fonts拷贝到~/.fonts目录下，目录结构如下图：</p>
-
-<p><img src="http://pic.yupoo.com/xautjzd/D79oXi6w/medish.jpg" alt="~/.font目录结构" /></p>
-
-<p>2.Install the patched fonts to your System</p>
-
-<p>运行<code>$fc-cache -vf ~/.fonts</code>安装patched fonts到系统中</p>
-
-<p>3.Set Terminal fonts</p>
-
-<p>设置Terminal字体非常重要，我初次配置时，安装patched fonts，但是由于没有set terminal font,所以statusbar显示乱码。设置方法如下：</p>
-
-<p>Edit——Profiles——Default(Edit)——General——Font，选择~/.fonts/powerline下的某一种即可(可选范围一定要在刚才下载的patched fonts中选一种，否则乱码。)，当然也可以采取powerline font installing中的另一种方式，不过我没做尝试，有兴趣的朋友try it。配置截图如下：</p>
-
-<p><img src="http://pic.yupoo.com/xautjzd/D79olvGa/medish.jpg" alt="Font config" /></p>
-
-<p>最后可以在~/.vimrc中更改airline的theme。更改方式如下：</p>
-
-<pre><code>let g:airline_theme="molokai"
-</code></pre>
 ]]></content>
   </entry>
   

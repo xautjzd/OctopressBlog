@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Sep 17th, 2013 Octopress Comments 更新Octopress 现在已记不清接触Octopress多长时间了，只依稀记得当时配置Octopress配了好久，然后依然失败，后又忙于其他的事情，所以搭建工作便搁置一旁，七月中旬时间比较充足，所以又开始再次折腾， &hellip;">
+	<meta name="description" content="Sep 18th, 2013 Linux, Vim Comments Vim常用快捷键总结 Vim的学习之路真的很长，永远有记不完的命令，永远会突然冒出一个新插件。不过我总算从Vim的荆棘中一路走过来了，现在真的是苦尽甘来，时刻体会它带给我的喜悦和惊奇。 &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,6 +115,212 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-18T19:55:00+08:00" data-updated="true" itemprop="datePublished">Sep 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/09/18/vim-shortcut-maps/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/09/18/vim-shortcut-maps/" itemprop="url">Vim常用快捷键总结</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Vim的学习之路真的很长，永远有记不完的命令，永远会突然冒出一个新插件。不过我总算从Vim的荆棘中一路走过来了，现在真的是苦尽甘来，时刻体会它带给我的喜悦和惊奇。下面对我所学习所了解到的常用命令做一个基本总结：</p>
+
+<p>Normal mode:</p>
+
+<p><code>&gt;&gt;</code> indent current line
+<code>n&gt;&gt;</code> indent the next n line
+<code>.</code> repeat last command
+<code>m,n&gt;&gt;</code> indent from m to n line</p>
+
+<p><code>==</code> autoindent current line
+<code>n==</code> autoindent the next n line
+<code>gg=G</code> autoindent the whole file</p>
+
+<p><code>=i{</code> reindents &lsquo;inner block&rsquo;(inside the braces)
+<code>=a{</code> reindents &ldquo;around block&rdquo;(including the braces)
+<code>=2a{</code> reindents 2 blocks(this block and containing block)</p>
+
+<p>instead of &ldquo;{&rdquo;, also can use &ldquo;}&rdquo; or &ldquo;B&rdquo;.<code>=aB</code> equals <code>=a{</code></p>
+
+<p><code>&gt;i{</code> increase indent for inner block
+<code>&lt;i}</code> decrease indent for inner block
+<code>&gt;a{</code> increase indent for around block(including the brace)
+<code>&lt;a}</code> decrease indent for around block</p>
+
+<p>With the cursor on <code>{</code> or <code>}</code>
+<code>=%</code> autoindent the block(including matching brace)
+<code>&lt;%</code> or <code>&gt;%</code> indents or unindents the block</p>
+
+<p>Insert mode:</p>
+
+<p><code>&lt;c+t&gt;</code> indent the current line
+<code>&lt;c+d&gt;</code> reindent the current line</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-17T20:54:00+08:00" data-updated="true" itemprop="datePublished">Sep 17<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/09/17/instance-eval-vs-class-eval/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/09/17/instance-eval-vs-class-eval/" itemprop="url">Instance_eval vs Class_eval</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Ruby中类其实也是Class的实例。而且instance_eval必须由实例来调用，class_eval必须由类来调用。具体参考下面的实例：</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">a</span> <span class="o">=</span> <span class="kp">new</span> <span class="n">A</span>
+</span><span class='line'>  <span class="n">a</span><span class="o">.</span><span class="n">instance_eval</span> <span class="k">do</span>
+</span><span class='line'>      <span class="nb">self</span> <span class="c1">#=&gt;a</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="k">def</span> <span class="nf">test</span>
+</span><span class='line'>          <span class="nb">puts</span> <span class="s2">&quot;this is a singleton method of instance a&quot;</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">a</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&gt;this is a singleton method of instance a</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">b</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'>  <span class="n">b</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&gt;NoMethodError</span>
+</span><span class='line'>  
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>test的receiver为实例a.同时类A本身也是Class类的实例，所以也可以作为instance_eval的receiver，作为该类的singleton method，及常说的类方法，只能通过类名调用。</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">A</span><span class="o">.</span><span class="n">instance_eval</span> <span class="k">do</span>
+</span><span class='line'>      <span class="k">def</span> <span class="nf">test</span>
+</span><span class='line'>          <span class="nb">puts</span> <span class="s2">&quot;this is a singleton method of class A&quot;</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">A</span><span class="o">.</span><span class="n">test</span>  <span class="c1">#=&gt;this is ...</span>
+</span><span class='line'>  
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>而class_eval则receiver则必须为类</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">A</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
+</span><span class='line'>      <span class="nb">self</span>  <span class="c1">#=&gt;A</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">def</span> <span class="nf">test</span>
+</span><span class='line'>          <span class="nb">puts</span> <span class="s2">&quot;this is a instance method of class A&quot;</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">a</span> <span class="o">=</span> <span class="kp">new</span> <span class="n">A</span>
+</span><span class='line'>  <span class="n">a</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&gt;this is a instance method of class A</span>
+</span><span class='line'>  
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>class_eval定义的method为类的instance method。</p>
+
+<p>这就是它们二者之间的差别</p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -550,203 +756,6 @@ dev/sda3 /home 4G
 
 <pre><code>let g:airline_theme="molokai"
 </code></pre>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-25T16:00:00+08:00" data-updated="true" itemprop="datePublished">Aug 25<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/08/25/vim-folding-and-unfolding/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/08/25/vim-folding-and-unfolding/" itemprop="url">Vim文件的折叠与展开方式</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>最近一直在用Vim学习Ruby,但是一直有个问题困扰：</p>
-
-<p>那就是文件无法折叠，但是我记得以前看过Vim的视频，里面见别人用到了折叠与展开。文件比较小时，此功能便无用，但一旦文件量大时，折叠与展开便显得尤为重要了。</p>
-
-<p>折叠的方式有以下几种：</p>
-
-<ol>
-<li>manual</li>
-<li>indent</li>
-<li>syntax</li>
-<li>marker</li>
-<li>expr</li>
-<li>diff</li>
-</ol>
-
-
-<h3>1. Manual method</h3>
-
-<p>vim默认的折叠方式是此种方式，不需要设置即可。要启用其他方式还得采用<code>:set foldmethod=xxx</code>或者<code>:set fdm=xxx</code>来设置。</p>
-
-<p><strong>使用方法</strong>：</p>
-
-<p><code>v</code>或者<code>V</code>进入visual mode,然后选中要折叠的文字，按<code>zf</code>便可折叠，折叠后按<code>za</code>或者<code>zO</code>便展开。</p>
-
-<p>同时也可以通过<code>zfnj</code>的方式将接下来的n行折叠。类似也有<code>zfnk</code>等;<code>zR</code>则打开所有的折叠。总结下来就是：</p>
-
-<ul>
-<li>zf        => create a fold</li>
-<li>za        => unfold</li>
-<li>zf#j  => fold down # lines</li>
-<li>zf#k  => fold up #lines</li>
-<li>zR        => unfold all</li>
-</ul>
-
-
-<h3>2. Indent method</h3>
-
-<p>缩进方式主要是根据代码缩进的方式来折叠/展开代码。要使用缩进方式，则需要做配置，<code>:set foldmethod=indent</code>或者在~/.vimrc中配置：<code>set foldmethod=indent</code>。</p>
-
-<p>其快捷键如下：
-zM      => fold all
-zR      => unfold all
-za      => fold/unfold</p>
-
-<h3>3. Syntax method</h3>
-
-<p>采用syntax方式，则只需如下配置即可：</p>
-
-<pre><code>:set fdm=syntax
-</code></pre>
-
-<p>按键方式与上述相似</p>
-
-<h3>4. Marker method</h3>
-
-<p> 使用markder方式，则做如下配置：</p>
-
-<pre><code>:set foldmethod=marker
-</code></pre>
-
-<p> 或</p>
-
-<pre><code>:set fdm=marker
-</code></pre>
-
-<p>默认的marker折叠/展开标记为<code>}</code>.</p>
-
-<p>将要折叠/展开的代码通过<code>}</code>包含起来即可。当然也可以自定义标记。定义方法如下：</p>
-
-<pre><code>:set foldmarker= start,end
-eg: set foldmarker= /*,*/
-
-/*
-     1. Ruby
-     2. Python
-     3. C++
-     4. PHP
-*/
-</code></pre>
-
-<p>快捷键如下：</p>
-
-<ul>
-<li>za        => fold/unfold</li>
-<li>zM        => fold all</li>
-<li>zR        => unfold all</li>
-</ul>
-
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-20T19:04:00+08:00" data-updated="true" itemprop="datePublished">Aug 20<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/08/20/linux-activity-sponsoring/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/08/20/linux-activity-sponsoring/" itemprop="url">Linux活动发起</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>独乐乐不如众乐乐，独自一人埋头苦学不如一群兴趣相投之人的一起交流。记得以前大一大二时，希望能有一个领路人领着自己学习，帮自己找准学习的方向，毕竟当时太年轻，太多东西不了解，所以不知道软件这行业该学习什么，哪些东西比较有兴趣，一切源于自己接触的太少，身边也没有可交流之人。再加上学校大一大二和大三大四分隔新旧两校区，交流就更少。</p>
-
-<p>正是因为自己的这些经历，然后再加上近来参加西安的rubyist party，促使了我组建Linux小组并且定期举办活动的冲动。一个人的埋头苦学，所见所闻永远局限在某个狭小的空间，只有走出去，与他们交流才能拓宽自己的知识面，提升自己的认知度，也算是多了一些朋友，多了一些交流。正所谓话不投机半句多，与自己志不同道不和的人交流真是有点对牛弹琴的感觉。所以要交流得找兴趣相投志同道合之人。</p>
-
-<p>打算成立的小组规模大致10人左右，无需太多，也不希望有滥竽充数的现象。所以希望小组成员能满足以下条件：</p>
-
-<ul>
-<li>对软件感兴趣</li>
-<li>熟悉Linux(基本操作一般没问题)</li>
-<li>Vim | Emacs</li>
-</ul>
-
-
-<p>具备以下更佳：</p>
-
-<ul>
-<li>Git</li>
-<li>Ruby/Python/Lisp/Scala/Prolog</li>
-<li>个人博客</li>
-</ul>
-
-
-<p>初期打算:</p>
-
-<ul>
-<li>每周一次Party（主要技术交流）</li>
-</ul>
-
-
-<p>有兴趣的学习请联系我，联系方式：</p>
-
-<ul>
-<li>新郎微薄：xautjzd</li>
-</ul>
-
-
-<p>其他联系方式见我的<a href="http://xautjzd.github.io/blog/aboutme">About</a></p>
 
 		
 		

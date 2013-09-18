@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ruby | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/ruby/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-09-17T20:45:59+08:00</updated>
+  <updated>2013-09-18T20:41:12+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,110 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[instance_eval vs class_eval]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/17/instance-eval-vs-class-eval/"/>
+    <updated>2013-09-17T20:54:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/17/instance-eval-vs-class-eval</id>
+    <content type="html"><![CDATA[<p>Ruby中类其实也是Class的实例。而且instance_eval必须由实例来调用，class_eval必须由类来调用。具体参考下面的实例：</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="kp">new</span> <span class="n">A</span>
+</span><span class='line'><span class="n">a</span><span class="o">.</span><span class="n">instance_eval</span> <span class="k">do</span>
+</span><span class='line'>    <span class="nb">self</span> <span class="c1">#=&amp;gt;a</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">test</span>
+</span><span class='line'>        <span class="nb">puts</span> <span class="s2">&quot;this is a singleton method of instance a&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&amp;gt;this is a singleton method of instance a</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">b</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">b</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&amp;gt;NoMethodError</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>test的receiver为实例a.同时类A本身也是Class类的实例，所以也可以作为instance_eval的receiver，作为该类的singleton method，及常说的类方法，只能通过类名调用。</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">A</span><span class="o">.</span><span class="n">instance_eval</span> <span class="k">do</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">test</span>
+</span><span class='line'>        <span class="nb">puts</span> <span class="s2">&quot;this is a singleton method of class A&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">A</span><span class="o">.</span><span class="n">test</span>  <span class="c1">#=&amp;gt;this is ...</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>而class_eval则receiver则必须为类</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">A</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
+</span><span class='line'>    <span class="nb">self</span>  <span class="c1">#=&amp;gt;A</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">test</span>
+</span><span class='line'>        <span class="nb">puts</span> <span class="s2">&quot;this is a instance method of class A&quot;</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">a</span> <span class="o">=</span> <span class="kp">new</span> <span class="n">A</span>
+</span><span class='line'><span class="n">a</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&amp;gt;this is a instance method of class A</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>class_eval定义的method为类的instance method。</p>
+
+<p>这就是它们二者之间的差别</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ruby中symbol与string的区别]]></title>
@@ -346,239 +450,6 @@ p a     #=&gt;[1, 2, 3, 4, 5]
 </code></pre>
 
 <p>zip方法会从接收者与实参所指定的数组中逐项获取数据，每次调用代码块内容。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ruby基础]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/19/ruby-variable/"/>
-    <updated>2013-07-19T20:33:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/19/ruby-variable</id>
-    <content type="html"><![CDATA[<h2>变量分类</h2>
-
-<ul>
-<li><strong>局部变量</strong></li>
-</ul>
-
-
-<p>一般以小写字母或下划线开头，当多个单词组成一个变量时，单词间用_分隔。局部变量一般用在代码快里面</p>
-
-<ul>
-<li><strong>全局变量</strong></li>
-</ul>
-
-
-<p>全局变量在整个ruby程序中都可以访问，无论他们在哪被定义。全局变量以$开头。eg:</p>
-
-<p>$global_variable = 10</p>
-
-<ul>
-<li><strong>实例变量</strong></li>
-</ul>
-
-
-<p>实例变量的范围则是类的实例，属于某个类的实例所有，实例间相互独立。实例变量以@开头。eg:</p>
-
-<p>@instance_variable = 10</p>
-
-<!-- more -->
-
-
-<ul>
-<li><strong>类变量</strong></li>
-</ul>
-
-
-<p>类变量为所有的类实例所共有，一个实例中改变其值，另一个实例中也看到相应改变。类变量以@@开头。eg:</p>
-
-<p>@@class_variable = 10</p>
-
-<ul>
-<li><strong>类实例变量</strong></li>
-</ul>
-
-
-<p>类实例变量只属于当前类所有，只能通过类名来访问，类的实例不能对其访问，而类变量则可以被子类及类的实例访问。</p>
-
-<pre><code>class MyClass
-    @my_var=1
-end
-</code></pre>
-
-<h2>常量</h2>
-
-<p>常量一旦被赋值，则不能修改。以大写字母开头的标识符是常量。一般通过“模块名/类名::常量名”的形式来引用常量。eg:</p>
-
-<pre><code><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">HelloWorld</span>
-</span><span class='line'>    <span class="no">Version</span> <span class="o">=</span> <span class="mi">2</span><span class="o">.</span><span class="mi">0</span>
-</span><span class='line'><span class="k">end</span>
-</span><span class='line'><span class="c1">#access the constant</span>
-</span><span class='line'><span class="nb">p</span> <span class="ss">HelloWorld</span><span class="p">:</span><span class="ss">:Version</span>   <span class="c1">#=&amp;gt;&quot;2.0&quot;</span>
-</span></code></pre></td></tr></table></div></figure></notextile></div>
-</code></pre>
-
-<p>第一种最直观，最易理解，缺点是改变类名时类方法需要跟着一起改，较麻烦。第三种其次，第二种时最难理解。</p>
-
-<h2>类</h2>
-
-<h3>initialize方法</h3>
-
-<p>initialize方法为类的私有方法，当类调用new方法新建对象时，initialize便被调用，同时传递给new的所有实参都会传给initialize方法。</p>
-
-<h3>访问方法</h3>
-
-<p>访问方法也就是常说的getter和setter方法，可以通过下面三种方式来定义：</p>
-
-<ul>
-<li>attr_accessor:name     #定义name和name=方法</li>
-<li>attr_reader:name       #定义name方法</li>
-<li>attr_writer:name       #定义name=方法</li>
-</ul>
-
-
-<h3>类方法</h3>
-
-<p>类方法的三种定义方式分别如下:</p>
-
-<ul>
-<li><p>第一种方式如下：
-  <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">class</span> <span class="nc">HelloWorld</span>
-</span><span class='line'>      <span class="k">def</span> <span class="nc">HelloWorld</span><span class="o">.</span><span class="nf">hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-</span><span class='line'>          <span class="nb">print</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="nb">name</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;\</span><span class="n">n</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;</span>     <span class="c1">#name为局部变量</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>  <span class="no">HelloWorld</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">xautjzd</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;)</span>     <span class="c1">#=&gt;hello, xautjzd</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p></li>
-<li><p>第二种方式如下：
-  <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">class</span> <span class="nc">HelloWorld</span>
-</span><span class='line'>      <span class="o">.</span><span class="n">.</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>  <span class="k">class</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="no">HelloWorld</span>
-</span><span class='line'>      <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-</span><span class='line'>          <span class="nb">print</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="nb">name</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>  <span class="no">HelloWorld</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">xautjzd</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;)</span>   <span class="c1">#=&gt;hello, xautjzd</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p></li>
-<li><p>第三种方式如下：
-  <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">class</span> <span class="nc">HelloWorld</span>
-</span><span class='line'>      <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-</span><span class='line'>          <span class="nb">print</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">hello</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="nb">name</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>  <span class="no">HelloWorld</span><span class="o">.</span><span class="n">hello</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">xautjzd</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;)</span>    <span class="c1">#=&gt;hello, xautjzd</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p></li>
-</ul>
-
-
-<h3>方法的访问控制</h3>
-
-<p>Ruby提供了三种限制方式:</p>
-
-<ul>
-<li>public——默认方式，默认的实例方法都是public</li>
-<li>private——private修饰的方法只能在类的内部使用，不允许在类的外部调用</li>
-<li>proteced——只能在本类或者子类中访问，不能在类外部访问</li>
-</ul>
-
-
-<h2>模块</h2>
-
-<p>模块(module)应该是Ruby特有的功能，模块中也可包含方法，成为模块方法，模块与类最大的不同在于：</p>
-
-<ul>
-<li>模块不能实例化</li>
-<li>模块不能继承</li>
-</ul>
-
-
-<h3>模块的用法</h3>
-
-<ul>
-<li><p>提供命名空间
-命名空间的存在主要是解决方法、常量、类名的冲突。使用模块时，只需要用include将模块包含进现有的命名空间中即可。eg:
-  <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="kp">include</span> <span class="no">Math</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="ss">Math</span><span class="p">:</span><span class="ss">:PI</span>     <span class="c1">#=&gt;3.141592654</span>
-</span><span class='line'>  <span class="nb">p</span> <span class="no">Math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1">#=&gt;2</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p></li>
-<li><p>以Mix-in方式提供功能
-类中包含模块，成为Mix-in。eg:
-  <div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>  <span class="k">module</span> <span class="nn">MyModule</span>
-</span><span class='line'>      <span class="c1">#提供的模块方法</span>
-</span><span class='line'>  <span class="k">end</span><span class="o">&lt;</span><span class="sr">/p&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="sr">&lt;p&gt;  class Class1</span>
-</span><span class='line'><span class="sr">      include MyModule</span>
-</span><span class='line'><span class="sr">      #Class1的方法定义</span>
-</span><span class='line'><span class="sr">  end&lt;/</span><span class="nb">p</span><span class="o">&gt;</span>
-</span><span class='line'>
-</span><span class='line'><span class="o">&lt;</span><span class="nb">p</span><span class="o">&gt;</span>  <span class="k">class</span> <span class="nc">Class2</span>
-</span><span class='line'>      <span class="kp">include</span> <span class="no">MyModule</span>
-</span><span class='line'>      <span class="c1">#Class2的方法定义</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure></notextile></div></p></li>
-</ul>
-
-
-<p>如上例所示，通过Module将Class1和Class2两个类所共有的功能抽出来定义成Module。主要用于：</p>
-
-<ul>
-<li>两个类只是功能相似，但不想归于相同类型的类</li>
-<li>Ruby不支持多继承，所以当已继承其他父类时，就无法再继承其他的类</li>
-</ul>
-
 ]]></content>
   </entry>
   
