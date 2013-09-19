@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-09-18T20:57:27+08:00</updated>
+  <updated>2013-09-19T11:43:21+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -67,7 +67,39 @@
 
 <p><code>&lt;c+d&gt;</code> reindent the current line</p>
 
-<p>以上命令主要是关于缩进和对齐的一个总结，其他的一些常用功能抽空再做总结。</p>
+<h3>Surroud plugin</h3>
+
+<p>以下是一些surround插件的功能：</p>
+
+<pre><code>{
+    xxx
+    xxx
+}
+</code></pre>
+
+<p>normal模式下输入：dS{,结果变为:</p>
+
+<pre><code>xxx
+xxx
+
+"hello world"
+</code></pre>
+
+<p>cS"&lsquo;之后，结果变为：</p>
+
+<pre><code>'hello world'
+
+&lt;div&gt;hello&lt;/div&gt;
+</code></pre>
+
+<p>通过cSt然后输入<code>&lt;p&gt;</code>,结果变为：</p>
+
+<pre><code>&lt;p&gt;hello&lt;/p&gt;
+</code></pre>
+
+<p>当然也可以选进入visual模式，然后S"，便给选中的文本包含"&ldquo;。</p>
+
+<p>以上命令主要是关于缩进和对齐的一个总结，关于surround插件做的总结也只是将所学列出，学过之后才感觉几乎毫无用处，所以不学也罢。其他的一些常用功能抽空再做总结。</p>
 ]]></content>
   </entry>
   
