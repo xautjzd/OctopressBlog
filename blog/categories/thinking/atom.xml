@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Thinking | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/thinking/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-09-19T11:43:21+08:00</updated>
+  <updated>2013-09-26T16:06:30+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ASP.NET MVC Json()处理大数据异常解决方法]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/26/json-serializer-maxjsonlength-exception/"/>
+    <updated>2013-09-26T15:15:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/26/json-serializer-maxjsonlength-exception</id>
+    <content type="html"><![CDATA[<p>近几天一直忙于windows下的项目，rails的学习暂时搁置了，所以也有好几天没有用fedora了，博客大致也有一周没有更新。此博客本想只记录一些Linux平台下的相关操作，但这两天碰到的问题很棘手，虽最终得以解决，但不忍就此翻篇，想将解决之法记录下来，以避免今后再次碰到此类问题又得重头再寻求解决方案，同时也分享出来，避免其他人碰到此问题时多走弯路。所以便予以记录。下面切入正题：</p>
+
+<p>先对项目做个简单介绍：</p>
+
+<!-- more -->
+
+
+<p>整个项目采用微软的ASP.NET MVC3进行开发，前端显示采用EasyUI框架，图表的显示用的是Highcharts，主要进行曲线图的绘制，这样比较形象地描绘出变化的趋势。由于数据量比较大(大于1000，000条记录)，而highcharts接受的数据类型为json格式，所以controller从数据库中取出的数据需要先格式化成json,然后再传到前端。平时一直采用MVC的Json()将数据序列化成json格式，但是由于此次数据量较大，所以曲线不显示，所以一直以为是由于数据量较大，highcharts插件不支持100w级数据，后来听人说highcharts本身是支持100w级数据的。最后采用firebug调试才发现出现了错误：“使用JSON JavaScriptSerializer进行序列化或反序列化时出错。字符串的长度超过了为maxJsonLength属性设置的值”,网上也找了不少解决方案，几乎无一例外说的是在web.config的<configuration>节点下添加：</p>
+
+<pre><code>&lt;system.web.extensions&gt;
+    &lt;scripting&gt;
+        &lt;webServices&gt;
+            &lt;jsonSerialization maxJsonLength="1024000000" /&gt;
+        &lt;/webServices&gt;
+    &lt;/scripting&gt;
+&lt;/system.web.extensions&gt;
+</code></pre>
+
+<p>试过后发现曲线还是没出来，最后拿出杀手锏：谷歌翻译成英文，再次搜索，最后终于在stackoverflow上找到解决之法：</p>
+
+<pre><code>public ActionResult GetLargeJsonResult()
+{
+  return new ContentResult
+    {
+        Content = new JavaScriptSerializer { MaxJsonLength = Int32.MaxValue }.Serialize(myBigdata),
+        ContentType = "application/json"
+    };
+}
+</code></pre>
+
+<p>具体网址：<a href="http://stackoverflow.com/questions/4155014/json-asp-net-mvc-maxjsonlength-exception">http://stackoverflow.com/questions/4155014/json-asp-net-mvc-maxjsonlength-exception</a></p>
+
+<p>这里不得不大赞StackOverflow,好多问题都是在上面找到solution,而且上面还有非常多的好心人士热心细致的回答问题，我提了好几个问题都最终得到所谓Geek的帮助并得以解决。这里，我只想说声：谢谢。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Cookies vs Sessions]]></title>
@@ -153,42 +194,6 @@
 
 
 <p>其他联系方式见我的<a href="http://xautjzd.github.io/blog/aboutme">About</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[更换Octopress主题]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog/"/>
-    <updated>2013-08-17T22:56:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog</id>
-    <content type="html"><![CDATA[<p>Octopress博客搭建已经有一阵了，但一直采用的默认的主题，没时间更换。今天特意抽时间来更换下，先上<a href="http://octopress.org/docs/theme/">Octopress官网</a>了解了下更换Theme的原理，然后上Octopress所在的源码托管平台GitHub，在其<a href="https://github.com/imathis/octopress/wiki">Wiki</a>上找到了<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">第三方Themes</a>,便从前到后大致将各种themes都预览了一遍，最后选择了<a href="https://github.com/shashankmehta/greyshade">Greyshade主题</a>,安装方法官网写的已经非常详细，这里再啰嗦一遍：</p>
-
-<h3>Install</h3>
-
-<p><code>
-$ cd octopress  #octopress directory
-$ git clone git@github.com:shashankmehta/greyshade.git .themes/greyshade
-$ echo "\$greyshade: color;" &gt;&gt; sass/custom/_colors.scss //Substitue 'color' with your highlight color
-$ rake "install[greyshade]"
-$ rake generate
-</code>
-至此，安装过程便已完成。</p>
-
-<p>左侧的显示效果主要配置在_config.yml文件中。</p>
-
-<h3>pages显示</h3>
-
-<p>Octopress默认只有Homepage和Archives两个导航菜单，不满足要求，我便又添加了"编程"、“Linux”、“所思所想”和“关于我”这几个。“关于我”的页面为静态页面，在source/blog/aboutme/下，其他的几个需要将相关的文章显示在相应的导航菜单下，便需做如下配置：</p>
-
-<h2>```html source/thinking/index.markdown</h2>
-
-<p>layout: category_index
-title: Thinking</p>
-
-<h2>category: Thinking</h2>
-
-<p>```
-这样后，只要new_post并且category为Thinking的页面都会集中在所思所想对应的页面显示。</p>
 ]]></content>
   </entry>
   

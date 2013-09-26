@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-09-19T11:43:21+08:00</updated>
+  <updated>2013-09-26T16:06:30+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[ASP.NET MVC Json()处理大数据异常解决方法]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/26/json-serializer-maxjsonlength-exception/"/>
+    <updated>2013-09-26T15:15:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/26/json-serializer-maxjsonlength-exception</id>
+    <content type="html"><![CDATA[<p>近几天一直忙于windows下的项目，rails的学习暂时搁置了，所以也有好几天没有用fedora了，博客大致也有一周没有更新。此博客本想只记录一些Linux平台下的相关操作，但这两天碰到的问题很棘手，虽最终得以解决，但不忍就此翻篇，想将解决之法记录下来，以避免今后再次碰到此类问题又得重头再寻求解决方案，同时也分享出来，避免其他人碰到此问题时多走弯路。所以便予以记录。下面切入正题：</p>
+
+<p>先对项目做个简单介绍：</p>
+
+<!-- more -->
+
+
+<p>整个项目采用微软的ASP.NET MVC3进行开发，前端显示采用EasyUI框架，图表的显示用的是Highcharts，主要进行曲线图的绘制，这样比较形象地描绘出变化的趋势。由于数据量比较大(大于1000，000条记录)，而highcharts接受的数据类型为json格式，所以controller从数据库中取出的数据需要先格式化成json,然后再传到前端。平时一直采用MVC的Json()将数据序列化成json格式，但是由于此次数据量较大，所以曲线不显示，所以一直以为是由于数据量较大，highcharts插件不支持100w级数据，后来听人说highcharts本身是支持100w级数据的。最后采用firebug调试才发现出现了错误：“使用JSON JavaScriptSerializer进行序列化或反序列化时出错。字符串的长度超过了为maxJsonLength属性设置的值”,网上也找了不少解决方案，几乎无一例外说的是在web.config的<configuration>节点下添加：</p>
+
+<pre><code>&lt;system.web.extensions&gt;
+    &lt;scripting&gt;
+        &lt;webServices&gt;
+            &lt;jsonSerialization maxJsonLength="1024000000" /&gt;
+        &lt;/webServices&gt;
+    &lt;/scripting&gt;
+&lt;/system.web.extensions&gt;
+</code></pre>
+
+<p>试过后发现曲线还是没出来，最后拿出杀手锏：谷歌翻译成英文，再次搜索，最后终于在stackoverflow上找到解决之法：</p>
+
+<pre><code>public ActionResult GetLargeJsonResult()
+{
+  return new ContentResult
+    {
+        Content = new JavaScriptSerializer { MaxJsonLength = Int32.MaxValue }.Serialize(myBigdata),
+        ContentType = "application/json"
+    };
+}
+</code></pre>
+
+<p>具体网址：<a href="http://stackoverflow.com/questions/4155014/json-asp-net-mvc-maxjsonlength-exception">http://stackoverflow.com/questions/4155014/json-asp-net-mvc-maxjsonlength-exception</a></p>
+
+<p>这里不得不大赞StackOverflow,好多问题都是在上面找到solution,而且上面还有非常多的好心人士热心细致的回答问题，我提了好几个问题都最终得到所谓Geek的帮助并得以解决。这里，我只想说声：谢谢。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Ruby语言独特点]]></title>
@@ -1167,91 +1208,6 @@ eg: set foldmarker= /*,*/
 <p>今天上午吃完饭后，我们三骑了两辆电动车便动身驶向秦岭脚下，大约一个小时的车程。风景着实不错，秀色可人，给人一份安宁。到达之后，没做停留，便又沿着环山公路继续行驶，一直骑到户县与周至的边界，并且还往前走了一段距离才往回走。结果走了大致不到20分钟，其中一辆车便没电，这时只能采取一车拉一车的方式了，这是个技术活，不过阿亮还是很给力，一手握绳，一手控制方向。就这么行驶了大致有20分钟吧，便来到一个镇上，找了个快充，给两辆车都充了10分钟的电，然后又继续行驶了。阿亮大致行驶了不到15分钟又没电。又得拉着走了，就这么拉着也至少有半个小时才到家的，也真亏了阿亮的手。当然此次行驶过程中少不了少春这位领路人，领的路还都是不错的，不枉领路人的身份。</p>
 
 <p>这两天总体感觉相当不错，很是满足。我一直想体验下陕西的那种乡土风情，但是一直没实现，这次多亏了少春给了这次机会，再此表示感谢，谢谢阿姨的热情款待和一日三餐的饭菜！</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[终端分屏工具tmux的安装与常用操作]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/08/08/tmux-use-and-configuration/"/>
-    <updated>2013-08-08T16:12:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/08/08/tmux-use-and-configuration</id>
-    <content type="html"><![CDATA[<h2>1. tmux简介</h2>
-
-<p>tmux是terminal multiplexer的简称，是一款终端分屏的工具，可以在同一屏幕中划分出多个独立的shell环境，这样便于对比，唯一的缺陷是窗口比较小而已。一个server可以有多个session,一个session可以有多个windows,一个windows可以有多个pane.具体见<a href="http://tmux.sourceforge.net/">官网</a>介绍。</p>
-
-<h2>2. 安装</h2>
-
-<p>采用相应系统的包管理器即可安装。我装的是fedora,现以fedora为例：</p>
-
-<pre><code>#yum install tmux
-</code></pre>
-
-<p>包不到1M大小，很快便安装完成。</p>
-
-<!-- more -->
-
-
-<h2>3. 操作</h2>
-
-<p>首先，运行tmux。</p>
-
-<pre><code>$tmux
-</code></pre>
-
-<p>然后可以水平分屏和纵向分屏。其常用的快捷键如下：</p>
-
-<ul>
-<li><p>水平分屏 :<code>&lt;c + b&gt; "</code>即按下ctrl + b后，再按双引号(shift + &lsquo;键)</p></li>
-<li><p>垂直分屏 :<code>&lt;c + b&gt; %</code></p></li>
-<li><p>新建窗口 :<code>&lt;c + b&gt; c</code></p></li>
-<li><p>重命名窗口:<code>&lt;c + b&gt; ,</code></p></li>
-<li><p>窗口切换 :<code>&lt;c + b&gt; number</code>，其中number为窗体的编号，从0开始。</p></li>
-<li><p>切换到bash:<code>&lt;c + b&gt; d</code></p></li>
-<li><p>切换回tmux:<code>$tmux attach</code></p></li>
-<li><p>查看帮助文档：<code>&lt;c + b&gt; ?</code></p></li>
-</ul>
-
-
-<p>1.新建一个session</p>
-
-<pre><code>tmux new-session -s sessionname(自己指定)
-</code></pre>
-
-<p>2.杀死一个session</p>
-
-<pre><code>tmux kill-session -t sessionname
-</code></pre>
-
-<p>3.杀死所有session</p>
-
-<pre><code>tmux kill-server
-</code></pre>
-
-<p>4.列出新建的session</p>
-
-<pre><code>tmux ls(tmux list-sessions)
-</code></pre>
-
-<p>4.附加一个session</p>
-
-<pre><code>tmux a -t sessionname
-</code></pre>
-
-<p>另外，tmux也非常适合结对编程，当两个人可以连接同一台电脑时，其中一个人在终端上的操作，另一个在终端能清楚的看到。操作方式如下：</p>
-
-<p>A操作：$tmux new-session -s test</p>
-
-<p>B操作：$tmux a(ttach) -t test</p>
-
-<p>这样之后，A在终端上的一切操作B都能看到。</p>
-
-<p>其他具体快捷方式，请参考帮助文档。</p>
-
-<p>也可以参考：</p>
-
-<p>1.<a href="http://happycasts.net/episodes/41?autoplay=true">http://happycasts.net/episodes/41?autoplay=true</a></p>
-
-<p>2.<a href="http://caok1231.com/blog/2013/04/14/tmux/">http://caok1231.com/blog/2013/04/14/tmux/</a></p>
 ]]></content>
   </entry>
   

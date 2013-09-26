@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Aug 3rd, 2013 Linux, Vim Comments Vim的代码自动补齐插件——UltiSnips 暑假时间充足，便又开始学习自己喜欢的Ruby。而学Ruby的最佳环境是Mac,其次是Linux,最次是Windows。Mac买不起，只能在Linux上折腾了， &hellip;">
+	<meta name="description" content="Aug 8th, 2013 Linux Comments 终端分屏工具tmux的安装与常用操作 1. tmux简介 tmux是terminal multiplexer的简称，是一款终端分屏的工具，可以在同一屏幕中划分出多个独立的shell环境，这样便于对比，唯一的缺陷是窗口比较小而已。 &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,6 +115,55 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-08T16:12:00+08:00" data-updated="true" itemprop="datePublished">Aug 8<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/08/tmux-use-and-configuration/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/08/tmux-use-and-configuration/" itemprop="url">终端分屏工具tmux的安装与常用操作</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h2>1. tmux简介</h2>
+
+<p>tmux是terminal multiplexer的简称，是一款终端分屏的工具，可以在同一屏幕中划分出多个独立的shell环境，这样便于对比，唯一的缺陷是窗口比较小而已。一个server可以有多个session,一个session可以有多个windows,一个windows可以有多个pane.具体见<a href="http://tmux.sourceforge.net/">官网</a>介绍。</p>
+
+<h2>2. 安装</h2>
+
+<p>采用相应系统的包管理器即可安装。我装的是fedora,现以fedora为例：</p>
+
+<pre><code>#yum install tmux
+</code></pre>
+
+<p>包不到1M大小，很快便安装完成。</p>
+
+
+		
+		<a href="/blog/2013/08/08/tmux-use-and-configuration/" class="more-link">Read on &rarr;</a>
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -645,69 +694,6 @@ origin git@github.com:xautjzd/RubyExample.git (push)
 
 		
 		<a href="/blog/2013/07/21/array/" class="more-link">Read on &rarr;</a>
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-19T20:33:00+08:00" data-updated="true" itemprop="datePublished">Jul 19<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/19/ruby-variable/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/19/ruby-variable/" itemprop="url">Ruby基础</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<h2>变量分类</h2>
-
-<ul>
-<li><strong>局部变量</strong></li>
-</ul>
-
-
-<p>一般以小写字母或下划线开头，当多个单词组成一个变量时，单词间用_分隔。局部变量一般用在代码快里面</p>
-
-<ul>
-<li><strong>全局变量</strong></li>
-</ul>
-
-
-<p>全局变量在整个ruby程序中都可以访问，无论他们在哪被定义。全局变量以$开头。eg:</p>
-
-<p>$global_variable = 10</p>
-
-<ul>
-<li><strong>实例变量</strong></li>
-</ul>
-
-
-<p>实例变量的范围则是类的实例，属于某个类的实例所有，实例间相互独立。实例变量以@开头。eg:</p>
-
-<p>@instance_variable = 10</p>
-
-
-		
-		<a href="/blog/2013/07/19/ruby-variable/" class="more-link">Read on &rarr;</a>
 	</div>
 
 </article>
