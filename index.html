@@ -9,7 +9,8 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Sep 26th, 2013 ASP.NET, Thinking Comments ASP.NET MVC Json()处理大数据异常解决方法 近几天一直忙于windows下的项目，rails的学习暂时搁置了，所以也有好几天没有用fedora了，博客大致也有一周没有更新。 &hellip;">
+	<meta name="description" content="Sep 26th, 2013 Linux Comments 计算机启动过程 计算机启动过程的详细介绍请参考阮一峰老师的两篇博文： http://www.ruanyifeng.com/blog/2013/02/booting.html
+http://www.ruanyifeng.com/blog/ &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,6 +116,51 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-26T18:48:00+08:00" data-updated="true" itemprop="datePublished">Sep 26<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/09/26/boot-process/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/09/26/boot-process/" itemprop="url">计算机启动过程</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>计算机启动过程的详细介绍请参考阮一峰老师的两篇博文：</p>
+
+<ol>
+<li><a href="http://www.ruanyifeng.com/blog/2013/02/booting.html">http://www.ruanyifeng.com/blog/2013/02/booting.html</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2013/08/linux_boot_process.html">http://www.ruanyifeng.com/blog/2013/08/linux_boot_process.html</a></li>
+</ol>
+
+
+<p>写的非常通俗易懂，真的很佩服阮老师的文笔，有时候自己写的博客自己都有点目不忍视，更何况别人呢。要达到这样的水平真的还有好长的路要走。加油吧</p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -587,57 +633,6 @@ dev/sda3 /home 4G
 <img src="http://pic.yupoo.com/xautjzd/D8xXpw6z/medish.jpg" alt="" /></p>
 
 <p>从中可以发现ruby-china采用的是nginx服务器。至于curl其他的功能慢慢再发掘吧。</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-03T21:48:00+08:00" data-updated="true" itemprop="datePublished">Sep 3<span>rd</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/09/03/activate-user-via-email/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/09/03/activate-user-via-email/" itemprop="url">账号注册通过邮箱激活</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<h3>邮箱激活目的</h3>
-
-<p>防止用户注册时所填写的信息为虚假信息</p>
-
-<h3>邮箱激活的原理</h3>
-
-<p>用户注册时，根据用户名、Email及注册时间(精确到ms)等信息通过特定的算法(如:MD5、SHA，最好不可逆)生成相应的信息摘要(也称消息摘要)作为注册的激活码，保存到数据库当中，并且将其作为url的参数，将带有激活码的url链接发送到用户注册的Email中。</p>
-
-<p>只有当用户进入邮箱中并点击该链接后，通过url中的激活码找出数据库中匹配的用户，并将此账号设为“已激活”的状态。</p>
-
-<p><strong>注：此过程没有考虑激活码过期问题，同时信息摘要也可以通过随机数来表示，不一定非要通过用户名等信息生成</strong></p>
-
-<p>Rails代码参考：</p>
-
-<p><a href="http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails">http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails</a></p>
 
 		
 		
