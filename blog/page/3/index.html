@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Aug 11th, 2013 Thinking Comments 户县之行 前天应阿亮之邀，去了趟少春家，现将所见所闻予以记录，聊以慰藉。 我们三（阿亮，少春和我）于前天下午将近六点出发去户县甘河镇的少春家，大致七点半左右到。到家时，天刚暗下来。从这一刻开始到今天下午， &hellip;">
+	<meta name="description" content="Aug 16th, 2013 Vim Comments 安装Powerline过程中的收获 Powerline插件已经多次耳闻目见，但是一直没做尝试，今天再次看到便忍不住试了下，结果还没成功。可能是由于字体的原因吧，在找答案的过程中邂逅了airline,据说比powerline加载更快， &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,6 +115,139 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-16T22:12:00+08:00" data-updated="true" itemprop="datePublished">Aug 16<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/vim/'>Vim</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/16/powerline-vs-airline/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/16/powerline-vs-airline/" itemprop="url">安装Powerline过程中的收获</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Powerline插件已经多次耳闻目见，但是一直没做尝试，今天再次看到便忍不住试了下，结果还没成功。可能是由于字体的原因吧，在找答案的过程中邂逅了airline,据说比powerline加载更快，而且还无需安装字体。所以便果断地换为airline。只需在vimrc中加入<code>bundle bling/vim-airline</code>即可。当然前提是在~/.vimrc中已有如下配置：</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">set </span><span class="nv">laststatus</span><span class="o">=</span>2  <span class="err">&quot;</span>Always show the status line
+</span><span class='line'><span class="nb">set </span>noshowmode
+</span><span class='line'><span class="nb">set </span><span class="nv">t_Co</span><span class="o">=</span>256
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>配置好后效果如下图所示：
+<img src="/images/airline.jpg" alt="" /></p>
+
+<p>配置好后，在bash中显示没问题，但是在tmux中显示就有问题了，先前配置的效果无法显示。网上也找了好久答案，才得以解决，方法如下：</p>
+
+<p><strong>1.$vim ~/.tmux.conf</strong></p>
+
+<p>在~/.tmux.conf文件中添加如下代码：</p>
+
+<pre><code>set -g default-terminal "screen-256color"
+</code></pre>
+
+<p><strong>2.$vim ~/.bashrc</strong></p>
+
+<p>在~/.bashrc中添加如下代码：</p>
+
+<pre><code>alias tmux="tmux -2"
+</code></pre>
+
+<p><code>tmux -2</code>是强制tmux的终端支持256种颜色。</p>
+
+<p>配置好后，显示没问题，但是在写博客的过程中发现vim突然不能输入中文了，不知为何。最后在~/.vimrc添加：</p>
+
+<pre><code>set guifont=*
+</code></pre>
+
+<p>就顺利解决，不过原因待深究，要学的东西太多。</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-16T16:57:00+08:00" data-updated="true" itemprop="datePublished">Aug 16<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/16/install-and-config-shutter/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/16/install-and-config-shutter/" itemprop="url">Linux下截图工具shutter的安装与配置</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>我一直使用的是Fedora17，自带的截图工具实在不敢恭维，但也就这样断断续续的用着，不过也用的不多。但今天突然鬼使神差的搜了下其他的截图工具，Google搜了下，发现好多提到shutter，既然这么多文章都提到，说明肯定着实不赖，便尝试了下。安装及配置如下：</p>
+
+<h3>1.安装</h3>
+
+<p>安装过程很简单，执行下面命令即可：</p>
+
+<pre><code>#yum install shutter
+</code></pre>
+
+<h3>2.配置</h3>
+
+<p>QQ截图快捷键<code>&lt;ctrl&gt;+&lt;alt&gt;+A</code>用习惯了，所以也对shutter继续保留这个快捷键。具体配置方法如下：
+在System Tools>System Settings>Keyboard>Shortcuts>Custom Shortcuts中添加了三个快捷键：</p>
+
+<ul>
+<li><p>截图整个屏幕（shutter -f）</p></li>
+<li><p>截图当前活动窗口(shutter -a)</p></li>
+<li><p>截图选定区域(shutter -s)</p></li>
+</ul>
+
+
+<p>具体配置及对应的快捷键设置参考下图：
+<img src="/images/shutter-config.jpg"></p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -549,134 +682,6 @@
 
 		
 		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-27T12:40:00+08:00" data-updated="true" itemprop="datePublished">Jul 27<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/27/metaprogram-proc/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/27/metaprogram-proc/" itemprop="url">Ruby元编程之Proc对象</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<h2>Proc</h2>
-
-<p>Proc对象其实就是将代码块(block)转换成对象的块。方式有大致几种：</p>
-
-<p>1.Proc对象</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">inc</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
-</span><span class='line'>    <span class="n">inc</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>     <span class="c1">#=&gt;4</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>2.lambda方法</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">inc</span> <span class="o">=</span> <span class="nb">lambda</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
-</span><span class='line'>    <span class="n">inc</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>     <span class="c1">#=&gt;4</span>
-</span><span class='line'>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-
-		
-		<a href="/blog/2013/07/27/metaprogram-proc/" class="more-link">Read on &rarr;</a>
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-22T11:33:00+08:00" data-updated="true" itemprop="datePublished">Jul 22<span>nd</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/git/'>Git</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/07/22/git-roll-back/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/22/git-roll-back/" itemprop="url">Git的相关操作</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<h2>查看Git远程库地址</h2>
-
-<p>建立了远程库后，许久没操作，突然忘了其对应的具体远程库的url。可通过以下命令来查看：</p>
-
-<pre><code>$git remote -v
-</code></pre>
-
-<p>-v选项是&mdash;verbose的简写，最后结果为：</p>
-
-<pre><code>origin git@github.com:xautjzd/RubyExample.git (fetch)  
-origin git@github.com:xautjzd/RubyExample.git (push)
-</code></pre>
-
-<p>要查看详细信息，则可以通过如下命令查看：</p>
-
-<pre><code>$git remote show remote-name
-</code></pre>
-
-<h2>添加远程库地址</h2>
-
-<pre><code>$git remote add reponame url
-</code></pre>
-
-<h2>远程库的重命名</h2>
-
-<pre><code>$git remote rename oldname newname
-</code></pre>
-
-
-		
-		<a href="/blog/2013/07/22/git-roll-back/" class="more-link">Read on &rarr;</a>
 	</div>
 
 </article>
