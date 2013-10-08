@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-10-01T23:52:23+08:00</updated>
+  <updated>2013-10-08T16:10:30+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,17 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fedora下使用sudo]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/10/08/use-sudo-in-fedora/"/>
+    <updated>2013-10-08T15:11:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/10/08/use-sudo-in-fedora</id>
+    <content type="html"><![CDATA[<p>Linux下日常操作使用一般用户权限即可，但是往往有一些操作需要用到root权限，如服务的启动、软件的安装等，直接转到root下进行操作可不是一个好习惯，比较稳妥的方式就是使用sudo进行操作。首先检查系统是否已经安装<code>sudo</code>,接下来需要在<code>/etc/sudoers</code>文件下进行配置相应的权限。</p>
+
+<p>在<code>root    ALL=(ALL)   ALL</code>这行下面添加<code>username ALL=(ALL) NOPASSWD:ALL</code>即可。其中<code>username</code>为要使用sudo的用户，并且每次使用sudo时不需要输入root密码。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[计算机启动过程]]></title>
@@ -430,18 +441,6 @@ grub-mkconfig生成grub的配置，通过-o参数将配置输出到指定的配�
 <li><p>Youtube ArchLinux安装视频</p></li>
 </ol>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[查看网站所用Web服务器类型]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/09/04/lookup-webserver/"/>
-    <updated>2013-09-04T16:43:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/09/04/lookup-webserver</id>
-    <content type="html"><![CDATA[<p>学习Rails的Layout过程中，其中有提到curl，所以便简单的看了下curl的功能。虽说以前学习Shell的过程中也看到过curl,不过没怎么用过，只知道和wget功能类似，只是wget是将请求的web资源下载到本地，而curl则是在shell中显示，至于有什么其他功能也便不清楚。但是今天发现curl其实还可以用来查看website所用的web服务器类型，通过<code>curl -I url-you-want-to-lookup</code>命令查看即可。以下是我查看ruby-china的一个截图：
-<img src="http://pic.yupoo.com/xautjzd/D8xXpw6z/medish.jpg" alt="" /></p>
-
-<p>从中可以发现ruby-china采用的是nginx服务器。至于curl其他的功能慢慢再发掘吧。</p>
 ]]></content>
   </entry>
   
