@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Octopress | xautjzd]]></title>
+  <link href="http://xautjzd.github.io/blog/categories/octopress/atom.xml" rel="self"/>
+  <link href="http://xautjzd.github.io/"/>
+  <updated>2013-10-10T16:29:50+08:00</updated>
+  <id>http://xautjzd.github.io/</id>
+  <author>
+    <name><![CDATA[xautjzd]]></name>
+    <email><![CDATA[xautjzd@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[更新Octopress]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/17/update-my-blog/"/>
+    <updated>2013-09-17T15:22:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/17/update-my-blog</id>
+    <content type="html"><![CDATA[<p>现在已记不清接触Octopress多长时间了，只依稀记得当时配置Octopress配了好久，然后依然失败，后又忙于其他的事情，所以搭建工作便搁置一旁，七月中旬时间比较充足，所以又开始再次折腾，后来终于搭建成功，所以7.18便发表了第一篇博客。后来一个月之后又开始了我的换肤工作，一切都好，唯一的缺陷是Gravatar的图像没有显示出来，所以便向theme的作者发问，后来也忘了这茬事。就这样又过了一月，直到今天，突然发现我的unread消息里面有几条关于我的message，便打开浏览，才发现作者给的回复，说图像没显示是个bug，现已修复。具体见：</p>
+
+<p><a href="https://github.com/shashankmehta/greyshade/issues/42">https://github.com/shashankmehta/greyshade/issues/42</a></p>
+
+<p>我便立马更新了我的Octopress。更新方法如下：</p>
+
+<pre><code># Get the latest Octopress
+git pull octopress master    
+# Keep gems updated
+bundle install               
+# update the template's source
+rake update_source            
+</code></pre>
+
+<p>具体参考：</p>
+
+<p><a href="http://octopress.org/docs/updating/">http://octopress.org/docs/updating/</a></p>
+
+<p>参考时请务必注意：如果您的octopress主题不是octopress默认主题,请不要执行<code>rake update_style</code>，否则会被还原成默认主题。</p>
+
+<p>本博客采用的主题为：</p>
+
+<p><a href="https://github.com/shashankmehta/greyshade">https://github.com/shashankmehta/greyshade</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[更换Octopress主题]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog/"/>
+    <updated>2013-08-17T22:56:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog</id>
+    <content type="html"><![CDATA[<p>Octopress博客搭建已经有一阵了，但一直采用的默认的主题，没时间更换。今天特意抽时间来更换下，先上<a href="http://octopress.org/docs/theme/">Octopress官网</a>了解了下更换Theme的原理，然后上Octopress所在的源码托管平台GitHub，在其<a href="https://github.com/imathis/octopress/wiki">Wiki</a>上找到了<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">第三方Themes</a>,便从前到后大致将各种themes都预览了一遍，最后选择了<a href="https://github.com/shashankmehta/greyshade">Greyshade主题</a>,安装方法官网写的已经非常详细，这里再啰嗦一遍：</p>
+
+<h3>Install</h3>
+
+<p><code>
+$ cd octopress  #octopress directory
+$ git clone git@github.com:shashankmehta/greyshade.git .themes/greyshade
+$ echo "\$greyshade: color;" &gt;&gt; sass/custom/_colors.scss //Substitue 'color' with your highlight color
+$ rake "install[greyshade]"
+$ rake generate
+</code>
+至此，安装过程便已完成。</p>
+
+<p>左侧的显示效果主要配置在_config.yml文件中。</p>
+
+<h3>pages显示</h3>
+
+<p>Octopress默认只有Homepage和Archives两个导航菜单，不满足要求，我便又添加了"编程"、“Linux”、“所思所想”和“关于我”这几个。“关于我”的页面为静态页面，在source/blog/aboutme/下，其他的几个需要将相关的文章显示在相应的导航菜单下，便需做如下配置：</p>
+
+<h2>```html source/thinking/index.markdown</h2>
+
+<p>layout: category_index
+title: Thinking</p>
+
+<h2>category: Thinking</h2>
+
+<p>```
+这样后，只要new_post并且category为Thinking的页面都会集中在所思所想对应的页面显示。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Octopress添加disqus评论到侧边栏]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/07/30/add-comments-to-sidebar/"/>
+    <updated>2013-07-30T10:47:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/07/30/add-comments-to-sidebar</id>
+    <content type="html"><![CDATA[<h2>新建comments.html文件</h2>
+
+<p>添加评论到侧边栏与添加关于、文章分类和友情链接相似，需要在source/_includes/custom/asides/目录下添加comments.html模块，名字根据自己的喜好可以换成其他的，如xxx.html，然后在comments.html里添加如下内容：</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>source/_includes/custom/asides/comments.html </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;&lt;section</span> <span class="na">id=</span><span class="s">&quot;comment_sidebar&quot;</span><span class="nt">&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>h1<span class="ni">&amp;gt;</span>近期评论<span class="ni">&amp;lt;</span>/h1<span class="ni">&amp;gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ni">&amp;lt;</span>script type=&quot;text/javascript&quot; src=&quot;http://zhengdongjiang.disqus.com/recent_comments_widget.js?num_items=5<span class="ni">&amp;amp;</span>hide_avatars=0<span class="ni">&amp;amp;</span>avatar_size=32<span class="ni">&amp;amp;</span>excerpt_length=20&quot;<span class="ni">&amp;gt;&amp;lt;</span>/script<span class="ni">&amp;gt;&amp;lt;</span>a href=&quot;http://disqus.com/&quot;<span class="ni">&amp;gt;</span>Powered by Disqus<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;&lt;/section&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>其中zhengdongjiang为我disqus对应此网站的shortname，这就不要照搬了，换成你对应的名字即可。</p>
+
+<h2>修改_config.yml文件</h2>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>\_config.yml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below</span>
+</span><span class='line'><span class="c1"># and add an array with the asides you want to use.</span>
+</span><span class='line'><span class="l-Scalar-Plain">blog_index_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/about.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
+</span><span class='line'><span class="l-Scalar-Plain">post_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/about.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ocpress添加友情链接]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/07/27/octopress-add-frend-sites/"/>
+    <updated>2013-07-27T16:02:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/07/27/octopress-add-frend-sites</id>
+    <content type="html"><![CDATA[<p>与在侧边栏添加Aboutme、Categories、Tagcloud等功能类似，在source/_include\custom\asides目录下添加一个frendsites.html文件，模仿about等写法，添加友情链接，如下所示：</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>友情链接 </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="ni">&amp;lt;</span>section<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>h1<span class="ni">&amp;gt;</span>友情链接<span class="ni">&amp;lt;</span>/h1<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>ul<span class="ni">&amp;gt;</span>
+</span><span class='line'>        <span class="ni">&amp;lt;</span>li<span class="ni">&amp;gt;&amp;lt;</span>a href=&quot;url_to_add&quot;<span class="ni">&amp;gt;</span>友情链接的显示Id<span class="ni">&amp;lt;</span>/a<span class="ni">&amp;gt;&amp;lt;</span>/li<span class="ni">&amp;gt;</span>
+</span><span class='line'>        ...
+</span><span class='line'>    <span class="ni">&amp;lt;</span>/ul<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/section<span class="ni">&amp;gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>然后在_config.yml文件中相应的位置添加，如在default_asides中的数组添加custom/asides/friendsites.html，当然也可以在blog_index等其他数组中添加。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[配置文章分类插件]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/07/18/config-category-plugin/"/>
+    <updated>2013-07-18T17:17:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/07/18/config-category-plugin</id>
+    <content type="html"><![CDATA[<p>Octopress搭建的博客默认没有文章分类，这肯定让人很不爽，但这个号称Hacker的博客肯定有这功能，便网上搜寻了答案，最终得以解决。方法如下：</p>
+
+<h3>1. 添加category_list插件</h3>
+
+<p>代码如下：</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>plugins/category_list_tag.rb </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">Jekyll</span>
+</span><span class='line'>    <span class="k">class</span> <span class="nc">CategoryListTag</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="ss">Liquid</span><span class="p">:</span><span class="ss">:Tag</span>
+</span><span class='line'>        <span class="k">def</span> <span class="nf">render</span><span class="p">(</span><span class="n">context</span><span class="p">)</span>
+</span><span class='line'>            <span class="n">html</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+</span><span class='line'>            <span class="n">categories</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">categories</span><span class="o">.</span><span class="n">keys</span>
+</span><span class='line'>            <span class="n">categories</span><span class="o">.</span><span class="n">sort</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">category</span><span class="o">|</span>
+</span><span class='line'>                <span class="n">posts_in_category</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">categories</span><span class="o">[</span><span class="n">category</span><span class="o">].</span><span class="n">size</span>
+</span><span class='line'>                <span class="n">category_dir</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">registers</span><span class="o">[</span><span class="ss">:site</span><span class="o">].</span><span class="n">config</span><span class="o">[</span><span class="s1">&#39;category_dir&#39;</span><span class="o">]</span>
+</span><span class='line'>                <span class="n">category_url</span> <span class="o">=</span> <span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">category_dir</span><span class="p">,</span> <span class="n">category</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/_|\P{Word}/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/-{2,}/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">downcase</span><span class="p">)</span>
+</span><span class='line'>                <span class="n">html</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="s2">&quot;&amp;lt;li class=&#39;category&#39;&amp;gt;&amp;lt;a href=&#39;http://xautjzd.github.io/</span><span class="si">#{</span><span class="n">category_url</span><span class="si">}</span><span class="s2">/&#39;&amp;gt;</span><span class="si">#{</span><span class="n">category</span><span class="si">}</span><span class="s2"> (</span><span class="si">#{</span><span class="n">posts_in_category</span><span class="si">}</span><span class="s2">)&amp;lt;/a&amp;gt;&amp;lt;/li&amp;gt;</span><span class="se">\n</span><span class="s2">&quot;</span>
+</span><span class='line'>            <span class="k">end</span>
+</span><span class='line'>            <span class="n">html</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="ss">Liquid</span><span class="p">:</span><span class="ss">:Template</span><span class="o">.</span><span class="n">register_tag</span><span class="p">(</span><span class="s1">&#39;category_list&#39;</span><span class="p">,</span> <span class="ss">Jekyll</span><span class="p">:</span><span class="ss">:CategoryListTag</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>将以上代码保存到plugins/category_list_tag.rb中。</p>
+
+<p>这个插件会向liquid注册一个名为category_list的tag，该tag就是以li的形式将站点所有的category组织起来。如果要将category加入到侧边导航栏，需要增加一个aside</p>
+
+<h3>2. 添加category到aside中</h3>
+
+<p>在source/_include/custom/asides中新建category_list.html文件，并且将以下代码复制到其中：</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>category_list.html </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="ni">&amp;lt;</span>section<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>h1<span class="ni">&amp;gt;</span>Categories<span class="ni">&amp;lt;</span>/h1<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>ul id=&quot;categories&quot;<span class="ni">&amp;gt;</span>
+</span><span class='line'>        {\% category_list %}
+</span><span class='line'>    <span class="ni">&amp;lt;</span>/ul<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="ni">&amp;lt;</span>/section<span class="ni">&amp;gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+
+<p>其中\是为了显示才添加上的，不然无法正常显示，复制代码时请去掉%前的\。</p>
+
+<h3>3. 配置侧边栏</h3>
+
+<p>在_config.yml中配置侧边栏，修改其中的default_asides项：</p>
+
+<pre><code><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>_config.yml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">...</span><span class="p-Indicator">]</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Rails | xautjzd]]></title>
+  <link href="http://xautjzd.github.io/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://xautjzd.github.io/"/>
+  <updated>2013-10-10T16:29:50+08:00</updated>
+  <id>http://xautjzd.github.io/</id>
+  <author>
+    <name><![CDATA[xautjzd]]></name>
+    <email><![CDATA[xautjzd@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[创建我的第一个rails程序]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/07/30/create-my-first-rails-app/"/>
+    <updated>2013-07-30T17:22:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/07/30/create-my-first-rails-app</id>
+    <content type="html"><![CDATA[<h2>开启Mysql服务</h2>
+
+<p>我的一个rails程序是采用mysql数据库，不是默认的sqlite3.所以前提是已经安装了mysql。由于Mysql安装了好久，但是很少使用。所以服务没有启动，近来可能会频繁使用，便设置为开机自动启动了。设置方法为:<code>#systemctl enable mysqld.service</code>或者<code>service mysqld start</code>。</p>
+
+<h2>安装mysql驱动</h2>
+
+<p>rails应用中使用msyql,需要Mysql对应的ruby驱动：msyql2。安装方式：</p>
+
+<pre><code>$gem install mysql2
+</code></pre>
+
+<p>安装完成后可通过<code>$rails console</code>进行测试。测试方法为：</p>
+
+<pre><code>&gt;require 'mysql2'
+&gt;client=Mysql2::Client.new(:host =&gt; "localhost", :username=&gt;"root", :password=&gt;"your_password", :database=&gt;"your_db")
+=&gt; #&lt;Mysql2::Client:0xa058aac&gt;
+&gt; client.query("select version()")
+=&gt; #&lt;Mysql2::Result:0xa05233c&gt;
+</code></pre>
+
+<p>这样表示已经连接成功。</p>
+
+<p>到此为止，前期工作已经完成，后面就开始动手了。</p>
+
+<!-- more -->
+
+
+<h2>创建rails应用</h2>
+
+<pre><code>$rails new railsapp -d msyql  #指定数据库为mysql,否则采用默认的sqlite3
+$cd railsapp
+$rails server     #启动内置服务器
+</code></pre>
+
+<p>启动后，可以通过<code>http://localhost:3000</code>访问刚才创建的应用。一个简单的应用便就此完成了。</p>
+
+<h2>添加应用</h2>
+
+<p>在上面建立的应用程序中，可以找到config/database.yml文件，里面是数据库的配置，默认会生成三个数据库development/test/production,同时也需要在其中添加username和password,分别对应自己的设置，database设为自己想要的数据库名。host设为localhost,port使用系统默认即可。</p>
+
+<p>配置完成后，开始进行数据库的生成。</p>
+
+<pre><code>$rake db:create
+</code></pre>
+
+<p>生成的只是空数据库，没有任何表。下面创建第一张表，通过rails的scaffold模式来生成表。</p>
+
+<pre><code>$rails generate scaffold user username:xautjzd email:xautjzd@gmail.com 
+</code></pre>
+
+<p>通过此命令会创建相应的controller,views,model和数据库脚本，此时还没有创建表。通过：</p>
+
+<pre><code>$rake db:migrate
+</code></pre>
+
+<p>执行上一步生成的数据库脚本。</p>
+
+<h2>数据库回滚</h2>
+
+<p>通过：</p>
+
+<pre><code>$rake db:rollback
+</code></pre>
+
+<p>回退上步操作，然后修改date_create_users_rb.其中的up方法来建表，而down方法来删表。修改完后通过</p>
+
+<pre><code>$rake db:migrate
+</code></pre>
+
+<p>再次生成新的数据库</p>
+]]></content>
+  </entry>
+  
+</feed>

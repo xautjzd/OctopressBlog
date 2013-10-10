@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Thinking | xautjzd]]></title>
+  <link href="http://xautjzd.github.io/blog/categories/thinking/atom.xml" rel="self"/>
+  <link href="http://xautjzd.github.io/"/>
+  <updated>2013-10-10T16:29:50+08:00</updated>
+  <id>http://xautjzd.github.io/</id>
+  <author>
+    <name><![CDATA[xautjzd]]></name>
+    <email><![CDATA[xautjzd@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[梦想]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/10/01/whats-my-dream/"/>
+    <updated>2013-10-01T22:48:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/10/01/whats-my-dream</id>
+    <content type="html"><![CDATA[<p>你要搞清楚自己人生的剧本——不是你父母的续集，不是你子女的前传，更不是你朋友的外篇，对待生命你不妨大胆冒险一点，因为好歹你要失去它。如果这世界上真有奇迹，那只是努力的另一个名字，生命中最难的阶段不是没有人懂你，而是你不懂你自己。——尼采</p>
+
+<p>当读到这段话时，我陷入了沉思，不禁想：人生短短几十年，生命的1/3差不多已悄然而逝，在这1/3的年华中自己收获了什么，失去了什么。我想得到的可能就是人们眼中所谓的专业知识，比一般人士更了解计算机而已，同时可能收获的是思考问题和解决问题的能力。而失去的确是童年该有的肆无忌惮的玩耍，天马行空的想法，取而代之的是那铜墙铁壁似的教室的囚禁，被教导做个父母、老师眼中的乖孩子，死记硬背那些该死的口诀表和公式。</p>
+
+<!-- more -->
+
+
+<p>熟不知imagination is more important than knowledge。如今的我们早已丧失了孩童时代的那种超凡想象力，它们早已被所学的知识所囚禁，想要挣脱却不得。同时我们变得没有梦想，确切的说是终极梦想。仅有的只是阶段性梦想，小学开始便想着如何努力学习上重点初中，中学三年该如何发奋上个理想的高中，高中三年挥洒着汗与泪争取上个令人满意的大学，上了大学便开始思索如何学习才能毕业后找个好工作。找着工作后可能便又想着买房结婚的事了。</p>
+
+<p>我们有自己的终极梦想么？我们是否一直为之做不懈的努力呢？我扪心自问，我没有一个从小到现在一直在坚持的梦，唯一有的只是阶段性的，每当完成时，不禁窃喜。不过随着时间的流逝，这种成就感也便逐渐消散，直至不复存在。所以难免会有迷茫，有时会突然觉得空虚，便开始质疑生活的真谛、存在的意义。心若空了，便干什么都会觉得没劲，不过这种日子往往是短暂的。因为一直都在忙碌，忙着学习专业知识，以求跟上时代的步伐，跟上大流，毕竟计算机更新换代太快，要学的实在太多。正是忙着学习，可能忘了反思，忘了生活的意义，这种学习与生活混为一体的日子真是我想要的么？我想我无法回答。</p>
+
+<p>以前没有梦想，是因为接触的事物当中没有一件是我心动的，都不足以支撑我为之拼搏。现在我想我找到了，那就是成为一名Geek,虽然还非常遥远，但是我却能始终朝着那一方向努力。每次看《Unix网络编程》和《Unix环境高级编程》时，总会为那些非凡的设计所折服;学习Ruby时，会被其亲切自然的语法所吸引;使用Linux和Vim时，总能感觉到其魅力;当了解了某一原理时，便不胜欣喜。I love it.</p>
+
+<p>以前之所以没有一个为之努力奋斗的梦想，我想是因为接触的不够多的缘故吧。所以小孩子应该重点拓宽他们的知识面，让他们找准自己的兴趣所在，而不是一味求深，还给他们一片自由的空间吧！中国的教育何时能有质的提升？希望在有生之年能够看到。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ASP.NET MVC Json()处理大数据异常解决方法]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/26/json-serializer-maxjsonlength-exception/"/>
+    <updated>2013-09-26T15:15:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/26/json-serializer-maxjsonlength-exception</id>
+    <content type="html"><![CDATA[<p>近几天一直忙于windows下的项目，rails的学习暂时搁置了，所以也有好几天没有用fedora了，博客大致也有一周没有更新。此博客本想只记录一些Linux平台下的相关操作，但这两天碰到的问题很棘手，虽最终得以解决，但不忍就此翻篇，想将解决之法记录下来，以避免今后再次碰到此类问题又得重头再寻求解决方案，同时也分享出来，避免其他人碰到此问题时多走弯路。所以便予以记录。下面切入正题：</p>
+
+<p>先对项目做个简单介绍：</p>
+
+<!-- more -->
+
+
+<p>整个项目采用微软的ASP.NET MVC3进行开发，前端显示采用EasyUI框架，图表的显示用的是Highcharts，主要进行曲线图的绘制，这样比较形象地描绘出变化的趋势。由于数据量比较大(大于1000，000条记录)，而highcharts接受的数据类型为json格式，所以controller从数据库中取出的数据需要先格式化成json,然后再传到前端。平时一直采用MVC的Json()将数据序列化成json格式，但是由于此次数据量较大，所以曲线不显示，所以一直以为是由于数据量较大，highcharts插件不支持100w级数据，后来听人说highcharts本身是支持100w级数据的。最后采用firebug调试才发现出现了错误：“使用JSON JavaScriptSerializer进行序列化或反序列化时出错。字符串的长度超过了为maxJsonLength属性设置的值”,网上也找了不少解决方案，几乎无一例外说的是在web.config的<configuration>节点下添加：</p>
+
+<pre><code>&lt;system.web.extensions&gt;
+    &lt;scripting&gt;
+        &lt;webServices&gt;
+            &lt;jsonSerialization maxJsonLength="1024000000" /&gt;
+        &lt;/webServices&gt;
+    &lt;/scripting&gt;
+&lt;/system.web.extensions&gt;
+</code></pre>
+
+<p>试过后发现曲线还是没出来，最后拿出杀手锏：谷歌翻译成英文，再次搜索，最后终于在stackoverflow上找到解决之法：</p>
+
+<pre><code>public ActionResult GetLargeJsonResult()
+{
+  return new ContentResult
+    {
+        Content = new JavaScriptSerializer { MaxJsonLength = Int32.MaxValue }.Serialize(myBigdata),
+        ContentType = "application/json"
+    };
+}
+</code></pre>
+
+<p>具体网址：<a href="http://stackoverflow.com/questions/4155014/json-asp-net-mvc-maxjsonlength-exception">http://stackoverflow.com/questions/4155014/json-asp-net-mvc-maxjsonlength-exception</a></p>
+
+<p>这里不得不大赞StackOverflow,好多问题都是在上面找到solution,而且上面还有非常多的好心人士热心细致的回答问题，我提了好几个问题都最终得到所谓Geek的帮助并得以解决。这里，我只想说声：谢谢。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Cookies vs Sessions]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/09/cookies-vs-sessions/"/>
+    <updated>2013-09-09T10:37:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/09/cookies-vs-sessions</id>
+    <content type="html"><![CDATA[<p>Http是无状态的协议，客户端给服务器发送请求，服务端响应客户端的请求，会话结束。这样两次会话间不便没有任何关联。但有时候需要在会话间进行信息共享，如：购物车，保存用户名与密码等。为此，cookie与session便诞生了,它们的存在就是为了弥补http协议无状态的缺陷。</p>
+
+<p>cookie与session最大的不同是：cookie保存在用户的浏览器中，而session则保留在服务端。正是这种不同决定了它们的不用使用场合。</p>
+
+<h2>Cookie</h2>
+
+<hr />
+
+<p>cookie机制是通过扩展http协议来实现的。服务器通过在HTTP的响应头中加上一行特殊的指示以提示浏览器按照指示生成相应的cookie。其实纯粹的客户端脚本如JavaScript或者VBScript也可以生成cookie。而cookie的使用是由浏览器按照一定的原则在后台自动发送给服务器端。</p>
+
+<p>cookie主要内容包括：Name,Content,Path,Domain,Expires(过期时间)等。Domain与Path一起构成cookie的作用范围。</p>
+
+<p>若不设置Expires,则默认的cookie生命周期为浏览器会话期间，一旦浏览器关闭，cookie则会被清理掉，这种生命周期为浏览器会话期的cookie被成为会话cookie。会话cookie存储在内存中而不是在硬盘上。</p>
+
+<p>若设置了Expires,浏览器则会把生成的cookie保存在硬盘上，即使浏览器关闭后再打开，cookie依然有效，直至超过设置的expires。</p>
+
+<p>另外，session大小有限制，一旦浏览器禁用cookie，则采用cookie的购物网站便不能进行购物，所以这时候得用session了。</p>
+
+<!-- more -->
+
+
+<h2>Session</h2>
+
+<hr />
+
+<p>session机制是一种服务器端的机制，服务器使用一种类似于散列表的结构（也可能就是使用散列表）来保存信息。</p>
+
+<p>当程序需要为某个客户端的请求创建一个session时，服务器首先检查这个客户端的请求里是否已包含了一个session标识（称为session id），如果已包含则说明以前已经为此客户端创建过session，服务器就按照session id把这个session检索出来使用（检索不到，会新建一个），如果客户端请求不包含session id，则为此客户端创建一个session并生成一个与此session相关联的session id，session id的值应该是一个既不会重复，又不容易被找到规律以仿造的字符串，这个session id将被在本次响应中返回给客户端保存。保存这个session id的方式可以采用cookie，这样在交互过程中浏览器可以自动的按照规则把这个标识发送给服务器。一般这个cookie的名字都是类似于SEEESIONID。但cookie可以被人为的禁止，则必须有其他机制以便在cookie被禁止时仍然能够把session id传递回服务器。</p>
+
+<p>经常被使用的一种技术叫做URL重写，就是把session id直接附加在URL路径的后面。还有一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。</p>
+
+<h2>Cookie与Session区别</h2>
+
+<hr />
+
+<ol>
+<li>cookie存储在客户端的浏览器中，而session则存储在服务器上。</li>
+<li>cookie不安全，可以通过分析本地cookie并进行cookie欺骗，而session则相对比较安全。</li>
+<li>session会在服务器上保存一段时间，但当访问量增大，会占用服务器的存储空间，影响服务器的性能，如考虑到减轻服务器的性能，则可以选择cookie。</li>
+<li>单个cookie保存的数据不会超过4k。</li>
+</ol>
+
+
+<p>所以，一般将登陆等重要信息采用session保存，而其他信息则采用cookie。</p>
+
+<h2>参考资料</h2>
+
+<hr />
+
+<ol>
+<li><a href="http://en.wikipedia.org/wiki/Session_">http://en.wikipedia.org/wiki/Session_</a>(computer_science)</li>
+<li><a href="http://en.wikipedia.org/wiki/HTTP_cookie#cite_note-1">http://en.wikipedia.org/wiki/HTTP_cookie#cite_note-1</a></li>
+<li><a href="http://www.cnblogs.com/shiyangxt/articles/1305506.html">http://www.cnblogs.com/shiyangxt/articles/1305506.html</a></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[查看网站所用Web服务器类型]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/04/lookup-webserver/"/>
+    <updated>2013-09-04T16:43:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/04/lookup-webserver</id>
+    <content type="html"><![CDATA[<p>学习Rails的Layout过程中，其中有提到curl，所以便简单的看了下curl的功能。虽说以前学习Shell的过程中也看到过curl,不过没怎么用过，只知道和wget功能类似，只是wget是将请求的web资源下载到本地，而curl则是在shell中显示，至于有什么其他功能也便不清楚。但是今天发现curl其实还可以用来查看website所用的web服务器类型，通过<code>curl -I url-you-want-to-lookup</code>命令查看即可。以下是我查看ruby-china的一个截图：
+<img src="http://pic.yupoo.com/xautjzd/D8xXpw6z/medish.jpg" alt="" /></p>
+
+<p>从中可以发现ruby-china采用的是nginx服务器。至于curl其他的功能慢慢再发掘吧。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[账号注册通过邮箱激活]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/03/activate-user-via-email/"/>
+    <updated>2013-09-03T21:48:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/03/activate-user-via-email</id>
+    <content type="html"><![CDATA[<h3>邮箱激活目的</h3>
+
+<p>防止用户注册时所填写的信息为虚假信息</p>
+
+<h3>邮箱激活的原理</h3>
+
+<p>用户注册时，根据用户名、Email及注册时间(精确到ms)等信息通过特定的算法(如:MD5、SHA，最好不可逆)生成相应的信息摘要(也称消息摘要)作为注册的激活码，保存到数据库当中，并且将其作为url的参数，将带有激活码的url链接发送到用户注册的Email中。</p>
+
+<p>只有当用户进入邮箱中并点击该链接后，通过url中的激活码找出数据库中匹配的用户，并将此账号设为“已激活”的状态。</p>
+
+<p><strong>注：此过程没有考虑激活码过期问题，同时信息摘要也可以通过随机数来表示，不一定非要通过用户名等信息生成</strong></p>
+
+<p>Rails代码参考：</p>
+
+<p><a href="http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails">http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails</a></p>
+]]></content>
+  </entry>
+  
+</feed>

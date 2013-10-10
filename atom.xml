@@ -1,0 +1,1171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[xautjzd]]></title>
+  <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
+  <link href="http://xautjzd.github.io/"/>
+  <updated>2013-10-10T16:29:50+08:00</updated>
+  <id>http://xautjzd.github.io/</id>
+  <author>
+    <name><![CDATA[xautjzd]]></name>
+    <email><![CDATA[xautjzd@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Linux硬链接与软链接]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/10/10/linux-hard-link-vs-soft-link/"/>
+    <updated>2013-10-10T09:42:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/10/10/linux-hard-link-vs-soft-link</id>
+    <content type="html"><![CDATA[<p>链接的概念其实不仅限在Linux中，在类Unix和Windows中也存在，只是网上资料大多都讨论的是类Unix的链接。下面主要对所了解的类Unix下的链接谈谈自己的认识。</p>
+
+<h3>链接存在的目的</h3>
+
+<p>链接的出现主要是为了解决系统中文件的共享，同时有其他附加的好处：隐藏真实文件路径、增加权限安全及节省存储。简单的举例说明：</p>
+
+<p>Linux中有7种run level(0-6),其中0代表关机，1代表单用户模式(用于系统维护，禁止远程登陆),2代表多用户状态(不支持NFS)，3代表完全的多用户模式，4系统保留(未使用),5代表X11模式(GUI模式)，6则代表重启。</p>
+
+<p>这7种模式分别对应/etc/rc.d/rcN.d目录(N指0-6之间的数字)，存储的是每种启动模式下要启动的程序，但实际的程序其实存储在/etc/rc.d/init.d目录中，/etc/rc.d/rcN.d中都是链接而已，链接到/etc/rc.d/init.d目录中对应的程序(这样做的目的是为了管理上的方便，试想一下，如果有多个runlevel包含同一个程序，需要对这个程序的启动脚本进行修改时，只需更改/etc/rc.d/init.d中的实际文件，而不需要改动/etc/rc.d/rcN.d)。</p>
+
+<h3>链接的分类</h3>
+
+<p>链接分为两种：硬链接(hard link)与阮链接(soft link)。谈链接就不得不谈inode，所以先简单地介绍下inode。</p>
+
+<!-- more -->
+
+
+<p><strong>inode</strong></p>
+
+<p>类unix中，文件被分为两部分：用户数据(user data)和元数据(metadata)。用户数据，即文件数据块(data block),数据块是记录文件真实内容的地方，而元数据则是记录文件的附加属性，如文件大小、创建时间、所有者等信息。而inode则负责存储这些元数据，inode确切的说是一个数据结构，包含了文件的所有信息(文件名除外)。inode包含的详细信息为：</p>
+
+<ul>
+<li>Inode number</li>
+<li>Access Control List(ACL)</li>
+<li>Extended attribute</li>
+<li>Direct/indirect disk blocks</li>
+<li>Number of blocks</li>
+<li>File access, change and modification time</li>
+<li>File deletion time</li>
+<li>File generation number</li>
+<li>File size</li>
+<li>File type</li>
+<li>Group</li>
+<li>Number of links</li>
+<li>Owner</li>
+<li>Permissions</li>
+<li>Status flags</li>
+</ul>
+
+
+<p>通过<code>ls -i</code>或者<code>stat filename</code>可查询文件对应的inode信息</p>
+
+<p>文件新建时，内核会分配一个inode,每个文件的inode号唯一，可以简单地将其理解成指针，指向对应文件的具体的存储位置。访问文件时，inode会被复制到内存，然后根据inode将对应的文件复制到内存。</p>
+
+<p><strong>硬链接</strong></p>
+
+<p><img src="http://pic.yupoo.com/xautjzd/DdZo1Za8/medish.jpg" alt="" /></p>
+
+<p>如图，硬链接其实就是在现有文件上添加了一个别名，他们有共同的inode,但硬链接有以下不足：</p>
+
+<ol>
+<li>不能跨文件系统(inode号仅在同一文件系统下唯一，当挂载多个文件系统后，便可能会出现inode号重复的现象，所以不能跨文件系统)</li>
+<li>只能针对文件创建硬链接，不能对目录创建</li>
+</ol>
+
+
+<p>每个inode都有一个链接计数器,默认文件的inode计数器值为1,每当创建一个硬链接，计数器值便加1，而删除文件时，其实是计数器值减1，只有当计数器为0时，文件才从物理磁盘上删除。</p>
+
+<p>下面看一个实例：</p>
+
+<pre><code>265092 -rw-rw-r--   2 fedora fedora         0 Oct 10 14:16 test
+265092 -rw-rw-r--   2 fedora fedora         0 Oct 10 14:16 testdl
+265164 lrwxrwxrwx   1 fedora fedora         4 Oct 10 14:18 testsl -&gt; test
+</code></pre>
+
+<p>其中test为新建的测试文件，testdl是在test上建立的硬链接，testsl是在test之上的软链接。可以发现test与testdl的inode号相同，而test与testsl的inode号则不同，在创建了硬链接之后，test与testdl的计数器变成2了。</p>
+
+<p><strong>软链接</strong></p>
+
+<p>软链接(也称符号链接 symbol link)刚好弥补了硬链接的不足，不存在文件系统的限制，同时也可以创建指向目录的符号链接。所以现在广泛使用的一般是软链接，它具有更强的灵活性。但它同时也具有硬链接没有的缺点，那就是：</p>
+
+<ol>
+<li>软链接包含原有文件的路径信息，一旦原文件移到其他路径下，再访问软链接，便找不到了，硬链接则无影响。</li>
+<li>系统会为软链接分配额外的空间用于建立新的inode并保存原文件的路径</li>
+</ol>
+
+
+<h3>软链接与硬链接的区别</h3>
+
+<ol>
+<li>硬链接与原文件inode号相同，表明他们是同一个文件；而软链接与原文件inode号不同，说明他们是两个不同的文件。(上图便可看出)</li>
+<li>文件属性上软链接明确标明了是链接文件，而硬链接则没有，因为在本质上硬链接与原文件是完全平等的关系。</li>
+<li>链接计数器不同，软链接的计数器不会增加。</li>
+<li>文件大小不同，硬链接文件显示的大小与原文件相同，而软链接则显示的大小与原文件不同。</li>
+</ol>
+
+
+<h3>参考文档</h3>
+
+<ol>
+<li><a href="http://www.cnblogs.com/ovliverlin/archive/2008/10/28/1321521.html">http://www.cnblogs.com/ovliverlin/archive/2008/10/28/1321521.html</a></li>
+<li><a href="http://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/">http://www.ibm.com/developerworks/cn/linux/l-cn-hardandsymb-links/</a></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Linux下锐捷客户端上网]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/10/09/surf-internet-under-linux-about-ruijie/"/>
+    <updated>2013-10-09T17:17:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/10/09/surf-internet-under-linux-about-ruijie</id>
+    <content type="html"><![CDATA[<p>自己虽然一直用的校园网，但是由于教研室这块位置比较特殊，不需要使用锐捷客户端认证，但其他地方一般都需要。所以今早有个朋友在笔记本上安装了Ubuntu，但是无法通过锐捷web方式认证，下载的锐捷Linux版客户端安装后也无法上网，所以这方面我也不熟悉，只能求助Google了。由于众多高校的网络都是使用锐捷的这一套，所以大同小异，这方面的资料也不少，Google搜索很快便找到了解决方法，用华科的一个客户端即可，下载地址：<a href="http://code.google.com/p/mentohust/">http://code.google.com/p/mentohust/</a></p>
+
+<p>下载后，切换到下载的目录，然后运行<code>sudo dpkg -i 'your deb packagename'</code>即可，安装过程中，一步一步按照其步骤输入相应信息即可。安装完成后，会将配置的信息存储在<code>/etc/mentohust.conf</code>文件中，也可进行修改。在安装的过程中，如果采用DHCP方式，在选择时应该注意，选择1或者2，千万别选择3，否则上不了网。各选项的含义是：</p>
+
+<p>-d DHCP方式：0（不使用） 1（二次认证）2（认证后）3（认证前）</p>
+
+<p>关于mentohust的详细参数解释，请参考<a href="http://code.google.com/p/mentohust/wiki/Parameter">官网wiki</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fedora下使用sudo]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/10/08/use-sudo-in-fedora/"/>
+    <updated>2013-10-08T15:11:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/10/08/use-sudo-in-fedora</id>
+    <content type="html"><![CDATA[<p>Linux下日常操作使用一般用户权限即可，但是往往有一些操作需要用到root权限，如服务的启动、软件的安装等，直接转到root下进行操作可不是一个好习惯，比较稳妥的方式就是使用sudo进行操作。首先检查系统是否已经安装<code>sudo</code>,接下来需要在<code>/etc/sudoers</code>文件下进行配置相应的权限。</p>
+
+<p>在<code>root    ALL=(ALL)   ALL</code>这行下面添加<code>username ALL=(ALL) NOPASSWD:ALL</code>即可。其中<code>username</code>为要使用sudo的用户，并且每次使用sudo时不需要输入root密码。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[梦想]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/10/01/whats-my-dream/"/>
+    <updated>2013-10-01T22:48:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/10/01/whats-my-dream</id>
+    <content type="html"><![CDATA[<p>你要搞清楚自己人生的剧本——不是你父母的续集，不是你子女的前传，更不是你朋友的外篇，对待生命你不妨大胆冒险一点，因为好歹你要失去它。如果这世界上真有奇迹，那只是努力的另一个名字，生命中最难的阶段不是没有人懂你，而是你不懂你自己。——尼采</p>
+
+<p>当读到这段话时，我陷入了沉思，不禁想：人生短短几十年，生命的1/3差不多已悄然而逝，在这1/3的年华中自己收获了什么，失去了什么。我想得到的可能就是人们眼中所谓的专业知识，比一般人士更了解计算机而已，同时可能收获的是思考问题和解决问题的能力。而失去的确是童年该有的肆无忌惮的玩耍，天马行空的想法，取而代之的是那铜墙铁壁似的教室的囚禁，被教导做个父母、老师眼中的乖孩子，死记硬背那些该死的口诀表和公式。</p>
+
+<!-- more -->
+
+
+<p>熟不知imagination is more important than knowledge。如今的我们早已丧失了孩童时代的那种超凡想象力，它们早已被所学的知识所囚禁，想要挣脱却不得。同时我们变得没有梦想，确切的说是终极梦想。仅有的只是阶段性梦想，小学开始便想着如何努力学习上重点初中，中学三年该如何发奋上个理想的高中，高中三年挥洒着汗与泪争取上个令人满意的大学，上了大学便开始思索如何学习才能毕业后找个好工作。找着工作后可能便又想着买房结婚的事了。</p>
+
+<p>我们有自己的终极梦想么？我们是否一直为之做不懈的努力呢？我扪心自问，我没有一个从小到现在一直在坚持的梦，唯一有的只是阶段性的，每当完成时，不禁窃喜。不过随着时间的流逝，这种成就感也便逐渐消散，直至不复存在。所以难免会有迷茫，有时会突然觉得空虚，便开始质疑生活的真谛、存在的意义。心若空了，便干什么都会觉得没劲，不过这种日子往往是短暂的。因为一直都在忙碌，忙着学习专业知识，以求跟上时代的步伐，跟上大流，毕竟计算机更新换代太快，要学的实在太多。正是忙着学习，可能忘了反思，忘了生活的意义，这种学习与生活混为一体的日子真是我想要的么？我想我无法回答。</p>
+
+<p>以前没有梦想，是因为接触的事物当中没有一件是我心动的，都不足以支撑我为之拼搏。现在我想我找到了，那就是成为一名Geek,虽然还非常遥远，但是我却能始终朝着那一方向努力。每次看《Unix网络编程》和《Unix环境高级编程》时，总会为那些非凡的设计所折服;学习Ruby时，会被其亲切自然的语法所吸引;使用Linux和Vim时，总能感觉到其魅力;当了解了某一原理时，便不胜欣喜。I love it.</p>
+
+<p>以前之所以没有一个为之努力奋斗的梦想，我想是因为接触的不够多的缘故吧。所以小孩子应该重点拓宽他们的知识面，让他们找准自己的兴趣所在，而不是一味求深，还给他们一片自由的空间吧！中国的教育何时能有质的提升？希望在有生之年能够看到。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dead Code]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/29/dead-code/"/>
+    <updated>2013-09-29T10:09:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/29/dead-code</id>
+    <content type="html"><![CDATA[<p>今天在网上看到腾讯的一个实习生招聘题，里面提到了dead code，便上wikipedia查了下，解释如下：</p>
+
+<p>在计算机编程中，dead code是指那些被执行但执行结果在其他地方没有用到的代码。dead code的执行耗费cpu时间但是结果无用。</p>
+
+<p>dead code的执行结果没用也就罢了，但它还可能同时导致异常或影响某些全局状态，所以移除这些dead code可能会改变程序的输出，并且排除那些意想不到的bugs。</p>
+
+<p>参考文档：</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Dead_code">http://en.wikipedia.org/wiki/Dead_code</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[计算机启动过程]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/26/boot-process/"/>
+    <updated>2013-09-26T18:48:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/26/boot-process</id>
+    <content type="html"><![CDATA[<p>计算机启动过程的详细介绍请参考阮一峰老师的两篇博文：</p>
+
+<ol>
+<li><a href="http://www.ruanyifeng.com/blog/2013/02/booting.html">http://www.ruanyifeng.com/blog/2013/02/booting.html</a></li>
+<li><a href="http://www.ruanyifeng.com/blog/2013/08/linux_boot_process.html">http://www.ruanyifeng.com/blog/2013/08/linux_boot_process.html</a></li>
+</ol>
+
+
+<p>写的非常通俗易懂，真的很佩服阮老师的文笔，有时候自己写的博客自己都有点目不忍视，更何况别人呢。要达到这样的水平真的还有好长的路要走。加油吧</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ASP.NET MVC Json()处理大数据异常解决方法]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/26/json-serializer-maxjsonlength-exception/"/>
+    <updated>2013-09-26T15:15:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/26/json-serializer-maxjsonlength-exception</id>
+    <content type="html"><![CDATA[<p>近几天一直忙于windows下的项目，rails的学习暂时搁置了，所以也有好几天没有用fedora了，博客大致也有一周没有更新。此博客本想只记录一些Linux平台下的相关操作，但这两天碰到的问题很棘手，虽最终得以解决，但不忍就此翻篇，想将解决之法记录下来，以避免今后再次碰到此类问题又得重头再寻求解决方案，同时也分享出来，避免其他人碰到此问题时多走弯路。所以便予以记录。下面切入正题：</p>
+
+<p>先对项目做个简单介绍：</p>
+
+<!-- more -->
+
+
+<p>整个项目采用微软的ASP.NET MVC3进行开发，前端显示采用EasyUI框架，图表的显示用的是Highcharts，主要进行曲线图的绘制，这样比较形象地描绘出变化的趋势。由于数据量比较大(大于1000，000条记录)，而highcharts接受的数据类型为json格式，所以controller从数据库中取出的数据需要先格式化成json,然后再传到前端。平时一直采用MVC的Json()将数据序列化成json格式，但是由于此次数据量较大，所以曲线不显示，所以一直以为是由于数据量较大，highcharts插件不支持100w级数据，后来听人说highcharts本身是支持100w级数据的。最后采用firebug调试才发现出现了错误：“使用JSON JavaScriptSerializer进行序列化或反序列化时出错。字符串的长度超过了为maxJsonLength属性设置的值”,网上也找了不少解决方案，几乎无一例外说的是在web.config的<configuration>节点下添加：</p>
+
+<pre><code>&lt;system.web.extensions&gt;
+    &lt;scripting&gt;
+        &lt;webServices&gt;
+            &lt;jsonSerialization maxJsonLength="1024000000" /&gt;
+        &lt;/webServices&gt;
+    &lt;/scripting&gt;
+&lt;/system.web.extensions&gt;
+</code></pre>
+
+<p>试过后发现曲线还是没出来，最后拿出杀手锏：谷歌翻译成英文，再次搜索，最后终于在stackoverflow上找到解决之法：</p>
+
+<pre><code>public ActionResult GetLargeJsonResult()
+{
+  return new ContentResult
+    {
+        Content = new JavaScriptSerializer { MaxJsonLength = Int32.MaxValue }.Serialize(myBigdata),
+        ContentType = "application/json"
+    };
+}
+</code></pre>
+
+<p>具体网址：<a href="http://stackoverflow.com/questions/4155014/json-asp-net-mvc-maxjsonlength-exception">http://stackoverflow.com/questions/4155014/json-asp-net-mvc-maxjsonlength-exception</a></p>
+
+<p>这里不得不大赞StackOverflow,好多问题都是在上面找到solution,而且上面还有非常多的好心人士热心细致的回答问题，我提了好几个问题都最终得到所谓Geek的帮助并得以解决。这里，我只想说声：谢谢。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ruby语言独特点]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/19/ruby-syntax-special-point/"/>
+    <updated>2013-09-19T09:05:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/19/ruby-syntax-special-point</id>
+    <content type="html"><![CDATA[<p>有时候真佩服别人的博文可以写的那么长，而且很有料，读起来也非常顺畅，而自己每次却不太善于总结，可能是平时积累的片段还不够，不足以总结，亦或是自己缺少这么一个总结性的思维，导致如今为止也没有产出一篇广为阅读的文章。不过即使如此，也没有打消我持续写博客的念头，不管好坏，不管是否有读者，我将会一如既往的写下去。正如哥哥的《我》:我就是我，是颜色不一样的烟火。每个人都有他存在的价值，无论高低贵贱，无论贫穷富贵，都有其独一无二不可替代的特性。所以无论自己的博文是否能带给大家一丝感触、一点帮助，我都会坚持，因为这也是对我自己学习的一个总结，同时也想尽力贡献一份自己的力量来帮助他人，但我想更多的还是能帮助自己，以便为未来某一天突然需要回味从前的知识提供便捷。我想这便是写博客的初衷。下面进入正题吧：</p>
+
+<!-- more -->
+
+
+<h2>无须声明变量</h2>
+
+<p>Ruby第一个独特之处我想应该是定义变量时无须指定变量类型吧。eg:</p>
+
+<pre><code>time = Time.now
+i = 1
+text = "hello,world"
+</code></pre>
+
+<p>虽说变量定义时无类型，但是当为其赋值后类型便确定了。</p>
+
+<h2>一切皆对象</h2>
+
+<p>另一个特点应该非<code>一切皆对象</code>莫属了，即使是简单的变量也是一个对象，可通过class方法查看其类型：</p>
+
+<pre><code>1.class           #=&gt;Fixnum
+1.1.class         #=&gt;Float
+"test".class      #=&gt;String
+[].class          #=&gt;Array
+{}.class          #=&gt;Hash
+</code></pre>
+
+<h2>Mixin</h2>
+
+<p>而Mixin应该算是其第三个独特之处，通过在Class中mixin Module以达到类似c++里面的多重继承吧，虽然ruby中没有多重继承这个概念。eg:</p>
+
+<pre><code>module Hello
+    def say_hello
+     puts "hello!"
+    end
+end
+
+class TestClass
+    include Hello
+end
+</code></pre>
+
+<p>这样TestClass即使内容为空，但因为有Hello的mixin，所以也拥有say_hello方法。</p>
+
+<h2>yield</h2>
+
+<p>yield真的是Ruby的一大亮点，也是我所学所了解的语言当中最独特的部分，同时也是我深爱Ruby的原因。yield通俗的讲其实就是一个占位符，提前帮block占好位置。block可以再程序运行的时候动态传给方法。eg:</p>
+
+<pre><code>class Test
+    @data = [1, 2, 3, 4]
+
+    def test
+        if block_given?
+            @data.each { |e| yield(e) }
+        else
+            puts "please give block"
+        end
+    end
+end
+
+obj = Test.new
+obj.test { |x| puts x*x }  #=&gt;1, 4, 9, 16
+</code></pre>
+
+<p>定义时可以不指定具体操作，先用yield占位，然后待到具体操作时，将具体处理的block传入方法。</p>
+
+<h2>写在结尾的话</h2>
+
+<p>自己断断续续学习Ruby大致也不到一年时光，所以理解也不是很深入，只将我自己所理解的所看到的所学到的列举出来。其实自己也看过《Meta Programming》，深深为method_missing，eval等所折服，但是还是理解不到家，所以也不敢妄自胡言乱语，以免贻笑大方。深入的东西留待后续的学习吧。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim常用快捷键总结]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/18/vim-shortcut-maps/"/>
+    <updated>2013-09-18T19:55:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/18/vim-shortcut-maps</id>
+    <content type="html"><![CDATA[<p>Vim的学习之路真的很长，永远有记不完的命令，永远会突然冒出一个新插件。不过我总算从Vim的荆棘中一路走过来了，现在真的是苦尽甘来，时刻体会它带给我的喜悦和惊奇。下面对我所学习所了解到的常用命令做一个基本总结：</p>
+
+<h3>Normal mode:</h3>
+
+<p><code>&gt;&gt;</code> indent current line</p>
+
+<p><code>n&gt;&gt;</code> indent the next n line</p>
+
+<p><code>.</code> repeat last command</p>
+
+<p><code>m,n&gt;&gt;</code> indent from m to n line</p>
+
+<p><code>==</code> autoindent current line</p>
+
+<p><code>n==</code> autoindent the next n line</p>
+
+<p><code>gg=G</code> autoindent the whole file</p>
+
+<!--more-->
+
+
+<p><code>=i{</code> reindents &lsquo;inner block&rsquo;(inside the braces)</p>
+
+<p><code>=a{</code> reindents &ldquo;around block&rdquo;(including the braces)</p>
+
+<p><code>=2a{</code> reindents 2 blocks(this block and containing block)</p>
+
+<p>instead of &ldquo;{&rdquo;, also can use &ldquo;}&rdquo; or &ldquo;B&rdquo;.<code>=aB</code> equals <code>=a{</code></p>
+
+<p><code>&gt;i{</code> increase indent for inner block</p>
+
+<p><code>&lt;i}</code> decrease indent for inner block</p>
+
+<p><code>&gt;a{</code> increase indent for around block(including the brace)</p>
+
+<p><code>&lt;a}</code> decrease indent for around block</p>
+
+<p>With the cursor on <code>{</code> or <code>}</code></p>
+
+<p><code>=%</code> autoindent the block(including matching brace)</p>
+
+<p><code>&lt;%</code> or <code>&gt;%</code> indents or unindents the block</p>
+
+<h3>Insert mode:</h3>
+
+<p><code>&lt;c+t&gt;</code> indent the current line</p>
+
+<p><code>&lt;c+d&gt;</code> reindent the current line</p>
+
+<h3>Surroud plugin</h3>
+
+<p>以下是一些surround插件的功能：</p>
+
+<pre><code>{
+    xxx
+    xxx
+}
+</code></pre>
+
+<p>normal模式下输入：dS{,结果变为:</p>
+
+<pre><code>xxx
+xxx
+
+"hello world"
+</code></pre>
+
+<p>cS&#8221;&lsquo;之后，结果变为：</p>
+
+<pre><code>'hello world'
+
+&lt;div&gt;hello&lt;/div&gt;
+</code></pre>
+
+<p>通过cSt然后输入<code>&lt;p&gt;</code>,结果变为：</p>
+
+<pre><code>&lt;p&gt;hello&lt;/p&gt;
+</code></pre>
+
+<p>当然也可以选进入visual模式，然后S&#8221;，便给选中的文本包含&#8221;&ldquo;。</p>
+
+<p>以上命令主要是关于缩进和对齐的一个总结，关于surround插件做的总结也只是将所学列出，学过之后才感觉几乎毫无用处，所以不学也罢。其他的一些常用功能抽空再做总结。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[instance_eval vs class_eval]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/17/instance-eval-vs-class-eval/"/>
+    <updated>2013-09-17T20:54:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/17/instance-eval-vs-class-eval</id>
+    <content type="html"><![CDATA[<p>Ruby中类其实也是Class的实例。而且instance_eval必须由实例来调用，class_eval必须由类来调用。具体参考下面的实例：</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">a</span> <span class="o">=</span> <span class="kp">new</span> <span class="n">A</span>
+</span><span class='line'>  <span class="n">a</span><span class="o">.</span><span class="n">instance_eval</span> <span class="k">do</span>
+</span><span class='line'>      <span class="nb">self</span> <span class="c1">#=&gt;a</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="k">def</span> <span class="nf">test</span>
+</span><span class='line'>          <span class="nb">puts</span> <span class="s2">&quot;this is a singleton method of instance a&quot;</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">a</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&gt;this is a singleton method of instance a</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">b</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'>  <span class="n">b</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&gt;NoMethodError</span>
+</span><span class='line'>  
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<!-- more -->
+
+
+<p>test的receiver为实例a.同时类A本身也是Class类的实例，所以也可以作为instance_eval的receiver，作为该类的singleton method，及常说的类方法，只能通过类名调用。</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">A</span><span class="o">.</span><span class="n">instance_eval</span> <span class="k">do</span>
+</span><span class='line'>      <span class="k">def</span> <span class="nf">test</span>
+</span><span class='line'>          <span class="nb">puts</span> <span class="s2">&quot;this is a singleton method of class A&quot;</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">A</span><span class="o">.</span><span class="n">test</span>  <span class="c1">#=&gt;this is ...</span>
+</span><span class='line'>  
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>而class_eval则receiver则必须为类</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">A</span><span class="o">.</span><span class="n">class_eval</span> <span class="k">do</span>
+</span><span class='line'>      <span class="nb">self</span>  <span class="c1">#=&gt;A</span>
+</span><span class='line'>
+</span><span class='line'>      <span class="k">def</span> <span class="nf">test</span>
+</span><span class='line'>          <span class="nb">puts</span> <span class="s2">&quot;this is a instance method of class A&quot;</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">a</span> <span class="o">=</span> <span class="kp">new</span> <span class="n">A</span>
+</span><span class='line'>  <span class="n">a</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&gt;this is a instance method of class A</span>
+</span><span class='line'>  
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>class_eval定义的method为类的instance method。</p>
+
+<p>这就是它们二者之间的差别</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[更新Octopress]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/17/update-my-blog/"/>
+    <updated>2013-09-17T15:22:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/17/update-my-blog</id>
+    <content type="html"><![CDATA[<p>现在已记不清接触Octopress多长时间了，只依稀记得当时配置Octopress配了好久，然后依然失败，后又忙于其他的事情，所以搭建工作便搁置一旁，七月中旬时间比较充足，所以又开始再次折腾，后来终于搭建成功，所以7.18便发表了第一篇博客。后来一个月之后又开始了我的换肤工作，一切都好，唯一的缺陷是Gravatar的图像没有显示出来，所以便向theme的作者发问，后来也忘了这茬事。就这样又过了一月，直到今天，突然发现我的unread消息里面有几条关于我的message，便打开浏览，才发现作者给的回复，说图像没显示是个bug，现已修复。具体见：</p>
+
+<p><a href="https://github.com/shashankmehta/greyshade/issues/42">https://github.com/shashankmehta/greyshade/issues/42</a></p>
+
+<p>我便立马更新了我的Octopress。更新方法如下：</p>
+
+<pre><code># Get the latest Octopress
+git pull octopress master    
+# Keep gems updated
+bundle install               
+# update the template's source
+rake update_source            
+</code></pre>
+
+<p>具体参考：</p>
+
+<p><a href="http://octopress.org/docs/updating/">http://octopress.org/docs/updating/</a></p>
+
+<p>参考时请务必注意：如果您的octopress主题不是octopress默认主题,请不要执行<code>rake update_style</code>，否则会被还原成默认主题。</p>
+
+<p>本博客采用的主题为：</p>
+
+<p><a href="https://github.com/shashankmehta/greyshade">https://github.com/shashankmehta/greyshade</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[搭建Git服务器]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/17/build-git-remote-repository/"/>
+    <updated>2013-09-17T10:54:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/17/build-git-remote-repository</id>
+    <content type="html"><![CDATA[<p>从开始用Git到现在也已经有一年时间了，但一直都在本地开发，用于管理本地的代码，没有进行多人协作开发，所以也没有必要搭建一个Git服务器。</p>
+
+<p>但就在昨晚，我在教研室给大家介绍Git工具时，感觉大家对这个工具貌似没有太大的热情，猜其原因，可能是因为大家对这个工具过于陌生，而我又讲的太过细节，所以他们可能听得有点烦。但是只有试过之后才能感觉其方便之处，我也希望教研室的同学都能掌握它，所以便决定在教研室搭建一个Git服务器，供大家使用，也思索着今后的项目都用git来进行管理。毕竟现在教研室只有我一人使用git,其他同学都用svn,甚至不用(其实用svn的同学不超过3个)，开发项目也难以统一，而我个人在使用过git后又不想转向svn，同时也非常希望身边的同学也能去使用git这么一个优秀工具，所以只能忽悠他们转向git了。不过经昨晚一役，证明了我忽悠人的本领完全不到家，看来今后得好好练练了。前奏有点过于冗长，下面进入正题吧。</p>
+
+<!-- more -->
+
+
+<p>由于此次git服务器是搭建在Linux平台，所以首先得有一台安装过Linux的pc,不过幸好我有一台台式机安装了Fedora,这样第一个要素就搞定了。接下来我选择的是ssh来作为git url的协议，因为ssh协议安全方便。所以服务器上还得安装ssh。比较好用的当属openssh了，我此前一直在fedora上用git管理我个人的代码，并且托管在GitHub上，所以这个环节也省了。没有安装的可以试试openssh，具体安装步骤问Google。</p>
+
+<p>当然为了每次对远程库进行操作而不用输入用户名和密码，就需要将本地的公钥拷贝到服务器上对应的文件里，具体步骤如下：</p>
+
+<h3>服务器</h3>
+
+<p>首先为了操作方便安全，需要在服务器上创建一个名为git的用户：</p>
+
+<pre><code>#useradd git
+</code></pre>
+
+<p>接着进入到/home/git目录下新建一个.ssh目录,并且需要将.ssh目录group和others的写权限去掉，改为700|744|755皆可,否则ssh远程连接服务器还需要输入密码：</p>
+
+<pre><code>git$ mkdir ~/.ssh
+git$ chmod 744 .ssh
+</code></pre>
+
+<p>服务端工作暂时完成</p>
+
+<h3>客户端</h3>
+
+<p>进入~/.ssh/目录，生成公钥和密钥：</p>
+
+<pre><code>$ ssh-keygen
+</code></pre>
+
+<p>然后一直回车，完成后会发现在~/.ssh目录下多了id_rsa和id_rsa.pub文件，然后将客户端生成的id_rsa.pub公钥拷贝到服务器上：</p>
+
+<pre><code>$scp id_rsa.pub git@your_server_ip/~/.ssh/
+</code></pre>
+
+<p>以上操作在~/.ssh目录下进行，git为刚才服务器创建的用户(当然用户名可为其他用户名，只要和服务器对应便可)。此操作完成便会发现服务器上的~/.ssh/目录下多了一个id_rsa.pub文件。</p>
+
+<p>现在转到服务器，将服务器上的~/.ssh目录下的id_rsa.pub文件改为authorized_keys。再重启sshd服务，使配置生效即可。</p>
+
+<p>既然提到服务的开启与关闭，顺带将其操作列出来：</p>
+
+<pre><code>#systemctl start sshd.service     #启动服务
+#systemctl stop sshd.service      #关闭服务
+#systemctl enable sshd.servie     #使服务开机便自动运行
+#systemctl is-enabled sshd.servie #查看服务是否开机启动
+#systemctl disable sshd.service   #取消开机自动运行
+#systemctl status sshd.service    #查看服务运行状态
+#systemctl restart sshd.service   #重启服务
+#systemctl reload sshd.service    #重新加载服务配置文件
+#systemctl --failed               #显示启动失败的服务
+</code></pre>
+
+<h2>SSH无密钥验证原理</h2>
+
+<p>客户端用ssh发起一个ssh连接时，服务端生成一个随机数并用客户端的公钥(保存在authorized_keys中)进行加密，然后发给客户端，客户端用私钥进行解密，并将解密后的数发送给服务端，服务端确认无误后便允许客户端进行连接了。</p>
+
+<p>以上过程的前提是客户端已将公钥保存在服务端的authorized_keys文件中。</p>
+
+<h2>搭建Git服务器</h2>
+
+<p>新建一个文件夹，用来作为Git服务器Repository,然后初始化。如我远程repository文件夹为/home/git/demo/,操作如下：</p>
+
+<pre><code>$mkdir demo    #in /home/git/ directory
+$cd ~/demo/
+$git init
+</code></pre>
+
+<p>然后在客户端添加此远程库，便可进行代码的push和pull了。</p>
+
+<pre><code>$git remote add origin git@your_server_ip:~/demo
+#after git add &amp; git commit,run git push
+$ git push origin master
+</code></pre>
+
+<p>这样就把要管理的代码提交到Git服务器，并用Git来进行管理了。</p>
+
+<p>至此，工作基本完成，后续还有好多东西需要研究，如代码的审查机制等，当然这个功能目前还用不到，但是想了解一下审查机制如何建立，后续再学习吧。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[VirtualBox安装ArchLinux系统]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/12/installing-archlinux-in-virtualbox/"/>
+    <updated>2013-09-12T22:36:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/12/installing-archlinux-in-virtualbox</id>
+    <content type="html"><![CDATA[<p>都说ArchLinux很适合折腾，趁今天有时间，就试着安装了一把，不过看ArchLinux的Beginners&rsquo;s Guide，照着其步骤来，结果还是看的云里雾里，看的人头大。便直接上Youtube上找了一个视频，顿时豁然开朗。安装概览如下：</p>
+
+<h2>ArchLinux Install</h2>
+
+<ol>
+<li>分区</li>
+<li>格式化分区</li>
+<li>挂载分区</li>
+<li>更改安装镜像</li>
+<li>安装基本系统</li>
+<li>生成fstab</li>
+<li>Chroot到新系统</li>
+<li>配置系统</li>
+<li>开启网络服务</li>
+<li>创建初始化ramdisk环境</li>
+<li>设置root密码</li>
+<li>安装配置bootloader</li>
+<li>卸载分区并重启系统</li>
+<li>安装图形用户界面</li>
+</ol>
+
+
+<p>详细步骤如下：</p>
+
+<h3>1. 分区</h3>
+
+<p>虚拟机挂在iso镜像后，然后启动系统，进入后默认进入root提示符，然后输入：</p>
+
+<pre><code>root#cfdisk
+</code></pre>
+
+<p>进行分区，一般分三个即可。最后分区结果如下：</p>
+
+<pre><code>dev/sda1 / 8G
+dev/sda2 /swap 1G(在空间最后)
+dev/sda3 /home 4G
+</code></pre>
+
+<p>每个人的分区情况都可能不同，具体依照自己的分区来决定，以下操作都是根据我的分区来进行。</p>
+
+<!-- more -->
+
+
+<h3>2. 格式化分区</h3>
+
+<p>执行如下命令格式化分区</p>
+
+<pre><code>#mkfs.ext4 /dev/sda1
+#mkfs.ext4 /dev/sda3
+#mkswap /dev/sda2
+#swapon /dev/sda2  #enable swap partion
+</code></pre>
+
+<h3>3. 挂载分区</h3>
+
+<pre><code>#mount /dev/sda1 /mnt #mount root partion
+#mkdir /mnt/home
+#mount /dev/sda3 /mnt/home  #mount home partion
+</code></pre>
+
+<h3>4. 更改安装镜像</h3>
+
+<p>镜像列表优先级从上往下，所以为了软件更新的速度，最好将国内的mirror放到最上面。我添加的源及方法如下：</p>
+
+<pre><code>#vi /etc/pacman.d/mirrorlist
+
+Server = http://mirrors.163.com/archlinux/$repo/os/$arch
+Server = http://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
+Server = http://mirrors.sohu.com/archlinux/$repo/os/$arch
+Server = http://mirror.lzu.edu.cn/archlinux/$repo/os/$arch
+Server = http://ftp.tku.edu.tw/Linux/ArchLinux/$repo/os/$arch
+...
+</code></pre>
+
+<h3>5. 安装基本系统</h3>
+
+<p>通过pacstrap脚本安装基本系统，方法如下：</p>
+
+<pre><code>#pacstrap base base-devel
+</code></pre>
+
+<h3>6. 生成fstab</h3>
+
+<p>通过下面的命令来生成fstab：</p>
+
+<pre><code>#genfstab /mnt &gt;&gt; /mnt/etc/fstab
+</code></pre>
+
+<h3>7. Chroot到新系统</h3>
+
+<p>通过以下命令chroot到新安装的系统:</p>
+
+<pre><code>#arch-chroot /mnt
+</code></pre>
+
+<p>使用chroot后，系统的目录结构将以指定的位置作为&#8221;/&ldquo;目录</p>
+
+<h3>8. 配置系统</h3>
+
+<p>系统的配置主要有locale和时区的配置。</p>
+
+<ul>
+<li>Locale</li>
+</ul>
+
+
+<p>配置方法如下：</p>
+
+<pre><code>#vi /etc/locale.gen
+#locale-gen
+</code></pre>
+
+<ul>
+<li>配置时区</li>
+</ul>
+
+
+<p>系统默认是utc时区，我们需要换到utc+8时区，方法如下：</p>
+
+<pre><code>#ln s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+</code></pre>
+
+<h3>9. 开启网络服务</h3>
+
+<p>先通过ping命令查看网络是否正常，如果不能上网，则需要配置，方法有两种：1.dhcp  2.static ip。我用的是dhcp，所以只需要开启dhcp服务,方法如下：</p>
+
+<pre><code>#dhcpcd interface_name
+</code></pre>
+
+<p>其中interface_name可以通过ifconfig或者ip addr查询。默认在虚拟机中便可上网，所以无需配置。但是安装完成重启系统后便不能上网，原因是dhcp服务没启动。(这是我所碰到的情况)</p>
+
+<h3>10. 创建初始化ramdisk环境</h3>
+
+<p>ramdisk是通过软件将一部分内存(RAM)来模拟一个硬盘，提高访问速度。当然这只是针对内存过剩的情况下才使用，一般完全没有必要。如果您觉得内存完全用不完，为了有效的利用，可以创建ramdisk，毕竟RAM的访问速度非常快，差不多是固态硬盘的30倍。创建ramdisk的方法如下：</p>
+
+<pre><code>    #mkinitcpio -p linux
+</code></pre>
+
+<p>通过<code>#vi /etc/mkinitcpio.conf</code>来查看相应的配置信息。</p>
+
+<h3>11. 设置root密码</h3>
+
+<p>设置密码的命令都通用:</p>
+
+<pre><code>#passwd
+</code></pre>
+
+<p>然后输入符合要求的密码即可。当然平时操作尽量不要用root,所以为此可以新建一个用户。</p>
+
+<h3>12. 安装配置bootloader</h3>
+
+<p>根据主板BIOS类型不同，安装和配置bootloader的方式也不同。
+大致有两种类型：</p>
+
+<ol>
+<li>传统的BIOS
+
+<ul>
+<li>Syslinux</li>
+<li>Grub</li>
+</ul>
+</li>
+<li>UEFI BIOS
+
+<ul>
+<li>EFISTUB</li>
+<li>Gummiboot</li>
+<li>Grub</li>
+</ul>
+</li>
+</ol>
+
+
+<p>我的主板是传统BIOS类型，采用Grub bootloader。二者的差别见图：</p>
+
+<p><img src="http://pic.yupoo.com/xautjzd/D9TU14LM/medish.jpg" alt="" /></p>
+
+<p>与传统BIOS相比，UEFI BIOS少了BIOS自检功能，这样节省了大量时间，从而加快平台的启动。</p>
+
+<p>安装方法如下：</p>
+
+<pre><code>#pacman -S grub-bios  #install grub bootloader
+#grub-install /dev/sda
+#grub-mkconfig -o /boot/grub/grub.cfg
+</code></pre>
+
+<p>其中grub-install将grub images拷贝到/boot/grub。
+grub-mkconfig生成grub的配置，通过-o参数将配置输出到指定的配置文件，默认输出到标准输出。</p>
+
+<h3>13. 卸载分区并重启系统</h3>
+
+<p>卸载分区前先通过<code>#exit</code>退出刚才新安装的系统，然后通过以下方法卸载分区:</p>
+
+<pre><code>#umount /mnt/home
+#umount /mnt
+</code></pre>
+
+<p>然后通过<code>#reboot</code>重启系统。</p>
+
+<h3>14. 安装图形用户界面</h3>
+
+<p>先确定能否联网：#ping www.google.com,如不能，则查看dhcp服务是否已经开启，可通过<code>dhcpcd interface_name</code>开启。在确保能上网的前提下通过：</p>
+
+<pre><code>#pacman -S gnome xorg
+</code></pre>
+
+<p>安装gnome图形用户界面。</p>
+
+<p>经过以上步骤，基本的安装便可完成。我也是安装了好几遍之后才对其安装过程有了大致的了解，写此篇博客的目的主要是为了记录自己的安装过程供今后参考、锻炼自己的写作水平和分享给那些安装ArchLinux过程中碰到问题的朋友参考。</p>
+
+<h3>参考资料</h3>
+
+<ol>
+<li><p><a href="https://wiki.archlinux.org/index.php/Beginners%27_Guide">ArchLinux新手指南</a></p></li>
+<li><p>Youtube ArchLinux安装视频</p></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Cookies vs Sessions]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/09/cookies-vs-sessions/"/>
+    <updated>2013-09-09T10:37:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/09/cookies-vs-sessions</id>
+    <content type="html"><![CDATA[<p>Http是无状态的协议，客户端给服务器发送请求，服务端响应客户端的请求，会话结束。这样两次会话间不便没有任何关联。但有时候需要在会话间进行信息共享，如：购物车，保存用户名与密码等。为此，cookie与session便诞生了,它们的存在就是为了弥补http协议无状态的缺陷。</p>
+
+<p>cookie与session最大的不同是：cookie保存在用户的浏览器中，而session则保留在服务端。正是这种不同决定了它们的不用使用场合。</p>
+
+<h2>Cookie</h2>
+
+<hr />
+
+<p>cookie机制是通过扩展http协议来实现的。服务器通过在HTTP的响应头中加上一行特殊的指示以提示浏览器按照指示生成相应的cookie。其实纯粹的客户端脚本如JavaScript或者VBScript也可以生成cookie。而cookie的使用是由浏览器按照一定的原则在后台自动发送给服务器端。</p>
+
+<p>cookie主要内容包括：Name,Content,Path,Domain,Expires(过期时间)等。Domain与Path一起构成cookie的作用范围。</p>
+
+<p>若不设置Expires,则默认的cookie生命周期为浏览器会话期间，一旦浏览器关闭，cookie则会被清理掉，这种生命周期为浏览器会话期的cookie被成为会话cookie。会话cookie存储在内存中而不是在硬盘上。</p>
+
+<p>若设置了Expires,浏览器则会把生成的cookie保存在硬盘上，即使浏览器关闭后再打开，cookie依然有效，直至超过设置的expires。</p>
+
+<p>另外，session大小有限制，一旦浏览器禁用cookie，则采用cookie的购物网站便不能进行购物，所以这时候得用session了。</p>
+
+<!-- more -->
+
+
+<h2>Session</h2>
+
+<hr />
+
+<p>session机制是一种服务器端的机制，服务器使用一种类似于散列表的结构（也可能就是使用散列表）来保存信息。</p>
+
+<p>当程序需要为某个客户端的请求创建一个session时，服务器首先检查这个客户端的请求里是否已包含了一个session标识（称为session id），如果已包含则说明以前已经为此客户端创建过session，服务器就按照session id把这个session检索出来使用（检索不到，会新建一个），如果客户端请求不包含session id，则为此客户端创建一个session并生成一个与此session相关联的session id，session id的值应该是一个既不会重复，又不容易被找到规律以仿造的字符串，这个session id将被在本次响应中返回给客户端保存。保存这个session id的方式可以采用cookie，这样在交互过程中浏览器可以自动的按照规则把这个标识发送给服务器。一般这个cookie的名字都是类似于SEEESIONID。但cookie可以被人为的禁止，则必须有其他机制以便在cookie被禁止时仍然能够把session id传递回服务器。</p>
+
+<p>经常被使用的一种技术叫做URL重写，就是把session id直接附加在URL路径的后面。还有一种技术叫做表单隐藏字段。就是服务器会自动修改表单，添加一个隐藏字段，以便在表单提交时能够把session id传递回服务器。</p>
+
+<h2>Cookie与Session区别</h2>
+
+<hr />
+
+<ol>
+<li>cookie存储在客户端的浏览器中，而session则存储在服务器上。</li>
+<li>cookie不安全，可以通过分析本地cookie并进行cookie欺骗，而session则相对比较安全。</li>
+<li>session会在服务器上保存一段时间，但当访问量增大，会占用服务器的存储空间，影响服务器的性能，如考虑到减轻服务器的性能，则可以选择cookie。</li>
+<li>单个cookie保存的数据不会超过4k。</li>
+</ol>
+
+
+<p>所以，一般将登陆等重要信息采用session保存，而其他信息则采用cookie。</p>
+
+<h2>参考资料</h2>
+
+<hr />
+
+<ol>
+<li><a href="http://en.wikipedia.org/wiki/Session_">http://en.wikipedia.org/wiki/Session_</a>(computer_science)</li>
+<li><a href="http://en.wikipedia.org/wiki/HTTP_cookie#cite_note-1">http://en.wikipedia.org/wiki/HTTP_cookie#cite_note-1</a></li>
+<li><a href="http://www.cnblogs.com/shiyangxt/articles/1305506.html">http://www.cnblogs.com/shiyangxt/articles/1305506.html</a></li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[查看网站所用Web服务器类型]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/04/lookup-webserver/"/>
+    <updated>2013-09-04T16:43:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/04/lookup-webserver</id>
+    <content type="html"><![CDATA[<p>学习Rails的Layout过程中，其中有提到curl，所以便简单的看了下curl的功能。虽说以前学习Shell的过程中也看到过curl,不过没怎么用过，只知道和wget功能类似，只是wget是将请求的web资源下载到本地，而curl则是在shell中显示，至于有什么其他功能也便不清楚。但是今天发现curl其实还可以用来查看website所用的web服务器类型，通过<code>curl -I url-you-want-to-lookup</code>命令查看即可。以下是我查看ruby-china的一个截图：
+<img src="http://pic.yupoo.com/xautjzd/D8xXpw6z/medish.jpg" alt="" /></p>
+
+<p>从中可以发现ruby-china采用的是nginx服务器。至于curl其他的功能慢慢再发掘吧。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[账号注册通过邮箱激活]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/03/activate-user-via-email/"/>
+    <updated>2013-09-03T21:48:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/03/activate-user-via-email</id>
+    <content type="html"><![CDATA[<h3>邮箱激活目的</h3>
+
+<p>防止用户注册时所填写的信息为虚假信息</p>
+
+<h3>邮箱激活的原理</h3>
+
+<p>用户注册时，根据用户名、Email及注册时间(精确到ms)等信息通过特定的算法(如:MD5、SHA，最好不可逆)生成相应的信息摘要(也称消息摘要)作为注册的激活码，保存到数据库当中，并且将其作为url的参数，将带有激活码的url链接发送到用户注册的Email中。</p>
+
+<p>只有当用户进入邮箱中并点击该链接后，通过url中的激活码找出数据库中匹配的用户，并将此账号设为“已激活”的状态。</p>
+
+<p><strong>注：此过程没有考虑激活码过期问题，同时信息摘要也可以通过随机数来表示，不一定非要通过用户名等信息生成</strong></p>
+
+<p>Rails代码参考：</p>
+
+<p><a href="http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails">http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Bash到oh-my-zsh的转变]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/27/from-bash-to-oh-my-zsh/"/>
+    <updated>2013-08-27T18:14:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/27/from-bash-to-oh-my-zsh</id>
+    <content type="html"><![CDATA[<p>从开始使用到现在一直使用的bash,虽然以前听过ksh,csh,sh等，但都不曾用过，今年开始zsh便不断地出入在眼前，但没真正见人用过，也不知道效果咋样，所以也没做尝试。</p>
+
+<p>另一个原因是各大linux默认都是bash,说明其功能不错，而且也处于懒的原因，就没折腾。但最近在使用tmux的过程中发现bash的提示符只显示<code>-bash4.2$</code>字样，并没有显示成<code>user@hostname directory</code>，在加上西安rubyist的熟人皓哥强烈推荐，这就坚定了我舍弃bash转到zsh的决心，二话不说，立马上GitHub上找到oh-my-zsh。就照着readme开始尝试，结果出现了错误，Google找到答案，是zsh没有安装才导致，所以就<code>yum install zsh</code>安装了zsh,随后在通过</p>
+
+<p><code>curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh</code></p>
+
+<p>安装了oh-my-zsh。不过此时系统默认还是bash,所以还得更改系统默认的shell，方法如下：</p>
+
+<h3>1. 修改/etc/shells文件</h3>
+
+<p>先通过<code>$which zsh</code>查看zsh的位置，我zsh位于/usr/bin/zsh。然后再查看/etc/shells中是否含有zsh:</p>
+
+<p><code>$&lt; /etc/shells grep zsh</code></p>
+
+<p>如果结果中没有/usr/bin/zsh，则需要手动将/usr/bin/zsh添加到/etc/shells文件中。</p>
+
+<h3>2. 更改默认的shell</h3>
+
+<p>通过<code>$chsh -s /usr/bin/zsh</code>更改系统默认shell，退出系统，重新登陆便会发现系统默认的shell已经变为zsh，同时也可以更改zsh默认的主题，在~/.zshrc中更改ZSH_THEME属性即可，其被选的值在<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/themes">oh-my-zsh theme</a>中任选一个即可。</p>
+
+<p>经过以上两步，oh-my-zsh便安装完成。但是写博客时发现<code>rake new_post["xxx"]</code>时出现<code>zsh: no matches found: new_post</code>错误，Google找到答案，只需改为<code>rake 'new_post["xxx"]'</code>即可，原因是zsh会将一些特殊符号当作查找文件的通配符等，根源解决方法是：取消zsh的通配（Glob），即在~/.zshrc中加入<code>alias rake="noglob rake"</code>。</p>
+
+<p>参考：<a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh官网</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[vim-airline插件patched font配置成功]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config/"/>
+    <updated>2013-08-26T11:30:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config</id>
+    <content type="html"><![CDATA[<p>前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着<a href="ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline官网</a>的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。</p>
+
+<p>安装patched fonts方式请参考:<a href="https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline字体配置</a>，尽管文档很详细，但是还是重复一下：</p>
+
+<p>1.Download patched fonts</p>
+
+<p><code>$mkdir ~/.fonts</code>新建一个font文件夹，然后<code>$cd ~/.fonts</code>进入.fonts文件夹。<code>$git clone git@github.com:Lokaltog/powerline-fonts.git</code>将powerline的patched fonts拷贝到~/.fonts目录下，目录结构如下图：</p>
+
+<p><img src="http://pic.yupoo.com/xautjzd/D79oXi6w/medish.jpg" alt="~/.font目录结构" /></p>
+
+<p>2.Install the patched fonts to your System</p>
+
+<p>运行<code>$fc-cache -vf ~/.fonts</code>安装patched fonts到系统中</p>
+
+<p>3.Set Terminal fonts</p>
+
+<p>设置Terminal字体非常重要，我初次配置时，安装patched fonts，但是由于没有set terminal font,所以statusbar显示乱码。设置方法如下：</p>
+
+<p>Edit——Profiles——Default(Edit)——General——Font，选择~/.fonts/powerline下的某一种即可(可选范围一定要在刚才下载的patched fonts中选一种，否则乱码。)，当然也可以采取powerline font installing中的另一种方式，不过我没做尝试，有兴趣的朋友try it。配置截图如下：</p>
+
+<p><img src="http://pic.yupoo.com/xautjzd/D79olvGa/medish.jpg" alt="Font config" /></p>
+
+<p>最后可以在~/.vimrc中更改airline的theme。更改方式如下：</p>
+
+<pre><code>let g:airline_theme="molokai"
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[vim文件的折叠与展开方式]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/25/vim-folding-and-unfolding/"/>
+    <updated>2013-08-25T16:00:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/25/vim-folding-and-unfolding</id>
+    <content type="html"><![CDATA[<p>最近一直在用Vim学习Ruby,但是一直有个问题困扰：</p>
+
+<p>那就是文件无法折叠，但是我记得以前看过Vim的视频，里面见别人用到了折叠与展开。文件比较小时，此功能便无用，但一旦文件量大时，折叠与展开便显得尤为重要了。</p>
+
+<p>折叠的方式有以下几种：</p>
+
+<ol>
+<li>manual</li>
+<li>indent</li>
+<li>syntax</li>
+<li>marker</li>
+<li>expr</li>
+<li>diff</li>
+</ol>
+
+
+<h3>1. Manual method</h3>
+
+<p>vim默认的折叠方式是此种方式，不需要设置即可。要启用其他方式还得采用<code>:set foldmethod=xxx</code>或者<code>:set fdm=xxx</code>来设置。</p>
+
+<p><strong>使用方法</strong>：</p>
+
+<p><code>v</code>或者<code>V</code>进入visual mode,然后选中要折叠的文字，按<code>zf</code>便可折叠，折叠后按<code>za</code>或者<code>zO</code>便展开。</p>
+
+<p>同时也可以通过<code>zfnj</code>的方式将接下来的n行折叠。类似也有<code>zfnk</code>等;<code>zR</code>则打开所有的折叠。总结下来就是：</p>
+
+<ul>
+<li>zf        => create a fold</li>
+<li>za        => unfold</li>
+<li>zf#j  => fold down # lines</li>
+<li>zf#k  => fold up #lines</li>
+<li>zR        => unfold all</li>
+</ul>
+
+
+<h3>2. Indent method</h3>
+
+<p>缩进方式主要是根据代码缩进的方式来折叠/展开代码。要使用缩进方式，则需要做配置，<code>:set foldmethod=indent</code>或者在~/.vimrc中配置：<code>set foldmethod=indent</code>。</p>
+
+<p>其快捷键如下：
+zM      => fold all
+zR      => unfold all
+za      => fold/unfold</p>
+
+<h3>3. Syntax method</h3>
+
+<p>采用syntax方式，则只需如下配置即可：</p>
+
+<pre><code>:set fdm=syntax
+</code></pre>
+
+<p>按键方式与上述相似</p>
+
+<h3>4. Marker method</h3>
+
+<p> 使用markder方式，则做如下配置：</p>
+
+<pre><code>:set foldmethod=marker
+</code></pre>
+
+<p> 或</p>
+
+<pre><code>:set fdm=marker
+</code></pre>
+
+<p>默认的marker折叠/展开标记为<code>}</code>.</p>
+
+<p>将要折叠/展开的代码通过<code>}</code>包含起来即可。当然也可以自定义标记。定义方法如下：</p>
+
+<pre><code>:set foldmarker= start,end
+eg: set foldmarker= /*,*/
+
+/*
+     1. Ruby
+     2. Python
+     3. C++
+     4. PHP
+*/
+</code></pre>
+
+<p>快捷键如下：</p>
+
+<ul>
+<li>za        => fold/unfold</li>
+<li>zM        => fold all</li>
+<li>zR        => unfold all</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Linux活动发起]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/08/20/linux-activity-sponsoring/"/>
+    <updated>2013-08-20T19:04:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/08/20/linux-activity-sponsoring</id>
+    <content type="html"><![CDATA[<p>独乐乐不如众乐乐，独自一人埋头苦学不如一群兴趣相投之人的一起交流。记得以前大一大二时，希望能有一个领路人领着自己学习，帮自己找准学习的方向，毕竟当时太年轻，太多东西不了解，所以不知道软件这行业该学习什么，哪些东西比较有兴趣，一切源于自己接触的太少，身边也没有可交流之人。再加上学校大一大二和大三大四分隔新旧两校区，交流就更少。</p>
+
+<p>正是因为自己的这些经历，然后再加上近来参加西安的rubyist party，促使了我组建Linux小组并且定期举办活动的冲动。一个人的埋头苦学，所见所闻永远局限在某个狭小的空间，只有走出去，与他们交流才能拓宽自己的知识面，提升自己的认知度，也算是多了一些朋友，多了一些交流。正所谓话不投机半句多，与自己志不同道不和的人交流真是有点对牛弹琴的感觉。所以要交流得找兴趣相投志同道合之人。</p>
+
+<p>打算成立的小组规模大致10人左右，无需太多，也不希望有滥竽充数的现象。所以希望小组成员能满足以下条件：</p>
+
+<ul>
+<li>对软件感兴趣</li>
+<li>熟悉Linux(基本操作一般没问题)</li>
+<li>Vim | Emacs</li>
+</ul>
+
+
+<p>具备以下更佳：</p>
+
+<ul>
+<li>Git</li>
+<li>Ruby/Python/Lisp/Scala/Prolog</li>
+<li>个人博客</li>
+</ul>
+
+
+<p>初期打算:</p>
+
+<ul>
+<li>每周一次Party（主要技术交流）</li>
+</ul>
+
+
+<p>有兴趣的学习请联系我，联系方式：</p>
+
+<ul>
+<li>新郎微薄：xautjzd</li>
+</ul>
+
+
+<p>其他联系方式见我的<a href="http://xautjzd.github.io/blog/aboutme">About</a></p>
+]]></content>
+  </entry>
+  
+</feed>
