@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Oct 8th, 2013 Linux Comments Fedora下使用sudo Linux下日常操作使用一般用户权限即可，但是往往有一些操作需要用到root权限，如服务的启动、软件的安装等，直接转到root下进行操作可不是一个好习惯，比较稳妥的方式就是使用sudo进行操作。 &hellip;">
+	<meta name="description" content="Oct 9th, 2013 Linux Comments Linux下锐捷客户端上网 自己虽然一直用的校园网，但是由于教研室这块位置比较特殊，不需要使用锐捷客户端认证，但其他地方一般都需要。所以今早有个朋友在笔记本上安装了Ubuntu，但是无法通过锐捷web方式认证， &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,6 +115,49 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-09T17:17:00+08:00" data-updated="true" itemprop="datePublished">Oct 9<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/10/09/surf-internet-under-linux-about-ruijie/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/10/09/surf-internet-under-linux-about-ruijie/" itemprop="url">Linux下锐捷客户端上网</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>自己虽然一直用的校园网，但是由于教研室这块位置比较特殊，不需要使用锐捷客户端认证，但其他地方一般都需要。所以今早有个朋友在笔记本上安装了Ubuntu，但是无法通过锐捷web方式认证，下载的锐捷Linux版客户端安装后也无法上网，所以这方面我也不熟悉，只能求助Google了。由于众多高校的网络都是使用锐捷的这一套，所以大同小异，这方面的资料也不少，Google搜索很快便找到了解决方法，用华科的一个客户端即可，下载地址：<a href="http://code.google.com/p/mentohust/">http://code.google.com/p/mentohust/</a></p>
+
+<p>下载后，切换到下载的目录，然后运行<code>sudo dpkg -i 'your deb packagename'</code>即可，安装过程中，一步一步按照其步骤输入相应信息即可。安装完成后，会将配置的信息存储在<code>/etc/mentohust.conf</code>文件中，也可进行修改。在安装的过程中，如果采用DHCP方式，在选择时应该注意，选择1或者2，千万别选择3，否则上不了网。各选项的含义是：</p>
+
+<p>-d DHCP方式：0（不使用） 1（二次认证）2（认证后）3（认证前）</p>
+
+<p>关于mentohust的详细参数解释，请参考<a href="http://code.google.com/p/mentohust/wiki/Parameter">官网wiki</a></p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -549,46 +592,6 @@ rake update_source
 
 		
 		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-17T10:54:00+08:00" data-updated="true" itemprop="datePublished">Sep 17<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/git/'>Git</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/09/17/build-git-remote-repository/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/09/17/build-git-remote-repository/" itemprop="url">搭建Git服务器</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>从开始用Git到现在也已经有一年时间了，但一直都在本地开发，用于管理本地的代码，没有进行多人协作开发，所以也没有必要搭建一个Git服务器。</p>
-
-<p>但就在昨晚，我在教研室给大家介绍Git工具时，感觉大家对这个工具貌似没有太大的热情，猜其原因，可能是因为大家对这个工具过于陌生，而我又讲的太过细节，所以他们可能听得有点烦。但是只有试过之后才能感觉其方便之处，我也希望教研室的同学都能掌握它，所以便决定在教研室搭建一个Git服务器，供大家使用，也思索着今后的项目都用git来进行管理。毕竟现在教研室只有我一人使用git,其他同学都用svn,甚至不用(其实用svn的同学不超过3个)，开发项目也难以统一，而我个人在使用过git后又不想转向svn，同时也非常希望身边的同学也能去使用git这么一个优秀工具，所以只能忽悠他们转向git了。不过经昨晚一役，证明了我忽悠人的本领完全不到家，看来今后得好好练练了。前奏有点过于冗长，下面进入正题吧。</p>
-
-
-		
-		<a href="/blog/2013/09/17/build-git-remote-repository/" class="more-link">Read on &rarr;</a>
 	</div>
 
 </article>

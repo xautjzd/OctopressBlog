@@ -163,6 +163,12 @@
         <lastmod>2013-10-08T15:22:29+08:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://xautjzd.github.io/blog/2013/10/09/surf-internet-under-linux-about-ruijie/
+        </loc>
+        <lastmod>2013-10-10T08:09:22+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://xautjzd.github.io/blog/aboutme/</loc>
         <lastmod>2013-09-17T15:16:32+08:00</lastmod>
     </url>
@@ -192,7 +198,7 @@
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/archives/</loc>
-        <lastmod>2013-10-08T15:22:29+08:00</lastmod>
+        <lastmod>2013-10-10T08:09:22+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/robots.txt</loc>
@@ -200,6 +206,6 @@
     </url>
     <url>
         <loc>http://xautjzd.github.io/</loc>
-        <lastmod>2013-10-08T15:22:29+08:00</lastmod>
+        <lastmod>2013-10-10T08:09:22+08:00</lastmod>
     </url>
 </urlset>
