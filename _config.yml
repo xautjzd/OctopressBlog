@@ -4,7 +4,7 @@
 
 url: http://xautjzd.github.io
 title: xautjzd
-subtitle: Nothing seek,nothing find
+subtitle: Rubyist
 author: xautjzd
 simple_search: http://google.com/search
 description: 博学之，审问之，慎思之，明辨之，笃行之
@@ -44,7 +44,7 @@ pygments: false # default python pygments have been replaced by pygments.rb
 paginate: 10          # Posts per page on the blog index
 pagination_dir: blog  # Directory base for pagination URLs eg. /blog/page/2/
 recent_posts: 5       # Posts in the sidebar Recent Posts section
-excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+excerpt_link: "Read more..."  # "Continue reading" link text at the bottom of excerpted articles
 
 titlecase: true       # Converts page and post titles to titlecase
 
