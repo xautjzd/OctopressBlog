@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-10-10T17:03:38+08:00</updated>
+  <updated>2013-10-15T20:37:48+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[一些感想]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/10/15/some-feelings/"/>
+    <updated>2013-10-15T19:55:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/10/15/some-feelings</id>
+    <content type="html"><![CDATA[<p>如果要评价自己的话，那么我会将自己归为乐于分享的一类，不管是技术还是工具，亦或代码。平时也都关注一些科技新闻和博客，每当发现不错的信息时，都会想着第一时间将其分享给身边的朋友。</p>
+
+<p>分享过的工具中记忆比较深的当属Git，GitHub，Evernote和Vim了，系统方面则有Linux，编程方面则有Ruby。虽然可能最终用的人不是很多，但起码他们脑海中已经有了这个词，我觉得这也就够了，毕竟大部分人还是守旧派，不愿接触新鲜事物。但自己这颗乐于分享的心却从未动摇过，只要有好东西，绝对第一时间分享。但总会有那么一些人会对我的举措有误解，认为我是一个喜欢炫耀的人，推荐给大家一些他们闻所未闻的新鲜事物是为了证明我的牛，我只能一笑置之，也不想多做辩解。因为解释过多，可能又会有人说“解释是为了更好的掩饰”，所以沉默是最好的回应。</p>
+
+<!-- more -->
+
+
+<p>我只想在自己技术和知识面的提升时，同时也能够帮助身边的人有所进步。只想带给大家正能量，因为我一直觉得一个人不管多有才，如果不能影响身边的人，那么他的存在价值便为0，一个人于他人无益，便只能说他白活了。最后只想说一句：</p>
+
+<blockquote><p>走自己的路，让他人去说吧！</p></blockquote>
+
+<p>如果你是一个喜欢码字的人，并且觉得jekyll或者Octopress难以配置的话，那么Ghost也许是不错的选择，并且支持Markdown的格式。具体介绍，请参考<a href="http://ghost.org/">Ghost官网</a>。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Linux硬链接与软链接]]></title>
@@ -1120,51 +1140,6 @@ eg: set foldmarker= /*,*/
 <li>zR        => unfold all</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Linux活动发起]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/08/20/linux-activity-sponsoring/"/>
-    <updated>2013-08-20T19:04:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/08/20/linux-activity-sponsoring</id>
-    <content type="html"><![CDATA[<p>独乐乐不如众乐乐，独自一人埋头苦学不如一群兴趣相投之人的一起交流。记得以前大一大二时，希望能有一个领路人领着自己学习，帮自己找准学习的方向，毕竟当时太年轻，太多东西不了解，所以不知道软件这行业该学习什么，哪些东西比较有兴趣，一切源于自己接触的太少，身边也没有可交流之人。再加上学校大一大二和大三大四分隔新旧两校区，交流就更少。</p>
-
-<p>正是因为自己的这些经历，然后再加上近来参加西安的rubyist party，促使了我组建Linux小组并且定期举办活动的冲动。一个人的埋头苦学，所见所闻永远局限在某个狭小的空间，只有走出去，与他们交流才能拓宽自己的知识面，提升自己的认知度，也算是多了一些朋友，多了一些交流。正所谓话不投机半句多，与自己志不同道不和的人交流真是有点对牛弹琴的感觉。所以要交流得找兴趣相投志同道合之人。</p>
-
-<p>打算成立的小组规模大致10人左右，无需太多，也不希望有滥竽充数的现象。所以希望小组成员能满足以下条件：</p>
-
-<ul>
-<li>对软件感兴趣</li>
-<li>熟悉Linux(基本操作一般没问题)</li>
-<li>Vim | Emacs</li>
-</ul>
-
-
-<p>具备以下更佳：</p>
-
-<ul>
-<li>Git</li>
-<li>Ruby/Python/Lisp/Scala/Prolog</li>
-<li>个人博客</li>
-</ul>
-
-
-<p>初期打算:</p>
-
-<ul>
-<li>每周一次Party（主要技术交流）</li>
-</ul>
-
-
-<p>有兴趣的学习请联系我，联系方式：</p>
-
-<ul>
-<li>新郎微薄：xautjzd</li>
-</ul>
-
-
-<p>其他联系方式见我的<a href="http://xautjzd.github.io/blog/aboutme">About</a></p>
 ]]></content>
   </entry>
   
