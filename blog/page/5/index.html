@@ -9,10 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Jul 18th, 2013 Octopress, Thinking Comments Octopress目录结构 Octopress博客目录结构 octopress博客的source目录结构大致如下: source/
-├── _attachments
-├── _includes
-│ ├── &hellip;">
+	<meta name="description" content="Jul 18th, 2013 Octopress, Thinking Comments Octopress配置Disqus插件 添加Disqus插件 看到不少人博客上都有Comments功能，便也想给自己的博客添加上。经过搜寻一番，发现大多用的都是Disqus， &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -118,6 +115,59 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-18T15:37:00+08:00" data-updated="true" itemprop="datePublished">Jul 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/07/18/congfig-disqus-plugin/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/18/congfig-disqus-plugin/" itemprop="url">Octopress配置Disqus插件</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h3>添加Disqus插件</h3>
+
+<p>看到不少人博客上都有Comments功能，便也想给自己的博客添加上。经过搜寻一番，发现大多用的都是Disqus，而且octopress其实内置了其功能，只是默认没有设置.编辑博客主目录下的config.yml文件即可：</p>
+
+<pre><code>$vim _config.yml
+</code></pre>
+
+<p>找到：</p>
+
+<pre><code>#Disqus comments
+disqus_short_name: 
+disqus_show_comment_count: false
+</code></pre>
+
+<p>填上自己注册的disqus账号的short name，并将false改成true即可。</p>
+
+<p><strong>注：Disqus一定要和yourname.github.com关联</strong></p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">

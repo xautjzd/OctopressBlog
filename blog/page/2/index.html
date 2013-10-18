@@ -9,15 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Sep 17th, 2013 Ruby Comments Instance_eval vs Class_eval Ruby中类其实也是Class的实例。而且instance_eval必须由实例来调用，class_eval必须由类来调用。具体参考下面的实例： 1
-2
-3
-4
-5
-6
-7
-8
-9 &hellip;">
+	<meta name="description" content="Sep 18th, 2013 Linux, Vim Comments Vim常用快捷键总结 Vim的学习之路真的很长，永远有记不完的命令，永远会突然冒出一个新插件。不过我总算从Vim的荆棘中一路走过来了，现在真的是苦尽甘来，时刻体会它带给我的喜悦和惊奇。 &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -123,6 +115,60 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-18T19:55:00+08:00" data-updated="true" itemprop="datePublished">Sep 18<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/09/18/vim-shortcut-maps/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/09/18/vim-shortcut-maps/" itemprop="url">Vim常用快捷键总结</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>Vim的学习之路真的很长，永远有记不完的命令，永远会突然冒出一个新插件。不过我总算从Vim的荆棘中一路走过来了，现在真的是苦尽甘来，时刻体会它带给我的喜悦和惊奇。下面对我所学习所了解到的常用命令做一个基本总结：</p>
+
+<h3>Normal mode:</h3>
+
+<p><code>&gt;&gt;</code> indent current line</p>
+
+<p><code>n&gt;&gt;</code> indent the next n line</p>
+
+<p><code>.</code> repeat last command</p>
+
+<p><code>m,n&gt;&gt;</code> indent from m to n line</p>
+
+<p><code>==</code> autoindent current line</p>
+
+<p><code>n==</code> autoindent the next n line</p>
+
+<p><code>gg=G</code> autoindent the whole file</p>
+
+
+		
+		<a href="/blog/2013/09/18/vim-shortcut-maps/" class="more-link">Read more&#8230;</a>
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -635,130 +681,6 @@ dev/sda3 /home 4G
 
 <pre><code>let g:airline_theme="molokai"
 </code></pre>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-25T16:00:00+08:00" data-updated="true" itemprop="datePublished">Aug 25<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/08/25/vim-folding-and-unfolding/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/08/25/vim-folding-and-unfolding/" itemprop="url">Vim文件的折叠与展开方式</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>最近一直在用Vim学习Ruby,但是一直有个问题困扰：</p>
-
-<p>那就是文件无法折叠，但是我记得以前看过Vim的视频，里面见别人用到了折叠与展开。文件比较小时，此功能便无用，但一旦文件量大时，折叠与展开便显得尤为重要了。</p>
-
-<p>折叠的方式有以下几种：</p>
-
-<ol>
-<li>manual</li>
-<li>indent</li>
-<li>syntax</li>
-<li>marker</li>
-<li>expr</li>
-<li>diff</li>
-</ol>
-
-
-<h3>1. Manual method</h3>
-
-<p>vim默认的折叠方式是此种方式，不需要设置即可。要启用其他方式还得采用<code>:set foldmethod=xxx</code>或者<code>:set fdm=xxx</code>来设置。</p>
-
-<p><strong>使用方法</strong>：</p>
-
-<p><code>v</code>或者<code>V</code>进入visual mode,然后选中要折叠的文字，按<code>zf</code>便可折叠，折叠后按<code>za</code>或者<code>zO</code>便展开。</p>
-
-<p>同时也可以通过<code>zfnj</code>的方式将接下来的n行折叠。类似也有<code>zfnk</code>等;<code>zR</code>则打开所有的折叠。总结下来就是：</p>
-
-<ul>
-<li>zf        => create a fold</li>
-<li>za        => unfold</li>
-<li>zf#j  => fold down # lines</li>
-<li>zf#k  => fold up #lines</li>
-<li>zR        => unfold all</li>
-</ul>
-
-
-<h3>2. Indent method</h3>
-
-<p>缩进方式主要是根据代码缩进的方式来折叠/展开代码。要使用缩进方式，则需要做配置，<code>:set foldmethod=indent</code>或者在~/.vimrc中配置：<code>set foldmethod=indent</code>。</p>
-
-<p>其快捷键如下：
-zM      => fold all
-zR      => unfold all
-za      => fold/unfold</p>
-
-<h3>3. Syntax method</h3>
-
-<p>采用syntax方式，则只需如下配置即可：</p>
-
-<pre><code>:set fdm=syntax
-</code></pre>
-
-<p>按键方式与上述相似</p>
-
-<h3>4. Marker method</h3>
-
-<p> 使用markder方式，则做如下配置：</p>
-
-<pre><code>:set foldmethod=marker
-</code></pre>
-
-<p> 或</p>
-
-<pre><code>:set fdm=marker
-</code></pre>
-
-<p>默认的marker折叠/展开标记为<code>}</code>.</p>
-
-<p>将要折叠/展开的代码通过<code>}</code>包含起来即可。当然也可以自定义标记。定义方法如下：</p>
-
-<pre><code>:set foldmarker= start,end
-eg: set foldmarker= /*,*/
-
-/*
-     1. Ruby
-     2. Python
-     3. C++
-     4. PHP
-*/
-</code></pre>
-
-<p>快捷键如下：</p>
-
-<ul>
-<li>za        => fold/unfold</li>
-<li>zM        => fold all</li>
-<li>zR        => unfold all</li>
-</ul>
-
 
 		
 		

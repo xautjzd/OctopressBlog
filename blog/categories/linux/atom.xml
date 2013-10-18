@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-10-15T20:37:48+08:00</updated>
+  <updated>2013-10-18T11:17:43+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Putty SSH中文乱码]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/10/18/ssh-messy-code/"/>
+    <updated>2013-10-18T10:59:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/10/18/ssh-messy-code</id>
+    <content type="html"><![CDATA[<p>由于Fedora安装在教研室的台式机上，小组的活动在科协，每次去又免不了使用Linux环境，所以<strong>Putty</strong>便派上用场了。Putty作为Windows下的SSH工具，确实很方便，解决了很多不必要的麻烦，但是发现在使用的时候，中文显示乱码。求救Google的时候到了，网上一搜，真的是一大堆，随便查看了一篇博客，照着试了一下便解决。方法如下：</p>
+
+<blockquote><p>windows->Appearance->Translation,在其中将字体改为UTF-8便没问题。</p></blockquote>
+
+<p>问题确实能解决，但是发现不能保存设置，每次打开Putty时都需要重新设置，这点有待改进，不知道是我安装的putty版本过低还是其他的缘故。在分享中成长，在成长中分享，大胆的分享吧，Don&rsquo;t be shy!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Linux硬链接与软链接]]></title>
@@ -155,96 +168,6 @@
 
 
 <p>写的非常通俗易懂，真的很佩服阮老师的文笔，有时候自己写的博客自己都有点目不忍视，更何况别人呢。要达到这样的水平真的还有好长的路要走。加油吧</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vim常用快捷键总结]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/09/18/vim-shortcut-maps/"/>
-    <updated>2013-09-18T19:55:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/09/18/vim-shortcut-maps</id>
-    <content type="html"><![CDATA[<p>Vim的学习之路真的很长，永远有记不完的命令，永远会突然冒出一个新插件。不过我总算从Vim的荆棘中一路走过来了，现在真的是苦尽甘来，时刻体会它带给我的喜悦和惊奇。下面对我所学习所了解到的常用命令做一个基本总结：</p>
-
-<h3>Normal mode:</h3>
-
-<p><code>&gt;&gt;</code> indent current line</p>
-
-<p><code>n&gt;&gt;</code> indent the next n line</p>
-
-<p><code>.</code> repeat last command</p>
-
-<p><code>m,n&gt;&gt;</code> indent from m to n line</p>
-
-<p><code>==</code> autoindent current line</p>
-
-<p><code>n==</code> autoindent the next n line</p>
-
-<p><code>gg=G</code> autoindent the whole file</p>
-
-<!--more-->
-
-
-<p><code>=i{</code> reindents &lsquo;inner block&rsquo;(inside the braces)</p>
-
-<p><code>=a{</code> reindents &ldquo;around block&rdquo;(including the braces)</p>
-
-<p><code>=2a{</code> reindents 2 blocks(this block and containing block)</p>
-
-<p>instead of &ldquo;{&rdquo;, also can use &ldquo;}&rdquo; or &ldquo;B&rdquo;.<code>=aB</code> equals <code>=a{</code></p>
-
-<p><code>&gt;i{</code> increase indent for inner block</p>
-
-<p><code>&lt;i}</code> decrease indent for inner block</p>
-
-<p><code>&gt;a{</code> increase indent for around block(including the brace)</p>
-
-<p><code>&lt;a}</code> decrease indent for around block</p>
-
-<p>With the cursor on <code>{</code> or <code>}</code></p>
-
-<p><code>=%</code> autoindent the block(including matching brace)</p>
-
-<p><code>&lt;%</code> or <code>&gt;%</code> indents or unindents the block</p>
-
-<h3>Insert mode:</h3>
-
-<p><code>&lt;c+t&gt;</code> indent the current line</p>
-
-<p><code>&lt;c+d&gt;</code> reindent the current line</p>
-
-<h3>Surroud plugin</h3>
-
-<p>以下是一些surround插件的功能：</p>
-
-<pre><code>{
-    xxx
-    xxx
-}
-</code></pre>
-
-<p>normal模式下输入：dS{,结果变为:</p>
-
-<pre><code>xxx
-xxx
-
-"hello world"
-</code></pre>
-
-<p>cS"&lsquo;之后，结果变为：</p>
-
-<pre><code>'hello world'
-
-&lt;div&gt;hello&lt;/div&gt;
-</code></pre>
-
-<p>通过cSt然后输入<code>&lt;p&gt;</code>,结果变为：</p>
-
-<pre><code>&lt;p&gt;hello&lt;/p&gt;
-</code></pre>
-
-<p>当然也可以选进入visual模式，然后S"，便给选中的文本包含"&ldquo;。</p>
-
-<p>以上命令主要是关于缩进和对齐的一个总结，关于surround插件做的总结也只是将所学列出，学过之后才感觉几乎毫无用处，所以不学也罢。其他的一些常用功能抽空再做总结。</p>
 ]]></content>
   </entry>
   

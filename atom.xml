@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-10-15T20:37:48+08:00</updated>
+  <updated>2013-10-18T11:17:43+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Putty SSH中文乱码]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/10/18/ssh-messy-code/"/>
+    <updated>2013-10-18T10:59:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/10/18/ssh-messy-code</id>
+    <content type="html"><![CDATA[<p>由于Fedora安装在教研室的台式机上，小组的活动在科协，每次去又免不了使用Linux环境，所以<strong>Putty</strong>便派上用场了。Putty作为Windows下的SSH工具，确实很方便，解决了很多不必要的麻烦，但是发现在使用的时候，中文显示乱码。求救Google的时候到了，网上一搜，真的是一大堆，随便查看了一篇博客，照着试了一下便解决。方法如下：</p>
+
+<blockquote><p>windows->Appearance->Translation,在其中将字体改为UTF-8便没问题。</p></blockquote>
+
+<p>问题确实能解决，但是发现不能保存设置，每次打开Putty时都需要重新设置，这点有待改进，不知道是我安装的putty版本过低还是其他的缘故。在分享中成长，在成长中分享，大胆的分享吧，Don&rsquo;t be shy!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[一些感想]]></title>
@@ -1044,102 +1057,6 @@ grub-mkconfig生成grub的配置，通过-o参数将配置输出到指定的配�
 
 <pre><code>let g:airline_theme="molokai"
 </code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[vim文件的折叠与展开方式]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/08/25/vim-folding-and-unfolding/"/>
-    <updated>2013-08-25T16:00:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/08/25/vim-folding-and-unfolding</id>
-    <content type="html"><![CDATA[<p>最近一直在用Vim学习Ruby,但是一直有个问题困扰：</p>
-
-<p>那就是文件无法折叠，但是我记得以前看过Vim的视频，里面见别人用到了折叠与展开。文件比较小时，此功能便无用，但一旦文件量大时，折叠与展开便显得尤为重要了。</p>
-
-<p>折叠的方式有以下几种：</p>
-
-<ol>
-<li>manual</li>
-<li>indent</li>
-<li>syntax</li>
-<li>marker</li>
-<li>expr</li>
-<li>diff</li>
-</ol>
-
-
-<h3>1. Manual method</h3>
-
-<p>vim默认的折叠方式是此种方式，不需要设置即可。要启用其他方式还得采用<code>:set foldmethod=xxx</code>或者<code>:set fdm=xxx</code>来设置。</p>
-
-<p><strong>使用方法</strong>：</p>
-
-<p><code>v</code>或者<code>V</code>进入visual mode,然后选中要折叠的文字，按<code>zf</code>便可折叠，折叠后按<code>za</code>或者<code>zO</code>便展开。</p>
-
-<p>同时也可以通过<code>zfnj</code>的方式将接下来的n行折叠。类似也有<code>zfnk</code>等;<code>zR</code>则打开所有的折叠。总结下来就是：</p>
-
-<ul>
-<li>zf        => create a fold</li>
-<li>za        => unfold</li>
-<li>zf#j  => fold down # lines</li>
-<li>zf#k  => fold up #lines</li>
-<li>zR        => unfold all</li>
-</ul>
-
-
-<h3>2. Indent method</h3>
-
-<p>缩进方式主要是根据代码缩进的方式来折叠/展开代码。要使用缩进方式，则需要做配置，<code>:set foldmethod=indent</code>或者在~/.vimrc中配置：<code>set foldmethod=indent</code>。</p>
-
-<p>其快捷键如下：
-zM      => fold all
-zR      => unfold all
-za      => fold/unfold</p>
-
-<h3>3. Syntax method</h3>
-
-<p>采用syntax方式，则只需如下配置即可：</p>
-
-<pre><code>:set fdm=syntax
-</code></pre>
-
-<p>按键方式与上述相似</p>
-
-<h3>4. Marker method</h3>
-
-<p> 使用markder方式，则做如下配置：</p>
-
-<pre><code>:set foldmethod=marker
-</code></pre>
-
-<p> 或</p>
-
-<pre><code>:set fdm=marker
-</code></pre>
-
-<p>默认的marker折叠/展开标记为<code>}</code>.</p>
-
-<p>将要折叠/展开的代码通过<code>}</code>包含起来即可。当然也可以自定义标记。定义方法如下：</p>
-
-<pre><code>:set foldmarker= start,end
-eg: set foldmarker= /*,*/
-
-/*
-     1. Ruby
-     2. Python
-     3. C++
-     4. PHP
-*/
-</code></pre>
-
-<p>快捷键如下：</p>
-
-<ul>
-<li>za        => fold/unfold</li>
-<li>zM        => fold all</li>
-<li>zR        => unfold all</li>
-</ul>
-
 ]]></content>
   </entry>
   
