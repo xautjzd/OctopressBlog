@@ -174,11 +174,19 @@
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/2013/10/15/some-feelings/</loc>
-        <lastmod>2013-10-15T20:37:35+08:00</lastmod>
+        <lastmod>2013-10-22T23:58:09+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/2013/10/18/ssh-messy-code/</loc>
-        <lastmod>2013-10-18T11:16:46+08:00</lastmod>
+        <lastmod>2013-10-18T11:18:33+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://xautjzd.github.io/blog/2013/10/22/hadoop-cluster-1/</loc>
+        <lastmod>2013-10-22T23:52:01+08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://xautjzd.github.io/blog/2013/10/27/vim-registers/</loc>
+        <lastmod>2013-10-27T17:42:47+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/aboutme/</loc>
@@ -210,7 +218,7 @@
     </url>
     <url>
         <loc>http://xautjzd.github.io/blog/archives/</loc>
-        <lastmod>2013-10-18T11:16:46+08:00</lastmod>
+        <lastmod>2013-10-27T17:42:47+08:00</lastmod>
     </url>
     <url>
         <loc>http://xautjzd.github.io/robots.txt</loc>
@@ -218,6 +226,6 @@
     </url>
     <url>
         <loc>http://xautjzd.github.io/</loc>
-        <lastmod>2013-10-18T11:16:46+08:00</lastmod>
+        <lastmod>2013-10-27T17:42:47+08:00</lastmod>
     </url>
 </urlset>

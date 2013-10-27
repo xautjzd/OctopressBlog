@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Aug 25th, 2013 Linux, Vim Comments Vim文件的折叠与展开方式 最近一直在用Vim学习Ruby,但是一直有个问题困扰： 那就是文件无法折叠，但是我记得以前看过Vim的视频，里面见别人用到了折叠与展开。文件比较小时，此功能便无用，但一旦文件量大时， &hellip;">
+	<meta name="description" content="Aug 27th, 2013 Linux, Vim Comments Bash到oh-my-zsh的转变 从开始使用到现在一直使用的bash,虽然以前听过ksh,csh,sh等，但都不曾用过，今年开始zsh便不断地出入在眼前，但没真正见人用过，也不知道效果咋样，所以也没做尝试。 &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,6 +115,127 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-27T18:14:00+08:00" data-updated="true" itemprop="datePublished">Aug 27<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/27/from-bash-to-oh-my-zsh/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/27/from-bash-to-oh-my-zsh/" itemprop="url">Bash到oh-my-zsh的转变</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>从开始使用到现在一直使用的bash,虽然以前听过ksh,csh,sh等，但都不曾用过，今年开始zsh便不断地出入在眼前，但没真正见人用过，也不知道效果咋样，所以也没做尝试。</p>
+
+<p>另一个原因是各大linux默认都是bash,说明其功能不错，而且也处于懒的原因，就没折腾。但最近在使用tmux的过程中发现bash的提示符只显示<code>-bash4.2$</code>字样，并没有显示成<code>user@hostname directory</code>，在加上西安rubyist的熟人皓哥强烈推荐，这就坚定了我舍弃bash转到zsh的决心，二话不说，立马上GitHub上找到oh-my-zsh。就照着readme开始尝试，结果出现了错误，Google找到答案，是zsh没有安装才导致，所以就<code>yum install zsh</code>安装了zsh,随后在通过</p>
+
+<p><code>curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh</code></p>
+
+<p>安装了oh-my-zsh。不过此时系统默认还是bash,所以还得更改系统默认的shell，方法如下：</p>
+
+<h3>1. 修改/etc/shells文件</h3>
+
+<p>先通过<code>$which zsh</code>查看zsh的位置，我zsh位于/usr/bin/zsh。然后再查看/etc/shells中是否含有zsh:</p>
+
+<p><code>$&lt; /etc/shells grep zsh</code></p>
+
+<p>如果结果中没有/usr/bin/zsh，则需要手动将/usr/bin/zsh添加到/etc/shells文件中。</p>
+
+<h3>2. 更改默认的shell</h3>
+
+<p>通过<code>$chsh -s /usr/bin/zsh</code>更改系统默认shell，退出系统，重新登陆便会发现系统默认的shell已经变为zsh，同时也可以更改zsh默认的主题，在~/.zshrc中更改ZSH_THEME属性即可，其被选的值在<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/themes">oh-my-zsh theme</a>中任选一个即可。</p>
+
+<p>经过以上两步，oh-my-zsh便安装完成。但是写博客时发现<code>rake new_post["xxx"]</code>时出现<code>zsh: no matches found: new_post</code>错误，Google找到答案，只需改为<code>rake 'new_post["xxx"]'</code>即可，原因是zsh会将一些特殊符号当作查找文件的通配符等，根源解决方法是：取消zsh的通配（Glob），即在~/.zshrc中加入<code>alias rake="noglob rake"</code>。</p>
+
+<p>参考：<a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh官网</a></p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-26T11:30:00+08:00" data-updated="true" itemprop="datePublished">Aug 26<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/08/26/airline-patched-font-config/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/08/26/airline-patched-font-config/" itemprop="url">Vim-airline插件patched Font配置成功</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<p>前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着<a href="ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline官网</a>的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。</p>
+
+<p>安装patched fonts方式请参考:<a href="https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline字体配置</a>，尽管文档很详细，但是还是重复一下：</p>
+
+<p>1.Download patched fonts</p>
+
+<p><code>$mkdir ~/.fonts</code>新建一个font文件夹，然后<code>$cd ~/.fonts</code>进入.fonts文件夹。<code>$git clone git@github.com:Lokaltog/powerline-fonts.git</code>将powerline的patched fonts拷贝到~/.fonts目录下，目录结构如下图：</p>
+
+<p><img src="http://pic.yupoo.com/xautjzd/D79oXi6w/medish.jpg" alt="~/.font目录结构" /></p>
+
+<p>2.Install the patched fonts to your System</p>
+
+<p>运行<code>$fc-cache -vf ~/.fonts</code>安装patched fonts到系统中</p>
+
+<p>3.Set Terminal fonts</p>
+
+<p>设置Terminal字体非常重要，我初次配置时，安装patched fonts，但是由于没有set terminal font,所以statusbar显示乱码。设置方法如下：</p>
+
+<p>Edit——Profiles——Default(Edit)——General——Font，选择~/.fonts/powerline下的某一种即可(可选范围一定要在刚才下载的patched fonts中选一种，否则乱码。)，当然也可以采取powerline font installing中的另一种方式，不过我没做尝试，有兴趣的朋友try it。配置截图如下：</p>
+
+<p><img src="http://pic.yupoo.com/xautjzd/D79olvGa/medish.jpg" alt="Font config" /></p>
+
+<p>最后可以在~/.vimrc中更改airline的theme。更改方式如下：</p>
+
+<pre><code>let g:airline_theme="molokai"
+</code></pre>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -670,95 +791,6 @@ eg: set foldmarker= /*,*/
 
 		
 		<a href="/blog/2013/08/11/travel-to-hu-xian/" class="more-link">Read more&#8230;</a>
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-08T16:12:00+08:00" data-updated="true" itemprop="datePublished">Aug 8<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/08/08/tmux-use-and-configuration/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/08/08/tmux-use-and-configuration/" itemprop="url">终端分屏工具tmux的安装与常用操作</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<h2>1. tmux简介</h2>
-
-<p>tmux是terminal multiplexer的简称，是一款终端分屏的工具，可以在同一屏幕中划分出多个独立的shell环境，这样便于对比，唯一的缺陷是窗口比较小而已。一个server可以有多个session,一个session可以有多个windows,一个windows可以有多个pane.具体见<a href="http://tmux.sourceforge.net/">官网</a>介绍。</p>
-
-<h2>2. 安装</h2>
-
-<p>采用相应系统的包管理器即可安装。我装的是fedora,现以fedora为例：</p>
-
-<pre><code>#yum install tmux
-</code></pre>
-
-<p>包不到1M大小，很快便安装完成。</p>
-
-
-		
-		<a href="/blog/2013/08/08/tmux-use-and-configuration/" class="more-link">Read more&#8230;</a>
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-03T15:12:00+08:00" data-updated="true" itemprop="datePublished">Aug 3<span>rd</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/08/03/vim-ultisnips/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/08/03/vim-ultisnips/" itemprop="url">Vim的代码自动补齐插件——UltiSnips</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>暑假时间充足，便又开始学习自己喜欢的Ruby。而学Ruby的最佳环境是Mac,其次是Linux,最次是Windows。Mac买不起，只能在Linux上折腾了，一台台式机装的Fedora17，自己的本是xp系统，装了不少微软的一套东西，毕竟教研室的项目都是在.net环境下进行的，不敢轻易换系统，所以便在本上装了个VirtualBox虚拟机，虚拟了一个Ubuntu。上面也配好了Ruby环境，毕竟本方便，带到哪里都可以学，但平时的Linux编程都是在台式机下，毕竟性能比虚拟机好。</p>
-
-<p>而学习Ruby一般都是在Vim/Emacs/SublimeText 2下，RubyMine貌似很适合开发Ruby，由于是商业产品，没钱购买也就舍弃了，毅然决然的选择了Vim.都说高手使用的是Vim，想必必有可取之处。但是Vim的学习路线比较陡峭，开始是一段痛苦期，经过一段时间的摧残后，甜蜜的时光便来临了，各种强大而高效的插件让你目瞪口呆，顿时感觉其他IDE都蒻爆了。幸好我以前对Vim的基本操作便有了了解，所以再次学习起来便不那么痛苦，甚至不想回到Windows环境，不想再用其他的Editor。我现在用的插件并且给我印象深刻的大致有这么一些：Vundle,Ctrlp/command-T,UltiSnips/Snipmate,YouCompleteMe/SuperTab,NerdTree,Tagbar,FuzzyFinder,vim-rails，Markdown等。</p>
-
-
-		
-		<a href="/blog/2013/08/03/vim-ultisnips/" class="more-link">Read more&#8230;</a>
 	</div>
 
 </article>

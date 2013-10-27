@@ -4,7 +4,7 @@
   <title><![CDATA[xautjzd]]></title>
   <link href="http://xautjzd.github.io/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-10-18T11:17:43+08:00</updated>
+  <updated>2013-10-27T17:43:00+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -12,6 +12,98 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vim寄存器]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/10/27/vim-registers/"/>
+    <updated>2013-10-27T16:37:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/10/27/vim-registers</id>
+    <content type="html"><![CDATA[<p>谈Vim寄存器前先对昨天做个总结吧。Rails Girls昨天在西安的ThoughtWorks成功举办，目的是帮女性程序员了解Ruby &amp; Rails，报名参加的学员大概有30多人，教练大致有10来个，由于活动是ThoughtWorks和西安的Rubyists一起合作举办，所以我作为西安Rubyists的一员报名当了教练(由于教练奇缺，而我们Rubyist成员大多都去北京参加RubyConf了，所以我作为Rubyists里面的菜鸟报名当教练了，去了发现除我外，其他教练都是TW员工,顿时汗颜)。</p>
+
+<!-- more -->
+
+
+<p>每个教练指导2-3个学员，人员的分配通过软件随机组合，没想到竟然给我分了3个！不过幸好有指导教程，指导起来便没有无从下手的感觉，由于报名的学员几乎都没接触过Rails,所以指导难度不是很大，大概从环境的配置到一个简单的web应用生成方面进行了指导，然后加上TW准备的几个Session演讲，一天也就过去了，临近结束，没想到竟然碰到同一个县城的老乡，真的太意外了。临走前还一起吃了个饭，聊了估计有差不多一个小时，然后匆忙的坐车回学校了，到学校门口天早已漆黑一片，感觉特别累，到教研室待到差不多11：00便回宿舍睡觉了。有时候真的在想，要是上班了那不得累趴下！这还什么事都没干就这么累。</p>
+
+<p>不知不觉码字码了这么多，但感觉毫无重点，还是进入正题吧，不然就感觉文不对题了。</p>
+
+<p>Vim的寄存器类型请通过<code>:help registers</code>查看，下面只介绍两种：</p>
+
+<ol>
+<li>数字寄存器</li>
+<li>字母寄存器</li>
+</ol>
+
+
+<h2>1. 数字寄存器</h2>
+
+<p>数字寄存器大致有10种，编号从0-9，并且都以<code>"</code>开头，通过<code>:reg</code>便可查看。其中<code>"0</code>保存上次<strong>复制(y)</strong>操作的文本，而<code>"1——"9</code>寄存器则保存最近9次<strong>删除</strong>的文本<strong>行</strong>,<code>"1</code>保存的是最近一次删除的内容，如果又有新的操作，则将1保存到2中，然后1保存最新内容。</p>
+
+<h2>2. 字母寄存器</h2>
+
+<p>字母寄存器从a-z或者A-Z,其中指定a-z会替换掉他们先前存储的内容，而A-Z则会在它们先前保存的内容中追加新内容。</p>
+
+<p>一般paste可能都通过来操作，这仅粘贴0或1寄存器中的内容,要想粘贴内容其他寄存器的内容，则需通过<code>寄存器的名称+p</code>来操作。如将内容保存到a寄存器中，则可在normal模式下输入<code>"ayy</code>，将光标当前行内容存储在a寄存器中，粘贴便可通过<code>"ap</code>来操作。</p>
+
+<p>寄存器可能平时用不上，一般在需要录制宏的时候才会用到。想要更深入的了解，还是<code>:help registers</code>看帮助文档吧。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hadoop集群]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/10/22/hadoop-cluster-1/"/>
+    <updated>2013-10-22T20:51:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/10/22/hadoop-cluster-1</id>
+    <content type="html"><![CDATA[<p>最近开始研究起Hadoop,《Hadoop in Action》大概看了3章，然后开始着手搭建环境。</p>
+
+<p>由于设备的受限，让老师给分了两台虚拟机（4G内存，20G硬盘，CentOS6.4），在上面开始搭建Hadoop集群，其中一台作为master,另一台作为slave。环境的搭建大概花了一天多的时间，主要有JDK的配置和SSH的配置，这两项已经是轻车熟路，所以很快便配置好。但是Hadoop才刚接触，所以配置起来速度慢点，没有一个绝对的参考资料，网上资料虽颇丰，但甄别对与错却需要一定时间，并且还要弄懂配置参数的意义。前后大致花了有半天时间。配置好后启动服务时却出错，google搜索了好久，也试过很多方法，但一直没解决。</p>
+
+<!-- more -->
+
+
+<p>问题主要出现在权限这块，因为采用root启动服务没问题，但是一般用户启动便提示创建<code>/var/logs/user</code>出错，权限不够，而我的logs目录已经在<code>conf/hadoop-env.sh</code>中设置为hadoop解压目录下的logs目录。最后实在没辙，便尝试重新配置。大致步骤也是按前边的进行，但是没想到最后竟然成功，真的太让人意外！通过jps能够看到master的namnode,jobtracker等的进程号，同时也能在slave上看到datanode,tasktracker的进程号。</p>
+
+<p>安装好后，当然得找个实例测试下，hadoop的解压目录下自带有example，其中有个wordcount,便拿来测试了。</p>
+
+<h3>创建本地测试文件</h3>
+
+<pre><code>$mkdir ~/file
+$cd ~/file
+$echo "Hello World" &gt;&gt; ~/file1.txt
+$echo "Hello Hadoop" &gt;&gt; ~/file2.txt
+</code></pre>
+
+<h3>在HDFS上创建Input目录</h3>
+
+<pre><code>$hadoop fs -mkdir input
+$hadoop fs -ls
+</code></pre>
+
+<h3>导入本地测试文件到HDFS中的input目录</h3>
+
+<pre><code>$hadoop fs -put ~/file/file*.txt input
+$hadoop fs -ls input
+</code></pre>
+
+<h3>运行wordcount程序</h3>
+
+<p>以input为输入目录，output为输出目录</p>
+
+<pre><code>$hadoop jar ~/hadoop-1.2.1/hadoop-examples-1.2.1.jar wordcount input output
+</code></pre>
+
+<h3>查看结果</h3>
+
+<p>运行的结果会保存在output下的part-r-00000文件中，查看方法如下：</p>
+
+<pre><code>$hadoop fs -cat output/part-r-00000
+</code></pre>
+
+<h3>后话</h3>
+
+<p>近两天在看龙应台女士的《亲爱的安德烈》一书，全书以书信的方式来展开，通过她与儿子安德烈的对话，了解了香港、台湾及德国的一种生活方式，尤其是香港人民2005年的游行，不禁让我想到了中国的现状，顿时有种压抑的感觉，感觉中国人民一直在努力的奋斗，无非就是为了一份安宁的生活。但感觉就是这么一份安宁，却让太多的人为之奋斗一生而不得或千辛万苦才得，突然觉得这样的人生还有意义么？我目前期望的仅是今后能生活在技术圈中，而且不用再被生活所奴役，不愿再面对一群不懂技术而趾高气扬的人，已经听到身边不少人羡慕国企、银行、研究所等铁饭碗的单位，但我却丝毫没有兴趣，因为在我印象中，那些单位大多给人一种散漫感，其中充满了太多的勾心斗角，尔虞我诈，而我本身却非常厌恶这些，真的可以说让人作呕。呆在这样的环境工作一生，想想都觉得枯燥无味。希望明年能找到一份理想的工作，干自己喜欢的技术。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Putty SSH中文乱码]]></title>
@@ -22,7 +114,7 @@
 
 <blockquote><p>windows->Appearance->Translation,在其中将字体改为UTF-8便没问题。</p></blockquote>
 
-<p>问题确实能解决，但是发现不能保存设置，每次打开Putty时都需要重新设置，这点有待改进，不知道是我安装的putty版本过低还是其他的缘故。在分享中成长，在成长中分享，大胆的分享吧，Don&rsquo;t be shy!</p>
+<p>问题确实能解决，但是发现不能保存设置，每次打开Putty时都需要重新设置，这点有待改进,不知道是我安装的putty版本过低还是其他的缘故。在分享中成长，在成长中分享，大胆的分享吧，Don&rsquo;t be shy!</p>
 ]]></content>
   </entry>
   
@@ -992,71 +1084,6 @@ grub-mkconfig生成grub的配置，通过-o参数将配置输出到指定的配�
 <p>Rails代码参考：</p>
 
 <p><a href="http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails">http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Bash到oh-my-zsh的转变]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/08/27/from-bash-to-oh-my-zsh/"/>
-    <updated>2013-08-27T18:14:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/08/27/from-bash-to-oh-my-zsh</id>
-    <content type="html"><![CDATA[<p>从开始使用到现在一直使用的bash,虽然以前听过ksh,csh,sh等，但都不曾用过，今年开始zsh便不断地出入在眼前，但没真正见人用过，也不知道效果咋样，所以也没做尝试。</p>
-
-<p>另一个原因是各大linux默认都是bash,说明其功能不错，而且也处于懒的原因，就没折腾。但最近在使用tmux的过程中发现bash的提示符只显示<code>-bash4.2$</code>字样，并没有显示成<code>user@hostname directory</code>，在加上西安rubyist的熟人皓哥强烈推荐，这就坚定了我舍弃bash转到zsh的决心，二话不说，立马上GitHub上找到oh-my-zsh。就照着readme开始尝试，结果出现了错误，Google找到答案，是zsh没有安装才导致，所以就<code>yum install zsh</code>安装了zsh,随后在通过</p>
-
-<p><code>curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh</code></p>
-
-<p>安装了oh-my-zsh。不过此时系统默认还是bash,所以还得更改系统默认的shell，方法如下：</p>
-
-<h3>1. 修改/etc/shells文件</h3>
-
-<p>先通过<code>$which zsh</code>查看zsh的位置，我zsh位于/usr/bin/zsh。然后再查看/etc/shells中是否含有zsh:</p>
-
-<p><code>$&lt; /etc/shells grep zsh</code></p>
-
-<p>如果结果中没有/usr/bin/zsh，则需要手动将/usr/bin/zsh添加到/etc/shells文件中。</p>
-
-<h3>2. 更改默认的shell</h3>
-
-<p>通过<code>$chsh -s /usr/bin/zsh</code>更改系统默认shell，退出系统，重新登陆便会发现系统默认的shell已经变为zsh，同时也可以更改zsh默认的主题，在~/.zshrc中更改ZSH_THEME属性即可，其被选的值在<a href="https://github.com/robbyrussell/oh-my-zsh/wiki/themes">oh-my-zsh theme</a>中任选一个即可。</p>
-
-<p>经过以上两步，oh-my-zsh便安装完成。但是写博客时发现<code>rake new_post["xxx"]</code>时出现<code>zsh: no matches found: new_post</code>错误，Google找到答案，只需改为<code>rake 'new_post["xxx"]'</code>即可，原因是zsh会将一些特殊符号当作查找文件的通配符等，根源解决方法是：取消zsh的通配（Glob），即在~/.zshrc中加入<code>alias rake="noglob rake"</code>。</p>
-
-<p>参考：<a href="https://github.com/robbyrussell/oh-my-zsh">oh-my-zsh官网</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[vim-airline插件patched font配置成功]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config/"/>
-    <updated>2013-08-26T11:30:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config</id>
-    <content type="html"><![CDATA[<p>前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着<a href="ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline官网</a>的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。</p>
-
-<p>安装patched fonts方式请参考:<a href="https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline字体配置</a>，尽管文档很详细，但是还是重复一下：</p>
-
-<p>1.Download patched fonts</p>
-
-<p><code>$mkdir ~/.fonts</code>新建一个font文件夹，然后<code>$cd ~/.fonts</code>进入.fonts文件夹。<code>$git clone git@github.com:Lokaltog/powerline-fonts.git</code>将powerline的patched fonts拷贝到~/.fonts目录下，目录结构如下图：</p>
-
-<p><img src="http://pic.yupoo.com/xautjzd/D79oXi6w/medish.jpg" alt="~/.font目录结构" /></p>
-
-<p>2.Install the patched fonts to your System</p>
-
-<p>运行<code>$fc-cache -vf ~/.fonts</code>安装patched fonts到系统中</p>
-
-<p>3.Set Terminal fonts</p>
-
-<p>设置Terminal字体非常重要，我初次配置时，安装patched fonts，但是由于没有set terminal font,所以statusbar显示乱码。设置方法如下：</p>
-
-<p>Edit——Profiles——Default(Edit)——General——Font，选择~/.fonts/powerline下的某一种即可(可选范围一定要在刚才下载的patched fonts中选一种，否则乱码。)，当然也可以采取powerline font installing中的另一种方式，不过我没做尝试，有兴趣的朋友try it。配置截图如下：</p>
-
-<p><img src="http://pic.yupoo.com/xautjzd/D79olvGa/medish.jpg" alt="Font config" /></p>
-
-<p>最后可以在~/.vimrc中更改airline的theme。更改方式如下：</p>
-
-<pre><code>let g:airline_theme="molokai"
-</code></pre>
 ]]></content>
   </entry>
   
