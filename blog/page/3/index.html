@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Aug 27th, 2013 Linux, Vim Comments Bash到oh-my-zsh的转变 从开始使用到现在一直使用的bash,虽然以前听过ksh,csh,sh等，但都不曾用过，今年开始zsh便不断地出入在眼前，但没真正见人用过，也不知道效果咋样，所以也没做尝试。 &hellip;">
+	<meta name="description" content="Sep 3rd, 2013 Thinking Comments 账号注册通过邮箱激活 邮箱激活目的 防止用户注册时所填写的信息为虚假信息 邮箱激活的原理 用户注册时，根据用户名、Email及注册时间(精确到ms)等信息通过特定的算法(如:MD5、SHA，最好不可逆)生成相应的信息摘要( &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -115,6 +115,57 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-03T21:48:00+08:00" data-updated="true" itemprop="datePublished">Sep 3<span>rd</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/09/03/activate-user-via-email/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/09/03/activate-user-via-email/" itemprop="url">账号注册通过邮箱激活</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<h3>邮箱激活目的</h3>
+
+<p>防止用户注册时所填写的信息为虚假信息</p>
+
+<h3>邮箱激活的原理</h3>
+
+<p>用户注册时，根据用户名、Email及注册时间(精确到ms)等信息通过特定的算法(如:MD5、SHA，最好不可逆)生成相应的信息摘要(也称消息摘要)作为注册的激活码，保存到数据库当中，并且将其作为url的参数，将带有激活码的url链接发送到用户注册的Email中。</p>
+
+<p>只有当用户进入邮箱中并点击该链接后，通过url中的激活码找出数据库中匹配的用户，并将此账号设为“已激活”的状态。</p>
+
+<p><strong>注：此过程没有考虑激活码过期问题，同时信息摘要也可以通过随机数来表示，不一定非要通过用户名等信息生成</strong></p>
+
+<p>Rails代码参考：</p>
+
+<p><a href="http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails">http://stackoverflow.com/questions/12805523/activate-user-via-email-in-rails</a></p>
+
+		
+		
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -749,48 +800,6 @@ eg: set foldmarker= /*,*/
 
 		
 		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-11T19:51:00+08:00" data-updated="true" itemprop="datePublished">Aug 11<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/08/11/travel-to-hu-xian/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/08/11/travel-to-hu-xian/" itemprop="url">户县之行</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>前天应阿亮之邀，去了趟少春家，现将所见所闻予以记录，聊以慰藉。</p>
-
-<p>我们三（阿亮，少春和我）于前天下午将近六点出发去户县甘河镇的少春家，大致七点半左右到。到家时，天刚暗下来。从这一刻开始到今天下午，差不多有两天的时间体验了下陕西乡村的风土人情，而体验的最佳方式则是通过味觉和视觉。</p>
-
-<p>首先，从味觉方面说，大致品尝了他家的臊子面，煎饼和yuyu（只知其音，不知其写法,也念he&#8217;r)。以前只是听陕西的同学说过他们的习俗：早晚稀饭，中午吃面，而且稀饭比较稀，上面几乎看不到米粒，碗底才有。经此一见，果不其然。不过他们煮稀饭的米和我家乡不同，第一次见识到糯米也可用于煮稀饭，以前我只知：糯米用于蒸糯米饭、做汤圆和糍粑。中午吃的是臊子面，而臊子面的核心在于臊子。阿姨做的臊子挺不错，味道很好，唯一不足的是醋放的有点多，略酸，不过不太影响总体的感觉，至少比食堂阿姨做的强好几倍。盛面的家伙很给力，直接上脸盆。碗也给力，平时在食堂吃一碗足已，但这两天都是至少吃一碗。少春则更给力，今天中午直接吃了四碗。昨晚吃的是煎饼，和我家乡的饼有点像，只是做法不同，厚薄不同，但是不得不说味道比我家乡的那个饼味道略好，这得益于我喜欢吃薄饼，而我家乡的那饼则略显厚。</p>
-
-
-		
-		<a href="/blog/2013/08/11/travel-to-hu-xian/" class="more-link">Read more&#8230;</a>
 	</div>
 
 </article>
