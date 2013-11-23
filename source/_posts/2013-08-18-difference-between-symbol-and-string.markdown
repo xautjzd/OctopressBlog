@@ -5,6 +5,7 @@ date: 2013-08-18 20:50
 comments: true
 categories: [Ruby]
 ---
+---
 记得当初学习Ruby基本语法时，还为Symbol与String的异同纠结了好久，后来经过一段时间的摸索，大致有了了解，但让我给他人解释，这点我还是办不到。但是今天看到了一篇[博文](http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html),让我彻底明白他们的区别。
 
 ### symbol定义

@@ -5,6 +5,7 @@ date: 2013-09-29 10:09
 comments: true
 categories: [Programming, C]
 ---
+---
 今天在网上看到腾讯的一个实习生招聘题，里面提到了dead code，便上wikipedia查了下，解释如下：
 
 在计算机编程中，dead code是指那些被执行但执行结果在其他地方没有用到的代码。dead code的执行耗费cpu时间但是结果无用。

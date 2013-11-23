@@ -5,6 +5,7 @@ date: 2013-07-18 17:17
 comments: true
 categories: Octopress 
 ---
+---
 Octopress搭建的博客默认没有文章分类，这肯定让人很不爽，但这个号称Hacker的博客肯定有这功能，便网上搜寻了答案，最终得以解决。方法如下：
 
 ###1. 添加category\_list插件

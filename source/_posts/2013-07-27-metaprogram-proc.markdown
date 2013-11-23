@@ -5,6 +5,7 @@ date: 2013-07-27 12:40
 comments: true
 categories: Ruby
 ---
+---
 ## Proc 
 
 Proc对象其实就是将代码块(block)转换成对象的块。方式有大致几种：

@@ -5,6 +5,7 @@ date: 2013-07-19 20:33
 comments: true
 categories: Ruby 
 ---
+---
 
 ##变量分类
 - **局部变量**

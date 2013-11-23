@@ -5,6 +5,7 @@ date: 2013-08-27 18:14
 comments: true
 categories: [Vim,Linux]
 ---
+---
 从开始使用到现在一直使用的bash,虽然以前听过ksh,csh,sh等，但都不曾用过，今年开始zsh便不断地出入在眼前，但没真正见人用过，也不知道效果咋样，所以也没做尝试。
 
 另一个原因是各大linux默认都是bash,说明其功能不错，而且也处于懒的原因，就没折腾。但最近在使用tmux的过程中发现bash的提示符只显示`-bash4.2$`字样，并没有显示成`user@hostname directory`，在加上西安rubyist的熟人皓哥强烈推荐，这就坚定了我舍弃bash转到zsh的决心，二话不说，立马上GitHub上找到oh-my-zsh。就照着readme开始尝试，结果出现了错误，Google找到答案，是zsh没有安装才导致，所以就`yum install zsh`安装了zsh,随后在通过

@@ -5,6 +5,7 @@ date: 2013-07-18 13:46
 comments: true
 categories: [Octopress, Thinking]
 ---
+---
 搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：
 
     $rake new_page[About]

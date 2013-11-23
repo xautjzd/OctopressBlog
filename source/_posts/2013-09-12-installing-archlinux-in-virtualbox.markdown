@@ -5,6 +5,7 @@ date: 2013-09-12 22:36
 comments: true
 categories: Linux
 ---
+---
 
 都说ArchLinux很适合折腾，趁今天有时间，就试着安装了一把，不过看ArchLinux的Beginners's Guide，照着其步骤来，结果还是看的云里雾里，看的人头大。便直接上Youtube上找了一个视频，顿时豁然开朗。安装概览如下：
 
