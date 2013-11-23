@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Vim | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-11-21T22:24:05+08:00</updated>
+  <updated>2013-11-23T15:05:49+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -18,7 +18,9 @@
     <link href="http://xautjzd.github.io/blog/2013/09/18/vim-shortcut-maps/"/>
     <updated>2013-09-18T19:55:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/09/18/vim-shortcut-maps</id>
-    <content type="html"><![CDATA[<p>Vim的学习之路真的很长，永远有记不完的命令，永远会突然冒出一个新插件。不过我总算从Vim的荆棘中一路走过来了，现在真的是苦尽甘来，时刻体会它带给我的喜悦和惊奇。下面对我所学习所了解到的常用命令做一个基本总结：</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>Vim的学习之路真的很长，永远有记不完的命令，永远会突然冒出一个新插件。不过我总算从Vim的荆棘中一路走过来了，现在真的是苦尽甘来，时刻体会它带给我的喜悦和惊奇。下面对我所学习所了解到的常用命令做一个基本总结：</p>
 
 <h3>Normal mode:</h3>
 
@@ -108,7 +110,9 @@ xxx
     <link href="http://xautjzd.github.io/blog/2013/08/27/from-bash-to-oh-my-zsh/"/>
     <updated>2013-08-27T18:14:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/08/27/from-bash-to-oh-my-zsh</id>
-    <content type="html"><![CDATA[<p>从开始使用到现在一直使用的bash,虽然以前听过ksh,csh,sh等，但都不曾用过，今年开始zsh便不断地出入在眼前，但没真正见人用过，也不知道效果咋样，所以也没做尝试。</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>从开始使用到现在一直使用的bash,虽然以前听过ksh,csh,sh等，但都不曾用过，今年开始zsh便不断地出入在眼前，但没真正见人用过，也不知道效果咋样，所以也没做尝试。</p>
 
 <p>另一个原因是各大linux默认都是bash,说明其功能不错，而且也处于懒的原因，就没折腾。但最近在使用tmux的过程中发现bash的提示符只显示<code>-bash4.2$</code>字样，并没有显示成<code>user@hostname directory</code>，在加上西安rubyist的熟人皓哥强烈推荐，这就坚定了我舍弃bash转到zsh的决心，二话不说，立马上GitHub上找到oh-my-zsh。就照着readme开始尝试，结果出现了错误，Google找到答案，是zsh没有安装才导致，所以就<code>yum install zsh</code>安装了zsh,随后在通过</p>
 
@@ -139,7 +143,9 @@ xxx
     <link href="http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config/"/>
     <updated>2013-08-26T11:30:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config</id>
-    <content type="html"><![CDATA[<p>前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着<a href="ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline官网</a>的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着<a href="ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline官网</a>的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。</p>
 
 <p>安装patched fonts方式请参考:<a href="https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline字体配置</a>，尽管文档很详细，但是还是重复一下：</p>
 
@@ -173,7 +179,9 @@ xxx
     <link href="http://xautjzd.github.io/blog/2013/08/25/vim-folding-and-unfolding/"/>
     <updated>2013-08-25T16:00:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/08/25/vim-folding-and-unfolding</id>
-    <content type="html"><![CDATA[<p>最近一直在用Vim学习Ruby,但是一直有个问题困扰：</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>最近一直在用Vim学习Ruby,但是一直有个问题困扰：</p>
 
 <p>那就是文件无法折叠，但是我记得以前看过Vim的视频，里面见别人用到了折叠与展开。文件比较小时，此功能便无用，但一旦文件量大时，折叠与展开便显得尤为重要了。</p>
 
@@ -269,7 +277,9 @@ eg: set foldmarker= /*,*/
     <link href="http://xautjzd.github.io/blog/2013/08/18/vim-learning-resource/"/>
     <updated>2013-08-18T13:48:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/08/18/vim-learning-resource</id>
-    <content type="html"><![CDATA[<h3>实用的快捷方式</h3>
+    <content type="html"><![CDATA[<hr />
+
+<h3>实用的快捷方式</h3>
 
 <ul>
 <li>gf  快速跳转到定义</li>

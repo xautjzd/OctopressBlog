@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Sep 3rd, 2013 Thinking Comments 账号注册通过邮箱激活 邮箱激活目的 防止用户注册时所填写的信息为虚假信息 邮箱激活的原理 用户注册时，根据用户名、Email及注册时间(精确到ms)等信息通过特定的算法(如:MD5、SHA，最好不可逆)生成相应的信息摘要( &hellip;">
+	<meta name="description" content="Sep 4th, 2013 Linux, Thinking Comments 查看网站所用Web服务器类型 学习Rails的Layout过程中，其中有提到curl，所以便简单的看了下curl的功能。虽说以前学习Shell的过程中也看到过curl,不过没怎么用过，只知道和wget功能类似， &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -131,6 +131,48 @@
   
 
 
+<time datetime="2013-09-04T16:43:00+08:00" data-updated="true" itemprop="datePublished">Sep 4<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/09/04/lookup-webserver/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/09/04/lookup-webserver/" itemprop="url">查看网站所用Web服务器类型</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<hr />
+
+<p>学习Rails的Layout过程中，其中有提到curl，所以便简单的看了下curl的功能。虽说以前学习Shell的过程中也看到过curl,不过没怎么用过，只知道和wget功能类似，只是wget是将请求的web资源下载到本地，而curl则是在shell中显示，至于有什么其他功能也便不清楚。但是今天发现curl其实还可以用来查看website所用的web服务器类型，通过<code>curl -I url-you-want-to-lookup</code>命令查看即可。以下是我查看ruby-china的一个截图：
+<img src="http://pic.yupoo.com/xautjzd/D8xXpw6z/medish.jpg" alt="" /></p>
+
+<p>从中可以发现ruby-china采用的是nginx服务器。至于curl其他的功能慢慢再发掘吧。</p>
+
+		
+		
+	</div>
+
+</article>
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
 <time datetime="2013-09-03T21:48:00+08:00" data-updated="true" itemprop="datePublished">Sep 3<span>rd</span>, 2013</time></div>
 		<div class="tags">
 
@@ -145,7 +187,9 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2013/09/03/activate-user-via-email/" itemprop="url">账号注册通过邮箱激活</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<h3>邮箱激活目的</h3>
+		<hr />
+
+<h3>邮箱激活目的</h3>
 
 <p>防止用户注册时所填写的信息为虚假信息</p>
 
@@ -196,7 +240,9 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2013/08/27/from-bash-to-oh-my-zsh/" itemprop="url">Bash到oh-my-zsh的转变</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>从开始使用到现在一直使用的bash,虽然以前听过ksh,csh,sh等，但都不曾用过，今年开始zsh便不断地出入在眼前，但没真正见人用过，也不知道效果咋样，所以也没做尝试。</p>
+		<hr />
+
+<p>从开始使用到现在一直使用的bash,虽然以前听过ksh,csh,sh等，但都不曾用过，今年开始zsh便不断地出入在眼前，但没真正见人用过，也不知道效果咋样，所以也没做尝试。</p>
 
 <p>另一个原因是各大linux默认都是bash,说明其功能不错，而且也处于懒的原因，就没折腾。但最近在使用tmux的过程中发现bash的提示符只显示<code>-bash4.2$</code>字样，并没有显示成<code>user@hostname directory</code>，在加上西安rubyist的熟人皓哥强烈推荐，这就坚定了我舍弃bash转到zsh的决心，二话不说，立马上GitHub上找到oh-my-zsh。就照着readme开始尝试，结果出现了错误，Google找到答案，是zsh没有安装才导致，所以就<code>yum install zsh</code>安装了zsh,随后在通过</p>
 
@@ -255,7 +301,9 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2013/08/26/airline-patched-font-config/" itemprop="url">Vim-airline插件patched Font配置成功</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着<a href="ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline官网</a>的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。</p>
+		<hr />
+
+<p>前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着<a href="ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline官网</a>的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。</p>
 
 <p>安装patched fonts方式请参考:<a href="https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline字体配置</a>，尽管文档很详细，但是还是重复一下：</p>
 
@@ -317,7 +365,9 @@
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2013/08/25/vim-folding-and-unfolding/" itemprop="url">Vim文件的折叠与展开方式</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>最近一直在用Vim学习Ruby,但是一直有个问题困扰：</p>
+		<hr />
+
+<p>最近一直在用Vim学习Ruby,但是一直有个问题困扰：</p>
 
 <p>那就是文件无法折叠，但是我记得以前看过Vim的视频，里面见别人用到了折叠与展开。文件比较小时，此功能便无用，但一旦文件量大时，折叠与展开便显得尤为重要了。</p>
 
@@ -441,7 +491,9 @@ eg: set foldmarker= /*,*/
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2013/08/20/linux-activity-sponsoring/" itemprop="url">Linux活动发起</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>独乐乐不如众乐乐，独自一人埋头苦学不如一群兴趣相投之人的一起交流。记得以前大一大二时，希望能有一个领路人领着自己学习，帮自己找准学习的方向，毕竟当时太年轻，太多东西不了解，所以不知道软件这行业该学习什么，哪些东西比较有兴趣，一切源于自己接触的太少，身边也没有可交流之人。再加上学校大一大二和大三大四分隔新旧两校区，交流就更少。</p>
+		<hr />
+
+<p>独乐乐不如众乐乐，独自一人埋头苦学不如一群兴趣相投之人的一起交流。记得以前大一大二时，希望能有一个领路人领着自己学习，帮自己找准学习的方向，毕竟当时太年轻，太多东西不了解，所以不知道软件这行业该学习什么，哪些东西比较有兴趣，一切源于自己接触的太少，身边也没有可交流之人。再加上学校大一大二和大三大四分隔新旧两校区，交流就更少。</p>
 
 <p>正是因为自己的这些经历，然后再加上近来参加西安的rubyist party，促使了我组建Linux小组并且定期举办活动的冲动。一个人的埋头苦学，所见所闻永远局限在某个狭小的空间，只有走出去，与他们交流才能拓宽自己的知识面，提升自己的认知度，也算是多了一些朋友，多了一些交流。正所谓话不投机半句多，与自己志不同道不和的人交流真是有点对牛弹琴的感觉。所以要交流得找兴趣相投志同道合之人。</p>
 
@@ -514,7 +566,9 @@ eg: set foldmarker= /*,*/
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2013/08/18/difference-between-symbol-and-string/" itemprop="url">Ruby中symbol与string的区别</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>记得当初学习Ruby基本语法时，还为Symbol与String的异同纠结了好久，后来经过一段时间的摸索，大致有了了解，但让我给他人解释，这点我还是办不到。但是今天看到了一篇<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">博文</a>,让我彻底明白他们的区别。</p>
+		<hr />
+
+<p>记得当初学习Ruby基本语法时，还为Symbol与String的异同纠结了好久，后来经过一段时间的摸索，大致有了了解，但让我给他人解释，这点我还是办不到。但是今天看到了一篇<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">博文</a>,让我彻底明白他们的区别。</p>
 
 <h3>symbol定义</h3>
 
@@ -570,7 +624,9 @@ eg: set foldmarker= /*,*/
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2013/08/18/vim-learning-resource/" itemprop="url">Vim学习资源</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<h3>实用的快捷方式</h3>
+		<hr />
+
+<h3>实用的快捷方式</h3>
 
 <ul>
 <li>gf  快速跳转到定义</li>
@@ -626,7 +682,9 @@ eg: set foldmarker= /*,*/
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2013/08/17/change-theme-of-blog/" itemprop="url">更换Octopress主题</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>Octopress博客搭建已经有一阵了，但一直采用的默认的主题，没时间更换。今天特意抽时间来更换下，先上<a href="http://octopress.org/docs/theme/">Octopress官网</a>了解了下更换Theme的原理，然后上Octopress所在的源码托管平台GitHub，在其<a href="https://github.com/imathis/octopress/wiki">Wiki</a>上找到了<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">第三方Themes</a>,便从前到后大致将各种themes都预览了一遍，最后选择了<a href="https://github.com/shashankmehta/greyshade">Greyshade主题</a>,安装方法官网写的已经非常详细，这里再啰嗦一遍：</p>
+		<hr />
+
+<p>Octopress博客搭建已经有一阵了，但一直采用的默认的主题，没时间更换。今天特意抽时间来更换下，先上<a href="http://octopress.org/docs/theme/">Octopress官网</a>了解了下更换Theme的原理，然后上Octopress所在的源码托管平台GitHub，在其<a href="https://github.com/imathis/octopress/wiki">Wiki</a>上找到了<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">第三方Themes</a>,便从前到后大致将各种themes都预览了一遍，最后选择了<a href="https://github.com/shashankmehta/greyshade">Greyshade主题</a>,安装方法官网写的已经非常详细，这里再啰嗦一遍：</p>
 
 <h3>Install</h3>
 
@@ -700,7 +758,9 @@ eg: set foldmarker= /*,*/
 	</div>
 	<h1 class="title" itemprop="name"><a href="/blog/2013/08/16/powerline-vs-airline/" itemprop="url">安装Powerline过程中的收获</a></h1>
 	<div class="entry-content" itemprop="articleBody">
-		<p>Powerline插件已经多次耳闻目见，但是一直没做尝试，今天再次看到便忍不住试了下，结果还没成功。可能是由于字体的原因吧，在找答案的过程中邂逅了airline,据说比powerline加载更快，而且还无需安装字体。所以便果断地换为airline。只需在vimrc中加入<code>bundle bling/vim-airline</code>即可。当然前提是在~/.vimrc中已有如下配置：</p>
+		<hr />
+
+<p>Powerline插件已经多次耳闻目见，但是一直没做尝试，今天再次看到便忍不住试了下，结果还没成功。可能是由于字体的原因吧，在找答案的过程中邂逅了airline,据说比powerline加载更快，而且还无需安装字体。所以便果断地换为airline。只需在vimrc中加入<code>bundle bling/vim-airline</code>即可。当然前提是在~/.vimrc中已有如下配置：</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -738,65 +798,6 @@ eg: set foldmarker= /*,*/
 </code></pre>
 
 <p>就顺利解决，不过原因待深究，要学的东西太多。</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-16T16:57:00+08:00" data-updated="true" itemprop="datePublished">Aug 16<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/08/16/install-and-config-shutter/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/08/16/install-and-config-shutter/" itemprop="url">Linux下截图工具shutter的安装与配置</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>我一直使用的是Fedora17，自带的截图工具实在不敢恭维，但也就这样断断续续的用着，不过也用的不多。但今天突然鬼使神差的搜了下其他的截图工具，Google搜了下，发现好多提到shutter，既然这么多文章都提到，说明肯定着实不赖，便尝试了下。安装及配置如下：</p>
-
-<h3>1.安装</h3>
-
-<p>安装过程很简单，执行下面命令即可：</p>
-
-<pre><code>#yum install shutter
-</code></pre>
-
-<h3>2.配置</h3>
-
-<p>QQ截图快捷键<code>&lt;ctrl&gt;+&lt;alt&gt;+A</code>用习惯了，所以也对shutter继续保留这个快捷键。具体配置方法如下：
-在System Tools>System Settings>Keyboard>Shortcuts>Custom Shortcuts中添加了三个快捷键：</p>
-
-<ul>
-<li><p>截图整个屏幕（shutter -f）</p></li>
-<li><p>截图当前活动窗口(shutter -a)</p></li>
-<li><p>截图选定区域(shutter -s)</p></li>
-</ul>
-
-
-<p>具体配置及对应的快捷键设置参考下图：
-<img src="/images/shutter-config.jpg"></p>
 
 		
 		

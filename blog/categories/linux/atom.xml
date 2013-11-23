@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Linux | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-11-21T22:24:05+08:00</updated>
+  <updated>2013-11-23T15:05:49+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -18,7 +18,9 @@
     <link href="http://xautjzd.github.io/blog/2013/10/27/vim-registers/"/>
     <updated>2013-10-27T16:37:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/10/27/vim-registers</id>
-    <content type="html"><![CDATA[<p>谈Vim寄存器前先对昨天做个总结吧。Rails Girls昨天在西安的ThoughtWorks成功举办，目的是帮女性程序员了解Ruby &amp; Rails，报名参加的学员大概有30多人，教练大致有10来个，由于活动是ThoughtWorks和西安的Rubyists一起合作举办，所以我作为西安Rubyists的一员报名当了教练(由于教练奇缺，而我们Rubyist成员大多都去北京参加RubyConf了，所以我作为Rubyists里面的菜鸟报名当教练了，去了发现除我外，其他教练都是TW员工,顿时汗颜)。</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>谈Vim寄存器前先对昨天做个总结吧。Rails Girls昨天在西安的ThoughtWorks成功举办，目的是帮女性程序员了解Ruby &amp; Rails，报名参加的学员大概有30多人，教练大致有10来个，由于活动是ThoughtWorks和西安的Rubyists一起合作举办，所以我作为西安Rubyists的一员报名当了教练(由于教练奇缺，而我们Rubyist成员大多都去北京参加RubyConf了，所以我作为Rubyists里面的菜鸟报名当教练了，去了发现除我外，其他教练都是TW员工,顿时汗颜)。</p>
 
 <!-- more -->
 
@@ -54,7 +56,9 @@
     <link href="http://xautjzd.github.io/blog/2013/10/22/hadoop-cluster-1/"/>
     <updated>2013-10-22T20:51:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/10/22/hadoop-cluster-1</id>
-    <content type="html"><![CDATA[<p>最近开始研究起Hadoop,《Hadoop in Action》大概看了3章，然后开始着手搭建环境。</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>最近开始研究起Hadoop,《Hadoop in Action》大概看了3章，然后开始着手搭建环境。</p>
 
 <p>由于设备的受限，让老师给分了两台虚拟机（4G内存，20G硬盘，CentOS6.4），在上面开始搭建Hadoop集群，其中一台作为master,另一台作为slave。环境的搭建大概花了一天多的时间，主要有JDK的配置和SSH的配置，这两项已经是轻车熟路，所以很快便配置好。但是Hadoop才刚接触，所以配置起来速度慢点，没有一个绝对的参考资料，网上资料虽颇丰，但甄别对与错却需要一定时间，并且还要弄懂配置参数的意义。前后大致花了有半天时间。配置好后启动服务时却出错，google搜索了好久，也试过很多方法，但一直没解决。</p>
 
@@ -110,7 +114,9 @@ $hadoop fs -ls input
     <link href="http://xautjzd.github.io/blog/2013/10/18/ssh-messy-code/"/>
     <updated>2013-10-18T10:59:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/10/18/ssh-messy-code</id>
-    <content type="html"><![CDATA[<p>由于Fedora安装在教研室的台式机上，小组的活动在科协，每次去又免不了使用Linux环境，所以<strong>Putty</strong>便派上用场了。Putty作为Windows下的SSH工具，确实很方便，解决了很多不必要的麻烦，但是发现在使用的时候，中文显示乱码。求救Google的时候到了，网上一搜，真的是一大堆，随便查看了一篇博客，照着试了一下便解决。方法如下：</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>由于Fedora安装在教研室的台式机上，小组的活动在科协，每次去又免不了使用Linux环境，所以<strong>Putty</strong>便派上用场了。Putty作为Windows下的SSH工具，确实很方便，解决了很多不必要的麻烦，但是发现在使用的时候，中文显示乱码。求救Google的时候到了，网上一搜，真的是一大堆，随便查看了一篇博客，照着试了一下便解决。方法如下：</p>
 
 <blockquote><p>windows->Appearance->Translation,在其中将字体改为UTF-8便没问题。</p></blockquote>
 
@@ -123,7 +129,9 @@ $hadoop fs -ls input
     <link href="http://xautjzd.github.io/blog/2013/10/10/linux-hard-link-vs-soft-link/"/>
     <updated>2013-10-10T09:42:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/10/10/linux-hard-link-vs-soft-link</id>
-    <content type="html"><![CDATA[<p>链接的概念其实不仅限在Linux中，在类Unix和Windows中也存在，只是网上资料大多都讨论的是类Unix的链接。下面主要对所了解的类Unix下的链接谈谈自己的认识。</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>链接的概念其实不仅限在Linux中，在类Unix和Windows中也存在，只是网上资料大多都讨论的是类Unix的链接。下面主要对所了解的类Unix下的链接谈谈自己的认识。</p>
 
 <h3>链接存在的目的</h3>
 
@@ -225,7 +233,9 @@ $hadoop fs -ls input
     <link href="http://xautjzd.github.io/blog/2013/10/09/surf-internet-under-linux-about-ruijie/"/>
     <updated>2013-10-09T17:17:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/10/09/surf-internet-under-linux-about-ruijie</id>
-    <content type="html"><![CDATA[<p>自己虽然一直用的校园网，但是由于教研室这块位置比较特殊，不需要使用锐捷客户端认证，但其他地方一般都需要。所以今早有个朋友在笔记本上安装了Ubuntu，但是无法通过锐捷web方式认证，下载的锐捷Linux版客户端安装后也无法上网，所以这方面我也不熟悉，只能求助Google了。由于众多高校的网络都是使用锐捷的这一套，所以大同小异，这方面的资料也不少，Google搜索很快便找到了解决方法，用华科的一个客户端即可，下载地址：<a href="http://code.google.com/p/mentohust/">http://code.google.com/p/mentohust/</a></p>
+    <content type="html"><![CDATA[<hr />
+
+<p>自己虽然一直用的校园网，但是由于教研室这块位置比较特殊，不需要使用锐捷客户端认证，但其他地方一般都需要。所以今早有个朋友在笔记本上安装了Ubuntu，但是无法通过锐捷web方式认证，下载的锐捷Linux版客户端安装后也无法上网，所以这方面我也不熟悉，只能求助Google了。由于众多高校的网络都是使用锐捷的这一套，所以大同小异，这方面的资料也不少，Google搜索很快便找到了解决方法，用华科的一个客户端即可，下载地址：<a href="http://code.google.com/p/mentohust/">http://code.google.com/p/mentohust/</a></p>
 
 <p>下载后，切换到下载的目录，然后运行<code>sudo dpkg -i 'your deb packagename'</code>即可，安装过程中，一步一步按照其步骤输入相应信息即可。安装完成后，会将配置的信息存储在<code>/etc/mentohust.conf</code>文件中，也可进行修改。在安装的过程中，如果采用DHCP方式，在选择时应该注意，选择1或者2，千万别选择3，否则上不了网。各选项的含义是：</p>
 

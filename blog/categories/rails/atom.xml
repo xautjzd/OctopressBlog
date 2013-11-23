@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Rails | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-11-21T22:24:05+08:00</updated>
+  <updated>2013-11-23T15:05:49+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -18,7 +18,9 @@
     <link href="http://xautjzd.github.io/blog/2013/07/30/create-my-first-rails-app/"/>
     <updated>2013-07-30T17:22:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/07/30/create-my-first-rails-app</id>
-    <content type="html"><![CDATA[<h2>开启Mysql服务</h2>
+    <content type="html"><![CDATA[<hr />
+
+<h2>开启Mysql服务</h2>
 
 <p>我的一个rails程序是采用mysql数据库，不是默认的sqlite3.所以前提是已经安装了mysql。由于Mysql安装了好久，但是很少使用。所以服务没有启动，近来可能会频繁使用，便设置为开机自动启动了。设置方法为:<code>#systemctl enable mysqld.service</code>或者<code>service mysqld start</code>。</p>
 

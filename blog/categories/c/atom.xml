@@ -4,7 +4,7 @@
   <title><![CDATA[Category: C | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/c/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-11-21T22:24:05+08:00</updated>
+  <updated>2013-11-23T15:05:49+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -18,7 +18,9 @@
     <link href="http://xautjzd.github.io/blog/2013/09/29/dead-code/"/>
     <updated>2013-09-29T10:09:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/09/29/dead-code</id>
-    <content type="html"><![CDATA[<p>今天在网上看到腾讯的一个实习生招聘题，里面提到了dead code，便上wikipedia查了下，解释如下：</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>今天在网上看到腾讯的一个实习生招聘题，里面提到了dead code，便上wikipedia查了下，解释如下：</p>
 
 <p>在计算机编程中，dead code是指那些被执行但执行结果在其他地方没有用到的代码。dead code的执行耗费cpu时间但是结果无用。</p>
 

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Octopress | xautjzd]]></title>
   <link href="http://xautjzd.github.io/blog/categories/octopress/atom.xml" rel="self"/>
   <link href="http://xautjzd.github.io/"/>
-  <updated>2013-11-21T22:24:05+08:00</updated>
+  <updated>2013-11-23T15:05:49+08:00</updated>
   <id>http://xautjzd.github.io/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -18,7 +18,9 @@
     <link href="http://xautjzd.github.io/blog/2013/09/17/update-my-blog/"/>
     <updated>2013-09-17T15:22:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/09/17/update-my-blog</id>
-    <content type="html"><![CDATA[<p>现在已记不清接触Octopress多长时间了，只依稀记得当时配置Octopress配了好久，然后依然失败，后又忙于其他的事情，所以搭建工作便搁置一旁，七月中旬时间比较充足，所以又开始再次折腾，后来终于搭建成功，所以7.18便发表了第一篇博客。后来一个月之后又开始了我的换肤工作，一切都好，唯一的缺陷是Gravatar的图像没有显示出来，所以便向theme的作者发问，后来也忘了这茬事。就这样又过了一月，直到今天，突然发现我的unread消息里面有几条关于我的message，便打开浏览，才发现作者给的回复，说图像没显示是个bug，现已修复。具体见：</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>现在已记不清接触Octopress多长时间了，只依稀记得当时配置Octopress配了好久，然后依然失败，后又忙于其他的事情，所以搭建工作便搁置一旁，七月中旬时间比较充足，所以又开始再次折腾，后来终于搭建成功，所以7.18便发表了第一篇博客。后来一个月之后又开始了我的换肤工作，一切都好，唯一的缺陷是Gravatar的图像没有显示出来，所以便向theme的作者发问，后来也忘了这茬事。就这样又过了一月，直到今天，突然发现我的unread消息里面有几条关于我的message，便打开浏览，才发现作者给的回复，说图像没显示是个bug，现已修复。具体见：</p>
 
 <p><a href="https://github.com/shashankmehta/greyshade/issues/42">https://github.com/shashankmehta/greyshade/issues/42</a></p>
 
@@ -49,7 +51,9 @@ rake update_source
     <link href="http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog/"/>
     <updated>2013-08-17T22:56:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/08/17/change-theme-of-blog</id>
-    <content type="html"><![CDATA[<p>Octopress博客搭建已经有一阵了，但一直采用的默认的主题，没时间更换。今天特意抽时间来更换下，先上<a href="http://octopress.org/docs/theme/">Octopress官网</a>了解了下更换Theme的原理，然后上Octopress所在的源码托管平台GitHub，在其<a href="https://github.com/imathis/octopress/wiki">Wiki</a>上找到了<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">第三方Themes</a>,便从前到后大致将各种themes都预览了一遍，最后选择了<a href="https://github.com/shashankmehta/greyshade">Greyshade主题</a>,安装方法官网写的已经非常详细，这里再啰嗦一遍：</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>Octopress博客搭建已经有一阵了，但一直采用的默认的主题，没时间更换。今天特意抽时间来更换下，先上<a href="http://octopress.org/docs/theme/">Octopress官网</a>了解了下更换Theme的原理，然后上Octopress所在的源码托管平台GitHub，在其<a href="https://github.com/imathis/octopress/wiki">Wiki</a>上找到了<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">第三方Themes</a>,便从前到后大致将各种themes都预览了一遍，最后选择了<a href="https://github.com/shashankmehta/greyshade">Greyshade主题</a>,安装方法官网写的已经非常详细，这里再啰嗦一遍：</p>
 
 <h3>Install</h3>
 
@@ -85,7 +89,9 @@ title: Thinking</p>
     <link href="http://xautjzd.github.io/blog/2013/07/30/add-comments-to-sidebar/"/>
     <updated>2013-07-30T10:47:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/07/30/add-comments-to-sidebar</id>
-    <content type="html"><![CDATA[<h2>新建comments.html文件</h2>
+    <content type="html"><![CDATA[<hr />
+
+<h2>新建comments.html文件</h2>
 
 <p>添加评论到侧边栏与添加关于、文章分类和友情链接相似，需要在source/_includes/custom/asides/目录下添加comments.html模块，名字根据自己的喜好可以换成其他的，如xxx.html，然后在comments.html里添加如下内容：</p>
 
@@ -139,7 +145,9 @@ title: Thinking</p>
     <link href="http://xautjzd.github.io/blog/2013/07/27/octopress-add-frend-sites/"/>
     <updated>2013-07-27T16:02:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/07/27/octopress-add-frend-sites</id>
-    <content type="html"><![CDATA[<p>与在侧边栏添加Aboutme、Categories、Tagcloud等功能类似，在source/_include\custom\asides目录下添加一个frendsites.html文件，模仿about等写法，添加友情链接，如下所示：</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>与在侧边栏添加Aboutme、Categories、Tagcloud等功能类似，在source/_include\custom\asides目录下添加一个frendsites.html文件，模仿about等写法，添加友情链接，如下所示：</p>
 
 <pre><code><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>友情链接 </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -168,7 +176,9 @@ title: Thinking</p>
     <link href="http://xautjzd.github.io/blog/2013/07/18/config-category-plugin/"/>
     <updated>2013-07-18T17:17:00+08:00</updated>
     <id>http://xautjzd.github.io/blog/2013/07/18/config-category-plugin</id>
-    <content type="html"><![CDATA[<p>Octopress搭建的博客默认没有文章分类，这肯定让人很不爽，但这个号称Hacker的博客肯定有这功能，便网上搜寻了答案，最终得以解决。方法如下：</p>
+    <content type="html"><![CDATA[<hr />
+
+<p>Octopress搭建的博客默认没有文章分类，这肯定让人很不爽，但这个号称Hacker的博客肯定有这功能，便网上搜寻了答案，最终得以解决。方法如下：</p>
 
 <h3>1. 添加category_list插件</h3>
 
