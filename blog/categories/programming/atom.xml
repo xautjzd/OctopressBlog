@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Programming | xautjzd]]></title>
+  <link href="http://xautjzd.github.io/blog/categories/programming/atom.xml" rel="self"/>
+  <link href="http://xautjzd.github.io/"/>
+  <updated>2013-12-04T20:58:19+08:00</updated>
+  <id>http://xautjzd.github.io/</id>
+  <author>
+    <name><![CDATA[xautjzd]]></name>
+    <email><![CDATA[xautjzd@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Dead Code]]></title>
+    <link href="http://xautjzd.github.io/blog/2013/09/29/dead-code/"/>
+    <updated>2013-09-29T10:09:00+08:00</updated>
+    <id>http://xautjzd.github.io/blog/2013/09/29/dead-code</id>
+    <content type="html"><![CDATA[<hr />
+
+<p>今天在网上看到腾讯的一个实习生招聘题，里面提到了dead code，便上wikipedia查了下，解释如下：</p>
+
+<p>在计算机编程中，dead code是指那些被执行但执行结果在其他地方没有用到的代码。dead code的执行耗费cpu时间但是结果无用。</p>
+
+<p>dead code的执行结果没用也就罢了，但它还可能同时导致异常或影响某些全局状态，所以移除这些dead code可能会改变程序的输出，并且排除那些意想不到的bugs。</p>
+
+<p>参考文档：</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Dead_code">http://en.wikipedia.org/wiki/Dead_code</a></p>
+]]></content>
+  </entry>
+  
+</feed>
