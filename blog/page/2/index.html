@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Sep 29th, 2013 C, Programming Comments Dead Code 今天在网上看到腾讯的一个实习生招聘题，里面提到了dead code，便上wikipedia查了下，解释如下： 在计算机编程中，dead code是指那些被执行但执行结果在其他地方没有用到的代码。 &hellip;">
+	<meta name="description" content="Oct 1st, 2013 Thinking Comments 梦想 你要搞清楚自己人生的剧本——不是你父母的续集，不是你子女的前传，更不是你朋友的外篇，对待生命你不妨大胆冒险一点，因为好歹你要失去它。如果这世界上真有奇迹，那只是努力的另一个名字，生命中最难的阶段不是没有人懂你，而是你不懂你自己 &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -117,6 +117,48 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-01T22:48:00+08:00" data-updated="true" itemprop="datePublished">Oct 1<span>st</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/10/01/whats-my-dream/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/10/01/whats-my-dream/" itemprop="url">梦想</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<hr />
+
+<p>你要搞清楚自己人生的剧本——不是你父母的续集，不是你子女的前传，更不是你朋友的外篇，对待生命你不妨大胆冒险一点，因为好歹你要失去它。如果这世界上真有奇迹，那只是努力的另一个名字，生命中最难的阶段不是没有人懂你，而是你不懂你自己。——尼采</p>
+
+<p>当读到这段话时，我陷入了沉思，不禁想：人生短短几十年，生命的1/3差不多已悄然而逝，在这1/3的年华中自己收获了什么，失去了什么。我想得到的可能就是人们眼中所谓的专业知识，比一般人士更了解计算机而已，同时可能收获的是思考问题和解决问题的能力。而失去的确是童年该有的肆无忌惮的玩耍，天马行空的想法，取而代之的是那铜墙铁壁似的教室的囚禁，被教导做个父母、老师眼中的乖孩子，死记硬背那些该死的口诀表和公式。</p>
+
+
+		
+		<a href="/blog/2013/10/01/whats-my-dream/" class="more-link">Read more&#8230;</a>
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -606,62 +648,6 @@ dev/sda3 /home 4G
 
 		
 		<a href="/blog/2013/09/12/installing-archlinux-in-virtualbox/" class="more-link">Read more&#8230;</a>
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-09T10:37:00+08:00" data-updated="true" itemprop="datePublished">Sep 9<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/09/09/cookies-vs-sessions/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/09/09/cookies-vs-sessions/" itemprop="url">Cookies vs Sessions</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<hr />
-
-<p>Http是无状态的协议，客户端给服务器发送请求，服务端响应客户端的请求，会话结束。这样两次会话间不便没有任何关联。但有时候需要在会话间进行信息共享，如：购物车，保存用户名与密码等。为此，cookie与session便诞生了,它们的存在就是为了弥补http协议无状态的缺陷。</p>
-
-<p>cookie与session最大的不同是：cookie保存在用户的浏览器中，而session则保留在服务端。正是这种不同决定了它们的不用使用场合。</p>
-
-<h2>Cookie</h2>
-
-<hr />
-
-<p>cookie机制是通过扩展http协议来实现的。服务器通过在HTTP的响应头中加上一行特殊的指示以提示浏览器按照指示生成相应的cookie。其实纯粹的客户端脚本如JavaScript或者VBScript也可以生成cookie。而cookie的使用是由浏览器按照一定的原则在后台自动发送给服务器端。</p>
-
-<p>cookie主要内容包括：Name,Content,Path,Domain,Expires(过期时间)等。Domain与Path一起构成cookie的作用范围。</p>
-
-<p>若不设置Expires,则默认的cookie生命周期为浏览器会话期间，一旦浏览器关闭，cookie则会被清理掉，这种生命周期为浏览器会话期的cookie被成为会话cookie。会话cookie存储在内存中而不是在硬盘上。</p>
-
-<p>若设置了Expires,浏览器则会把生成的cookie保存在硬盘上，即使浏览器关闭后再打开，cookie依然有效，直至超过设置的expires。</p>
-
-<p>另外，session大小有限制，一旦浏览器禁用cookie，则采用cookie的购物网站便不能进行购物，所以这时候得用session了。</p>
-
-
-		
-		<a href="/blog/2013/09/09/cookies-vs-sessions/" class="more-link">Read more&#8230;</a>
 	</div>
 
 </article>

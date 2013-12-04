@@ -9,7 +9,9 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Jul 22nd, 2013 Git Comments Git的相关操作 查看Git远程库地址 建立了远程库后，许久没操作，突然忘了其对应的具体远程库的url。可通过以下命令来查看： $git remote -v -v选项是&mdash;verbose的简写，最后结果为： origin git@ &hellip;">
+	<meta name="description" content="Jul 27th, 2013 Ruby Comments Ruby元编程之Proc对象 Proc Proc对象其实就是将代码块(block)转换成对象的块。方式有大致几种： 1.Proc对象 1
+2
+3 inc = Proc.new{ |x| x + 1 } inc.call(3) #=&gt; &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -117,6 +119,72 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-27T12:40:00+08:00" data-updated="true" itemprop="datePublished">Jul 27<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/07/27/metaprogram-proc/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/07/27/metaprogram-proc/" itemprop="url">Ruby元编程之Proc对象</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<hr />
+
+<h2>Proc</h2>
+
+<p>Proc对象其实就是将代码块(block)转换成对象的块。方式有大致几种：</p>
+
+<p>1.Proc对象</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">inc</span> <span class="o">=</span> <span class="no">Proc</span><span class="o">.</span><span class="n">new</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+</span><span class='line'>    <span class="n">inc</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>     <span class="c1">#=&gt;4</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>2.lambda方法</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'>    <span class="n">inc</span> <span class="o">=</span> <span class="nb">lambda</span><span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">}</span>
+</span><span class='line'>    <span class="n">inc</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>     <span class="c1">#=&gt;4</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+
+		
+		<a href="/blog/2013/07/27/metaprogram-proc/" class="more-link">Read more&#8230;</a>
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">

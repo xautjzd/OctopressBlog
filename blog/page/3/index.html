@@ -9,7 +9,7 @@
 	<meta name="author" content="xautjzd">
 
 	
-	<meta name="description" content="Sep 4th, 2013 Linux, Thinking Comments 查看网站所用Web服务器类型 学习Rails的Layout过程中，其中有提到curl，所以便简单的看了下curl的功能。虽说以前学习Shell的过程中也看到过curl,不过没怎么用过，只知道和wget功能类似， &hellip;">
+	<meta name="description" content="Sep 9th, 2013 Thinking Comments Cookies vs Sessions Http是无状态的协议，客户端给服务器发送请求，服务端响应客户端的请求，会话结束。这样两次会话间不便没有任何关联。但有时候需要在会话间进行信息共享，如：购物车，保存用户名与密码等。为此， &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -117,6 +117,62 @@
 			<div class="mid-col-container">
 				<div id="content" class="inner">
 <div itemscope itemtype="http://schema.org/Blog">
+
+
+    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+	<div class="meta">
+		<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-09T10:37:00+08:00" data-updated="true" itemprop="datePublished">Sep 9<span>th</span>, 2013</time></div>
+		<div class="tags">
+
+
+	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+
+</div>
+		
+			<span class="comments"><a href="/blog/2013/09/09/cookies-vs-sessions/#disqus_thread">Comments</a></span>
+		
+	</div>
+	<h1 class="title" itemprop="name"><a href="/blog/2013/09/09/cookies-vs-sessions/" itemprop="url">Cookies vs Sessions</a></h1>
+	<div class="entry-content" itemprop="articleBody">
+		<hr />
+
+<p>Http是无状态的协议，客户端给服务器发送请求，服务端响应客户端的请求，会话结束。这样两次会话间不便没有任何关联。但有时候需要在会话间进行信息共享，如：购物车，保存用户名与密码等。为此，cookie与session便诞生了,它们的存在就是为了弥补http协议无状态的缺陷。</p>
+
+<p>cookie与session最大的不同是：cookie保存在用户的浏览器中，而session则保留在服务端。正是这种不同决定了它们的不用使用场合。</p>
+
+<h2>Cookie</h2>
+
+<hr />
+
+<p>cookie机制是通过扩展http协议来实现的。服务器通过在HTTP的响应头中加上一行特殊的指示以提示浏览器按照指示生成相应的cookie。其实纯粹的客户端脚本如JavaScript或者VBScript也可以生成cookie。而cookie的使用是由浏览器按照一定的原则在后台自动发送给服务器端。</p>
+
+<p>cookie主要内容包括：Name,Content,Path,Domain,Expires(过期时间)等。Domain与Path一起构成cookie的作用范围。</p>
+
+<p>若不设置Expires,则默认的cookie生命周期为浏览器会话期间，一旦浏览器关闭，cookie则会被清理掉，这种生命周期为浏览器会话期的cookie被成为会话cookie。会话cookie存储在内存中而不是在硬盘上。</p>
+
+<p>若设置了Expires,浏览器则会把生成的cookie保存在硬盘上，即使浏览器关闭后再打开，cookie依然有效，直至超过设置的expires。</p>
+
+<p>另外，session大小有限制，一旦浏览器禁用cookie，则采用cookie的购物网站便不能进行购物，所以这时候得用session了。</p>
+
+
+		
+		<a href="/blog/2013/09/09/cookies-vs-sessions/" class="more-link">Read more&#8230;</a>
+	</div>
+
+</article>
 
 
     <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
@@ -724,82 +780,6 @@ eg: set foldmarker= /*,*/
 
 
 <p>这样后，只要new_post并且category为Thinking的页面都会集中在所思所想对应的页面显示。</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-16T22:12:00+08:00" data-updated="true" itemprop="datePublished">Aug 16<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/vim/'>Vim</a>
-
-
-</div>
-		
-			<span class="comments"><a href="/blog/2013/08/16/powerline-vs-airline/#disqus_thread">Comments</a></span>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/08/16/powerline-vs-airline/" itemprop="url">安装Powerline过程中的收获</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<hr />
-
-<p>Powerline插件已经多次耳闻目见，但是一直没做尝试，今天再次看到便忍不住试了下，结果还没成功。可能是由于字体的原因吧，在找答案的过程中邂逅了airline,据说比powerline加载更快，而且还无需安装字体。所以便果断地换为airline。只需在vimrc中加入<code>bundle bling/vim-airline</code>即可。当然前提是在~/.vimrc中已有如下配置：</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nb">set </span><span class="nv">laststatus</span><span class="o">=</span>2  <span class="err">&quot;</span>Always show the status line
-</span><span class='line'><span class="nb">set </span>noshowmode
-</span><span class='line'><span class="nb">set </span><span class="nv">t_Co</span><span class="o">=</span>256
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>配置好后效果如下图所示：
-<img src="/images/airline.jpg" alt="" /></p>
-
-<p>配置好后，在bash中显示没问题，但是在tmux中显示就有问题了，先前配置的效果无法显示。网上也找了好久答案，才得以解决，方法如下：</p>
-
-<p><strong>1.$vim ~/.tmux.conf</strong></p>
-
-<p>在~/.tmux.conf文件中添加如下代码：</p>
-
-<pre><code>set -g default-terminal "screen-256color"
-</code></pre>
-
-<p><strong>2.$vim ~/.bashrc</strong></p>
-
-<p>在~/.bashrc中添加如下代码：</p>
-
-<pre><code>alias tmux="tmux -2"
-</code></pre>
-
-<p><code>tmux -2</code>是强制tmux的终端支持256种颜色。</p>
-
-<p>配置好后，显示没问题，但是在写博客的过程中发现vim突然不能输入中文了，不知为何。最后在~/.vimrc添加：</p>
-
-<pre><code>set guifont=*
-</code></pre>
-
-<p>就顺利解决，不过原因待深究，要学的东西太多。</p>
 
 		
 		
