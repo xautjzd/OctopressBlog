@@ -3,7 +3,7 @@ layout: post
 title: "Tmux常用操作总结"
 date: 2013-12-04 19:32
 comments: true
-categories: 
+categories: Linux
 ---
 ---
 以前也写过一篇关于[tmux的文章][1],大概对tmux从简介、安装到操作已有简单的介绍，但由于是刚使用tmux时所写，总感觉操作部分写的不是很好，不够全面，所以便出现了此篇，算是填补前一篇的不足吧。
