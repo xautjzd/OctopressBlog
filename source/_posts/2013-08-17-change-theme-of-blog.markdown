@@ -5,7 +5,6 @@ date: 2013-08-17 22:56
 comments: true
 categories: [Octopress,Thinking]
 ---
----
 Octopress博客搭建已经有一阵了，但一直采用的默认的主题，没时间更换。今天特意抽时间来更换下，先上[Octopress官网](http://octopress.org/docs/theme/)了解了下更换Theme的原理，然后上Octopress所在的源码托管平台GitHub，在其[Wiki](https://github.com/imathis/octopress/wiki)上找到了[第三方Themes](https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes),便从前到后大致将各种themes都预览了一遍，最后选择了[Greyshade主题](https://github.com/shashankmehta/greyshade),安装方法官网写的已经非常详细，这里再啰嗦一遍：
 
 ###Install

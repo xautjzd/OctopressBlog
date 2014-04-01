@@ -5,7 +5,6 @@ date: 2013-08-08 16:12
 comments: true
 categories: Linux
 ---
----
 
 ##1. tmux简介
 

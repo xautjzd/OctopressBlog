@@ -5,7 +5,6 @@ date: 2013-09-17 20:54
 comments: true
 categories: Ruby
 ---
----
 Ruby中类其实也是Class的实例。而且instance_eval必须由实例来调用，class_eval必须由类来调用。具体参考下面的实例：
 
 	{% codeblock lang:ruby %}

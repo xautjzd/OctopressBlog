@@ -5,7 +5,6 @@ date: 2013-10-10 09:42
 comments: true
 categories: Linux
 ---
----
 链接的概念其实不仅限在Linux中，在类Unix和Windows中也存在，只是网上资料大多都讨论的是类Unix的链接。下面主要对所了解的类Unix下的链接谈谈自己的认识。
 
 ###链接存在的目的

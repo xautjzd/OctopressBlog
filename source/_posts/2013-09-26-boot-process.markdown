@@ -5,7 +5,6 @@ date: 2013-09-26 18:48
 comments: true
 categories: Linux
 ---
----
 
 计算机启动过程的详细介绍请参考阮一峰老师的两篇博文：
 

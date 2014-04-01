@@ -5,7 +5,6 @@ date: 2013-10-27 16:37
 comments: true
 categories: Linux
 ---
----
 谈Vim寄存器前先对昨天做个总结吧。Rails Girls昨天在西安的ThoughtWorks成功举办，目的是帮女性程序员了解Ruby & Rails，报名参加的学员大概有30多人，教练大致有10来个，由于活动是ThoughtWorks和西安的Rubyists一起合作举办，所以我作为西安Rubyists的一员报名当了教练(由于教练奇缺，而我们Rubyist成员大多都去北京参加RubyConf了，所以我作为Rubyists里面的菜鸟报名当教练了，去了发现除我外，其他教练都是TW员工,顿时汗颜)。
 
 <!-- more -->

@@ -5,7 +5,6 @@ date: 2013-08-26 11:30
 comments: true
 categories: [Vim,Linux]
 ---
----
 前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着[powerline官网](ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation)的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。
 
 安装patched fonts方式请参考:[powerline字体配置](https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation)，尽管文档很详细，但是还是重复一下：

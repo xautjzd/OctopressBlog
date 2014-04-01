@@ -5,7 +5,6 @@ date: 2013-07-29 20:59
 comments: true
 categories: Ruby
 ---
----
 
 不同的项目所用的ruby版本不同，所以为了方便不同项目ruby版本的切换，需要在同一个系统中安装多个ruby版本，并且针对不同的项目在不同的版本间切换，为了方便ruby版本的管理，采用[RVM](https://rvm.io/)进行管理。
 

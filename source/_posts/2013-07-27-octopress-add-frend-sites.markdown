@@ -5,7 +5,6 @@ date: 2013-07-27 16:02
 comments: true
 categories: Octopress
 ---
----
 与在侧边栏添加Aboutme、Categories、Tagcloud等功能类似，在source/\_include\custom\asides目录下添加一个frendsites.html文件，模仿about等写法，添加友情链接，如下所示：
     {% codeblock lang:html 友情链接 %}
     <section>

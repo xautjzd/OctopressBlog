@@ -5,7 +5,6 @@ date: 2013-07-18 12:42
 comments: true
 categories: [Octopress, Thinking]
 ---
----
 几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。
 详细搭建过程官方文档写的相当详细，这里不再赘述，请参考：
 [官网](octopress.org/docs/setup)  

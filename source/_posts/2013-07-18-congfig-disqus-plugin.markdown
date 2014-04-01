@@ -5,7 +5,6 @@ date: 2013-07-18 15:37
 comments: true
 categories: [Octopress, Thinking]
 ---
----
 ###添加Disqus插件
 看到不少人博客上都有Comments功能，便也想给自己的博客添加上。经过搜寻一番，发现大多用的都是Disqus，而且octopress其实内置了其功能，只是默认没有设置.编辑博客主目录下的config.yml文件即可：
     $vim _config.yml

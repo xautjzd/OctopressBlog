@@ -1,0 +1,12 @@
+#!/bin/sh
+
+FILES=source/_posts/*.markdown
+for file in $FILES
+do
+	NUM=7
+	line=$(awk NR==$NUM $file)
+	if [[ $line == *"---"* ]];
+	then
+		sed -i '7d' $file;
+	fi;
+done

@@ -5,7 +5,6 @@ date: 2014-01-16 10:17
 comments: true
 categories: [Linux, Vim]
 ---
----
 ### Surround.vim插件简介
 
 [Surround.vim] [1] 是一款关于括号、引号和xml标签匹配的插件，可以成对的添加、修改和删除。当然也可以自定义匹配项。下面就常用的功能分别对标记的添加、修改和删除一一介绍。

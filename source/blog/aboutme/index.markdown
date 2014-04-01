@@ -10,7 +10,7 @@ footer: true
 
 博学之，审问之，慎思之，明辨之，笃行之
 
-### Introduce
+### Introduction
 
 程序员一枚，热爱开源，钟爱Linux,尤其是Vim，喜欢折腾。目前环境为Fedora17,有点Java基础，Asp.net MVC项目经验，自学过Ruby，喜欢和搞技术的人交流心得体会，喜欢接触新东西。
 
@@ -42,8 +42,6 @@ footer: true
 - Facebook: [jiangzhengdong](https://www.facebook.com/jiangzhengdong)
 
 - Twitter: [xautjzd](https://twitter.com/xautjzd)
-
-- QQ :176300603
 
 ### Location
 

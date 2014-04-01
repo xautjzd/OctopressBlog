@@ -5,7 +5,6 @@ date: 2013-08-18 13:48
 comments: true
 categories: [Vim,Linux]
 ---
----
 
 ### 实用的快捷方式
 

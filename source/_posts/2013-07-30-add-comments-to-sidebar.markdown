@@ -5,7 +5,6 @@ date: 2013-07-30 10:47
 comments: true
 categories: Octopress
 ---
----
 
 ##新建comments.html文件
 

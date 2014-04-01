@@ -5,7 +5,6 @@ date: 2013-07-30 17:22
 comments: true
 categories: Rails
 ---
----
 
 ##开启Mysql服务
 

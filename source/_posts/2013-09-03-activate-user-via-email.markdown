@@ -5,7 +5,6 @@ date: 2013-09-03 21:48
 comments: true
 categories: [Thinking] 
 ---
----
 ### 邮箱激活目的
 
 防止用户注册时所填写的信息为虚假信息

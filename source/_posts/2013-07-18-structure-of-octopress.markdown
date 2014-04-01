@@ -5,7 +5,6 @@ date: 2013-07-18 14:27
 comments: true
 categories: [Octopress, Thinking] 
 ---
----
 ###Octopress博客目录结构
 
 octopress博客的source目录结构大致如下:
