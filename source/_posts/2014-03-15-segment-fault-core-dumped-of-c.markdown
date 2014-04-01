@@ -21,6 +21,8 @@ categories: [Linux, C]
 4. writing off the end of an array
 5. recursive function that uses all of the stack space
 
+<!-- more -->
+
 ## 什么是core文件？
 
 在调试段错误前，不得不提到core文件。那么什么是core文件呢?core文件其实就是当程序崩溃时保存的该进程在内存中的映像(同时包含调试信息),主要用于调试。
