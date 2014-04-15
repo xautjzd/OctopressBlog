@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Thinking | Xautjzd]]></title>
-  <link href="http://xautjzd.github.io/blog/categories/thinking/atom.xml" rel="self"/>
-  <link href="http://xautjzd.github.io/"/>
-  <updated>2014-04-15T17:59:09+08:00</updated>
-  <id>http://xautjzd.github.io/</id>
+  <link href="http://bebety.com/blog/categories/thinking/atom.xml" rel="self"/>
+  <link href="http://bebety.com/"/>
+  <updated>2014-04-15T19:36:45+08:00</updated>
+  <id>http://bebety.com/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
     <email><![CDATA[xautjzd@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[拆机过程中的一些收获]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/11/23/experience-share-about-computer-disassembly/"/>
+    <link href="http://bebety.com/blog/2013/11/23/experience-share-about-computer-disassembly/"/>
     <updated>2013-11-23T10:58:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/11/23/experience-share-about-computer-disassembly</id>
+    <id>http://bebety.com/blog/2013/11/23/experience-share-about-computer-disassembly</id>
     <content type="html"><![CDATA[<p>昨天吃完午饭后来到教研室，突然师妹说有个远程(其实只是充分利用教研室的旧机器，在上面发布一些教研室的web项目，还有做为版本控制器的服务器)机器现在不能远程了，尝试关机不得所以强关，然后重启便无法启动，而她的数据在上面。所以我便开始了肢解之路。</p>
 
 <p>由于几乎没有拆台式机的经验，所以拆机过程花费时间比较长，尤其是机箱外盖的拆卸。毕竟是旧机器，没有什么拆机教程可供参考，所以只能摸索着前进了，最后还是使用了点暴力手段才卸下的。拆开后，首先看了下是不是由于接口松动导致无法开机(其实连我自己都不相信是接口松动导致，因为强关不可能导致接口松动吧，可能是为了自我安慰才想到是接口松动的缘故)，查看了一番，便很快排除这个原因。突然想强关的后果很可能就是导致硬盘坏掉，但是起码也应该进入BIOS吧。便猜想是不是电源坏掉导致的原因，老师刚好这时候也出来了，看到我在拆着机，便问我什么情况，我便跟老师一五一十地把情况汇报了一番。然后老师便去隔壁(其实是老师所在部门的办公室)找了一台不能用的机器，我拿过来之后卸下电源重新换上去，当然其中还有不少接线的问题还摸索了一阵,最后才发现电源存在的作用：</p>
@@ -57,9 +57,9 @@
   
   <entry>
     <title type="html"><![CDATA[放慢脚步回首过去一个月]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/11/21/some-ideas/"/>
+    <link href="http://bebety.com/blog/2013/11/21/some-ideas/"/>
     <updated>2013-11-21T20:31:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/11/21/some-ideas</id>
+    <id>http://bebety.com/blog/2013/11/21/some-ideas</id>
     <content type="html"><![CDATA[<p>自上篇文章到现在差不多快一个月了，也因各种琐碎的事情没有闲下来构思一篇博文，顿时有一丝的罪恶感。吃完晚饭洗完澡坐在电脑前突然有种茫然的感觉，上了会儿高端大气的知乎浏览了几个帖子，本想着改下代码，结果发现也打不起精神，便趁此机会来码字来寻求心灵片刻的安宁吧。</p>
 
 <p>首先，说说最近的劳动吧，虽然没啥成果。最近教研室事不多，刚好师姐有个同学需要找人帮忙改个项目，便答应帮忙(当然是有酬劳的，不然也不会闲到改.net的代码，虽然目前还没有谈具体的数字)。其实也不在乎都多少，答应干此活也只是为了积累经验而已，方便日后找工作，同时也算是练手。拿到代码后，我顿时有种欲哭无泪的感觉，代码逻辑及结构之混乱超乎我想象，可以总结为以下几点：</p>
@@ -94,9 +94,9 @@
   
   <entry>
     <title type="html"><![CDATA[一些感想]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/10/15/some-feelings/"/>
+    <link href="http://bebety.com/blog/2013/10/15/some-feelings/"/>
     <updated>2013-10-15T19:55:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/10/15/some-feelings</id>
+    <id>http://bebety.com/blog/2013/10/15/some-feelings</id>
     <content type="html"><![CDATA[<p>如果要评价自己的话，那么我会将自己归为乐于分享的一类，不管是技术还是工具，亦或代码。平时也都关注一些科技新闻和博客，每当发现不错的信息时，都会想着第一时间将其分享给身边的朋友。</p>
 
 <p>分享过的工具中记忆比较深的当属Git，GitHub，Evernote和Vim了，系统方面则有Linux，编程方面则有Ruby。虽然可能最终用的人不是很多，但起码他们脑海中已经有了这个词，我觉得这也就够了，毕竟大部分人还是守旧派，不愿接触新鲜事物。但自己这颗乐于分享的心却从未动摇过，只要有好东西，绝对第一时间分享。但总会有那么一些人会对我的举措有误解，认为我是一个喜欢炫耀的人，推荐给大家一些他们闻所未闻的新鲜事物是为了证明我的牛，我只能一笑置之，也不想多做辩解。因为解释过多，可能又会有人说“解释是为了更好的掩饰”，所以沉默是最好的回应。</p>
@@ -114,9 +114,9 @@
   
   <entry>
     <title type="html"><![CDATA[梦想]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/10/01/whats-my-dream/"/>
+    <link href="http://bebety.com/blog/2013/10/01/whats-my-dream/"/>
     <updated>2013-10-01T22:48:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/10/01/whats-my-dream</id>
+    <id>http://bebety.com/blog/2013/10/01/whats-my-dream</id>
     <content type="html"><![CDATA[<p>你要搞清楚自己人生的剧本——不是你父母的续集，不是你子女的前传，更不是你朋友的外篇，对待生命你不妨大胆冒险一点，因为好歹你要失去它。如果这世界上真有奇迹，那只是努力的另一个名字，生命中最难的阶段不是没有人懂你，而是你不懂你自己。——尼采</p>
 
 <p>当读到这段话时，我陷入了沉思，不禁想：人生短短几十年，生命的1/3差不多已悄然而逝，在这1/3的年华中自己收获了什么，失去了什么。我想得到的可能就是人们眼中所谓的专业知识，比一般人士更了解计算机而已，同时可能收获的是思考问题和解决问题的能力。而失去的确是童年该有的肆无忌惮的玩耍，天马行空的想法，取而代之的是那铜墙铁壁似的教室的囚禁，被教导做个父母、老师眼中的乖孩子，死记硬背那些该死的口诀表和公式。</p>
@@ -136,9 +136,9 @@
   
   <entry>
     <title type="html"><![CDATA[ASP.NET MVC Json()处理大数据异常解决方法]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/09/26/json-serializer-maxjsonlength-exception/"/>
+    <link href="http://bebety.com/blog/2013/09/26/json-serializer-maxjsonlength-exception/"/>
     <updated>2013-09-26T15:15:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/09/26/json-serializer-maxjsonlength-exception</id>
+    <id>http://bebety.com/blog/2013/09/26/json-serializer-maxjsonlength-exception</id>
     <content type="html"><![CDATA[<p>近几天一直忙于windows下的项目，rails的学习暂时搁置了，所以也有好几天没有用fedora了，博客大致也有一周没有更新。此博客本想只记录一些Linux平台下的相关操作，但这两天碰到的问题很棘手，虽最终得以解决，但不忍就此翻篇，想将解决之法记录下来，以避免今后再次碰到此类问题又得重头再寻求解决方案，同时也分享出来，避免其他人碰到此问题时多走弯路。所以便予以记录。下面切入正题：</p>
 
 <p>先对项目做个简单介绍：</p>

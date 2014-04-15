@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Vim | Xautjzd]]></title>
-  <link href="http://xautjzd.github.io/blog/categories/vim/atom.xml" rel="self"/>
-  <link href="http://xautjzd.github.io/"/>
-  <updated>2014-04-15T17:59:09+08:00</updated>
-  <id>http://xautjzd.github.io/</id>
+  <link href="http://bebety.com/blog/categories/vim/atom.xml" rel="self"/>
+  <link href="http://bebety.com/"/>
+  <updated>2014-04-15T19:36:45+08:00</updated>
+  <id>http://bebety.com/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
     <email><![CDATA[xautjzd@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[vim插件之surround.vim]]></title>
-    <link href="http://xautjzd.github.io/blog/2014/01/16/vim-plugin-surround-dot-vim/"/>
+    <link href="http://bebety.com/blog/2014/01/16/vim-plugin-surround-dot-vim/"/>
     <updated>2014-01-16T10:17:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2014/01/16/vim-plugin-surround-dot-vim</id>
+    <id>http://bebety.com/blog/2014/01/16/vim-plugin-surround-dot-vim</id>
     <content type="html"><![CDATA[<h3>Surround.vim插件简介</h3>
 
 <p><a href="https://github.com/tpope/vim-surround">Surround.vim</a> 是一款关于括号、引号和xml标签匹配的插件，可以成对的添加、修改和删除。当然也可以自定义匹配项。下面就常用的功能分别对标记的添加、修改和删除一一介绍。</p>
@@ -93,9 +93,9 @@ yi: 复制配对符号间的文本, eg:yi(, yi{, &hellip;</p>
   
   <entry>
     <title type="html"><![CDATA[Vim常用快捷键总结]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/09/18/vim-shortcut-maps/"/>
+    <link href="http://bebety.com/blog/2013/09/18/vim-shortcut-maps/"/>
     <updated>2013-09-18T19:55:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/09/18/vim-shortcut-maps</id>
+    <id>http://bebety.com/blog/2013/09/18/vim-shortcut-maps</id>
     <content type="html"><![CDATA[<p>Vim的学习之路真的很长，永远有记不完的命令，永远会突然冒出一个新插件。不过我总算从Vim的荆棘中一路走过来了，现在真的是苦尽甘来，时刻体会它带给我的喜悦和惊奇。下面对我所学习所了解到的常用命令做一个基本总结：</p>
 
 <h3>Normal mode:</h3>
@@ -183,9 +183,9 @@ xxx
   
   <entry>
     <title type="html"><![CDATA[Bash到oh-my-zsh的转变]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/08/27/from-bash-to-oh-my-zsh/"/>
+    <link href="http://bebety.com/blog/2013/08/27/from-bash-to-oh-my-zsh/"/>
     <updated>2013-08-27T18:14:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/08/27/from-bash-to-oh-my-zsh</id>
+    <id>http://bebety.com/blog/2013/08/27/from-bash-to-oh-my-zsh</id>
     <content type="html"><![CDATA[<p>从开始使用到现在一直使用的bash,虽然以前听过ksh,csh,sh等，但都不曾用过，今年开始zsh便不断地出入在眼前，但没真正见人用过，也不知道效果咋样，所以也没做尝试。</p>
 
 <p>另一个原因是各大linux默认都是bash,说明其功能不错，而且也处于懒的原因，就没折腾。但最近在使用tmux的过程中发现bash的提示符只显示<code>-bash4.2$</code>字样，并没有显示成<code>user@hostname directory</code>，在加上西安rubyist的熟人皓哥强烈推荐，这就坚定了我舍弃bash转到zsh的决心，二话不说，立马上GitHub上找到oh-my-zsh。就照着readme开始尝试，结果出现了错误，Google找到答案，是zsh没有安装才导致，所以就<code>yum install zsh</code>安装了zsh,随后在通过</p>
@@ -214,9 +214,9 @@ xxx
   
   <entry>
     <title type="html"><![CDATA[vim-airline插件patched font配置成功]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config/"/>
+    <link href="http://bebety.com/blog/2013/08/26/airline-patched-font-config/"/>
     <updated>2013-08-26T11:30:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/08/26/airline-patched-font-config</id>
+    <id>http://bebety.com/blog/2013/08/26/airline-patched-font-config</id>
     <content type="html"><![CDATA[<p>前段时间装好了airline插件，但是没呈现应有的效果，原因是没有安装字体。根据官网的提示需要安装powerline的字体，我便照着<a href="ttps://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline官网</a>的配置方法来，但是还是没有成功。其原因是我安装了patched fonts，但是没有将terminal的font设置为patched fonts中的一种，所以statusbar会有乱码。下面对安装patched fonts做一个小结。</p>
 
 <p>安装patched fonts方式请参考:<a href="https://powerline.readthedocs.org/en/latest/installation/linux.html#font-installation">powerline字体配置</a>，尽管文档很详细，但是还是重复一下：</p>
@@ -248,9 +248,9 @@ xxx
   
   <entry>
     <title type="html"><![CDATA[vim文件的折叠与展开方式]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/08/25/vim-folding-and-unfolding/"/>
+    <link href="http://bebety.com/blog/2013/08/25/vim-folding-and-unfolding/"/>
     <updated>2013-08-25T16:00:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/08/25/vim-folding-and-unfolding</id>
+    <id>http://bebety.com/blog/2013/08/25/vim-folding-and-unfolding</id>
     <content type="html"><![CDATA[<p>最近一直在用Vim学习Ruby,但是一直有个问题困扰：</p>
 
 <p>那就是文件无法折叠，但是我记得以前看过Vim的视频，里面见别人用到了折叠与展开。文件比较小时，此功能便无用，但一旦文件量大时，折叠与展开便显得尤为重要了。</p>

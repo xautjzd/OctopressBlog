@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Linux | Xautjzd]]></title>
-  <link href="http://xautjzd.github.io/blog/categories/linux/atom.xml" rel="self"/>
-  <link href="http://xautjzd.github.io/"/>
-  <updated>2014-04-15T17:59:09+08:00</updated>
-  <id>http://xautjzd.github.io/</id>
+  <link href="http://bebety.com/blog/categories/linux/atom.xml" rel="self"/>
+  <link href="http://bebety.com/"/>
+  <updated>2014-04-15T19:36:45+08:00</updated>
+  <id>http://bebety.com/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
     <email><![CDATA[xautjzd@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Git远程分支的一些操作]]></title>
-    <link href="http://xautjzd.github.io/blog/2014/04/01/some-operation-on-git-branch/"/>
+    <link href="http://bebety.com/blog/2014/04/01/some-operation-on-git-branch/"/>
     <updated>2014-04-01T08:52:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2014/04/01/some-operation-on-git-branch</id>
+    <id>http://bebety.com/blog/2014/04/01/some-operation-on-git-branch</id>
     <content type="html"><![CDATA[<p><img src="/images/20140401.jpg"></p>
 
 <p>我是个爱折腾的人，昨天晚上突然看着自己的博客主题不爽，便立马将其从原先的Greyshade换到现在的Cleanpress。换完并构思一篇新博客之后，再次提交到GitHub上，得到提示此分支滞后于GitHub上，采用<code>git pull</code>又产生了太多冲突，冲突少手动解决还可，太多更改起来太麻烦，便萌生推掉远程分支重新提交的念头。可之前从未对远程分支做过相关的操作，只是偶尔删除远程库上的单个文件而已，又不得不求助Google了。碰到问题在解决过程中总是会学到很多，并且记忆深刻，现予以记录，方便自己，也回馈社会。</p>
@@ -78,9 +78,9 @@ $git branch -m oldname newname
   
   <entry>
     <title type="html"><![CDATA[C语言中的Segment fault问题]]></title>
-    <link href="http://xautjzd.github.io/blog/2014/03/15/segment-fault-core-dumped-of-c/"/>
+    <link href="http://bebety.com/blog/2014/03/15/segment-fault-core-dumped-of-c/"/>
     <updated>2014-03-15T20:47:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2014/03/15/segment-fault-core-dumped-of-c</id>
+    <id>http://bebety.com/blog/2014/03/15/segment-fault-core-dumped-of-c</id>
     <content type="html"><![CDATA[<p><img src="/images/20140315.jpg"></p>
 
 <h2>什么是Segment fault?</h2>
@@ -126,9 +126,9 @@ $git branch -m oldname newname
   
   <entry>
     <title type="html"><![CDATA[vim插件之surround.vim]]></title>
-    <link href="http://xautjzd.github.io/blog/2014/01/16/vim-plugin-surround-dot-vim/"/>
+    <link href="http://bebety.com/blog/2014/01/16/vim-plugin-surround-dot-vim/"/>
     <updated>2014-01-16T10:17:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2014/01/16/vim-plugin-surround-dot-vim</id>
+    <id>http://bebety.com/blog/2014/01/16/vim-plugin-surround-dot-vim</id>
     <content type="html"><![CDATA[<h3>Surround.vim插件简介</h3>
 
 <p><a href="https://github.com/tpope/vim-surround">Surround.vim</a> 是一款关于括号、引号和xml标签匹配的插件，可以成对的添加、修改和删除。当然也可以自定义匹配项。下面就常用的功能分别对标记的添加、修改和删除一一介绍。</p>
@@ -204,9 +204,9 @@ yi: 复制配对符号间的文本, eg:yi(, yi{, &hellip;</p>
   
   <entry>
     <title type="html"><![CDATA[Tmux常用操作总结]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/12/04/sumary-about-tmux-operation/"/>
+    <link href="http://bebety.com/blog/2013/12/04/sumary-about-tmux-operation/"/>
     <updated>2013-12-04T19:32:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/12/04/sumary-about-tmux-operation</id>
+    <id>http://bebety.com/blog/2013/12/04/sumary-about-tmux-operation</id>
     <content type="html"><![CDATA[<p>以前也写过一篇关于<a href="http://xautjzd.github.io/blog/2013/08/08/tmux-use-and-configuration/">tmux的文章</a>,大概对tmux从简介、安装到操作已有简单的介绍，但由于是刚使用tmux时所写，总感觉操作部分写的不是很好，不够全面，所以便出现了此篇，算是填补前一篇的不足吧。</p>
 
 <p>前边的操作前缀是Ctrl+b组合键，这两个键相隔甚远，操作起来太别扭，后来便在<code>~/.tmux.conf</code>配置文件中更改成<code>Ctrl+a</code>前缀了。具体配置见GitHub上<a href="https://github.com/xautjzd/dotvim">我的tmux配置</a>。</p>
@@ -322,9 +322,9 @@ $&lt;prefix&gt; + ?
   
   <entry>
     <title type="html"><![CDATA[Vim寄存器]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/10/27/vim-registers/"/>
+    <link href="http://bebety.com/blog/2013/10/27/vim-registers/"/>
     <updated>2013-10-27T16:37:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/10/27/vim-registers</id>
+    <id>http://bebety.com/blog/2013/10/27/vim-registers</id>
     <content type="html"><![CDATA[<p>谈Vim寄存器前先对昨天做个总结吧。Rails Girls昨天在西安的ThoughtWorks成功举办，目的是帮女性程序员了解Ruby &amp; Rails，报名参加的学员大概有30多人，教练大致有10来个，由于活动是ThoughtWorks和西安的Rubyists一起合作举办，所以我作为西安Rubyists的一员报名当了教练(由于教练奇缺，而我们Rubyist成员大多都去北京参加RubyConf了，所以我作为Rubyists里面的菜鸟报名当教练了，去了发现除我外，其他教练都是TW员工,顿时汗颜)。</p>
 
 <!-- more -->

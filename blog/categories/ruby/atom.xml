@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Ruby | Xautjzd]]></title>
-  <link href="http://xautjzd.github.io/blog/categories/ruby/atom.xml" rel="self"/>
-  <link href="http://xautjzd.github.io/"/>
-  <updated>2014-04-15T17:59:09+08:00</updated>
-  <id>http://xautjzd.github.io/</id>
+  <link href="http://bebety.com/blog/categories/ruby/atom.xml" rel="self"/>
+  <link href="http://bebety.com/"/>
+  <updated>2014-04-15T19:36:45+08:00</updated>
+  <id>http://bebety.com/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
     <email><![CDATA[xautjzd@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Ruby语言独特点]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/09/19/ruby-syntax-special-point/"/>
+    <link href="http://bebety.com/blog/2013/09/19/ruby-syntax-special-point/"/>
     <updated>2013-09-19T09:05:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/09/19/ruby-syntax-special-point</id>
+    <id>http://bebety.com/blog/2013/09/19/ruby-syntax-special-point</id>
     <content type="html"><![CDATA[<p>有时候真佩服别人的博文可以写的那么长，而且很有料，读起来也非常顺畅，而自己每次却不太善于总结，可能是平时积累的片段还不够，不足以总结，亦或是自己缺少这么一个总结性的思维，导致如今为止也没有产出一篇广为阅读的文章。不过即使如此，也没有打消我持续写博客的念头，不管好坏，不管是否有读者，我将会一如既往的写下去。正如哥哥的《我》:我就是我，是颜色不一样的烟火。每个人都有他存在的价值，无论高低贵贱，无论贫穷富贵，都有其独一无二不可替代的特性。所以无论自己的博文是否能带给大家一丝感触、一点帮助，我都会坚持，因为这也是对我自己学习的一个总结，同时也想尽力贡献一份自己的力量来帮助他人，但我想更多的还是能帮助自己，以便为未来某一天突然需要回味从前的知识提供便捷。我想这便是写博客的初衷。下面进入正题吧：</p>
 
 <!-- more -->
@@ -92,9 +92,9 @@ obj.test { |x| puts x*x }  #=&gt;1, 4, 9, 16
   
   <entry>
     <title type="html"><![CDATA[instance_eval vs class_eval]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/09/17/instance-eval-vs-class-eval/"/>
+    <link href="http://bebety.com/blog/2013/09/17/instance-eval-vs-class-eval/"/>
     <updated>2013-09-17T20:54:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/09/17/instance-eval-vs-class-eval</id>
+    <id>http://bebety.com/blog/2013/09/17/instance-eval-vs-class-eval</id>
     <content type="html"><![CDATA[<p>Ruby中类其实也是Class的实例。而且instance_eval必须由实例来调用，class_eval必须由类来调用。具体参考下面的实例：</p>
 
 <pre><code><div class='bogus-wrapper'><notextile><figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -199,9 +199,9 @@ obj.test { |x| puts x*x }  #=&gt;1, 4, 9, 16
   
   <entry>
     <title type="html"><![CDATA[Ruby中symbol与string的区别]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/08/18/difference-between-symbol-and-string/"/>
+    <link href="http://bebety.com/blog/2013/08/18/difference-between-symbol-and-string/"/>
     <updated>2013-08-18T20:50:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/08/18/difference-between-symbol-and-string</id>
+    <id>http://bebety.com/blog/2013/08/18/difference-between-symbol-and-string</id>
     <content type="html"><![CDATA[<p>记得当初学习Ruby基本语法时，还为Symbol与String的异同纠结了好久，后来经过一段时间的摸索，大致有了了解，但让我给他人解释，这点我还是办不到。但是今天看到了一篇<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">博文</a>,让我彻底明白他们的区别。</p>
 
 <h3>symbol定义</h3>
@@ -227,9 +227,9 @@ obj.test { |x| puts x*x }  #=&gt;1, 4, 9, 16
   
   <entry>
     <title type="html"><![CDATA[Fedora17下搭建Ruby和Rails环境]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/29/install-ruby-and-rails/"/>
+    <link href="http://bebety.com/blog/2013/07/29/install-ruby-and-rails/"/>
     <updated>2013-07-29T20:59:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/29/install-ruby-and-rails</id>
+    <id>http://bebety.com/blog/2013/07/29/install-ruby-and-rails</id>
     <content type="html"><![CDATA[<p>不同的项目所用的ruby版本不同，所以为了方便不同项目ruby版本的切换，需要在同一个系统中安装多个ruby版本，并且针对不同的项目在不同的版本间切换，为了方便ruby版本的管理，采用<a href="https://rvm.io/">RVM</a>进行管理。</p>
 
 <h2>1.安装RVM</h2>
@@ -338,9 +338,9 @@ obj.test { |x| puts x*x }  #=&gt;1, 4, 9, 16
   
   <entry>
     <title type="html"><![CDATA[Ruby元编程之Proc对象]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/07/27/metaprogram-proc/"/>
+    <link href="http://bebety.com/blog/2013/07/27/metaprogram-proc/"/>
     <updated>2013-07-27T12:40:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/07/27/metaprogram-proc</id>
+    <id>http://bebety.com/blog/2013/07/27/metaprogram-proc</id>
     <content type="html"><![CDATA[<h2>Proc</h2>
 
 <p>Proc对象其实就是将代码块(block)转换成对象的块。方式有大致几种：</p>

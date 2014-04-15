@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: Life | Xautjzd]]></title>
-  <link href="http://xautjzd.github.io/blog/categories/life/atom.xml" rel="self"/>
-  <link href="http://xautjzd.github.io/"/>
-  <updated>2014-04-15T17:59:09+08:00</updated>
-  <id>http://xautjzd.github.io/</id>
+  <link href="http://bebety.com/blog/categories/life/atom.xml" rel="self"/>
+  <link href="http://bebety.com/"/>
+  <updated>2014-04-15T19:36:45+08:00</updated>
+  <id>http://bebety.com/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
     <email><![CDATA[xautjzd@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[有关安卓刷机的一些感受]]></title>
-    <link href="http://xautjzd.github.io/blog/2014/03/30/experience-on-android-device-ruu/"/>
+    <link href="http://bebety.com/blog/2014/03/30/experience-on-android-device-ruu/"/>
     <updated>2014-03-30T21:10:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2014/03/30/experience-on-android-device-ruu</id>
+    <id>http://bebety.com/blog/2014/03/30/experience-on-android-device-ruu</id>
     <content type="html"><![CDATA[<p><img src="/images/20140330.jpg">
 生命的乐趣在于体验各种新奇，每次尝试都会从中收获兴奋和快乐，同时也会有小小的成就感。但伴随这些快乐的往往是挫折，所以偷偷乐的同时也要正确看待这些不愉快的成分，其实他们就是生活的调味品，在充斥欢乐的时候来点不和谐的东西往往让人记忆深刻，生活需要刺激。</p>
 
@@ -57,9 +57,9 @@
   
   <entry>
     <title type="html"><![CDATA[2014西安归途随笔]]></title>
-    <link href="http://xautjzd.github.io/blog/2014/02/13/back-to-xian-2014/"/>
+    <link href="http://bebety.com/blog/2014/02/13/back-to-xian-2014/"/>
     <updated>2014-02-13T07:32:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2014/02/13/back-to-xian-2014</id>
+    <id>http://bebety.com/blog/2014/02/13/back-to-xian-2014</id>
     <content type="html"><![CDATA[<p><img src="/images/back_to_xi'an20140213.jpg"></p>
 
 <p>从1月20号到现在已有20多天了，说长不长，说短不短。回家的这段日子里很惬意，每天睡觉睡到自然醒，吃就更不用说了，无论在哪都不及家里吃的放心舒心，至于住么，家里自然比学校宿舍舒服多了。唯一美中不足的就是缺乏学习的氛围，不管多闲，都没心思整理开题报告，学习便更不用说了。一开始将其归结于家里没网，不过仔细琢磨下还是学习的气氛不够，导致自己变得懒惰。幸好在家呆的时间不是很长，不然真的要懒得无以复加。</p>
@@ -83,9 +83,9 @@
   
   <entry>
     <title type="html"><![CDATA[回首2013，展望2014]]></title>
-    <link href="http://xautjzd.github.io/blog/2014/01/02/new-year-plan/"/>
+    <link href="http://bebety.com/blog/2014/01/02/new-year-plan/"/>
     <updated>2014-01-02T14:52:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2014/01/02/new-year-plan</id>
+    <id>http://bebety.com/blog/2014/01/02/new-year-plan</id>
     <content type="html"><![CDATA[<p>回首过去这一年，无论从技术还是思维上，都有很大的提升，但要我数萝卜下窖似的列举出来，我还真的列不出。只清楚地记得以下几件大事：</p>
 
 <ol>

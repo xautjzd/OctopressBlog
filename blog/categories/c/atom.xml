@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: C | Xautjzd]]></title>
-  <link href="http://xautjzd.github.io/blog/categories/c/atom.xml" rel="self"/>
-  <link href="http://xautjzd.github.io/"/>
-  <updated>2014-04-15T17:59:09+08:00</updated>
-  <id>http://xautjzd.github.io/</id>
+  <link href="http://bebety.com/blog/categories/c/atom.xml" rel="self"/>
+  <link href="http://bebety.com/"/>
+  <updated>2014-04-15T19:36:45+08:00</updated>
+  <id>http://bebety.com/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
     <email><![CDATA[xautjzd@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[C语言中的Segment fault问题]]></title>
-    <link href="http://xautjzd.github.io/blog/2014/03/15/segment-fault-core-dumped-of-c/"/>
+    <link href="http://bebety.com/blog/2014/03/15/segment-fault-core-dumped-of-c/"/>
     <updated>2014-03-15T20:47:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2014/03/15/segment-fault-core-dumped-of-c</id>
+    <id>http://bebety.com/blog/2014/03/15/segment-fault-core-dumped-of-c</id>
     <content type="html"><![CDATA[<p><img src="/images/20140315.jpg"></p>
 
 <h2>什么是Segment fault?</h2>
@@ -63,9 +63,9 @@
   
   <entry>
     <title type="html"><![CDATA[Dead Code]]></title>
-    <link href="http://xautjzd.github.io/blog/2013/09/29/dead-code/"/>
+    <link href="http://bebety.com/blog/2013/09/29/dead-code/"/>
     <updated>2013-09-29T10:09:00+08:00</updated>
-    <id>http://xautjzd.github.io/blog/2013/09/29/dead-code</id>
+    <id>http://bebety.com/blog/2013/09/29/dead-code</id>
     <content type="html"><![CDATA[<p>今天在网上看到腾讯的一个实习生招聘题，里面提到了dead code，便上wikipedia查了下，解释如下：</p>
 
 <p>在计算机编程中，dead code是指那些被执行但执行结果在其他地方没有用到的代码。dead code的执行耗费cpu时间但是结果无用。</p>
