@@ -1,0 +1,281 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
+	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<meta charset="utf-8">
+	<title>vim插件之surround.vim  | Xautjzd</title>
+
+<meta name="author" content="xautjzd"> 
+
+<meta name="description" content="博学之，审问之，慎思之，明辨之，笃行之"> <meta name="keywords" content="">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Xautjzd" type="application/atom+xml">
+	<link rel="canonical" href="">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
+
+<script language="Javascript" type="text/javascript">
+$(document).ready(
+  function() {
+    (function($) {
+      $(".fancybox[data-content-id]").each(function() {
+        this.href = $(this).data('content-id');
+      });
+      $(".fancybox").fancybox({
+        beforeLoad: function() {
+          var el, 
+              id = $(this.element).data('title-id');
+
+          if (id) {
+            el = $('#' + id);
+
+            if (el.length) {
+              this.title = el.html();
+            }
+          }
+          if ($(this).data('content')) {
+            this.content = $(this).data('content');
+          }
+        },
+        helpers: {
+          title: {
+            type: 'inside'
+          }
+        }
+      });
+    })(jQuery);
+  }
+);
+</script>
+
+	
+</head>
+
+
+<body>
+	<header id="header" class="inner"><h1><a href="/">Xautjzd</a></h1>
+<h4>Rubyist/Linuxer/Vimer</h4>
+<nav id="main-nav"><ul>
+	<li><a href="/">Home</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+	<li><a href="/blog/books">Books</a></li>
+	<li><a href="/blog/links">Links</a></li>
+	<li><a href="/blog/aboutme">About</a></li>
+</ul>
+</nav>
+<nav id="mobile-nav">
+	<div class="alignleft menu">
+		<a class="button">Menu</a>
+		<div class="container"><ul>
+	<li><a href="/">Home</a></li>
+	<li><a href="/blog/archives">Archives</a></li>
+	<li><a href="/blog/books">Books</a></li>
+	<li><a href="/blog/links">Links</a></li>
+	<li><a href="/blog/aboutme">About</a></li>
+</ul>
+</div>
+	</div>
+	<div class="alignright search">
+		<a class="button"></a>
+		<div class="container">
+			<form action="http://google.com/search" method="get">
+				<input type="text" name="q" results="0">
+				<input type="hidden" name="q" value="site:xautjzd.github.io">
+			</form>
+		</div>
+	</div>
+</nav>
+
+
+</header>
+
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">vim插件之surround.vim</h2>
+	<div class="entry-content"><h3>Surround.vim插件简介</h3>
+
+<p><a href="https://github.com/tpope/vim-surround">Surround.vim</a> 是一款关于括号、引号和xml标签匹配的插件，可以成对的添加、修改和删除。当然也可以自定义匹配项。下面就常用的功能分别对标记的添加、修改和删除一一介绍。</p>
+
+<h4>添加</h4>
+
+<p>如现有一文本<code>Hello,wolrd</code>。光标处在文本中，然后输入ysiw&#8221;,文本变成：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"Hello,world"</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>yss</code>则将光标所在的当前行全部添加标签。如<code>yss)</code>则将当前行用()包围。</p>
+
+<!-- more -->
+
+
+<p>b, B, r和a分别是), }, ]和>的别名，t 则代表html/xml标签。</p>
+
+<p><code>ysst</code>,然后再输入html/xml标签，即可成对添加。如</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Hello,world</span></code></pre></td></tr></table></div></figure>
+
+
+<p>输入<code>ysst&lt;p&gt;</code>后，变为：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;p&gt;Hello,World&lt;/p&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>类似的，<code>yssb</code>、<code>yssB</code>、<code>yssr</code>和<code>yssa</code>则给当前行添加相应的标记。</p>
+
+<p><code>&lt;Ctrl-v&gt;ySb</code>则给选定的文本添加()。</p>
+
+<h4>修改</h4>
+
+<p><code>cs</code>为修改的命令。如：<code>cs)}</code>将()换为{}，<code>csbr</code>将()换为[]。</p>
+
+<h4>删除</h4>
+
+<p><code>ds</code>为删除的命令。如：<code>dsb</code>删除(),<code>dsB</code>删除{},<code>dst</code>则删除相应的html/xml标签。</p>
+
+<h3>安装</h3>
+
+<p>先安装上<a href="https://github.com/gmarik/vundle">vundle</a>或者<a href="https://github.com/tpope/vim-pathogen">pathogen</a>插件，然后再通过他们安装插件比较方便。下面以vundle举例：</p>
+
+<p>在<a href="https://github.com/xautjzd/dotvim">~/.vimrc</a>中添加：</p>
+
+<p>Bundle &lsquo;tpope/vim-surround&rsquo;</p>
+
+<p>然后执行<code>BundleInstall</code>安装。</p>
+
+<p>更多关于surround的细节，请通过<code>：help surround</code>查看。</p>
+
+<h3>其他</h3>
+
+<p>其实surround只是对vim中<a href="http://vimdoc.sourceforge.net/htmldoc/motion.html">text-object motion</a>的扩展，vim常见的text-object编辑功能有：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ci(, ci[, ci{：删除(),[],{}之间的所有字符并进入insert模式。类似的还有ci",ci'。
+</span><span class='line'>cit: 删除html/xml标签内所有的文本并进入insert模式。
+</span><span class='line'>di: 剪切配对符号间的文本，eg:di(, di{, ...
+</span><span class='line'>yi: 复制配对符号间的文本, eg:yi(, yi{, ...
+</span><span class='line'>
+</span><span class='line'>ca, da, ya与ci, di, yi类似，只是包括比配符号本身。</span></code></pre></td></tr></table></div></figure>
+
+
+
+</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-16T10:17:00+08:00" pubdate data-updated="true">Jan 16<span>th</span>, 2014</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2014/01/16/vim-plugin-surround-dot-vim/#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+	
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+	<footer id="footer" class="inner"><a href="https://github.com/xautjzd">GitHub</a> |
+<a href="https://twitter.com/xautjzd">Twitter</a> |
+<a href="http://stackoverflow.com/users/1316583/xautjzd">Stack Overflow</a> 
+<br>
+Copyright &copy; 2014
+
+    xautjzd
+
+<br>
+Powered by Octopress.
+</footer>
+	<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'zhengdongjiang';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://xautjzd.github.io/blog/2014/01/16/vim-plugin-surround-dot-vim/';
+        var disqus_url = 'http://xautjzd.github.io/blog/2014/01/16/vim-plugin-surround-dot-vim/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-42925167-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+</body>
+</html>
