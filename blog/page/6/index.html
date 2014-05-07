@@ -102,6 +102,72 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/07/21/array/">
+		
+			Ruby基础之Array,String and Hash</a>
+	</h2>
+	<div class="entry-content">
+		<h2>Array</h2>
+
+<p>数组通常都是同种元素的集合，元素可以为单个的变量，如数值或者字符串，但是也可以为数组和Hash等复杂对象。</p>
+
+<h3>数组表示矩阵</h3>
+
+<p>其实数组可以用来表示矩阵，矩阵可以被看作数组的数组，也就是每个数组元素都是数组。三行三列的矩阵可以表示为：</p>
+
+<pre><code>a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+</code></pre>
+
+<p>“5”的位置则是：</p>
+
+<pre><code>a[1][1]
+</code></pre>
+
+<h3>数组初始化陷阱</h3>
+
+<p>初始化数组时，若要使用数组对象或Hash对象作为初始值的元素时必须非常小心，否则便会陷入陷阱当中，如下所示：</p>
+
+<pre><code>a = Array.new(3, [0, 0, 0])
+</code></pre>
+
+
+		
+		<a href="/blog/2013/07/21/array/" class="more-link">Read more&#8230;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-21T15:55:00+08:00" pubdate data-updated="true">Jul 21<span>st</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/07/21/array//blog/page/6/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/07/19/ruby-variable/">
 		
 			Ruby基础</a>
