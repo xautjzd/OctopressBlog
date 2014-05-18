@@ -31,4 +31,5 @@ footer: true
 ### Friend Links
 
 - [AprocySanae](http://blog.kochiya.me/)
+- [精简导航](http://www.brieftools.info/)
 
