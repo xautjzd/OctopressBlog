@@ -17,6 +17,7 @@
 	<link rel="canonical" href="">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
@@ -59,6 +60,7 @@ $(document).ready(
 </head>
 
 
+
 <body>
 	<header id="header" class="inner"><h1><a href="/">Xautjzd</a></h1>
 <h4>Rubyist/Linuxer/Vimer</h4>
@@ -97,6 +99,58 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/09/29/dead-code/">
+		
+			Dead Code</a>
+	</h2>
+	<div class="entry-content">
+		<p>今天在网上看到腾讯的一个实习生招聘题，里面提到了dead code，便上wikipedia查了下，解释如下：</p>
+
+<p>在计算机编程中，dead code是指那些被执行但执行结果在其他地方没有用到的代码。dead code的执行耗费cpu时间但是结果无用。</p>
+
+<p>dead code的执行结果没用也就罢了，但它还可能同时导致异常或影响某些全局状态，所以移除这些dead code可能会改变程序的输出，并且排除那些意想不到的bugs。</p>
+
+<p>参考文档：</p>
+
+<p><a href="http://en.wikipedia.org/wiki/Dead_code">http://en.wikipedia.org/wiki/Dead_code</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-29T10:09:00+08:00" pubdate data-updated="true">Sep 29<span>th</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/c/'>C</a>, <a class='category' href='/blog/categories/programming/'>Programming</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/09/29/dead-code//blog/page/3/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
 
 
     <article class="post">
@@ -644,53 +698,6 @@ dev/sda3 /home 4G
 	
 </div></article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/09/04/lookup-webserver/">
-		
-			查看网站所用Web服务器类型</a>
-	</h2>
-	<div class="entry-content">
-		<p>学习Rails的Layout过程中，其中有提到curl，所以便简单的看了下curl的功能。虽说以前学习Shell的过程中也看到过curl,不过没怎么用过，只知道和wget功能类似，只是wget是将请求的web资源下载到本地，而curl则是在shell中显示，至于有什么其他功能也便不清楚。但是今天发现curl其实还可以用来查看website所用的web服务器类型，通过<code>curl -I url-you-want-to-lookup</code>命令查看即可。以下是我查看ruby-china的一个截图：
-<img src="http://pic.yupoo.com/xautjzd/D8xXpw6z/medish.jpg" alt="" /></p>
-
-<p>从中可以发现ruby-china采用的是nginx服务器。至于curl其他的功能慢慢再发掘吧。</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-04T16:43:00+08:00" pubdate data-updated="true">Sep 4<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/09/04/lookup-webserver//blog/page/3/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
 <nav id="pagenavi">
     
         <a href="/blog/page/2/" class="prev">Prev</a>
@@ -700,11 +707,7 @@ dev/sda3 /home 4G
     
     <div class="center"><a href="/archives">Blog Archives</a></div>
 </nav></div>
-	<footer id="footer" class="inner"><a href="https://github.com/xautjzd">GitHub</a> |
-<a href="https://twitter.com/xautjzd">Twitter</a> |
-<a href="http://stackoverflow.com/users/1316583/xautjzd">Stack Overflow</a> 
-<br>
-Copyright &copy; 2014
+	<footer id="footer" class="inner">Copyright &copy; 2014
 
     xautjzd
 

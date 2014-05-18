@@ -17,6 +17,7 @@
 	<link rel="canonical" href="">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
@@ -59,6 +60,7 @@ $(document).ready(
 </head>
 
 
+
 <body>
 	<header id="header" class="inner"><h1><a href="/">Xautjzd</a></h1>
 <h4>Rubyist/Linuxer/Vimer</h4>
@@ -97,6 +99,53 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/11/23/experience-share-about-computer-disassembly/">
+		
+			拆机过程中的一些收获</a>
+	</h2>
+	<div class="entry-content">
+		<p>昨天吃完午饭后来到教研室，突然师妹说有个远程(其实只是充分利用教研室的旧机器，在上面发布一些教研室的web项目，还有做为版本控制器的服务器)机器现在不能远程了，尝试关机不得所以强关，然后重启便无法启动，而她的数据在上面。所以我便开始了肢解之路。</p>
+
+<p>由于几乎没有拆台式机的经验，所以拆机过程花费时间比较长，尤其是机箱外盖的拆卸。毕竟是旧机器，没有什么拆机教程可供参考，所以只能摸索着前进了，最后还是使用了点暴力手段才卸下的。拆开后，首先看了下是不是由于接口松动导致无法开机(其实连我自己都不相信是接口松动导致，因为强关不可能导致接口松动吧，可能是为了自我安慰才想到是接口松动的缘故)，查看了一番，便很快排除这个原因。突然想强关的后果很可能就是导致硬盘坏掉，但是起码也应该进入BIOS吧。便猜想是不是电源坏掉导致的原因，老师刚好这时候也出来了，看到我在拆着机，便问我什么情况，我便跟老师一五一十地把情况汇报了一番。然后老师便去隔壁(其实是老师所在部门的办公室)找了一台不能用的机器，我拿过来之后卸下电源重新换上去，当然其中还有不少接线的问题还摸索了一阵,最后才发现电源存在的作用：</p>
+
+
+		
+		<a href="/blog/2013/11/23/experience-share-about-computer-disassembly/" class="more-link">Read more&#8230;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-11-23T10:58:00+08:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/11/23/experience-share-about-computer-disassembly//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
 
 
     <article class="post">
@@ -532,58 +581,6 @@ $(document).ready(
 	
 </div></article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/09/29/dead-code/">
-		
-			Dead Code</a>
-	</h2>
-	<div class="entry-content">
-		<p>今天在网上看到腾讯的一个实习生招聘题，里面提到了dead code，便上wikipedia查了下，解释如下：</p>
-
-<p>在计算机编程中，dead code是指那些被执行但执行结果在其他地方没有用到的代码。dead code的执行耗费cpu时间但是结果无用。</p>
-
-<p>dead code的执行结果没用也就罢了，但它还可能同时导致异常或影响某些全局状态，所以移除这些dead code可能会改变程序的输出，并且排除那些意想不到的bugs。</p>
-
-<p>参考文档：</p>
-
-<p><a href="http://en.wikipedia.org/wiki/Dead_code">http://en.wikipedia.org/wiki/Dead_code</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-29T10:09:00+08:00" pubdate data-updated="true">Sep 29<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/c/'>C</a>, <a class='category' href='/blog/categories/programming/'>Programming</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/09/29/dead-code//blog/page/2/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
 <nav id="pagenavi">
     
         <a href="/" class="prev">Prev</a>
@@ -593,11 +590,7 @@ $(document).ready(
     
     <div class="center"><a href="/archives">Blog Archives</a></div>
 </nav></div>
-	<footer id="footer" class="inner"><a href="https://github.com/xautjzd">GitHub</a> |
-<a href="https://twitter.com/xautjzd">Twitter</a> |
-<a href="http://stackoverflow.com/users/1316583/xautjzd">Stack Overflow</a> 
-<br>
-Copyright &copy; 2014
+	<footer id="footer" class="inner">Copyright &copy; 2014
 
     xautjzd
 

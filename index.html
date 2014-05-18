@@ -17,6 +17,7 @@
 	<link rel="canonical" href="">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
@@ -59,6 +60,7 @@ $(document).ready(
 </head>
 
 
+
 <body>
 	<header id="header" class="inner"><h1><a href="/">Xautjzd</a></h1>
 <h4>Rubyist/Linuxer/Vimer</h4>
@@ -97,6 +99,148 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2014/05/18/build-ruby-environment/">
+		
+			Ruby环境的搭建</a>
+	</h2>
+	<div class="entry-content">
+		<p><img src="/images/20140518.jpg"></p>
+
+<h2>Ruby简介</h2>
+
+<p>第一次听到Ruby这个名词，可能会比较陌生，进而产生畏惧，毕竟在中国这片区域普及率还不是很高，但在世界范围内还是有不错的影响力，如果有所质疑，可以参考<a href="http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html">TIOBE</a>上Ruby的排名情况，进几年一直在前10左右徘徊。到目前为止，大家可能只了解到Ruby是一门编程语言，具体还未做了解，那这里引用<a href="https://www.ruby-lang.org/en/">Ruby官网</a>的解释，供大家参考：</p>
+
+<blockquote><p>Ruby is a dynamic, open source programming language with a focus on simplicity and productivity. It has an elegant syntax that is natural to read and easy to write.</p></blockquote>
+
+<p>用再多的语言描述都略显苍白，只有身临其中把玩一番才能有所体会，而且这种感触才最直观，最有说服力。这里，贴出一个网址，便可在浏览器中体验Ruby之美：</p>
+
+<blockquote><p><a href="http://tryruby.org/levels/1/challenges/0">http://tryruby.org/levels/1/challenges/0</a></p></blockquote>
+
+<p>请感受它的魅力所在吧。</p>
+
+<h2>操作系统</h2>
+
+<p>Ruby是跨平台的语言，所以Windows、Linux和Mac OS X都可安装，但不建议在Windows上搭建环境。如果身边确实没有Linux/Mac OS X环境，那么也可选择Windows。之所以不推荐Windows，原因有以下几点：</p>
+
+<ul>
+<li>Ruby/Rails在Windows上比较慢</li>
+<li>一些gems和libraries在Windows环境不工作</li>
+<li>社区大多使用Mac/Linux,如果在Windows环境使用出现问题可能难以解决</li>
+</ul>
+
+
+<p>所以尽量选择Linux/Mac。强烈建议新手选择Ubuntu，网上这方面的教程较多，碰到问题也容易解决。没有还没有Linux环境，并且对Linux系统不熟悉，那么建议先在虚拟机下安装Linux。虚拟机的选择有：</p>
+
+<ul>
+<li>Virgrant</li>
+<li>VirtualBox</li>
+<li>VMware</li>
+</ul>
+
+
+<p>以下教程主要针对Linux/Mac用户，如果实在要选择Windows，那么请在<a href="https://www.ruby-lang.org/zh_cn/downloads/">此处</a>下载Windows下的二进制安装包RubyInstaller。</p>
+
+<h2>1. 安装RVM</h2>
+
+<p>RVM(Ruby Version Manager)是一个使安装、管理和多个Ruby环境切换变得简单的命令行工具。通过它安装不同版本的Ruby环境和gems包变得简单容易。更为详细的解释，请参考<a href="https://rvm.io/">RVM官网</a>。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ \curl -sSL https://get.rvm.io | bash -s stable</span></code></pre></td></tr></table></div></figure>
+
+
+<p>也可一步到位，直接安装RVM的同时安装上Ruby:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ \curl -sSL https://get.rvm.io | bash -s stable --ruby=2.1.2</span></code></pre></td></tr></table></div></figure>
+
+
+<p>其中，<code>2.1.2</code>为指定的Ruby版本，当然也可省略版本号。安装完成后，重新加载RVM环境，使其配置有效。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ source ~/.rvm/scripts/rvm</span></code></pre></td></tr></table></div></figure>
+
+
+<p>接下来检查下RVM是否安装成功：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm -v</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果显示<code>rvm xxx(stable) by Wayne E. ....</code>等信息便说明安装成功。</p>
+
+<h2>2. RVM安装Ruby环境</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm install 2.1.2</span></code></pre></td></tr></table></div></figure>
+
+
+<p>安装过程可能比较漫长，耐心等待即可，编译安装完成后，Ruby和Ruby Gems也就安装成功。</p>
+
+<h2>3. 设置Ruby版本</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm use 2.1.2 --default</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这里, <code>2.1.2</code>为前面安装过的Ruby版本。</p>
+
+<p>这时，可以检查是否正确安装配置：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ruby -v</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem -v</span></code></pre></td></tr></table></div></figure>
+
+
+<p>如果要安装<code>Rails</code>，直接通过：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install rails</span></code></pre></td></tr></table></div></figure>
+
+
+<p>便可完成安装。更多有关<code>gem</code>的命令，请通过:<code>gem --help</code>查询。</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-18T11:50:00+08:00" pubdate data-updated="true">May 18<span>th</span>, 2014</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2014/05/18/build-ruby-environment//index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
 
 
     <article class="post">
@@ -584,53 +728,6 @@ $(document).ready(
 	
 </div></article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/11/23/experience-share-about-computer-disassembly/">
-		
-			拆机过程中的一些收获</a>
-	</h2>
-	<div class="entry-content">
-		<p>昨天吃完午饭后来到教研室，突然师妹说有个远程(其实只是充分利用教研室的旧机器，在上面发布一些教研室的web项目，还有做为版本控制器的服务器)机器现在不能远程了，尝试关机不得所以强关，然后重启便无法启动，而她的数据在上面。所以我便开始了肢解之路。</p>
-
-<p>由于几乎没有拆台式机的经验，所以拆机过程花费时间比较长，尤其是机箱外盖的拆卸。毕竟是旧机器，没有什么拆机教程可供参考，所以只能摸索着前进了，最后还是使用了点暴力手段才卸下的。拆开后，首先看了下是不是由于接口松动导致无法开机(其实连我自己都不相信是接口松动导致，因为强关不可能导致接口松动吧，可能是为了自我安慰才想到是接口松动的缘故)，查看了一番，便很快排除这个原因。突然想强关的后果很可能就是导致硬盘坏掉，但是起码也应该进入BIOS吧。便猜想是不是电源坏掉导致的原因，老师刚好这时候也出来了，看到我在拆着机，便问我什么情况，我便跟老师一五一十地把情况汇报了一番。然后老师便去隔壁(其实是老师所在部门的办公室)找了一台不能用的机器，我拿过来之后卸下电源重新换上去，当然其中还有不少接线的问题还摸索了一阵,最后才发现电源存在的作用：</p>
-
-
-		
-		<a href="/blog/2013/11/23/experience-share-about-computer-disassembly/" class="more-link">Read more&#8230;</a>
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-11-23T10:58:00+08:00" pubdate data-updated="true">Nov 23<span>rd</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/11/23/experience-share-about-computer-disassembly//index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
 <nav id="pagenavi">
     
     
@@ -638,11 +735,7 @@ $(document).ready(
     
     <div class="center"><a href="/archives">Blog Archives</a></div>
 </nav></div>
-	<footer id="footer" class="inner"><a href="https://github.com/xautjzd">GitHub</a> |
-<a href="https://twitter.com/xautjzd">Twitter</a> |
-<a href="http://stackoverflow.com/users/1316583/xautjzd">Stack Overflow</a> 
-<br>
-Copyright &copy; 2014
+	<footer id="footer" class="inner">Copyright &copy; 2014
 
     xautjzd
 

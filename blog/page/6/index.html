@@ -17,6 +17,7 @@
 	<link rel="canonical" href="">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<link href="/stylesheets/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<script type="text/javascript" src="/javascripts/jquery.fancybox.pack.js"></script>
@@ -59,6 +60,7 @@ $(document).ready(
 </head>
 
 
+
 <body>
 	<header id="header" class="inner"><h1><a href="/">Xautjzd</a></h1>
 <h4>Rubyist/Linuxer/Vimer</h4>
@@ -97,6 +99,77 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/07/22/git-roll-back/">
+		
+			Git的相关操作</a>
+	</h2>
+	<div class="entry-content">
+		<h2>查看Git远程库地址</h2>
+
+<p>建立了远程库后，许久没操作，突然忘了其对应的具体远程库的url。可通过以下命令来查看：</p>
+
+<pre><code>$git remote -v
+</code></pre>
+
+<p>-v选项是&mdash;verbose的简写，最后结果为：</p>
+
+<pre><code>origin git@github.com:xautjzd/RubyExample.git (fetch)  
+origin git@github.com:xautjzd/RubyExample.git (push)
+</code></pre>
+
+<p>要查看详细信息，则可以通过如下命令查看：</p>
+
+<pre><code>$git remote show remote-name
+</code></pre>
+
+<h2>添加远程库地址</h2>
+
+<pre><code>$git remote add reponame url
+</code></pre>
+
+<h2>远程库的重命名</h2>
+
+<pre><code>$git remote rename oldname newname
+</code></pre>
+
+
+		
+		<a href="/blog/2013/07/22/git-roll-back/" class="more-link">Read more&#8230;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-22T11:33:00+08:00" pubdate data-updated="true">Jul 22<span>nd</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/git/'>Git</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/07/22/git-roll-back//blog/page/6/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
 
 
     <article class="post">
@@ -626,11 +699,7 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
     
     <div class="center"><a href="/archives">Blog Archives</a></div>
 </nav></div>
-	<footer id="footer" class="inner"><a href="https://github.com/xautjzd">GitHub</a> |
-<a href="https://twitter.com/xautjzd">Twitter</a> |
-<a href="http://stackoverflow.com/users/1316583/xautjzd">Stack Overflow</a> 
-<br>
-Copyright &copy; 2014
+	<footer id="footer" class="inner">Copyright &copy; 2014
 
     xautjzd
 
