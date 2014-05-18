@@ -123,94 +123,9 @@ $(document).ready(
 
 <p>请感受它的魅力所在吧。</p>
 
-<h2>操作系统</h2>
-
-<p>Ruby是跨平台的语言，所以Windows、Linux和Mac OS X都可安装，但不建议在Windows上搭建环境。如果身边确实没有Linux/Mac OS X环境，那么也可选择Windows。之所以不推荐Windows，原因有以下几点：</p>
-
-<ul>
-<li>Ruby/Rails在Windows上比较慢</li>
-<li>一些gems和libraries在Windows环境不工作</li>
-<li>社区大多使用Mac/Linux,如果在Windows环境使用出现问题可能难以解决</li>
-</ul>
-
-
-<p>所以尽量选择Linux/Mac。强烈建议新手选择Ubuntu，网上这方面的教程较多，碰到问题也容易解决。没有还没有Linux环境，并且对Linux系统不熟悉，那么建议先在虚拟机下安装Linux。虚拟机的选择有：</p>
-
-<ul>
-<li>Virgrant</li>
-<li>VirtualBox</li>
-<li>VMware</li>
-</ul>
-
-
-<p>以下教程主要针对Linux/Mac用户，如果实在要选择Windows，那么请在<a href="https://www.ruby-lang.org/zh_cn/downloads/">此处</a>下载Windows下的二进制安装包RubyInstaller。</p>
-
-<h2>1. 安装RVM</h2>
-
-<p>RVM(Ruby Version Manager)是一个使安装、管理和多个Ruby环境切换变得简单的命令行工具。通过它安装不同版本的Ruby环境和gems包变得简单容易。更为详细的解释，请参考<a href="https://rvm.io/">RVM官网</a>。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ \curl -sSL https://get.rvm.io | bash -s stable</span></code></pre></td></tr></table></div></figure>
-
-
-<p>也可一步到位，直接安装RVM的同时安装上Ruby:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ \curl -sSL https://get.rvm.io | bash -s stable --ruby=2.1.2</span></code></pre></td></tr></table></div></figure>
-
-
-<p>其中，<code>2.1.2</code>为指定的Ruby版本，当然也可省略版本号。安装完成后，重新加载RVM环境，使其配置有效。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ source ~/.rvm/scripts/rvm</span></code></pre></td></tr></table></div></figure>
-
-
-<p>接下来检查下RVM是否安装成功：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm -v</span></code></pre></td></tr></table></div></figure>
-
-
-<p>如果显示<code>rvm xxx(stable) by Wayne E. ....</code>等信息便说明安装成功。</p>
-
-<h2>2. RVM安装Ruby环境</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm install 2.1.2</span></code></pre></td></tr></table></div></figure>
-
-
-<p>安装过程可能比较漫长，耐心等待即可，编译安装完成后，Ruby和Ruby Gems也就安装成功。</p>
-
-<h2>3. 设置Ruby版本</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ rvm use 2.1.2 --default</span></code></pre></td></tr></table></div></figure>
-
-
-<p>这里, <code>2.1.2</code>为前面安装过的Ruby版本。</p>
-
-<p>这时，可以检查是否正确安装配置：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ ruby -v</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ gem -v</span></code></pre></td></tr></table></div></figure>
-
-
-<p>如果要安装<code>Rails</code>，直接通过：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gem install rails</span></code></pre></td></tr></table></div></figure>
-
-
-<p>便可完成安装。更多有关<code>gem</code>的命令，请通过:<code>gem --help</code>查询。</p>
 
 		
-		
+		<a href="/blog/2014/05/18/build-ruby-environment/" class="more-link">Read more&#8230;</a>
 	</div>
 
 
