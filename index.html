@@ -104,6 +104,53 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2014/05/21/file-pointer-and-file-descriptor-about-c/">
+		
+			Unix C的文件指针与文件描述符</a>
+	</h2>
+	<div class="entry-content">
+		<p><img src="/images/20140521.jpg"></p>
+
+<p>AISC C中通常用文件指针FILE *进行文件的操作，如fopen, fclose, fread, fwrite, fscanf, fprintf等函数，都是通过文件指针进行文件的一系列操作；而类Unix系统则大多用文件描述符(file descriptor)进行文件的操作，如open, close, read, write等函数，文件描述符是一个整数，是文件描述符表(file descriptor table)中的索引(文件描述符表其实是维护进程打开的文件)。当进程打开或者创建一个文件，内核便会在此进程对应的文件描述符表中分配一个位置，然后便可通过文件描述符操作文件。</p>
+
+
+		
+		<a href="/blog/2014/05/21/file-pointer-and-file-descriptor-about-c/" class="more-link">Read more&#8230;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-05-21T09:59:00+08:00" pubdate data-updated="true">May 21<span>st</span>, 2014</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/c/'>C</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2014/05/21/file-pointer-and-file-descriptor-about-c//index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2014/05/18/build-ruby-environment/">
 		
 			Ruby环境的搭建</a>
@@ -583,63 +630,6 @@ $(document).ready(
 
 	
 		<span class="comments"><a href="/blog/2014/01/02/new-year-plan//index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/12/04/sumary-about-tmux-operation/">
-		
-			Tmux常用操作总结</a>
-	</h2>
-	<div class="entry-content">
-		<p>以前也写过一篇关于<a href="http://xautjzd.github.io/blog/2013/08/08/tmux-use-and-configuration/">tmux的文章</a>,大概对tmux从简介、安装到操作已有简单的介绍，但由于是刚使用tmux时所写，总感觉操作部分写的不是很好，不够全面，所以便出现了此篇，算是填补前一篇的不足吧。</p>
-
-<p>前边的操作前缀是Ctrl+b组合键，这两个键相隔甚远，操作起来太别扭，后来便在<code>~/.tmux.conf</code>配置文件中更改成<code>Ctrl+a</code>前缀了。具体配置见GitHub上<a href="https://github.com/xautjzd/dotvim">我的tmux配置</a>。</p>
-
-<h3><strong>Tmux常用操作</strong></h3>
-
-<h4>1. 新建Session</h4>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$tmux new -s sessionname</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>2. 杀死指定Session</h4>
-
-
-		
-		<a href="/blog/2013/12/04/sumary-about-tmux-operation/" class="more-link">Read more&#8230;</a>
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-12-04T19:32:00+08:00" pubdate data-updated="true">Dec 4<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/12/04/sumary-about-tmux-operation//index.html#disqus_thread">Comments</a></span>
 	
 </div></article>
 
