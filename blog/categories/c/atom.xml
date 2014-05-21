@@ -4,7 +4,7 @@
   <title><![CDATA[Category: C | Xautjzd]]></title>
   <link href="http://bebety.com/blog/categories/c/atom.xml" rel="self"/>
   <link href="http://bebety.com/"/>
-  <updated>2014-05-21T11:02:17+08:00</updated>
+  <updated>2014-05-21T11:05:25+08:00</updated>
   <id>http://bebety.com/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -35,13 +35,14 @@
 
 <p>有关文件指针与文件描述符及文件路径(包含文件名)之间的转换关系如下：</p>
 
-<p>文件路径->文件指针: filepath&mdash;fopen()&mdash;>FILE *;
-文件路径->文件描述符: filepath&mdash;open()&mdash;>fd;</p>
+<ul>
+<li>文件路径->文件指针: filepath&mdash;fopen()&mdash;>FILE *;</li>
+<li><p>文件路径->文件描述符: filepath&mdash;open()&mdash;>fd;</p></li>
+<li><p>文件描述符->文件指针: fd&mdash;fdopen()&mdash;>FILE *;</p></li>
+<li><p>文件描述符->文件路径: fd&mdash;readlink(/proc/%getpid()/fd/%fd)&mdash;>filepath;</p></li>
+<li><p>文件指针->文件描述符: FILE *&mdash;fileno()&ndash;>fd;</p></li>
+</ul>
 
-<p>文件描述符->文件指针: fd&mdash;fdopen()&mdash;>FILE *;
-文件描述符->文件路径: fd&mdash;readlink(/proc/%getpid()/fd/%fd)&mdash;>filepath;</p>
-
-<p>文件指针->文件描述符: FILE *&mdash;fileno()&ndash;>fd;</p>
 
 <p>下面通过一个例子展示文件描述符与文件指针间的关系:</p>
 
