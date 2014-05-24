@@ -104,6 +104,52 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/10/08/use-sudo-in-fedora/">
+		
+			Fedora下使用sudo</a>
+	</h2>
+	<div class="entry-content">
+		<p>Linux下日常操作使用一般用户权限即可，但是往往有一些操作需要用到root权限，如服务的启动、软件的安装等，直接转到root下进行操作可不是一个好习惯，比较稳妥的方式就是使用sudo进行操作。首先检查系统是否已经安装<code>sudo</code>,接下来需要在<code>/etc/sudoers</code>文件下进行配置相应的权限。</p>
+
+<p>在<code>root    ALL=(ALL)   ALL</code>这行下面添加<code>username ALL=(ALL) NOPASSWD:ALL</code>即可。其中<code>username</code>为要使用sudo的用户，并且每次使用sudo时不需要输入root密码。</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-08T15:11:00+08:00" pubdate data-updated="true">Oct 8<span>th</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/10/08/use-sudo-in-fedora//blog/page/3/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/10/01/whats-my-dream/">
 		
 			梦想</a>
@@ -598,89 +644,6 @@ rake update_source
 
 	
 		<span class="comments"><a href="/blog/2013/09/17/build-git-remote-repository//blog/page/3/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/09/12/installing-archlinux-in-virtualbox/">
-		
-			VirtualBox安装ArchLinux系统</a>
-	</h2>
-	<div class="entry-content">
-		<p>都说ArchLinux很适合折腾，趁今天有时间，就试着安装了一把，不过看ArchLinux的Beginners&rsquo;s Guide，照着其步骤来，结果还是看的云里雾里，看的人头大。便直接上Youtube上找了一个视频，顿时豁然开朗。安装概览如下：</p>
-
-<h2>ArchLinux Install</h2>
-
-<ol>
-<li>分区</li>
-<li>格式化分区</li>
-<li>挂载分区</li>
-<li>更改安装镜像</li>
-<li>安装基本系统</li>
-<li>生成fstab</li>
-<li>Chroot到新系统</li>
-<li>配置系统</li>
-<li>开启网络服务</li>
-<li>创建初始化ramdisk环境</li>
-<li>设置root密码</li>
-<li>安装配置bootloader</li>
-<li>卸载分区并重启系统</li>
-<li>安装图形用户界面</li>
-</ol>
-
-
-<p>详细步骤如下：</p>
-
-<h3>1. 分区</h3>
-
-<p>虚拟机挂在iso镜像后，然后启动系统，进入后默认进入root提示符，然后输入：</p>
-
-<pre><code>root#cfdisk
-</code></pre>
-
-<p>进行分区，一般分三个即可。最后分区结果如下：</p>
-
-<pre><code>dev/sda1 / 8G
-dev/sda2 /swap 1G(在空间最后)
-dev/sda3 /home 4G
-</code></pre>
-
-<p>每个人的分区情况都可能不同，具体依照自己的分区来决定，以下操作都是根据我的分区来进行。</p>
-
-
-		
-		<a href="/blog/2013/09/12/installing-archlinux-in-virtualbox/" class="more-link">Read more&#8230;</a>
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-12T22:36:00+08:00" pubdate data-updated="true">Sep 12<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/09/12/installing-archlinux-in-virtualbox//blog/page/3/index.html#disqus_thread">Comments</a></span>
 	
 </div></article>
 

@@ -104,6 +104,72 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/07/27/octopress-add-frend-sites/">
+		
+			Ocpress添加友情链接</a>
+	</h2>
+	<div class="entry-content">
+		<p>与在侧边栏添加Aboutme、Categories、Tagcloud等功能类似，在source/_include\custom\asides目录下添加一个frendsites.html文件，模仿about等写法，添加友情链接，如下所示：</p>
+
+<figure class='code'><figcaption><span>友情链接 </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'>    <span class="nt">&lt;section&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;h1&gt;</span>友情链接<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>        <span class="nt">&lt;ul&gt;</span>
+</span><span class='line'>            <span class="nt">&lt;li&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;url_to_add&quot;</span><span class="nt">&gt;</span>友情链接的显示Id<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+</span><span class='line'>            ...
+</span><span class='line'>        <span class="nt">&lt;/ul&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/section&gt;</span>
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>然后在_config.yml文件中相应的位置添加，如在default_asides中的数组添加custom/asides/friendsites.html，当然也可以在blog_index等其他数组中添加。</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-27T16:02:00+08:00" pubdate data-updated="true">Jul 27<span>th</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/octopress/'>Octopress</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/07/27/octopress-add-frend-sites//blog/page/6/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/07/27/metaprogram-proc/">
 		
 			Ruby元编程之Proc对象</a>
