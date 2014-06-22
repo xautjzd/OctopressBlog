@@ -5,7 +5,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Categories  | Xautjzd</title>
+	<title>Rubyist/Linuxer/Vimer  | Xautjzd</title>
 
 <meta name="author" content="xautjzd"> 
 
@@ -98,48 +98,66 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner"><article class="page">
-    <div class="entry-content"><ul>
+	<div id="content" class="inner">
 
-    <li><a href="/blog/categories/Octopress/">Octopress</a> [ 10 ]</li>
 
-    <li><a href="/blog/categories/Thinking/">Thinking</a> [ 16 ]</li>
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2013/07/18/my-first-blog/">
+		
+			我的第一篇博客</a>
+	</h2>
+	<div class="entry-content">
+		<p>几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。
+详细搭建过程官方文档写的相当详细，这里不再赘述，请参考：
+<a href="octopress.org/docs/setup">官网</a><br/>
+下面只说我搭建过程中遇到的难题：
+我每次都是运行rake deploy时出现问题，也就是博客无法push到github的repository中。
+每次都是![rejected] master->master (no-fast-forward)
+最后网上找了不少资料，然后自己也细细思考了一番，最后终得以解决。方法如下：
+转到deploy目录下，执行$git pull，然后再执行git push origin master即可。</p>
 
-    <li><a href="/blog/categories/Ruby/">Ruby</a> [ 8 ]</li>
+		
+		
+	</div>
 
-    <li><a href="/blog/categories/Git/">Git</a> [ 3 ]</li>
 
-    <li><a href="/blog/categories/Linux/">Linux</a> [ 23 ]</li>
+<div class="meta">
+	<div class="date">
 
-    <li><a href="/blog/categories/Vim/">Vim</a> [ 9 ]</li>
 
-    <li><a href="/blog/categories/Rails/">Rails</a> [ 1 ]</li>
 
-    <li><a href="/blog/categories/ASP.NET/">Asp.net</a> [ 1 ]</li>
 
-    <li><a href="/blog/categories/C/">C</a> [ 3 ]</li>
 
-    <li><a href="/blog/categories/Programming/">Programming</a> [ 1 ]</li>
 
-    <li><a href="/blog/categories/Life/">Life</a> [ 4 ]</li>
 
-    <li><a href="/blog/categories/Tech/">Tech</a> [ 2 ]</li>
 
-    <li><a href="/blog/categories/Tool/">Tool</a> [ 1 ]</li>
+  
 
-</ul>
+
+<time datetime="2013-07-18T12:42:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
 
 </div>
-</article>
 
 
-<section id="comment">
-    <h1 class="title">Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</div>
-</section>
+	
+		<span class="comments"><a href="/blog/2013/07/18/my-first-blog//blog/page/7/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
 
-</div>
+<nav id="pagenavi">
+    
+        <a href="/blog/page/6/" class="prev">Prev</a>
+    
+    
+    <div class="center"><a href="/archives">Blog Archives</a></div>
+</nav></div>
 	<footer id="footer" class="inner">Copyright &copy; 2014
 
     xautjzd
@@ -160,10 +178,7 @@ Powered by Octopress.
       var disqus_shortname = 'zhengdongjiang';
       
         
-        // var disqus_developer = 1;
-        var disqus_identifier = 'http://bebety.com/blog/categories/index.html';
-        var disqus_url = 'http://bebety.com/blog/categories/index.html';
-        var disqus_script = 'embed.js';
+        var disqus_script = 'count.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

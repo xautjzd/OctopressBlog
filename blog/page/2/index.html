@@ -104,6 +104,63 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2014/01/16/vim-plugin-surround-dot-vim/">
+		
+			vim插件之surround.vim</a>
+	</h2>
+	<div class="entry-content">
+		<h3>Surround.vim插件简介</h3>
+
+<p><a href="https://github.com/tpope/vim-surround">Surround.vim</a> 是一款关于括号、引号和xml标签匹配的插件，可以成对的添加、修改和删除。当然也可以自定义匹配项。下面就常用的功能分别对标记的添加、修改和删除一一介绍。</p>
+
+<h4>添加</h4>
+
+<p>如现有一文本<code>Hello,wolrd</code>。光标处在文本中，然后输入ysiw&#8221;,文本变成：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"Hello,world"</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>yss</code>则将光标所在的当前行全部添加标签。如<code>yss)</code>则将当前行用()包围。</p>
+
+
+		
+		<a href="/blog/2014/01/16/vim-plugin-surround-dot-vim/" class="more-link">Read more&#8230;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-01-16T10:17:00+08:00" pubdate data-updated="true">Jan 16<span>th</span>, 2014</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>, <a class='category' href='/blog/categories/vim/'>Vim</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2014/01/16/vim-plugin-surround-dot-vim//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2014/01/02/new-year-plan/">
 		
 			回首2013，展望2014</a>
@@ -542,56 +599,6 @@ $(document).ready(
 
 	
 		<span class="comments"><a href="/blog/2013/10/10/linux-hard-link-vs-soft-link//blog/page/2/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/10/09/surf-internet-under-linux-about-ruijie/">
-		
-			Linux下锐捷客户端上网</a>
-	</h2>
-	<div class="entry-content">
-		<p>自己虽然一直用的校园网，但是由于教研室这块位置比较特殊，不需要使用锐捷客户端认证，但其他地方一般都需要。所以今早有个朋友在笔记本上安装了Ubuntu，但是无法通过锐捷web方式认证，下载的锐捷Linux版客户端安装后也无法上网，所以这方面我也不熟悉，只能求助Google了。由于众多高校的网络都是使用锐捷的这一套，所以大同小异，这方面的资料也不少，Google搜索很快便找到了解决方法，用华科的一个客户端即可，下载地址：<a href="http://code.google.com/p/mentohust/">http://code.google.com/p/mentohust/</a></p>
-
-<p>下载后，切换到下载的目录，然后运行<code>sudo dpkg -i 'your deb packagename'</code>即可，安装过程中，一步一步按照其步骤输入相应信息即可。安装完成后，会将配置的信息存储在<code>/etc/mentohust.conf</code>文件中，也可进行修改。在安装的过程中，如果采用DHCP方式，在选择时应该注意，选择1或者2，千万别选择3，否则上不了网。各选项的含义是：</p>
-
-<p>-d DHCP方式：0（不使用） 1（二次认证）2（认证后）3（认证前）</p>
-
-<p>关于mentohust的详细参数解释，请参考<a href="http://code.google.com/p/mentohust/wiki/Parameter">官网wiki</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-10-09T17:17:00+08:00" pubdate data-updated="true">Oct 9<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/linux/'>Linux</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/10/09/surf-internet-under-linux-about-ruijie//blog/page/2/index.html#disqus_thread">Comments</a></span>
 	
 </div></article>
 
