@@ -4,7 +4,7 @@
   <title><![CDATA[Xautjzd]]></title>
   <link href="http://bebety.com/atom.xml" rel="self"/>
   <link href="http://bebety.com/"/>
-  <updated>2014-12-10T23:09:41+08:00</updated>
+  <updated>2014-12-10T23:12:20+08:00</updated>
   <id>http://bebety.com/</id>
   <author>
     <name><![CDATA[xautjzd]]></name>
@@ -18,7 +18,7 @@
     <link href="http://bebety.com/blog/2014/11/20/difference-between-free-software-and-open-source-software/"/>
     <updated>2014-11-20T22:50:00+08:00</updated>
     <id>http://bebety.com/blog/2014/11/20/difference-between-free-software-and-open-source-software</id>
-    <content type="html"><![CDATA[<p>&lt;% img /images/20141120.jpg %>
+    <content type="html"><![CDATA[<p><img src="http://bebety.com/images/20141120.jpg">
 图为电影《The Shawshank Redemption》的海报</p>
 
 <p>昨晚与张老师还有几位Linux小组成员一起去西邮参加了一个开源者行的活动，演讲嘉宾有GitCafe和Thoughtworks的人员。其实这次去只是想感受感受开源的气氛，一直听说西邮的开源气氛不错，未能亲身感受，所以趁还在西安，赶紧体会体会。这次最大的收获当属对开源文化的重新认识，也重新理解了free software与open source software的异同。</p>
