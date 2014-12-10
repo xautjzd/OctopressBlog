@@ -104,6 +104,68 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/07/29/install-ruby-and-rails/">
+		
+			Fedora17下搭建Ruby和Rails环境</a>
+	</h2>
+	<div class="entry-content">
+		<p>不同的项目所用的ruby版本不同，所以为了方便不同项目ruby版本的切换，需要在同一个系统中安装多个ruby版本，并且针对不同的项目在不同的版本间切换，为了方便ruby版本的管理，采用<a href="https://rvm.io/">RVM</a>进行管理。</p>
+
+<h2>1.安装RVM</h2>
+
+<pre><code>#curl -L https://get.rvm.io | bash -s stable
+</code></pre>
+
+<p>一会儿之后rvm便安装完成,安装位置为/usr/local/rvm目录下，网上很多教程都是使用一般用户权限管理，但是我也尝试过采用一般用户权限安装，但是始终不会安装在~/usrname/.rvm目录下，还是提示安装在/usr/local/rvm下，但是没有写的权限。可能是fedora系统的原因吧，没有深究。使用：</p>
+
+<pre><code>#source /usr/local/rvm/scripts/rvm
+</code></pre>
+
+<p>使rvm配置生效。然后采用：</p>
+
+<pre><code>#rvm -v
+</code></pre>
+
+<p>查看rvm的版本。同时也可以通过<code>rvm info</code>查看rvm相关信息。</p>
+
+
+		
+		<a href="/blog/2013/07/29/install-ruby-and-rails/" class="more-link">Read more&#8230;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-29T20:59:00+08:00" pubdate data-updated="true">Jul 29<span>th</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/07/29/install-ruby-and-rails//blog/page/6/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/07/27/vim-vundle-install-and-config/">
 		
 			Vim下的的插件管理神器——Vundle</a>
@@ -773,70 +835,6 @@ deploy</code>部署到github上。如果特别熟练，也可以直接生成静�
 
 	
 		<span class="comments"><a href="/blog/2013/07/18/structure-of-octopress//blog/page/6/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/07/18/add-navigator/">
-		
-			Octopress修改导航栏(Navigator)</a>
-	</h2>
-	<div class="entry-content">
-		<p>搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：</p>
-
-<pre><code>$rake new_page[About]
-</code></pre>
-
-<p>默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉，便想着将生成的页面和其他页面放在一起，便可进行如下操作：</p>
-
-<pre><code>$rake new_page[/blog/About]
-</code></pre>
-
-<p>这样便在source/blog目录中生成页面，方面管理。生成的页面目前还不能显示，还需编辑source/_includes/custom/navigation.html文件：</p>
-
-<pre><code>$vim source/_includes/custom/navigation.html
-</code></pre>
-
-<p>在其中加入</p>
-
-<pre><code>&lt;li&gt;&lt;a href="/blog/about"&gt;关于我&lt;/a&gt;&lt;/li&gt;
-</code></pre>
-
-<p>编辑完成后进行rake generate生成静态的html文件，然后rake preview便可以通过localhost:4000在本地预览。</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T13:46:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/07/18/add-navigator//blog/page/6/index.html#disqus_thread">Comments</a></span>
 	
 </div></article>
 

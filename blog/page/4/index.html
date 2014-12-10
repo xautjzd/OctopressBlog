@@ -104,6 +104,72 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/09/17/update-my-blog/">
+		
+			更新Octopress</a>
+	</h2>
+	<div class="entry-content">
+		<p>现在已记不清接触Octopress多长时间了，只依稀记得当时配置Octopress配了好久，然后依然失败，后又忙于其他的事情，所以搭建工作便搁置一旁，七月中旬时间比较充足，所以又开始再次折腾，后来终于搭建成功，所以7.18便发表了第一篇博客。后来一个月之后又开始了我的换肤工作，一切都好，唯一的缺陷是Gravatar的图像没有显示出来，所以便向theme的作者发问，后来也忘了这茬事。就这样又过了一月，直到今天，突然发现我的unread消息里面有几条关于我的message，便打开浏览，才发现作者给的回复，说图像没显示是个bug，现已修复。具体见：</p>
+
+<p><a href="https://github.com/shashankmehta/greyshade/issues/42">https://github.com/shashankmehta/greyshade/issues/42</a></p>
+
+<p>我便立马更新了我的Octopress。更新方法如下：</p>
+
+<pre><code># Get the latest Octopress
+git pull octopress master    
+# Keep gems updated
+bundle install               
+# update the template's source
+rake update_source            
+</code></pre>
+
+<p>具体参考：</p>
+
+<p><a href="http://octopress.org/docs/updating/">http://octopress.org/docs/updating/</a></p>
+
+<p>参考时请务必注意：如果您的octopress主题不是octopress默认主题,请不要执行<code>rake update_style</code>，否则会被还原成默认主题。</p>
+
+<p>本博客采用的主题为：</p>
+
+<p><a href="https://github.com/shashankmehta/greyshade">https://github.com/shashankmehta/greyshade</a></p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-17T15:22:00+08:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/octopress/'>Octopress</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/09/17/update-my-blog//blog/page/4/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/09/17/build-git-remote-repository/">
 		
 			搭建Git服务器</a>
@@ -739,69 +805,6 @@ eg: set foldmarker= /*,*/
 
 	
 		<span class="comments"><a href="/blog/2013/08/20/linux-activity-sponsoring//blog/page/4/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/08/18/difference-between-symbol-and-string/">
-		
-			Ruby中symbol与string的区别</a>
-	</h2>
-	<div class="entry-content">
-		<p>记得当初学习Ruby基本语法时，还为Symbol与String的异同纠结了好久，后来经过一段时间的摸索，大致有了了解，但让我给他人解释，这点我还是办不到。但是今天看到了一篇<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">博文</a>,让我彻底明白他们的区别。</p>
-
-<h3>symbol定义</h3>
-
-<p>Symbol其实就是string加上前缀：。</p>
-
-<h3>二者异同点</h3>
-
-<p>其实Symbol与String本质相同，是string 的两种不同呈现方式。由于受SmallTalk影响，Ruby一切皆对象。所以每次给string赋值，<code>name="xautjzd"</code>其实都是在内存中创建一个新对象。每次创建的对象的object_id都不相同。</p>
-
-<p>而symbol则不同，symbol创建一次即可。以后所有的操作都是指向先前创建的对象。所以object_id相同。</p>
-
-<p>不同点大致有三：
-1. symbol为常量，值不能改变。
-2. 多次使用同一个symbol,object_id相同，而多次使用string,每个对象有不同的object_id。
-3. String的方法,eg:#upcase,#split不能用于Symbol。</p>
-
-<h3>参考网址</h3>
-
-<p><a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html</a>(<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html</a>)</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-18T20:50:00+08:00" pubdate data-updated="true">Aug 18<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/08/18/difference-between-symbol-and-string//blog/page/4/index.html#disqus_thread">Comments</a></span>
 	
 </div></article>
 

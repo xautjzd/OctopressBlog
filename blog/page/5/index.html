@@ -104,6 +104,69 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/08/18/difference-between-symbol-and-string/">
+		
+			Ruby中symbol与string的区别</a>
+	</h2>
+	<div class="entry-content">
+		<p>记得当初学习Ruby基本语法时，还为Symbol与String的异同纠结了好久，后来经过一段时间的摸索，大致有了了解，但让我给他人解释，这点我还是办不到。但是今天看到了一篇<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">博文</a>,让我彻底明白他们的区别。</p>
+
+<h3>symbol定义</h3>
+
+<p>Symbol其实就是string加上前缀：。</p>
+
+<h3>二者异同点</h3>
+
+<p>其实Symbol与String本质相同，是string 的两种不同呈现方式。由于受SmallTalk影响，Ruby一切皆对象。所以每次给string赋值，<code>name="xautjzd"</code>其实都是在内存中创建一个新对象。每次创建的对象的object_id都不相同。</p>
+
+<p>而symbol则不同，symbol创建一次即可。以后所有的操作都是指向先前创建的对象。所以object_id相同。</p>
+
+<p>不同点大致有三：
+1. symbol为常量，值不能改变。
+2. 多次使用同一个symbol,object_id相同，而多次使用string,每个对象有不同的object_id。
+3. String的方法,eg:#upcase,#split不能用于Symbol。</p>
+
+<h3>参考网址</h3>
+
+<p><a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html</a>(<a href="http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html">http://www.gaurishsharma.com/2013/04/understanding-differences-between-symbols-strings-in-ruby.html</a>)</p>
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-18T20:50:00+08:00" pubdate data-updated="true">Aug 18<span>th</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/08/18/difference-between-symbol-and-string//blog/page/5/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/08/18/vim-learning-resource/">
 		
 			Vim学习资源</a>
@@ -691,68 +754,6 @@ $(document).ready(
 
 	
 		<span class="comments"><a href="/blog/2013/07/30/add-comments-to-sidebar//blog/page/5/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/07/29/install-ruby-and-rails/">
-		
-			Fedora17下搭建Ruby和Rails环境</a>
-	</h2>
-	<div class="entry-content">
-		<p>不同的项目所用的ruby版本不同，所以为了方便不同项目ruby版本的切换，需要在同一个系统中安装多个ruby版本，并且针对不同的项目在不同的版本间切换，为了方便ruby版本的管理，采用<a href="https://rvm.io/">RVM</a>进行管理。</p>
-
-<h2>1.安装RVM</h2>
-
-<pre><code>#curl -L https://get.rvm.io | bash -s stable
-</code></pre>
-
-<p>一会儿之后rvm便安装完成,安装位置为/usr/local/rvm目录下，网上很多教程都是使用一般用户权限管理，但是我也尝试过采用一般用户权限安装，但是始终不会安装在~/usrname/.rvm目录下，还是提示安装在/usr/local/rvm下，但是没有写的权限。可能是fedora系统的原因吧，没有深究。使用：</p>
-
-<pre><code>#source /usr/local/rvm/scripts/rvm
-</code></pre>
-
-<p>使rvm配置生效。然后采用：</p>
-
-<pre><code>#rvm -v
-</code></pre>
-
-<p>查看rvm的版本。同时也可以通过<code>rvm info</code>查看rvm相关信息。</p>
-
-
-		
-		<a href="/blog/2013/07/29/install-ruby-and-rails/" class="more-link">Read more&#8230;</a>
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-29T20:59:00+08:00" pubdate data-updated="true">Jul 29<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/07/29/install-ruby-and-rails//blog/page/5/index.html#disqus_thread">Comments</a></span>
 	
 </div></article>
 

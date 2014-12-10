@@ -5,7 +5,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Rubyist/Linuxer/Vimer  | Xautjzd</title>
+	<title>自由软件与开源软件  | Xautjzd</title>
 
 <meta name="author" content="xautjzd"> 
 
@@ -98,42 +98,37 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner">
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">自由软件与开源软件</h2>
+	<div class="entry-content"><p><img /images/20141120.jpg />
+图为电影《The Shawshank Redemption》的海报</p>
 
+<p>昨晚与张老师还有几位Linux小组成员一起去西邮参加了一个开源者行的活动，演讲嘉宾有GitCafe和Thoughtworks的人员。其实这次去只是想感受感受开源的气氛，一直听说西邮的开源气氛不错，未能亲身感受，所以趁还在西安，赶紧体会体会。这次最大的收获当属对开源文化的重新认识，也重新理解了free software与open source software的异同。</p>
 
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/07/18/add-navigator/">
-		
-			Octopress修改导航栏(Navigator)</a>
-	</h2>
-	<div class="entry-content">
-		<p>搭建好的Octopress导航栏默认只有Blog和Archives，远远不能满足要求，于是便想着在导航栏上添加几个菜单。方法如下：</p>
+<p>首先，free software的最初版本由Richard Stallman起草，并通过Free Software Foundation发布，其初衷是确保最终用户能够自由使用、学习、分享和修改软件。要理解free software的概念，得先理解其中&#8221;free&#8221;里的含义，这里的&#8221;free&#8221;并不是&#8221;free of charge&#8221;中的含义，而是&#8221;free speech&#8221;中&#8221;free&#8221;表示的意思。</p>
 
-<pre><code>$rake new_page[About]
-</code></pre>
+<p>通常所说的free software包含以下四种自由：</p>
 
-<p>默认会在source目录中生成about/index.markdown文件，不过感觉这样影响视觉，便想着将生成的页面和其他页面放在一起，便可进行如下操作：</p>
+<h3>1. freedom 0</h3>
 
-<pre><code>$rake new_page[/blog/About]
-</code></pre>
+<p>如你期望的那样自由地运行那个程序</p>
 
-<p>这样便在source/blog目录中生成页面，方面管理。生成的页面目前还不能显示，还需编辑source/_includes/custom/navigation.html文件：</p>
+<h3>2. freedom 1</h3>
 
-<pre><code>$vim source/_includes/custom/navigation.html
-</code></pre>
+<p>能够自由地查看源代码,研究软件是如何工作的，并可随意修改，为你所用。</p>
 
-<p>在其中加入</p>
+<h3>3. freedom 2</h3>
 
-<pre><code>&lt;li&gt;&lt;a href="/blog/about"&gt;关于我&lt;/a&gt;&lt;/li&gt;
-</code></pre>
+<p>可以重新发布原软件，以帮助周围其他人。</p>
 
-<p>编辑完成后进行rake generate生成静态的html文件，然后rake preview便可以通过localhost:4000在本地预览。</p>
+<h3>4. freedom 3</h3>
 
-		
-		
-	</div>
+<p>能够重新发布你修改过的程序，以使整个社区都能够从你的修改版本中受益。你可以选择免费，也可以选择收费。</p>
+
+<p>而open source software的标准则由Eric S. Raymond和Bruce Perens发布，更偏向于开放源代码的意思，更多的限于技术层面。Richard Stallman还表示：当你听到&#8221;free software&#8221;，更多的应该是想起自由(freedom)，而不是价格(price)，并多指的是精神层面的自由，而&#8221;open source&#8221;则绝不会让人联想到自由的概念。</p>
+
+<p>我想这也是开源软件与自由软件二者之间的最大区别吧。</p>
+</div>
 
 
 <div class="meta">
@@ -149,79 +144,33 @@ $(document).ready(
   
 
 
-<time datetime="2013-07-18T13:46:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time></div>
+<time datetime="2014-11-20T22:50:00+08:00" pubdate data-updated="true">Nov 20<span>th</span>, 2014</time></div>
 	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-</div>
 
 
 	
-		<span class="comments"><a href="/blog/2013/07/18/add-navigator//blog/page/7/index.html#disqus_thread">Comments</a></span>
+		<span class="comments"><a href="/blog/2014/11/20/difference-between-free-software-and-open-source-software/#disqus_thread">Comments</a></span>
 	
 </div></article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/07/18/my-first-blog/">
-		
-			我的第一篇博客</a>
-	</h2>
-	<div class="entry-content">
-		<p>几个月前看过Ruby基本语法，也无意中接触了Octopress，便想在GitHub pages上采用Octopress搭建一个属于自己的博客，照着官网提示开始动手实施，不过最后以失败告终。后又忙于其他工作，此事便搁浅。直至最近得空，便又开始着手此事。搭建博客工作再一次展开。
-详细搭建过程官方文档写的相当详细，这里不再赘述，请参考：
-<a href="octopress.org/docs/setup">官网</a><br/>
-下面只说我搭建过程中遇到的难题：
-我每次都是运行rake deploy时出现问题，也就是博客无法push到github的repository中。
-每次都是![rejected] master->master (no-fast-forward)
-最后网上找了不少资料，然后自己也细细思考了一番，最后终得以解决。方法如下：
-转到deploy目录下，执行$git pull，然后再执行git push origin master即可。</p>
-
-		
-		
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
+	
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
 	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T12:42:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
 </div>
 
 
-	
-		<span class="comments"><a href="/blog/2013/07/18/my-first-blog//blog/page/7/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
 
-<nav id="pagenavi">
-    
-        <a href="/blog/page/6/" class="prev">Prev</a>
-    
-    
-    <div class="center"><a href="/archives">Blog Archives</a></div>
-</nav></div>
+<section id="comment">
+    <h2 class="title">Comments</h2>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
 	<footer id="footer" class="inner">Copyright &copy; 2014
 
     xautjzd
@@ -242,7 +191,10 @@ Powered by Octopress.
       var disqus_shortname = 'zhengdongjiang';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://bebety.com/blog/2014/11/20/difference-between-free-software-and-open-source-software/';
+        var disqus_url = 'http://bebety.com/blog/2014/11/20/difference-between-free-software-and-open-source-software/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

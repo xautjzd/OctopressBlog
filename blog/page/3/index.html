@@ -104,6 +104,63 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/10/10/linux-hard-link-vs-soft-link/">
+		
+			Linux硬链接与软链接</a>
+	</h2>
+	<div class="entry-content">
+		<p>链接的概念其实不仅限在Linux中，在类Unix和Windows中也存在，只是网上资料大多都讨论的是类Unix的链接。下面主要对所了解的类Unix下的链接谈谈自己的认识。</p>
+
+<h3>链接存在的目的</h3>
+
+<p>链接的出现主要是为了解决系统中文件的共享，同时有其他附加的好处：隐藏真实文件路径、增加权限安全及节省存储。简单的举例说明：</p>
+
+<p>Linux中有7种run level(0-6),其中0代表关机，1代表单用户模式(用于系统维护，禁止远程登陆),2代表多用户状态(不支持NFS)，3代表完全的多用户模式，4系统保留(未使用),5代表X11模式(GUI模式)，6则代表重启。</p>
+
+<p>这7种模式分别对应/etc/rc.d/rcN.d目录(N指0-6之间的数字)，存储的是每种启动模式下要启动的程序，但实际的程序其实存储在/etc/rc.d/init.d目录中，/etc/rc.d/rcN.d中都是链接而已，链接到/etc/rc.d/init.d目录中对应的程序(这样做的目的是为了管理上的方便，试想一下，如果有多个runlevel包含同一个程序，需要对这个程序的启动脚本进行修改时，只需更改/etc/rc.d/init.d中的实际文件，而不需要改动/etc/rc.d/rcN.d)。</p>
+
+<h3>链接的分类</h3>
+
+<p>链接分为两种：硬链接(hard link)与阮链接(soft link)。谈链接就不得不谈inode，所以先简单地介绍下inode。</p>
+
+
+		
+		<a href="/blog/2013/10/10/linux-hard-link-vs-soft-link/" class="more-link">Read more&#8230;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-10T09:42:00+08:00" pubdate data-updated="true">Oct 10<span>th</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/linux/'>Linux</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/10/10/linux-hard-link-vs-soft-link//blog/page/3/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/10/09/surf-internet-under-linux-about-ruijie/">
 		
 			Linux下锐捷客户端上网</a>
@@ -581,72 +638,6 @@ $(document).ready(
 
 	
 		<span class="comments"><a href="/blog/2013/09/17/instance-eval-vs-class-eval//blog/page/3/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/09/17/update-my-blog/">
-		
-			更新Octopress</a>
-	</h2>
-	<div class="entry-content">
-		<p>现在已记不清接触Octopress多长时间了，只依稀记得当时配置Octopress配了好久，然后依然失败，后又忙于其他的事情，所以搭建工作便搁置一旁，七月中旬时间比较充足，所以又开始再次折腾，后来终于搭建成功，所以7.18便发表了第一篇博客。后来一个月之后又开始了我的换肤工作，一切都好，唯一的缺陷是Gravatar的图像没有显示出来，所以便向theme的作者发问，后来也忘了这茬事。就这样又过了一月，直到今天，突然发现我的unread消息里面有几条关于我的message，便打开浏览，才发现作者给的回复，说图像没显示是个bug，现已修复。具体见：</p>
-
-<p><a href="https://github.com/shashankmehta/greyshade/issues/42">https://github.com/shashankmehta/greyshade/issues/42</a></p>
-
-<p>我便立马更新了我的Octopress。更新方法如下：</p>
-
-<pre><code># Get the latest Octopress
-git pull octopress master    
-# Keep gems updated
-bundle install               
-# update the template's source
-rake update_source            
-</code></pre>
-
-<p>具体参考：</p>
-
-<p><a href="http://octopress.org/docs/updating/">http://octopress.org/docs/updating/</a></p>
-
-<p>参考时请务必注意：如果您的octopress主题不是octopress默认主题,请不要执行<code>rake update_style</code>，否则会被还原成默认主题。</p>
-
-<p>本博客采用的主题为：</p>
-
-<p><a href="https://github.com/shashankmehta/greyshade">https://github.com/shashankmehta/greyshade</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-17T15:22:00+08:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/octopress/'>Octopress</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/09/17/update-my-blog//blog/page/3/index.html#disqus_thread">Comments</a></span>
 	
 </div></article>
 
