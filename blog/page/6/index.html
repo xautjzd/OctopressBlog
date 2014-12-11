@@ -104,6 +104,90 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/07/30/add-comments-to-sidebar/">
+		
+			Octopress添加disqus评论到侧边栏</a>
+	</h2>
+	<div class="entry-content">
+		<h2>新建comments.html文件</h2>
+
+<p>添加评论到侧边栏与添加关于、文章分类和友情链接相似，需要在source/_includes/custom/asides/目录下添加comments.html模块，名字根据自己的喜好可以换成其他的，如xxx.html，然后在comments.html里添加如下内容：</p>
+
+<figure class='code'><figcaption><span>source/\_includes/custom/asides/comments.html </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;section</span> <span class="na">id=</span><span class="s">&quot;comment_sidebar&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;h1&gt;</span>近期评论<span class="nt">&lt;/h1&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span> <span class="na">src=</span><span class="s">&quot;http://zhengdongjiang.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=0&amp;avatar_size=32&amp;excerpt_length=20&quot;</span><span class="nt">&gt;&lt;/script&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://disqus.com/&quot;</span><span class="nt">&gt;</span>Powered by Disqus<span class="nt">&lt;/a&gt;</span>
+</span><span class='line'><span class="nt">&lt;/section&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>其中zhengdongjiang为我disqus对应此网站的shortname，这就不要照搬了，换成你对应的名字即可。</p>
+
+<h2>修改_config.yml文件</h2>
+
+<figure class='code'><figcaption><span>\_config.yml </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="err">   </span><span class="l-Scalar-Plain">default_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
+</span><span class='line'>
+</span><span class='line'><span class="err">    </span><span class="c1"># Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below</span>
+</span><span class='line'><span class="err">    </span><span class="c1"># and add an array with the asides you want to use.</span>
+</span><span class='line'><span class="err">    </span><span class="l-Scalar-Plain">blog_index_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/about.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
+</span><span class='line'><span class="err">    </span><span class="l-Scalar-Plain">post_asides</span><span class="p-Indicator">:</span> <span class="p-Indicator">[</span><span class="nv">custom/asides/about.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/category_list.html</span><span class="p-Indicator">,</span> <span class="nv">asides/recent_posts.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/comments.html</span><span class="p-Indicator">,</span> <span class="nv">custom/asides/friend_sites.html</span><span class="p-Indicator">,</span> <span class="nv">asides/pinboard.html</span><span class="p-Indicator">]</span>
+</span><span class='line'><span class="err">    </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-30T10:47:00+08:00" pubdate data-updated="true">Jul 30<span>th</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/octopress/'>Octopress</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/07/30/add-comments-to-sidebar//blog/page/6/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/07/29/install-ruby-and-rails/">
 		
 			Fedora17下搭建Ruby和Rails环境</a>
@@ -755,86 +839,6 @@ disqus_show_comment_count: false
 
 	
 		<span class="comments"><a href="/blog/2013/07/18/congfig-disqus-plugin//blog/page/6/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/07/18/structure-of-octopress/">
-		
-			Octopress目录结构</a>
-	</h2>
-	<div class="entry-content">
-		<h3>Octopress博客目录结构</h3>
-
-<p>octopress博客的source目录结构大致如下:</p>
-
-<pre><code>source/
-├── _attachments
-├── _includes
-│   ├── asides
-│   ├── custom
-│   │   └── asides
-│   └── post
-├── _layouts
-├── _nav_menu_items
-├── _pages
-├── _posts
-├── blog
-│   └── archives
-├── font
-├── images
-│   ├── 2012
-│   │   ├── 01
-│   │   ├── 02
-│   ├── 2013
-│   │   └── 01
-│   ├── fancybox
-│   └── social
-├── javascripts
-│   ├── asides
-│   └── libs
-├── jsccp
-└── stylesheets
-    ├── bootstrap
-        └── syntax
-</code></pre>
-
-<p>当使用<code>rake generate</code>时，source的_post目录中的markdown文件会被编译成html文件，并拷贝到public目录下，public目录结构与source目录结构一致，里面的内容为最终的静态页面。一般都是先<code>rake generate</code>生成静态页面，然后通过<code>rake preview</code>进行本地预览，如果显示正常，则<code>rake
-deploy</code>部署到github上。如果特别熟练，也可以直接生成静态页面并部署，不需要本地预览。可以采用<code>rake gen_deploy</code>一步进行。</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-07-18T14:27:00+08:00" pubdate data-updated="true">Jul 18<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/octopress/'>Octopress</a>, <a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/07/18/structure-of-octopress//blog/page/6/index.html#disqus_thread">Comments</a></span>
 	
 </div></article>
 

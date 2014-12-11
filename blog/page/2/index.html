@@ -104,6 +104,68 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2014/03/15/segment-fault-core-dumped-of-c/">
+		
+			C语言中的Segment Fault问题</a>
+	</h2>
+	<div class="entry-content">
+		<p><img src="/images/20140315.jpg"></p>
+
+<h2>什么是Segment fault?</h2>
+
+<blockquote><p> a segmentation fault (often shortened to segfault) or access violation is a fault raised by hardware with memory protection, notifying an operating system (OS) about a memory access violation; on x86 computers this is a form of general protection fault.</p></blockquote>
+
+<p>以上为<a href="http://en.wikipedia.org/wiki/Segmentation_fault">Wikipedia</a>对段错误的解释。用通俗易懂的话来说就是访问越界，访问了不存在或者受操作系统保护的内存，通常都是由于数组越界或者指针引起。</p>
+
+<h2>产生段错误的原因</h2>
+
+<ol>
+<li>dereferencing NULL</li>
+<li>dereferencing an uninitialized pointer</li>
+<li>deferencing a pointer that has been freed/out of scope</li>
+<li>writing off the end of an array</li>
+<li>recursive function that uses all of the stack space</li>
+</ol>
+
+
+
+		
+		<a href="/blog/2014/03/15/segment-fault-core-dumped-of-c/" class="more-link">Read more&#8230;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-03-15T20:47:00+08:00" pubdate data-updated="true">Mar 15<span>th</span>, 2014</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/c/'>C</a>, <a class='category' href='/blog/categories/linux/'>Linux</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2014/03/15/segment-fault-core-dumped-of-c//blog/page/2/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2014/02/13/back-to-xian-2014/">
 		
 			2014西安归途随笔</a>
@@ -544,53 +606,6 @@ $(document).ready(
 
 	
 		<span class="comments"><a href="/blog/2013/10/18/ssh-messy-code//blog/page/2/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/10/15/some-feelings/">
-		
-			一些感想</a>
-	</h2>
-	<div class="entry-content">
-		<p>如果要评价自己的话，那么我会将自己归为乐于分享的一类，不管是技术还是工具，亦或代码。平时也都关注一些科技新闻和博客，每当发现不错的信息时，都会想着第一时间将其分享给身边的朋友。</p>
-
-<p>分享过的工具中记忆比较深的当属Git，GitHub，Evernote和Vim了，系统方面则有Linux，编程方面则有Ruby。虽然可能最终用的人不是很多，但起码他们脑海中已经有了这个词，我觉得这也就够了，毕竟大部分人还是守旧派，不愿接触新鲜事物。但自己这颗乐于分享的心却从未动摇过，只要有好东西，绝对第一时间分享。但总会有那么一些人会对我的举措有误解，认为我是一个喜欢炫耀的人，推荐给大家一些他们闻所未闻的新鲜事物是为了证明我的牛，我只能一笑置之，也不想多做辩解。因为解释过多，可能又会有人说“解释是为了更好的掩饰”，所以沉默是最好的回应。</p>
-
-
-		
-		<a href="/blog/2013/10/15/some-feelings/" class="more-link">Read more&#8230;</a>
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-10-15T19:55:00+08:00" pubdate data-updated="true">Oct 15<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/10/15/some-feelings//blog/page/2/index.html#disqus_thread">Comments</a></span>
 	
 </div></article>
 

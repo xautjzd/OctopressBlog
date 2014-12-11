@@ -104,6 +104,90 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/09/17/instance-eval-vs-class-eval/">
+		
+			Instance_eval vs Class_eval</a>
+	</h2>
+	<div class="entry-content">
+		<p>Ruby中类其实也是Class的实例。而且instance_eval必须由实例来调用，class_eval必须由类来调用。具体参考下面的实例：</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="k">class</span> <span class="nc">A</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">a</span> <span class="o">=</span> <span class="kp">new</span> <span class="n">A</span>
+</span><span class='line'>  <span class="n">a</span><span class="o">.</span><span class="n">instance_eval</span> <span class="k">do</span>
+</span><span class='line'>      <span class="nb">self</span> <span class="c1">#=&gt;a</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="k">def</span> <span class="nf">test</span>
+</span><span class='line'>          <span class="nb">puts</span> <span class="s2">&quot;this is a singleton method of instance a&quot;</span>
+</span><span class='line'>      <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">a</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&gt;this is a singleton method of instance a</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">b</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'>  <span class="n">b</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&gt;NoMethodError</span>
+</span><span class='line'>  
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+
+		
+		<a href="/blog/2013/09/17/instance-eval-vs-class-eval/" class="more-link">Read more&#8230;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-17T20:54:00+08:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/09/17/instance-eval-vs-class-eval//blog/page/4/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/09/17/update-my-blog/">
 		
 			更新Octopress</a>
@@ -725,86 +809,6 @@ eg: set foldmarker= /*,*/
 
 	
 		<span class="comments"><a href="/blog/2013/08/25/vim-folding-and-unfolding//blog/page/4/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/08/20/linux-activity-sponsoring/">
-		
-			Linux活动发起</a>
-	</h2>
-	<div class="entry-content">
-		<p>独乐乐不如众乐乐，独自一人埋头苦学不如一群兴趣相投之人的一起交流。记得以前大一大二时，希望能有一个领路人领着自己学习，帮自己找准学习的方向，毕竟当时太年轻，太多东西不了解，所以不知道软件这行业该学习什么，哪些东西比较有兴趣，一切源于自己接触的太少，身边也没有可交流之人。再加上学校大一大二和大三大四分隔新旧两校区，交流就更少。</p>
-
-<p>正是因为自己的这些经历，然后再加上近来参加西安的rubyist party，促使了我组建Linux小组并且定期举办活动的冲动。一个人的埋头苦学，所见所闻永远局限在某个狭小的空间，只有走出去，与他们交流才能拓宽自己的知识面，提升自己的认知度，也算是多了一些朋友，多了一些交流。正所谓话不投机半句多，与自己志不同道不和的人交流真是有点对牛弹琴的感觉。所以要交流得找兴趣相投志同道合之人。</p>
-
-<p>打算成立的小组规模大致10人左右，无需太多，也不希望有滥竽充数的现象。所以希望小组成员能满足以下条件：</p>
-
-<ul>
-<li>对软件感兴趣</li>
-<li>熟悉Linux(基本操作一般没问题)</li>
-<li>Vim | Emacs</li>
-</ul>
-
-
-<p>具备以下更佳：</p>
-
-<ul>
-<li>Git</li>
-<li>Ruby/Python/Lisp/Scala/Prolog</li>
-<li>个人博客</li>
-</ul>
-
-
-<p>初期打算:</p>
-
-<ul>
-<li>每周一次Party（主要技术交流）</li>
-</ul>
-
-
-<p>有兴趣的学习请联系我，联系方式：</p>
-
-<ul>
-<li>新郎微薄：xautjzd</li>
-</ul>
-
-
-<p>其他联系方式见我的<a href="http://xautjzd.github.io/blog/aboutme">About</a></p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-08-20T19:04:00+08:00" pubdate data-updated="true">Aug 20<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/08/20/linux-activity-sponsoring//blog/page/4/index.html#disqus_thread">Comments</a></span>
 	
 </div></article>
 

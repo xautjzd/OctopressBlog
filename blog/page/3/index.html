@@ -104,6 +104,53 @@ $(document).ready(
     <article class="post">
 	<h2 class="title">
 		
+		<a href="/blog/2013/10/15/some-feelings/">
+		
+			一些感想</a>
+	</h2>
+	<div class="entry-content">
+		<p>如果要评价自己的话，那么我会将自己归为乐于分享的一类，不管是技术还是工具，亦或代码。平时也都关注一些科技新闻和博客，每当发现不错的信息时，都会想着第一时间将其分享给身边的朋友。</p>
+
+<p>分享过的工具中记忆比较深的当属Git，GitHub，Evernote和Vim了，系统方面则有Linux，编程方面则有Ruby。虽然可能最终用的人不是很多，但起码他们脑海中已经有了这个词，我觉得这也就够了，毕竟大部分人还是守旧派，不愿接触新鲜事物。但自己这颗乐于分享的心却从未动摇过，只要有好东西，绝对第一时间分享。但总会有那么一些人会对我的举措有误解，认为我是一个喜欢炫耀的人，推荐给大家一些他们闻所未闻的新鲜事物是为了证明我的牛，我只能一笑置之，也不想多做辩解。因为解释过多，可能又会有人说“解释是为了更好的掩饰”，所以沉默是最好的回应。</p>
+
+
+		
+		<a href="/blog/2013/10/15/some-feelings/" class="more-link">Read more&#8230;</a>
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-15T19:55:00+08:00" pubdate data-updated="true">Oct 15<span>th</span>, 2013</time></div>
+	
+
+<div class="tags">
+
+	<a class='category' href='/blog/categories/thinking/'>Thinking</a>
+
+</div>
+
+
+	
+		<span class="comments"><a href="/blog/2013/10/15/some-feelings//blog/page/3/index.html#disqus_thread">Comments</a></span>
+	
+</div></article>
+
+
+    <article class="post">
+	<h2 class="title">
+		
 		<a href="/blog/2013/10/10/linux-hard-link-vs-soft-link/">
 		
 			Linux硬链接与软链接</a>
@@ -554,90 +601,6 @@ $(document).ready(
 
 	
 		<span class="comments"><a href="/blog/2013/09/18/vim-shortcut-maps//blog/page/3/index.html#disqus_thread">Comments</a></span>
-	
-</div></article>
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2013/09/17/instance-eval-vs-class-eval/">
-		
-			Instance_eval vs Class_eval</a>
-	</h2>
-	<div class="entry-content">
-		<p>Ruby中类其实也是Class的实例。而且instance_eval必须由实例来调用，class_eval必须由类来调用。具体参考下面的实例：</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'> <span class="k">class</span> <span class="nc">A</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">a</span> <span class="o">=</span> <span class="kp">new</span> <span class="n">A</span>
-</span><span class='line'>  <span class="n">a</span><span class="o">.</span><span class="n">instance_eval</span> <span class="k">do</span>
-</span><span class='line'>      <span class="nb">self</span> <span class="c1">#=&gt;a</span>
-</span><span class='line'>      
-</span><span class='line'>      <span class="k">def</span> <span class="nf">test</span>
-</span><span class='line'>          <span class="nb">puts</span> <span class="s2">&quot;this is a singleton method of instance a&quot;</span>
-</span><span class='line'>      <span class="k">end</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">a</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&gt;this is a singleton method of instance a</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="n">b</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">new</span>
-</span><span class='line'>  <span class="n">b</span><span class="o">.</span><span class="n">test</span>   <span class="c1">#=&gt;NoMethodError</span>
-</span><span class='line'>  
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-
-		
-		<a href="/blog/2013/09/17/instance-eval-vs-class-eval/" class="more-link">Read more&#8230;</a>
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-09-17T20:54:00+08:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time></div>
-	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/ruby/'>Ruby</a>
-
-</div>
-
-
-	
-		<span class="comments"><a href="/blog/2013/09/17/instance-eval-vs-class-eval//blog/page/3/index.html#disqus_thread">Comments</a></span>
 	
 </div></article>
 
